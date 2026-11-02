@@ -1,0 +1,20 @@
+{
+  "id": "system1-system2-router",
+  "title": "Dual-Engine System 1 vs System 2 Task Dispatcher",
+  "description": "Phân tầng tác vụ thông minh: Tách phản xạ nhanh (System 1) và suy luận logic sâu (System 2) nhằm tối ưu chi phí token theo định lý Jevons Paradox.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": ["OCP", "Dual-Engine", "System 1", "System 2", "Architecture", "Token Optimization"],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "TASK_DESCRIPTION",
+      "label": "Mô tả công việc hoặc yêu cầu đầu vào",
+      "defaultValue": "Tiếp nhận 50 lead từ form website, phân loại ngành nghề, trích xuất số điện thoại và soạn email chào hàng cá nhân hóa.",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Senior AI System Architect theo triết lý OCP (One-Person Company) tại toilatung.com.\nHãy phân tích và phân rã yêu cầu sau theo mô hình phản xạ Dual-Engine (System 1 vs System 2):\n\nYÊU CẦU ĐẦU VÀO:\n\"{{TASK_DESCRIPTION}}\"\n\nNHIỆM VỤ PHÂN RÃ:\n1. Tầng System 1 (Fast & Lean reflex - Chi phí $0.042 / 10^6 tokens):\n   - Chỉ ra những phần tác vụ nào có thể giải quyết bằng regex, phân loại intent tức thì hoặc model siêu nhẹ.\n   - Định nghĩa JSON Schema đầu ra tinh gọn.\n2. Tầng System 2 (Deep Reasoning & Critical Thinking - Claude Sonnet / Gemini Pro):\n   - Chỉ định chính xác các điểm nghẽn đòi hỏi lập luận logic đa chiều hoặc quyết định chiến lược.\n   - Giới hạn budget token tối đa cho phần này.\n3. DAG Workflow & JSON Handoff Contract:\n   - Xuất sơ đồ luồng dữ liệu (DAG) và hợp đồng chuyển giao dữ liệu giữa 2 tầng.",
+  "createdAt": "2026-11-02"
+}

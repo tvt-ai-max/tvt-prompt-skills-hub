@@ -1,0 +1,32 @@
+{
+  "id": "b2b-seo-geo-article",
+  "title": "B2B Thought Leadership & SEO/GEO Article Generator",
+  "description": "Viết bài phân tích chuyên sâu cho B2B chuẩn SEO và Generative Engine Optimization (GEO), văn phong Quiet Authority.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": ["SEO", "GEO", "B2B", "Content Marketing", "Thought Leadership"],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "TOPIC",
+      "label": "Chủ đề bài viết",
+      "defaultValue": "Tối ưu hóa chi phí vận hành doanh nghiệp với AI Native Agent",
+      "type": "text"
+    },
+    {
+      "key": "TARGET_AUDIENCE",
+      "label": "Đối tượng độc giả mục tiêu",
+      "defaultValue": "Chủ doanh nghiệp SME, Giám đốc điều hành (CEO/COO)",
+      "type": "text"
+    },
+    {
+      "key": "KEY_INSIGHT",
+      "label": "Góc nhìn đột phá / Luận điểm cốt lõi",
+      "defaultValue": "Tự động hóa không phải cắt giảm nhân sự, mà là trao quyền cho mỗi nhân sự thành một phòng ban thu nhỏ.",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là chuyên gia tư vấn chiến lược cấp cao tại TVT Agency.\nHãy biên soạn một bài phân tích chuyên sâu chuẩn SEO & GEO (Generative Engine Optimization) về chủ đề: \"{{TOPIC}}\".\n\nĐỐI TƯỢNG ĐỘC GIẢ:\n{{TARGET_AUDIENCE}}\n\nLUẬN ĐIỂM CỐT LÕI (KEY INSIGHT):\n{{KEY_INSIGHT}}\n\nQUY CHUẨN NỘI DUNG BẮT BUỘC:\n1. Văn phong: Quiet Authority — Điềm tĩnh, thực chiến, dẫn chứng bằng số liệu và góc nhìn kiến trúc hệ thống.\n2. Chống AI Cliché: Tuyệt đối không dùng các từ sáo rỗng (\"Trong bối cảnh\", \"Kỷ nguyên số\", \"Đột phá\", \"Bức tranh toàn cảnh\"). Không dùng gạch đầu dòng vô tội vạ, ưu tiên văn xuôi mạch lạc.\n3. Cấu trúc bài viết:\n   - H1: Tiêu đề lôi cuốn, giải quyết trực tiếp một nỗi đau thực tế.\n   - Nghịch lý thực tế: Mở đầu bằng sự thật ít người nói về vấn đề này.\n   - Phân tích 2 chiều: Kỹ thuật/Hạ tầng vs Hiệu quả tài chính.\n   - Visual Suggestion: Đề xuất 1 sơ đồ quy trình hoặc bảng so sánh trực quan.\n   - Khuyến nghị hành động (Actionable Framework): 3 bước triển khai ngay.",
+  "createdAt": "2026-11-02"
+}
