@@ -2,7 +2,7 @@
 id: multi-channel-ad-copy-generator
 title: "Multi-Channel Paid Ad Copy Generator"
 description: "Multi-Channel Paid Ad Copy Generator — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: copywriting
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

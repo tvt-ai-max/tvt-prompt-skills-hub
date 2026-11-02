@@ -2,7 +2,7 @@
 id: tvt-short-card-kit
 title: "Dark Card Architecture Short Video Kit (9:16)"
 description: "Dark Card Architecture Short Video Kit (9:16) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

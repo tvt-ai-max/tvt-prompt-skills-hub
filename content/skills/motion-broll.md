@@ -2,7 +2,7 @@
 id: motion-broll
 title: "Automated Motion Graphic B-Roll Generator"
 description: "Automated Motion Graphic B-Roll Generator — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

@@ -2,7 +2,7 @@
 id: tvt-stickman
 title: "Hand-Drawn Whiteboard Stickman Storyteller Animation"
 description: "Hand-Drawn Whiteboard Stickman Storyteller Animation — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

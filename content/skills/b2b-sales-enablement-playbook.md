@@ -2,7 +2,7 @@
 id: b2b-sales-enablement-playbook
 title: "B2B Sales Enablement & Objection Handling Playbook"
 description: "B2B Sales Enablement & Objection Handling Playbook — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: sales
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

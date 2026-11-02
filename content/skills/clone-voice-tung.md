@@ -2,7 +2,7 @@
 id: clone-voice-tung
 title: "Neural Voice Clone & Cadence Checker SOP"
 description: "Neural Voice Clone & Cadence Checker SOP — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

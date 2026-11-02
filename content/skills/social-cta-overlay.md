@@ -2,7 +2,7 @@
 id: social-cta-overlay
 title: "Dynamic Social CTA & Subscribe Alpha Overlay Engine"
 description: "Dynamic Social CTA & Subscribe Alpha Overlay Engine — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

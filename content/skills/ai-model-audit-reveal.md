@@ -2,7 +2,7 @@
 id: ai-model-audit-reveal
 title: "AI Model Benchmark & Data Audit Video Reveal (16:9)"
 description: "AI Model Benchmark & Data Audit Video Reveal (16:9) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

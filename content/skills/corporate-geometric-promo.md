@@ -2,7 +2,7 @@
 id: corporate-geometric-promo
 title: "Corporate Geometric B2B Promo Video Pipeline"
 description: "Corporate Geometric B2B Promo Video Pipeline — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

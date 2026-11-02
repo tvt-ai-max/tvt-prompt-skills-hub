@@ -2,7 +2,7 @@
 id: tvt-logo-intro
 title: "Brand Logo Intro & 5-Second Bumper Generator"
 description: "Brand Logo Intro & 5-Second Bumper Generator — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

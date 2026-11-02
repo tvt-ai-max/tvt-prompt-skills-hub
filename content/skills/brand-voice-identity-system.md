@@ -2,7 +2,7 @@
 id: brand-voice-identity-system
 title: "Brand Voice & Visual Identity Guidelines Builder"
 description: "Brand Voice & Visual Identity Guidelines Builder — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: branding
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

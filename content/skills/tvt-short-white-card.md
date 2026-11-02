@@ -2,7 +2,7 @@
 id: tvt-short-white-card
 title: "White Card B2B Agency Short Video Kit (9:16)"
 description: "White Card B2B Agency Short Video Kit (9:16) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

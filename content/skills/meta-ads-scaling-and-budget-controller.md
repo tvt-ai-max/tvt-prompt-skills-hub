@@ -2,7 +2,7 @@
 id: meta-ads-scaling-and-budget-controller
 title: "Meta Ads Scaling & Budget Governance Controller"
 description: "Meta Ads Scaling & Budget Governance Controller — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: ads
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

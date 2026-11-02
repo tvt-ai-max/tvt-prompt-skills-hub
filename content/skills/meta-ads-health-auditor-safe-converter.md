@@ -2,7 +2,7 @@
 id: meta-ads-health-auditor-safe-converter
 title: "Meta Ads Account Health Auditor & Safe Converter"
 description: "Meta Ads Account Health Auditor & Safe Converter — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: ads
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

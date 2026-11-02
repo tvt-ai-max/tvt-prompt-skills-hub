@@ -2,7 +2,7 @@
 id: tvt-hook-caption
 title: "Dynamic 3-Second Viral Hook & Caption Retention Engine"
 description: "Dynamic 3-Second Viral Hook & Caption Retention Engine — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

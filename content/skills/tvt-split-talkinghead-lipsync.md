@@ -2,7 +2,7 @@
 id: tvt-split-talkinghead-lipsync
 title: "Split-Screen Talking Head & UI Morphing Card (9:16)"
 description: "Split-Screen Talking Head & UI Morphing Card (9:16) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

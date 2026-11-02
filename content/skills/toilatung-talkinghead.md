@@ -2,7 +2,7 @@
 id: toilatung-talkinghead
 title: "Founder Talking Head & DSH Stage Review Pipeline (16:9)"
 description: "Founder Talking Head & DSH Stage Review Pipeline (16:9) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

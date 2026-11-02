@@ -6,7 +6,7 @@ let cache: HubItem[] | undefined;
 
 /** All hub items, validated. Throws at build time if any content file is invalid. */
 export function getAllItems(): HubItem[] {
-  if (cache) return cache;
+  if (process.env.NODE_ENV === "production" && cache) return cache;
   const { prompts, skills, boosts, issues } = loadContent();
   if (issues.length) {
     throw new Error(`Invalid content (${issues.length} issue(s)):\n- ${issues.join('\n- ')}`);

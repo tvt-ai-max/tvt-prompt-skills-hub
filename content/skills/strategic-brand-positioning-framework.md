@@ -2,7 +2,7 @@
 id: strategic-brand-positioning-framework
 title: "Strategic Brand Positioning & GTM Framework"
 description: "Strategic Brand Positioning & GTM Framework — Quy trình vận hành tự chủ chuẩn SOP cho AI Agent."
-category: marketing
+category: branding
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

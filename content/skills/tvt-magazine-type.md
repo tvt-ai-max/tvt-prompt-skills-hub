@@ -2,7 +2,7 @@
 id: tvt-magazine-type
 title: "High-End Editorial Magazine Typography Video Engine"
 description: "High-End Editorial Magazine Typography Video Engine — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

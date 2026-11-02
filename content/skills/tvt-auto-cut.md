@@ -2,7 +2,7 @@
 id: tvt-auto-cut
 title: "Automated Word-Level Silence Cut & Footage Trimmer"
 description: "Automated Word-Level Silence Cut & Footage Trimmer — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

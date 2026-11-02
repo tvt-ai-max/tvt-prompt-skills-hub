@@ -2,7 +2,7 @@
 id: tvt-vlog-talkinghead
 title: "Cinematic Mobile Vlog & Handwriting Title Pipeline"
 description: "Cinematic Mobile Vlog & Handwriting Title Pipeline — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

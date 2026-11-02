@@ -2,7 +2,7 @@
 id: toilatung-kinetic-reel
 title: "Kinetic Mascot Reel & Audio Alignment Engine"
 description: "Kinetic Mascot Reel & Audio Alignment Engine — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"

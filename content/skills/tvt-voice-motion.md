@@ -2,7 +2,7 @@
 id: tvt-voice-motion
 title: "Faceless 2D Motion Graphics from Voiceover (9:16)"
 description: "Faceless 2D Motion Graphics from Voiceover (9:16) — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: marketing
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"

@@ -2,7 +2,7 @@
 id: secret-leak-redaction-gate
 title: "Anti-Secret Leakage & Redaction Gate"
 description: "Quality gate bắt buộc trước khi agent xuất bản, commit hoặc gửi nội dung: quét và che API key, token, mật khẩu, PII."
-category: security
+category: system-design
 tier: skill
 persona: general
 author: "TVT Intelligence Hub"

@@ -2,7 +2,7 @@
 id: motion-showreel-standard
 title: "Motion Showreel Standard & Animation Directives"
 description: "Motion Showreel Standard & Animation Directives — Quy trình tự động hóa sản xuất video bằng mã nguồn (Hyperframes / Code-driven Video Engine)."
-category: operations
+category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
