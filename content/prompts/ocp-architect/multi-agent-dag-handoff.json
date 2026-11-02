@@ -1,0 +1,43 @@
+{
+  "id": "multi-agent-dag-handoff",
+  "title": "Multi-Agent DAG & JSON Handoff Designer",
+  "description": "Thiết kế workflow đa agent dạng DAG với hợp đồng JSON giữa các node, retry policy và human-in-the-loop checkpoint.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Multi-Agent",
+    "DAG",
+    "Orchestration",
+    "OCP",
+    "JSON Schema"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "GOAL",
+      "label": "Mục tiêu workflow",
+      "defaultValue": "Tự động sản xuất 1 bài blog SEO từ từ khóa đến bản nháp WordPress",
+      "type": "text"
+    },
+    {
+      "key": "TOOLS",
+      "label": "Công cụ / API sẵn có",
+      "defaultValue": "n8n, Claude API, Google Search Console API, WordPress REST API",
+      "type": "textarea"
+    },
+    {
+      "key": "AUTONOMY",
+      "label": "Mức tự chủ",
+      "defaultValue": "Human approval ở mọi bước quan trọng",
+      "type": "select",
+      "options": [
+        "Human approval ở mọi bước quan trọng",
+        "Human approval chỉ trước khi publish",
+        "Hoàn toàn tự động"
+      ]
+    }
+  ],
+  "template": "Bạn là AI Systems Architect thiết kế hệ thống multi-agent cho mô hình OCP (One-Person Company).\n\nMỤC TIÊU: {{GOAL}}\nCÔNG CỤ: {{TOOLS}}\nMỨC TỰ CHỦ: {{AUTONOMY}}\n\nThiết kế:\n1. Danh sách agent (tên, vai trò, model tier đề xuất: nhẹ/trung/mạnh, lý do).\n2. DAG dạng Mermaid (`graph TD`) thể hiện phụ thuộc và nhánh song song.\n3. Hợp đồng handoff: JSON Schema đầu vào/đầu ra cho từng cạnh của DAG.\n4. Chính sách lỗi: retry (số lần, backoff), fallback model, dead-letter queue.\n5. Checkpoint human-in-the-loop phù hợp mức tự chủ đã chọn.\n6. Ước tính token & chi phí mỗi lần chạy, và điểm có thể cache.\n7. Quan sát (observability): log gì, metric gì, cảnh báo khi nào.",
+  "createdAt": "2026-11-02"
+}

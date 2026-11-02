@@ -1,0 +1,38 @@
+{
+  "id": "unit-test-generator",
+  "title": "Unit Test Suite Generator",
+  "description": "Sinh bộ unit test đầy đủ: happy path, edge case, error case, theo framework bạn chọn và chuẩn AAA.",
+  "category": "coding",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "Testing",
+    "Unit Test",
+    "TDD",
+    "Quality"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "FRAMEWORK",
+      "label": "Framework test",
+      "defaultValue": "Vitest",
+      "type": "select",
+      "options": [
+        "Vitest",
+        "Jest",
+        "node:test",
+        "Pytest",
+        "PHPUnit"
+      ]
+    },
+    {
+      "key": "CODE",
+      "label": "Hàm / module cần test",
+      "defaultValue": "export function slugify(input: string): string {\n  return input.normalize(\"NFD\").replace(/[\\u0300-\\u036f]/g, \"\").toLowerCase().replace(/[^a-z0-9]+/g, \"-\").replace(/(^-|-$)/g, \"\")\n}",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là QA Automation Engineer. Viết bộ unit test bằng {{FRAMEWORK}} cho code sau:\n\n```\n{{CODE}}\n```\n\nYêu cầu:\n1. Phân tích hành vi mong đợi và liệt kê test matrix (input → expected) trước khi viết code.\n2. Bao phủ: happy path, biên (rỗng, rất dài, unicode/tiếng Việt có dấu, ký tự đặc biệt), lỗi/ngoại lệ.\n3. Tuân thủ Arrange–Act–Assert, tên test mô tả hành vi.\n4. Không mock thứ không cần mock.\n5. Nếu phát hiện bug trong code, viết test thất bại chứng minh bug và đề xuất bản sửa.",
+  "createdAt": "2026-11-02"
+}

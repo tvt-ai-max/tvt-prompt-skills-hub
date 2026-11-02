@@ -1,0 +1,38 @@
+{
+  "id": "b2b-ideal-customer-profile",
+  "title": "B2B Ideal Customer Profile (ICP) Builder",
+  "description": "Dựng chân dung khách hàng lý tưởng B2B gồm firmographics, trigger mua hàng, buying committee và tiêu chí loại trừ.",
+  "category": "marketing",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "ICP",
+    "B2B",
+    "Persona",
+    "GTM",
+    "Research"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "PRODUCT",
+      "label": "Sản phẩm / dịch vụ",
+      "defaultValue": "Dịch vụ triển khai AI Agent chăm sóc khách hàng đa kênh",
+      "type": "text"
+    },
+    {
+      "key": "MARKET",
+      "label": "Thị trường mục tiêu",
+      "defaultValue": "Doanh nghiệp SME tại Việt Nam, 50–300 nhân sự",
+      "type": "text"
+    },
+    {
+      "key": "BEST_CLIENTS",
+      "label": "Mô tả 3 khách hàng tốt nhất hiện tại",
+      "defaultValue": "Chuỗi spa 12 chi nhánh; công ty logistics nội địa; trung tâm đào tạo tiếng Anh",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Head of Growth Strategy tại một agency B2B, chuyên dựng ICP dựa trên dữ liệu thay vì cảm tính.\n\nSẢN PHẨM: {{PRODUCT}}\nTHỊ TRƯỜNG: {{MARKET}}\nKHÁCH HÀNG TỐT NHẤT HIỆN TẠI:\n{{BEST_CLIENTS}}\n\nHãy xây dựng ICP theo cấu trúc sau:\n1. Firmographics: ngành, quy mô nhân sự, doanh thu ước tính, khu vực, mức độ trưởng thành số.\n2. Pain Signals: 5 tín hiệu quan sát được từ bên ngoài (tuyển dụng, review, quảng cáo, công nghệ đang dùng) cho thấy họ đang có vấn đề.\n3. Buying Trigger: 3 sự kiện khiến họ cần mua NGAY trong 90 ngày tới.\n4. Buying Committee: liệt kê Economic Buyer, Champion, Blocker — mỗi vai trò kèm nỗi lo chính và thông điệp phù hợp.\n5. Disqualifiers: 4 tiêu chí loại trừ để đội sales không tốn thời gian.\n6. Kênh tiếp cận ưu tiên và 1 câu mở lời mẫu cho từng kênh.\n\nTrình bày dạng bảng khi phù hợp. Đánh dấu rõ giả định nào cần xác minh bằng phỏng vấn khách hàng.",
+  "createdAt": "2026-11-02"
+}

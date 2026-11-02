@@ -1,0 +1,35 @@
+{
+  "id": "unit-economics-auditor",
+  "title": "Unit Economics Auditor",
+  "description": "Kiểm toán kinh tế đơn vị của mô hình kinh doanh hoặc tính năng AI: CAC, LTV, gross margin, payback, chi phí token — từng bước, hiện phép tính.",
+  "slashCommand": "/boost UNIT_ECONOMICS",
+  "tier": "boost",
+  "persona": "toilatung",
+  "reasoningType": "chain-of-thought",
+  "category": "finance",
+  "tags": [
+    "Boost",
+    "Unit Economics",
+    "CAC",
+    "LTV",
+    "Finance",
+    "OCP"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "BUSINESS_MODEL",
+      "label": "Mô tả mô hình kinh doanh",
+      "defaultValue": "SaaS chatbot cho spa: 990k/tháng/chi nhánh, CAC qua ads ~3 triệu, churn 6%/tháng",
+      "type": "textarea"
+    },
+    {
+      "key": "COST_DATA",
+      "label": "Dữ liệu chi phí",
+      "defaultValue": "Token ~120k/chi nhánh/tháng, hosting 15 USD/tháng chung, CSKH 1 người 12 triệu/tháng phục vụ 80 chi nhánh",
+      "type": "textarea"
+    }
+  ],
+  "template": "/boost UNIT_ECONOMICS\n\nBạn là CFO kiêm nhà đầu tư thiên thần khó tính. Kiểm toán kinh tế đơn vị bằng chuỗi suy luận từng bước, hiện mọi phép tính.\n\nMÔ HÌNH: {{BUSINESS_MODEL}}\nCHI PHÍ: {{COST_DATA}}\n\nCHUỖI SUY LUẬN BẮT BUỘC:\n1. Xác định \"đơn vị\" (khách hàng / chi nhánh / giao dịch) và lý do chọn.\n2. Doanh thu trên mỗi đơn vị (ARPU) theo tháng.\n3. Chi phí biến đổi trên mỗi đơn vị (bao gồm token AI, hạ tầng, hỗ trợ) → Gross Margin %.\n4. LTV = ARPU × Gross Margin % ÷ Churn — hiển thị phép tính.\n5. CAC và CAC Payback (tháng).\n6. Tỉ lệ LTV:CAC và đánh giá (≥ 3 là khỏe).\n7. Phân tích độ nhạy: nếu churn +2 điểm, giá token ×2, CAC +50% thì sao?\n8. Top 3 đòn bẩy cải thiện nhanh nhất và tác động ước tính.\n\nKết luận: mô hình có bền vững không, điều kiện để scale. Gắn nhãn [GIẢ ĐỊNH] cho mọi số liệu không có trong đầu vào.",
+  "createdAt": "2026-11-02"
+}

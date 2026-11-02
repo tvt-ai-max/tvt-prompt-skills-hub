@@ -1,0 +1,43 @@
+{
+  "id": "sql-query-optimizer",
+  "title": "SQL Query Performance Optimizer",
+  "description": "Phân tích câu SQL chậm, đọc EXPLAIN, đề xuất index, viết lại query và ước lượng cải thiện.",
+  "category": "coding",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "SQL",
+    "Database",
+    "Performance",
+    "Index"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "ENGINE",
+      "label": "Database engine",
+      "defaultValue": "PostgreSQL",
+      "type": "select",
+      "options": [
+        "PostgreSQL",
+        "MySQL / MariaDB",
+        "SQLite",
+        "SQL Server"
+      ]
+    },
+    {
+      "key": "QUERY",
+      "label": "Câu truy vấn",
+      "defaultValue": "SELECT * FROM orders o JOIN customers c ON c.id = o.customer_id WHERE DATE(o.created_at) = \"2026-10-01\" ORDER BY o.total DESC",
+      "type": "textarea"
+    },
+    {
+      "key": "SCHEMA",
+      "label": "Schema & quy mô dữ liệu",
+      "defaultValue": "orders: 12 triệu dòng, index trên customer_id; customers: 800k dòng",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Database Performance Engineer ({{ENGINE}}).\n\nQUERY:\n```sql\n{{QUERY}}\n```\n\nSCHEMA / QUY MÔ: {{SCHEMA}}\n\nThực hiện:\n1. Chỉ ra nguyên nhân chậm (non-sargable, SELECT *, sort trên dữ liệu lớn, join thiếu index...).\n2. Viết lại query tối ưu, giữ nguyên kết quả.\n3. Đề xuất index (câu lệnh CREATE INDEX đầy đủ) và giải thích thứ tự cột.\n4. Cách đọc EXPLAIN / EXPLAIN ANALYZE để xác nhận cải thiện.\n5. Đánh đổi: chi phí ghi, dung lượng index, khi nào nên dùng materialized view hoặc cache.",
+  "createdAt": "2026-11-02"
+}

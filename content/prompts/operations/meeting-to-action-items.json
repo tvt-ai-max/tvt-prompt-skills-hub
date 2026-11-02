@@ -1,0 +1,31 @@
+{
+  "id": "meeting-to-action-items",
+  "title": "Meeting Transcript to Decisions & Action Items",
+  "description": "Tóm tắt biên bản họp thành quyết định, việc cần làm (ai – gì – hạn), rủi ro và câu hỏi còn mở.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "Meeting",
+    "Productivity",
+    "Summary",
+    "Action Items"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "TRANSCRIPT",
+      "label": "Transcript / ghi chú cuộc họp",
+      "defaultValue": "Lan: tuần sau ra mắt landing mới. Minh: chưa có ảnh sản phẩm. Lan: vậy Minh lo ảnh trước thứ 4...",
+      "type": "textarea"
+    },
+    {
+      "key": "MEETING_GOAL",
+      "label": "Mục tiêu cuộc họp",
+      "defaultValue": "Chốt kế hoạch ra mắt chiến dịch Tết",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Chief of Staff. Xử lý biên bản cuộc họp sau.\n\nMỤC TIÊU CUỘC HỌP: {{MEETING_GOAL}}\n\nTRANSCRIPT:\n{{TRANSCRIPT}}\n\nXuất ra:\n1. TL;DR 3 dòng.\n2. Quyết định đã chốt (kèm người chốt nếu rõ).\n3. Bảng Action Items: Việc – Người phụ trách – Hạn chót – Trạng thái phụ thuộc.\n4. Rủi ro / vướng mắc được nêu.\n5. Câu hỏi còn bỏ ngỏ cần theo dõi.\n6. Đánh giá: cuộc họp có đạt mục tiêu không? Nếu không, cần gì cho buổi tiếp theo.\n\nChỉ dùng thông tin có trong transcript. Ghi \"chưa rõ\" thay vì suy đoán.",
+  "createdAt": "2026-11-02"
+}

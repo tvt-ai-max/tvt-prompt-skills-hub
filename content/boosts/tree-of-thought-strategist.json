@@ -1,0 +1,33 @@
+{
+  "id": "tree-of-thought-strategist",
+  "title": "Tree-of-Thought Strategy Explorer",
+  "description": "Mở rộng nhiều nhánh giải pháp song song, tự chấm điểm, cắt tỉa nhánh yếu và đào sâu nhánh mạnh trước khi chốt chiến lược.",
+  "slashCommand": "/boost TREE_OF_THOUGHT",
+  "tier": "boost",
+  "persona": "toilatung",
+  "reasoningType": "tree-of-thought",
+  "category": "strategy",
+  "tags": [
+    "Boost",
+    "Tree-of-Thought",
+    "Strategy",
+    "Decision Making"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "PROBLEM",
+      "label": "Vấn đề chiến lược",
+      "defaultValue": "Tăng doanh thu agency thêm 40% trong 12 tháng mà không tăng quá 2 nhân sự",
+      "type": "textarea"
+    },
+    {
+      "key": "CONSTRAINTS",
+      "label": "Ràng buộc",
+      "defaultValue": "Ngân sách đầu tư tối đa 300 triệu, đội hiện tại 8 người",
+      "type": "text"
+    }
+  ],
+  "template": "/boost TREE_OF_THOUGHT\n\nÁp dụng Tree-of-Thought để giải quyết:\n\nVẤN ĐỀ: {{PROBLEM}}\nRÀNG BUỘC: {{CONSTRAINTS}}\n\nVÒNG 1 — PHÂN NHÁNH: Đề xuất 5 hướng tiếp cận khác biệt về bản chất (không phải biến thể của nhau).\nVÒNG 2 — ĐÁNH GIÁ: Chấm mỗi nhánh 1–10 theo: Khả thi, Tác động, Tốc độ, Rủi ro (đảo ngược), Phù hợp ràng buộc. Trình bày bảng.\nVÒNG 3 — CẮT TỈA: Loại các nhánh < 6 điểm trung bình, nêu lý do loại.\nVÒNG 4 — ĐÀO SÂU: Với 2 nhánh còn lại, mỗi nhánh mở 3 nhánh con chiến thuật và chấm lại.\nVÒNG 5 — TỔNG HỢP: Có thể kết hợp các nhánh con tốt nhất thành chiến lược lai không?\nKẾT LUẬN: Chiến lược được chọn, lộ trình 3 giai đoạn, chỉ số dẫn dắt (leading indicator) và điều kiện quay lại nhánh dự phòng.",
+  "createdAt": "2026-11-02"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "sales-objection-handler",
+  "title": "Sales Objection Handling Playbook",
+  "description": "Bộ kịch bản xử lý 8 lời từ chối phổ biến theo khung Acknowledge – Clarify – Reframe – Confirm.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Sales",
+    "Objection Handling",
+    "Script",
+    "B2B"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "OFFER",
+      "label": "Sản phẩm / dịch vụ",
+      "defaultValue": "Gói vận hành fanpage + quảng cáo trọn gói 15tr/tháng",
+      "type": "text"
+    },
+    {
+      "key": "COMMON_OBJECTIONS",
+      "label": "Lời từ chối hay gặp",
+      "defaultValue": "Giá cao quá; Để anh suy nghĩ thêm; Bên em từng thuê agency rồi, không hiệu quả",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Sales Coach B2B. Xây dựng playbook xử lý từ chối cho:\n\nSẢN PHẨM: {{OFFER}}\nLỜI TỪ CHỐI HAY GẶP: {{COMMON_OBJECTIONS}}\n\nBổ sung thành tổng cộng 8 lời từ chối (giá, thời điểm, niềm tin, người quyết định, đối thủ, tự làm, trải nghiệm xấu cũ, chưa cần).\nVới mỗi lời từ chối:\n1. Ý nghĩa thật sự đằng sau (hidden concern).\n2. Kịch bản 4 bước: Acknowledge → Clarify (1 câu hỏi) → Reframe → Confirm.\n3. Một câu KHÔNG BAO GIỜ nên nói.\n4. Tài liệu hỗ trợ nên gửi kèm.\n\nGiọng tư vấn, tôn trọng, không thao túng.",
+  "createdAt": "2026-11-02"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "b2b-value-proposition-canvas",
+  "title": "Value Proposition Canvas Generator",
+  "description": "Lập Value Proposition Canvas: Jobs, Pains, Gains ánh xạ với Pain Relievers và Gain Creators cho một phân khúc.",
+  "category": "marketing",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Value Proposition",
+    "Strategy",
+    "Product Marketing",
+    "Canvas"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "SEGMENT",
+      "label": "Phân khúc khách hàng",
+      "defaultValue": "Chủ phòng khám nha khoa tư nhân",
+      "type": "text"
+    },
+    {
+      "key": "SOLUTION",
+      "label": "Giải pháp",
+      "defaultValue": "Phần mềm đặt lịch + nhắc tái khám tự động qua Zalo OA",
+      "type": "text"
+    }
+  ],
+  "template": "Đóng vai Product Marketing Lead. Lập Value Proposition Canvas cho:\n\nPHÂN KHÚC: {{SEGMENT}}\nGIẢI PHÁP: {{SOLUTION}}\n\nPHẦN A — CUSTOMER PROFILE\n- 5 Customer Jobs (chức năng, xã hội, cảm xúc)\n- 5 Pains xếp theo mức độ nghiêm trọng (1–10)\n- 5 Gains xếp theo mức độ mong muốn (1–10)\n\nPHẦN B — VALUE MAP\n- Products & Services\n- Pain Relievers: ánh xạ 1-1 với từng Pain ở trên\n- Gain Creators: ánh xạ 1-1 với từng Gain\n\nPHẦN C — FIT CHECK\n- Bảng đánh giá mức độ khớp (Strong/Weak/Missing)\n- 3 thông điệp marketing rút ra từ các điểm Strong fit\n- 2 tính năng nên ưu tiên phát triển từ các điểm Missing",
+  "createdAt": "2026-11-02"
+}

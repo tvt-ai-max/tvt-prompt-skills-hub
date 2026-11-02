@@ -1,0 +1,43 @@
+{
+  "id": "case-study-storyteller",
+  "title": "B2B Case Study Storyteller",
+  "description": "Biến dữ liệu dự án thành case study thuyết phục: bối cảnh, thách thức, giải pháp, kết quả định lượng và trích dẫn khách hàng.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Case Study",
+    "Social Proof",
+    "B2B",
+    "Storytelling"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "CLIENT_PROFILE",
+      "label": "Hồ sơ khách hàng (ẩn danh nếu cần)",
+      "defaultValue": "Chuỗi 8 trung tâm tiếng Anh tại Hà Nội",
+      "type": "text"
+    },
+    {
+      "key": "CHALLENGE",
+      "label": "Thách thức ban đầu",
+      "defaultValue": "Chi phí/lead 450k, đội tư vấn quá tải, 60% lead không được gọi lại trong 24h",
+      "type": "textarea"
+    },
+    {
+      "key": "SOLUTION",
+      "label": "Giải pháp đã triển khai",
+      "defaultValue": "Chatbot AI lọc lead + chấm điểm + tự đặt lịch test đầu vào",
+      "type": "textarea"
+    },
+    {
+      "key": "RESULTS",
+      "label": "Kết quả định lượng",
+      "defaultValue": "CPL giảm còn 210k, 92% lead được phản hồi trong 5 phút, doanh thu +38% sau 3 tháng",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là B2B Content Strategist. Viết case study 600–800 từ.\n\nKHÁCH HÀNG: {{CLIENT_PROFILE}}\nTHÁCH THỨC: {{CHALLENGE}}\nGIẢI PHÁP: {{SOLUTION}}\nKẾT QUẢ: {{RESULTS}}\n\nCấu trúc:\n1. Tiêu đề chứa kết quả định lượng nổi bật nhất.\n2. Hộp tóm tắt: Ngành – Quy mô – Thời gian – 3 chỉ số chính.\n3. Bối cảnh & Thách thức: kể như một câu chuyện, có khoảnh khắc \"đủ rồi\" của khách hàng.\n4. Vì sao chọn chúng tôi: 2–3 tiêu chí ra quyết định.\n5. Giải pháp: quy trình triển khai theo giai đoạn.\n6. Kết quả: số liệu trước/sau dạng bảng + tác động kinh doanh.\n7. Trích dẫn khách hàng (đề xuất 2 phương án để khách duyệt).\n8. Bài học có thể áp dụng cho người đọc.\n\nKhông phóng đại vượt quá số liệu đã cung cấp.",
+  "createdAt": "2026-11-02"
+}

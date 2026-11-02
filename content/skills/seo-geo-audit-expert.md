@@ -15,11 +15,17 @@ inputs:
     type: string
     description: Từ khóa chính hoặc chủ đề thực thể
     required: true
+author: "TVT Agency"
+tools:
+  - "read_file"
+  - "serp_analyzer"
+  - "image_inspector"
 audit_gates:
   - 7-Point Quality Audit
   - Visual Anchoring Gate (Tối thiểu 1 cover 16:9 + 2 sơ đồ in-content)
   - Anti-AI Cliché Gate (Xóa 100% từ ngữ sáo rỗng và gạch đầu dòng máy móc)
   - Zero Side-Effect & Redaction Gate
+created_at: "2026-11-02"
 ---
 
 # SƠ ĐỒ THỰC THI KIỂM TOÁN (SOP):
@@ -40,3 +46,8 @@ audit_gates:
 - Chấm điểm trên thang 100:
   - ≥ 85 điểm: PASS — Đủ điều kiện xuất bản lên CMS/WordPress.
   - < 85 điểm: FAIL — Kèm danh sách các vị trí cần sửa đổi cụ thể.
+
+---
+Bản nháp cần kiểm toán (từ khóa: {{primary_keyword}}):
+
+{{draft_content}}

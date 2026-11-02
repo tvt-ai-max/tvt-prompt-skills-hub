@@ -1,0 +1,42 @@
+{
+  "id": "linkedin-thought-leadership-post",
+  "title": "LinkedIn / Facebook Thought Leadership Post",
+  "description": "Bài đăng chia sẻ góc nhìn cá nhân theo cấu trúc Hook – Nghịch lý – Bài học – Câu hỏi mở, giọng thực chiến, không sáo rỗng.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Personal Branding",
+    "LinkedIn",
+    "Facebook",
+    "Thought Leadership"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "LESSON",
+      "label": "Bài học / trải nghiệm thật",
+      "defaultValue": "Tôi đã thay 3 công cụ SaaS bằng 1 workflow n8n và tiết kiệm 4 triệu/tháng, nhưng mất 2 tuần bảo trì",
+      "type": "text"
+    },
+    {
+      "key": "CONTRARIAN_VIEW",
+      "label": "Quan điểm ngược số đông",
+      "defaultValue": "Tự động hóa không phải lúc nào cũng rẻ hơn — chi phí ẩn nằm ở bảo trì",
+      "type": "textarea"
+    },
+    {
+      "key": "PLATFORM",
+      "label": "Nền tảng",
+      "defaultValue": "Facebook cá nhân",
+      "type": "select",
+      "options": [
+        "Facebook cá nhân",
+        "LinkedIn",
+        "Threads"
+      ]
+    }
+  ],
+  "template": "Bạn là ghostwriter cho một founder theo phong cách \"Quiet Authority\" — chia sẻ thật, có số liệu, không khoe khoang.\n\nTRẢI NGHIỆM: {{LESSON}}\nQUAN ĐIỂM NGƯỢC: {{CONTRARIAN_VIEW}}\nNỀN TẢNG: {{PLATFORM}}\n\nViết 1 bài đăng 180–250 từ:\n1. Hook (1–2 dòng): một câu gây tò mò hoặc phá vỡ niềm tin phổ biến. Không mở bằng câu hỏi tu từ.\n2. Bối cảnh ngắn gọn với 1 con số cụ thể.\n3. Nghịch lý / điều không ai nói.\n4. 3 bài học, mỗi bài học 1–2 câu, không dùng emoji đầu dòng.\n5. Kết bằng 1 câu hỏi mở thật sự muốn nghe câu trả lời.\n\nCung cấp thêm 2 phương án hook thay thế. Không dùng hashtag quá 3 cái. Tránh: \"Trong thời đại...\", \"Bạn có biết...\", \"Hãy cùng tôi...\".",
+  "createdAt": "2026-11-02"
+}

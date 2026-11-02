@@ -1,0 +1,38 @@
+{
+  "id": "geo-faq-schema-generator",
+  "title": "GEO FAQ + JSON-LD Schema Generator",
+  "description": "Tạo bộ FAQ trả lời trực diện (Answer-first) tối ưu cho AI search kèm JSON-LD FAQPage hợp lệ.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "GEO",
+    "Schema",
+    "FAQ",
+    "JSON-LD",
+    "AI Search"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "TOPIC",
+      "label": "Chủ đề trang",
+      "defaultValue": "Dịch vụ quản trị VPS HestiaCP",
+      "type": "text"
+    },
+    {
+      "key": "AUDIENCE",
+      "label": "Người hỏi điển hình",
+      "defaultValue": "Chủ shop online tự quản lý website",
+      "type": "text"
+    },
+    {
+      "key": "QUESTION_COUNT",
+      "label": "Số câu hỏi",
+      "defaultValue": "6",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là chuyên gia Generative Engine Optimization (GEO). Mục tiêu: nội dung được Perplexity, ChatGPT Search, Gemini và Google AI Overviews trích dẫn.\n\nCHỦ ĐỀ: {{TOPIC}}\nNGƯỜI HỎI: {{AUDIENCE}}\n\nTạo {{QUESTION_COUNT}} cặp hỏi–đáp:\n- Câu hỏi viết đúng ngôn ngữ tự nhiên người dùng gõ/nói.\n- Câu trả lời Answer-first: câu đầu tiên trả lời trực tiếp (≤ 25 từ), sau đó 2–3 câu bổ sung có số liệu hoặc ví dụ.\n- Mỗi câu trả lời ≤ 80 từ, không quảng cáo lộ liễu.\n\nSau đó xuất khối JSON-LD `FAQPage` hợp lệ theo schema.org (đặt trong code block json), escape đúng ký tự đặc biệt.\nCuối cùng, gợi ý vị trí đặt FAQ trên trang và 2 entity nên được nhắc tới để tăng độ liên quan ngữ nghĩa.",
+  "createdAt": "2026-11-02"
+}

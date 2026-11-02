@@ -1,0 +1,37 @@
+{
+  "id": "seo-content-refresh-audit",
+  "title": "Content Decay Refresh Planner",
+  "description": "Chẩn đoán bài viết bị tụt hạng và lập kế hoạch cập nhật: khoảng trống nội dung, intent shift, E-E-A-T và tín hiệu mới.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "SEO",
+    "Content Refresh",
+    "E-E-A-T",
+    "Audit"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "URL_TOPIC",
+      "label": "Tiêu đề / chủ đề bài viết",
+      "defaultValue": "10 plugin bảo mật WordPress tốt nhất",
+      "type": "text"
+    },
+    {
+      "key": "CURRENT_CONTENT",
+      "label": "Dàn ý hoặc nội dung hiện tại",
+      "defaultValue": "H2: Wordfence; H2: Sucuri; H2: iThemes... (viết năm 2023)",
+      "type": "textarea"
+    },
+    {
+      "key": "SYMPTOMS",
+      "label": "Triệu chứng",
+      "defaultValue": "Tụt từ top 3 xuống vị trí 14 trong 4 tháng, CTR giảm 40%",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là SEO Content Lead. Chẩn đoán và lập kế hoạch refresh cho bài:\n\nBÀI VIẾT: {{URL_TOPIC}}\nNỘI DUNG HIỆN TẠI:\n{{CURRENT_CONTENT}}\nTRIỆU CHỨNG: {{SYMPTOMS}}\n\nPhân tích theo 5 lớp:\n1. Intent shift — người tìm kiếm hiện nay muốn gì khác so với lúc bài được viết?\n2. Freshness — thông tin, giá, phiên bản, ảnh chụp màn hình nào đã lỗi thời?\n3. Content gap — 5 câu hỏi/tiểu mục đối thủ có mà bài này thiếu.\n4. E-E-A-T — cách bổ sung trải nghiệm thực tế, tác giả, nguồn trích dẫn.\n5. UX on-page — cấu trúc, mục lục, bảng so sánh, tốc độ.\n\nKết quả: dàn ý mới (H2/H3), danh sách thay đổi ưu tiên theo tác động, và khuyến nghị có nên đổi URL/title hay không (thường là KHÔNG đổi URL).",
+  "createdAt": "2026-11-02"
+}

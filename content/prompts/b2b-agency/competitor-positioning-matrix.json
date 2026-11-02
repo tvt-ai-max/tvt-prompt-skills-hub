@@ -1,0 +1,37 @@
+{
+  "id": "competitor-positioning-matrix",
+  "title": "Competitor Positioning Matrix & White Space Finder",
+  "description": "Phân tích đối thủ theo 2 trục định vị, tìm khoảng trống thị trường và đề xuất tuyên bố định vị khác biệt.",
+  "category": "marketing",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Competitor Analysis",
+    "Positioning",
+    "Strategy",
+    "B2B"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "BRAND",
+      "label": "Thương hiệu của bạn",
+      "defaultValue": "TVT Agency",
+      "type": "text"
+    },
+    {
+      "key": "COMPETITORS",
+      "label": "Danh sách đối thủ (mỗi dòng 1 đối thủ + mô tả ngắn)",
+      "defaultValue": "Agency A — chạy ads giá rẻ\nAgency B — branding cao cấp\nFreelancer — linh hoạt, thiếu quy trình",
+      "type": "textarea"
+    },
+    {
+      "key": "CATEGORY",
+      "label": "Ngành / hạng mục",
+      "defaultValue": "Dịch vụ marketing tổng thể cho SME",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Brand Strategist theo trường phái April Dunford (Obviously Awesome).\n\nTHƯƠNG HIỆU: {{BRAND}}\nNGÀNH: {{CATEGORY}}\nĐỐI THỦ:\n{{COMPETITORS}}\n\nThực hiện:\n1. Đề xuất 3 cặp trục định vị có ý nghĩa với người mua (không phải trục nội bộ như \"giá rẻ/đắt\").\n2. Chọn cặp trục mạnh nhất, đặt từng đối thủ và {{BRAND}} lên ma trận (mô tả bằng bảng tọa độ -5 đến +5).\n3. Xác định \"white space\" — vị trí người mua cần nhưng chưa ai chiếm.\n4. Viết tuyên bố định vị theo mẫu: \"Dành cho [ai] đang [vấn đề], {{BRAND}} là [hạng mục] giúp [kết quả], khác với [lựa chọn thay thế] vì [bằng chứng].\"\n5. Liệt kê 3 rủi ro khi chiếm vị trí này và cách giảm thiểu.",
+  "createdAt": "2026-11-02"
+}

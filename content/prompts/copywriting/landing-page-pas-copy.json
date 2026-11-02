@@ -1,0 +1,44 @@
+{
+  "id": "landing-page-pas-copy",
+  "title": "Landing Page Copy (PAS + Proof Stack)",
+  "description": "Viết toàn bộ copy landing page theo khung Problem–Agitate–Solve kết hợp Proof Stack, FAQ xử lý phản đối và CTA.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "Landing Page",
+    "Conversion",
+    "PAS",
+    "Copywriting",
+    "CRO"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "PRODUCT",
+      "label": "Sản phẩm / dịch vụ",
+      "defaultValue": "Gói thiết kế website bán hàng trọn gói 14 ngày",
+      "type": "text"
+    },
+    {
+      "key": "AUDIENCE",
+      "label": "Khách hàng mục tiêu",
+      "defaultValue": "Chủ shop đang bán trên Shopee muốn có kênh riêng",
+      "type": "text"
+    },
+    {
+      "key": "MAIN_RESULT",
+      "label": "Kết quả chính khách nhận được",
+      "defaultValue": "Website bán hàng chuẩn SEO, tích hợp thanh toán, sẵn sàng chạy ads",
+      "type": "text"
+    },
+    {
+      "key": "PRICE",
+      "label": "Giá / ưu đãi",
+      "defaultValue": "12.900.000đ, tặng 3 tháng bảo trì",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Conversion Copywriter. Viết copy landing page cho:\n\nSẢN PHẨM: {{PRODUCT}}\nKHÁCH HÀNG: {{AUDIENCE}}\nKẾT QUẢ CHÍNH: {{MAIN_RESULT}}\nGIÁ: {{PRICE}}\n\nCác section theo thứ tự:\n1. Hero: headline (≤ 12 từ), subheadline (≤ 25 từ), CTA chính, 3 bullet lợi ích.\n2. Problem: mô tả nỗi đau bằng ngôn ngữ của chính khách hàng.\n3. Agitate: hệ quả nếu không giải quyết (chi phí, thời gian, cơ hội).\n4. Solution: giới thiệu giải pháp + quy trình 3–4 bước.\n5. Proof Stack: vị trí cho testimonial, số liệu, logo, chứng nhận — kèm gợi ý nội dung cần thu thập.\n6. Offer: bảng giá, những gì bao gồm, bảo đảm/cam kết rủi ro.\n7. FAQ: 6 câu xử lý phản đối phổ biến nhất.\n8. Final CTA với lý do hành động ngay (không tạo khan hiếm giả).\n\nGhi chú [UX] cho designer tại các vị trí quan trọng.",
+  "createdAt": "2026-11-02"
+}

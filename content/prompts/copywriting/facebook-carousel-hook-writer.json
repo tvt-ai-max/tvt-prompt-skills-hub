@@ -1,0 +1,37 @@
+{
+  "id": "facebook-carousel-hook-writer",
+  "title": "Carousel Series Hook & Slide Writer",
+  "description": "Viết carousel 8 slide cho Facebook/Instagram/LinkedIn: hook slide, nội dung từng slide, prompt hình minh họa và caption.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Carousel",
+    "Content Series",
+    "Branding",
+    "Social Media"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "TOPIC",
+      "label": "Chủ đề carousel",
+      "defaultValue": "5 sai lầm khi doanh nghiệp nhỏ triển khai chatbot AI",
+      "type": "text"
+    },
+    {
+      "key": "AUDIENCE",
+      "label": "Người đọc",
+      "defaultValue": "Chủ doanh nghiệp nhỏ chưa rành công nghệ",
+      "type": "text"
+    },
+    {
+      "key": "BRAND_STYLE",
+      "label": "Phong cách hình ảnh thương hiệu",
+      "defaultValue": "Nền tối #0A0F1E, chữ trắng, điểm nhấn cyan, tối giản kiểu Swiss design",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Content Designer chuyên carousel tri thức.\n\nCHỦ ĐỀ: {{TOPIC}}\nNGƯỜI ĐỌC: {{AUDIENCE}}\nPHONG CÁCH: {{BRAND_STYLE}}\n\nThiết kế carousel 8 slide:\n- Slide 1 (Hook): tiêu đề ≤ 10 từ + phụ đề ≤ 12 từ, khiến người xem phải vuốt.\n- Slide 2: vì sao vấn đề này quan trọng (1 con số / 1 hệ quả).\n- Slide 3–7: mỗi slide 1 ý, tiêu đề ≤ 8 từ, thân ≤ 30 từ, có ví dụ cụ thể.\n- Slide 8: tóm tắt + CTA mềm (lưu bài, bình luận một từ khóa).\n\nVới mỗi slide, thêm \"Image Prompt\" tiếng Anh cho công cụ tạo ảnh, đúng phong cách thương hiệu, tỉ lệ 4:5.\nCuối cùng viết caption 100 từ + 3 hashtag.",
+  "createdAt": "2026-11-02"
+}

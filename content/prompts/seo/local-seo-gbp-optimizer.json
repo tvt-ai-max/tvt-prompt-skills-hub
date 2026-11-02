@@ -1,0 +1,37 @@
+{
+  "id": "local-seo-gbp-optimizer",
+  "title": "Local SEO & Google Business Profile Optimizer",
+  "description": "Tối ưu hồ sơ Google Business Profile: danh mục, mô tả, dịch vụ, bài đăng hàng tuần và mẫu phản hồi review.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Local SEO",
+    "Google Business Profile",
+    "Maps",
+    "Reviews"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "BUSINESS",
+      "label": "Tên & loại hình doanh nghiệp",
+      "defaultValue": "Nha khoa Smile Care — phòng khám nha khoa",
+      "type": "text"
+    },
+    {
+      "key": "LOCATION",
+      "label": "Khu vực",
+      "defaultValue": "Quận 7, TP.HCM",
+      "type": "text"
+    },
+    {
+      "key": "SERVICES",
+      "label": "Dịch vụ chính",
+      "defaultValue": "Niềng răng Invisalign, bọc răng sứ, cạo vôi",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là chuyên gia Local SEO. Tối ưu Google Business Profile cho:\n\nDOANH NGHIỆP: {{BUSINESS}}\nKHU VỰC: {{LOCATION}}\nDỊCH VỤ: {{SERVICES}}\n\nCung cấp:\n1. Danh mục chính + 4 danh mục phụ phù hợp nhất.\n2. Mô tả doanh nghiệp 700–750 ký tự, tự nhiên, có địa danh và dịch vụ.\n3. Danh sách dịch vụ: tên + mô tả 1 câu cho từng dịch vụ.\n4. Lịch 4 bài GBP Posts cho 4 tuần (loại bài, tiêu đề, nội dung 150 từ, CTA).\n5. 3 mẫu phản hồi review: 5 sao, 3 sao, 1 sao — chuyên nghiệp, không tranh cãi.\n6. Checklist NAP consistency và 10 nguồn citation nên đăng ký tại Việt Nam.",
+  "createdAt": "2026-11-02"
+}

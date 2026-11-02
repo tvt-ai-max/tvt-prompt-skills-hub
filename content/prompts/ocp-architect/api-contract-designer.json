@@ -1,0 +1,31 @@
+{
+  "id": "api-contract-designer",
+  "title": "REST / OpenAPI Contract Designer",
+  "description": "Thiết kế API contract chuẩn OpenAPI 3.1: resource, endpoint, schema, mã lỗi, phân trang, versioning và idempotency.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "API Design",
+    "OpenAPI",
+    "REST",
+    "Backend"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "DOMAIN",
+      "label": "Miền nghiệp vụ",
+      "defaultValue": "Hệ thống đặt lịch hẹn cho chuỗi spa",
+      "type": "text"
+    },
+    {
+      "key": "USE_CASES",
+      "label": "Use case chính",
+      "defaultValue": "Khách xem lịch trống; đặt lịch; hủy/đổi lịch; nhân viên xác nhận; gửi nhắc lịch",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là API Architect. Thiết kế API contract cho:\n\nMIỀN NGHIỆP VỤ: {{DOMAIN}}\nUSE CASES: {{USE_CASES}}\n\nĐầu ra:\n1. Danh sách resource và quan hệ.\n2. Bảng endpoint: method – path – mô tả – auth – idempotent?\n3. Đặc tả OpenAPI 3.1 (YAML) cho 3 endpoint quan trọng nhất, gồm schema request/response và ví dụ.\n4. Chuẩn lỗi thống nhất (RFC 9457 Problem Details) với 5 mã lỗi nghiệp vụ.\n5. Chiến lược phân trang, lọc, sắp xếp; versioning; rate limit; Idempotency-Key cho thao tác tạo.\n6. Webhook events cần phát ra và payload mẫu.",
+  "createdAt": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "code-refactor-clean-architecture",
+  "title": "Clean Architecture Refactor Assistant",
+  "description": "Refactor đoạn code theo Clean Architecture/SOLID, giữ nguyên hành vi, kèm giải thích từng thay đổi và rủi ro.",
+  "category": "coding",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "Refactoring",
+    "Clean Code",
+    "SOLID",
+    "Architecture"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "LANGUAGE",
+      "label": "Ngôn ngữ",
+      "defaultValue": "TypeScript",
+      "type": "select",
+      "options": [
+        "TypeScript",
+        "Python",
+        "PHP",
+        "Go",
+        "Java"
+      ]
+    },
+    {
+      "key": "CODE",
+      "label": "Đoạn code cần refactor",
+      "defaultValue": "function handle(req) {\n  const u = db.query(\"SELECT * FROM users WHERE id=\" + req.id);\n  if (u) { sendEmail(u.email); return u } else return null\n}",
+      "type": "textarea"
+    },
+    {
+      "key": "CONSTRAINTS",
+      "label": "Ràng buộc",
+      "defaultValue": "Không đổi public API; không thêm thư viện mới",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Principal Engineer chuyên refactor hệ thống legacy.\n\nNGÔN NGỮ: {{LANGUAGE}}\nRÀNG BUỘC: {{CONSTRAINTS}}\n\nCODE:\n```\n{{CODE}}\n```\n\nHãy:\n1. Liệt kê code smells (đặt tên, trách nhiệm, coupling, lỗi bảo mật, xử lý lỗi).\n2. Đề xuất cấu trúc mới theo Clean Architecture (entities, use cases, adapters) phù hợp quy mô — không over-engineer.\n3. Viết lại code hoàn chỉnh, chạy được, có type đầy đủ.\n4. Bảng thay đổi: Trước → Sau → Lý do.\n5. Liệt kê test case cần có để chứng minh hành vi không đổi.\n6. Rủi ro khi triển khai và cách rollout an toàn.",
+  "createdAt": "2026-11-02"
+}

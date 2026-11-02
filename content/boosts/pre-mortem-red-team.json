@@ -1,0 +1,28 @@
+{
+  "id": "pre-mortem-red-team",
+  "title": "Pre-Mortem Campaign Red-Team",
+  "description": "Giả định chiến dịch/dự án đã thất bại sau 90 ngày, truy ngược nguyên nhân, chấm rủi ro và thiết kế biện pháp phòng ngừa trước khi bấm chạy.",
+  "slashCommand": "/boost PRE_MORTEM",
+  "tier": "boost",
+  "persona": "tvt-agency",
+  "reasoningType": "red-team",
+  "category": "marketing",
+  "tags": [
+    "Boost",
+    "Pre-Mortem",
+    "Red-Team",
+    "Risk",
+    "Campaign"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "PLAN",
+      "label": "Kế hoạch / chiến dịch",
+      "defaultValue": "Ra mắt gói dịch vụ SEO AI 9,9 triệu/tháng, chạy ads Meta 60 triệu trong 30 ngày, mục tiêu 20 khách ký hợp đồng",
+      "type": "textarea"
+    }
+  ],
+  "template": "/boost PRE_MORTEM\n\nĐóng vai đội Red-Team độc lập. Hãy tưởng tượng hôm nay là 90 ngày sau và kế hoạch dưới đây đã THẤT BẠI THẢM HẠI.\n\nKẾ HOẠCH: {{PLAN}}\n\n1. Viết \"bản tin thất bại\" 5 câu mô tả chuyện gì đã xảy ra.\n2. Liệt kê 10 nguyên nhân gốc rễ khả dĩ, phân nhóm: Thị trường – Thông điệp – Kênh – Vận hành – Tài chính – Con người.\n3. Chấm mỗi nguyên nhân: Xác suất (1–5) × Tác động (1–5) = Điểm rủi ro; sắp xếp giảm dần.\n4. Với top 5 rủi ro: tín hiệu cảnh báo sớm có thể đo được, biện pháp phòng ngừa, và \"tripwire\" (ngưỡng buộc dừng/điều chỉnh).\n5. Đề xuất phiên bản kế hoạch đã gia cố (thay đổi tối thiểu, hiệu quả tối đa).\n\nThẳng thắn, không nể nang, không an ủi.",
+  "createdAt": "2026-11-02"
+}
