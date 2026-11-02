@@ -1,0 +1,28 @@
+{
+  "id": "system1-system2-classifier",
+  "title": "System 1 vs System 2 Cognitive Classifier",
+  "description": "Buộc model tự phân loại câu hỏi trước khi trả lời: phản xạ nhanh (System 1) hay suy luận sâu (System 2), rồi chọn chế độ tư duy và ngân sách token tương ứng.",
+  "slashCommand": "/boost SYSTEM_SPLIT",
+  "tier": "boost",
+  "persona": "toilatung",
+  "reasoningType": "system1-vs-2",
+  "category": "strategy",
+  "tags": [
+    "Boost",
+    "System 1",
+    "System 2",
+    "Meta-Prompt",
+    "Token Budget"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "TASK",
+      "label": "Câu hỏi / tác vụ cần xử lý",
+      "defaultValue": "Có nên chuyển toàn bộ CSKH sang chatbot AI trong quý tới không?",
+      "type": "textarea"
+    }
+  ],
+  "template": "/boost SYSTEM_SPLIT\n\nTrước khi trả lời, hãy chạy bộ phân loại nhận thức (Cognitive Router):\n\nTÁC VỤ: \"{{TASK}}\"\n\nGIAI ĐOẠN 0 — PHÂN LOẠI (trả lời ngắn):\n- Tác vụ có đáp án xác định, tra cứu được, rủi ro thấp? → System 1.\n- Tác vụ có nhiều biến số, đánh đổi, hậu quả khó đảo ngược, hoặc dữ liệu mâu thuẫn? → System 2.\n- Nêu điểm tin cậy (0–100%) cho phân loại và lý do 1 câu.\n\nNẾU SYSTEM 1:\n- Trả lời trực tiếp, ≤ 150 từ, không lan man.\n\nNẾU SYSTEM 2:\n1. Tái định nghĩa vấn đề: câu hỏi thật sự đằng sau là gì?\n2. Liệt kê giả định ngầm và kiểm tra từng giả định.\n3. Phân tích ít nhất 3 phương án, mỗi phương án có lợi ích – chi phí – rủi ro – khả năng đảo ngược.\n4. Chỉ ra dữ liệu còn thiếu và cách thu thập nhanh nhất.\n5. Kết luận có điều kiện (\"Chọn A nếu..., chọn B nếu...\") + bước hành động nhỏ nhất để kiểm chứng.\n\nCuối cùng ghi: [MODE: SYSTEM 1/2] [CONFIDENCE: x%].",
+  "createdAt": "2026-11-02"
+}

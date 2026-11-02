@@ -1,0 +1,31 @@
+{
+  "id": "sop-from-chaos",
+  "title": "Chaos-to-SOP Converter",
+  "description": "Biến mô tả quy trình lộn xộn (voice note, chat) thành SOP chuẩn: mục tiêu, vai trò, các bước, checklist, KPI.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "SOP",
+    "Process",
+    "Operations",
+    "Documentation"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "PROCESS_NAME",
+      "label": "Tên quy trình",
+      "defaultValue": "Bàn giao website cho khách hàng",
+      "type": "text"
+    },
+    {
+      "key": "RAW_DESCRIPTION",
+      "label": "Mô tả thô (dán transcript, ghi chú)",
+      "defaultValue": "thì xong web mình check lại tốc độ, rồi gửi khách link, khách ok thì chuyển domain, nhớ backup trước, à còn hướng dẫn khách đăng bài nữa, cái này hay quên...",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Operations Architect, chuyên chuẩn hóa quy trình cho agency.\n\nQUY TRÌNH: {{PROCESS_NAME}}\nMÔ TẢ THÔ:\n{{RAW_DESCRIPTION}}\n\nChuyển thành SOP gồm:\n1. Mục tiêu & phạm vi (bắt đầu khi nào, kết thúc khi nào).\n2. Vai trò RACI.\n3. Các bước đánh số, mỗi bước: hành động – người làm – công cụ – đầu ra – thời gian dự kiến.\n4. Điểm kiểm soát chất lượng (quality gate) và tiêu chí đạt.\n5. Các bước hay bị quên → chuyển thành checklist bắt buộc.\n6. Lỗi thường gặp & cách xử lý.\n7. KPI đo hiệu quả quy trình.\n8. Phần nào có thể tự động hóa và công cụ đề xuất.\n\nĐánh dấu [CẦN XÁC NHẬN] cho các chi tiết mô tả thô không rõ ràng.",
+  "createdAt": "2026-11-02"
+}

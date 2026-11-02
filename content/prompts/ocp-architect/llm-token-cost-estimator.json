@@ -1,0 +1,43 @@
+{
+  "id": "llm-token-cost-estimator",
+  "title": "LLM Token Cost & Model Routing Estimator",
+  "description": "Ước tính chi phí token theo tháng cho một tính năng AI, so sánh phương án định tuyến model và đề xuất tối ưu.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Token Economics",
+    "LLM",
+    "Cost Optimization",
+    "Model Routing"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "FEATURE",
+      "label": "Tính năng AI",
+      "defaultValue": "Chatbot tư vấn sản phẩm trên website và Zalo",
+      "type": "text"
+    },
+    {
+      "key": "VOLUME",
+      "label": "Khối lượng sử dụng",
+      "defaultValue": "3.000 hội thoại/ngày, trung bình 8 lượt hỏi đáp",
+      "type": "text"
+    },
+    {
+      "key": "CONTEXT_SIZE",
+      "label": "Kích thước ngữ cảnh mỗi lượt",
+      "defaultValue": "System prompt 1.500 tokens + RAG 2.000 tokens + lịch sử 1.000 tokens",
+      "type": "text"
+    },
+    {
+      "key": "PRICING",
+      "label": "Bảng giá model đang cân nhắc (USD / 1M tokens)",
+      "defaultValue": "Model lớn: in 3 / out 15 | Model nhỏ: in 0.25 / out 1.25",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là AI FinOps Architect. Ước tính và tối ưu chi phí token.\n\nTÍNH NĂNG: {{FEATURE}}\nKHỐI LƯỢNG: {{VOLUME}}\nNGỮ CẢNH: {{CONTEXT_SIZE}}\nBẢNG GIÁ: {{PRICING}}\n\nThực hiện từng bước, hiển thị phép tính:\n1. Tokens input/output trung bình mỗi lượt và mỗi tháng (30 ngày).\n2. Chi phí tháng cho 3 kịch bản: 100% model lớn / 100% model nhỏ / định tuyến lai (System 1–System 2).\n3. Đề xuất quy tắc định tuyến: loại câu hỏi nào đi model nhỏ, khi nào leo thang.\n4. Tác động của prompt caching, cắt lịch sử, tóm tắt hội thoại.\n5. Bảng tổng hợp: kịch bản – chi phí/tháng – chi phí/hội thoại – rủi ro chất lượng.\n6. Ngưỡng cảnh báo ngân sách và cơ chế chặn chi tiêu bất thường.\n\nNêu rõ mọi giả định. Không dùng bảng giá ngoài dữ liệu đã cung cấp.",
+  "createdAt": "2026-11-02"
+}

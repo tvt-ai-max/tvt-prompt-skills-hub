@@ -1,0 +1,43 @@
+{
+  "id": "webinar-funnel-planner",
+  "title": "B2B Webinar Funnel Planner",
+  "description": "Lên kế hoạch phễu webinar B2B trọn gói: chủ đề, outline 45 phút, chuỗi email mời, kịch bản chuyển đổi và KPI.",
+  "category": "marketing",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Webinar",
+    "Funnel",
+    "Lead Generation",
+    "Event Marketing"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "TOPIC",
+      "label": "Chủ đề webinar",
+      "defaultValue": "Xây phòng Marketing 1 người với AI Agent",
+      "type": "text"
+    },
+    {
+      "key": "AUDIENCE",
+      "label": "Người tham dự mục tiêu",
+      "defaultValue": "Chủ doanh nghiệp dịch vụ 10–50 nhân sự",
+      "type": "text"
+    },
+    {
+      "key": "OFFER",
+      "label": "Ưu đãi cuối webinar",
+      "defaultValue": "Gói audit hệ thống marketing miễn phí 60 phút",
+      "type": "text"
+    },
+    {
+      "key": "DATE",
+      "label": "Ngày tổ chức",
+      "defaultValue": "20/12/2026",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Event Marketing Manager chuyên webinar B2B có tỷ lệ show-up > 40%.\n\nCHỦ ĐỀ: {{TOPIC}}\nĐỐI TƯỢNG: {{AUDIENCE}}\nƯU ĐÃI: {{OFFER}}\nNGÀY: {{DATE}}\n\nHãy lập kế hoạch:\n1. 3 phương án tiêu đề webinar theo công thức \"Kết quả cụ thể + Không cần [rào cản]\".\n2. Outline 45 phút: phút mở đầu, 3 bài học (mỗi bài phá 1 niềm tin sai), demo, chuyển tiếp sang ưu đãi, Q&A.\n3. Timeline quảng bá ngược từ {{DATE}}: T-14, T-7, T-3, T-1, ngày diễn ra, T+1.\n4. Nội dung 5 email (mời, nhắc 24h, nhắc 1h, replay, chốt ưu đãi) — mỗi email gồm subject + 3 câu chính.\n5. Bảng KPI: đăng ký, show-up rate, tỷ lệ nhận ưu đãi, chi phí/lead — kèm ngưỡng tốt/trung bình/kém.",
+  "createdAt": "2026-11-02"
+}

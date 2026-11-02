@@ -1,0 +1,33 @@
+{
+  "id": "ceo-decision-memo",
+  "title": "CEO Decision Memo (Options & Trade-offs)",
+  "description": "Chuyển một quyết định khó thành memo 1 trang kiểu Amazon: bối cảnh, phương án, đánh đổi, khuyến nghị và tiêu chí đảo ngược quyết định.",
+  "slashCommand": "/boost DECISION_MEMO",
+  "tier": "boost",
+  "persona": "tvt-agency",
+  "reasoningType": "tree-of-thought",
+  "category": "strategy",
+  "tags": [
+    "Boost",
+    "Decision Memo",
+    "Leadership",
+    "Trade-off"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "DECISION",
+      "label": "Quyết định cần đưa ra",
+      "defaultValue": "Có nên nhận một khách hàng lớn chiếm 35% doanh thu nhưng yêu cầu SLA 24/7 không?",
+      "type": "textarea"
+    },
+    {
+      "key": "CONTEXT",
+      "label": "Bối cảnh & dữ liệu",
+      "defaultValue": "Agency 15 người, biên lợi nhuận 22%, đội kỹ thuật 4 người, chưa có ca trực đêm",
+      "type": "textarea"
+    }
+  ],
+  "template": "/boost DECISION_MEMO\n\nViết Decision Memo 1 trang cho ban lãnh đạo.\n\nQUYẾT ĐỊNH: {{DECISION}}\nBỐI CẢNH: {{CONTEXT}}\n\nCấu trúc:\n1. Câu hỏi quyết định (1 câu, có hạn chót).\n2. Loại quyết định: Cửa một chiều (khó đảo ngược) hay cửa hai chiều? Hệ quả với tốc độ ra quyết định.\n3. Phương án (ít nhất 3, bao gồm \"không làm gì\"): mô tả – lợi ích – chi phí – rủi ro – tác động tới đội ngũ.\n4. Phân nhánh kịch bản: tốt nhất / cơ sở / xấu nhất cho phương án hàng đầu.\n5. Khuyến nghị và lý do then chốt.\n6. Tiêu chí đảo ngược: chỉ số nào, ngưỡng nào thì xem lại quyết định.\n7. Câu hỏi cần ban lãnh đạo trả lời trước khi chốt.\n\nVăn phong súc tích, không quá 450 từ.",
+  "createdAt": "2026-11-02"
+}

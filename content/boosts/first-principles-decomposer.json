@@ -1,0 +1,27 @@
+{
+  "id": "first-principles-decomposer",
+  "title": "First-Principles Decomposer",
+  "description": "Bóc tách vấn đề về các chân lý nền tảng, loại bỏ lối mòn tư duy theo thói quen, rồi tái cấu trúc giải pháp từ gốc.",
+  "slashCommand": "/boost FIRST_PRINCIPLES",
+  "tier": "boost",
+  "persona": "toilatung",
+  "reasoningType": "chain-of-thought",
+  "category": "strategy",
+  "tags": [
+    "Boost",
+    "First Principles",
+    "Chain-of-Thought",
+    "Innovation"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "BELIEF",
+      "label": "Niềm tin / cách làm hiện tại cần thách thức",
+      "defaultValue": "Muốn có nhiều khách hàng thì phải tăng ngân sách quảng cáo",
+      "type": "textarea"
+    }
+  ],
+  "template": "/boost FIRST_PRINCIPLES\n\nPhân tích bằng tư duy nguyên lý thứ nhất (First Principles):\n\nNIỀM TIN HIỆN TẠI: \"{{BELIEF}}\"\n\n1. Phát biểu lại niềm tin dưới dạng một chuỗi giả định (A → B → C).\n2. Với từng giả định: đó là SỰ THẬT vật lý/toán học, QUY LUẬT thị trường đã kiểm chứng, hay chỉ là THÓI QUEN ngành? Đưa bằng chứng.\n3. Giữ lại các chân lý nền tảng không thể bác bỏ.\n4. Từ chính các chân lý đó, xây dựng lại 3 cách giải quyết mới mà không phụ thuộc vào thói quen cũ.\n5. Thí nghiệm nhỏ nhất (≤ 2 tuần, chi phí thấp) để kiểm chứng cách tốt nhất.\n\nViết từng bước suy luận rõ ràng, đánh số, không nhảy cóc.",
+  "createdAt": "2026-11-02"
+}

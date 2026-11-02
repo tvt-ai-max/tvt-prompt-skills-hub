@@ -1,0 +1,37 @@
+{
+  "id": "seo-meta-title-description",
+  "title": "SEO Meta Title & Description Optimizer",
+  "description": "Viết 5 cặp meta title/description tối ưu CTR, đúng giới hạn ký tự và chứa từ khóa tự nhiên.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "SEO",
+    "On-page",
+    "CTR",
+    "Meta Tags"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "PAGE_TOPIC",
+      "label": "Nội dung trang",
+      "defaultValue": "Hướng dẫn tối ưu tốc độ website WordPress đạt Core Web Vitals",
+      "type": "text"
+    },
+    {
+      "key": "PRIMARY_KEYWORD",
+      "label": "Từ khóa chính",
+      "defaultValue": "tối ưu tốc độ wordpress",
+      "type": "text"
+    },
+    {
+      "key": "BRAND",
+      "label": "Tên thương hiệu",
+      "defaultValue": "toilatung.com",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là chuyên gia SEO on-page. Viết 5 phương án meta tag cho trang:\n\nNỘI DUNG: {{PAGE_TOPIC}}\nTỪ KHÓA CHÍNH: {{PRIMARY_KEYWORD}}\nTHƯƠNG HIỆU: {{BRAND}}\n\nMỗi phương án gồm:\n- Title: 50–60 ký tự, từ khóa chính ở nửa đầu, kết thúc bằng \"| {{BRAND}}\" nếu đủ chỗ.\n- Description: 140–155 ký tự, có lợi ích cụ thể + lời kêu gọi hành động.\n- Số ký tự thực tế của từng dòng.\n- Kỹ thuật tâm lý được dùng (con số, năm, câu hỏi, đảm bảo...).\n\nSau đó chọn phương án tốt nhất và giải thích vì sao nó có CTR cao nhất. Không nhồi nhét từ khóa.",
+  "createdAt": "2026-11-02"
+}

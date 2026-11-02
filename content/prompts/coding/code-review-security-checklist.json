@@ -1,0 +1,31 @@
+{
+  "id": "code-review-security-checklist",
+  "title": "Security-Focused Code Review",
+  "description": "Review code theo OWASP Top 10: injection, auth, secret leakage, SSRF, XSS — xếp hạng mức độ và đưa bản vá.",
+  "category": "coding",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "Security",
+    "Code Review",
+    "OWASP",
+    "AppSec"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "CODE",
+      "label": "Code cần review",
+      "defaultValue": "app.get(\"/download\", (req, res) => res.sendFile(req.query.file))",
+      "type": "textarea"
+    },
+    {
+      "key": "STACK",
+      "label": "Stack công nghệ",
+      "defaultValue": "Node.js Express, PostgreSQL, deploy trên VPS",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Application Security Engineer. Review đoạn code sau theo OWASP Top 10 (2021+).\n\nSTACK: {{STACK}}\n\n```\n{{CODE}}\n```\n\nĐịnh dạng kết quả cho mỗi phát hiện:\n- Mức độ: Critical / High / Medium / Low\n- Loại lỗ hổng (CWE nếu có)\n- Kịch bản tấn công cụ thể (input → hậu quả)\n- Bản vá: code đã sửa\n- Cách kiểm thử lại\n\nKiểm tra bắt buộc: injection, path traversal, xác thực/phân quyền, lộ secret/API key trong code hoặc log, SSRF, XSS, CSRF, rate limiting, xử lý lỗi lộ thông tin.\nChỉ báo cáo vấn đề có căn cứ trong code — không liệt kê lý thuyết chung chung.",
+  "createdAt": "2026-11-02"
+}

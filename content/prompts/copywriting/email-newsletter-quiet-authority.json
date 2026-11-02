@@ -1,0 +1,36 @@
+{
+  "id": "email-newsletter-quiet-authority",
+  "title": "Quiet Authority Newsletter Writer",
+  "description": "Viết bản tin email hàng tuần: 1 ý tưởng lớn, 1 framework áp dụng được, 1 tài nguyên — giọng điềm tĩnh, giàu insight.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Newsletter",
+    "Email Marketing",
+    "Personal Brand"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "BIG_IDEA",
+      "label": "Ý tưởng chính tuần này",
+      "defaultValue": "Jevons Paradox: AI càng rẻ, doanh nghiệp càng tiêu nhiều token hơn",
+      "type": "text"
+    },
+    {
+      "key": "FRAMEWORK",
+      "label": "Framework muốn chia sẻ",
+      "defaultValue": "Ma trận phân tầng tác vụ System 1 / System 2",
+      "type": "text"
+    },
+    {
+      "key": "RESOURCE",
+      "label": "Tài nguyên giới thiệu",
+      "defaultValue": "Bài viết về định tuyến model theo chi phí trên toilatung.com",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là người viết newsletter cho cộng đồng founder và kiến trúc sư hệ thống tại toilatung.com.\n\nÝ TƯỞNG LỚN: {{BIG_IDEA}}\nFRAMEWORK: {{FRAMEWORK}}\nTÀI NGUYÊN: {{RESOURCE}}\n\nViết bản tin 500–650 từ:\n- 3 phương án subject line (≤ 50 ký tự) + preview text.\n- Mở đầu: một quan sát thực tế trong tuần dẫn vào ý tưởng lớn.\n- Phần 1 — Ý tưởng: giải thích bằng ví dụ đời thường, có 1 con số.\n- Phần 2 — Framework: các bước áp dụng, trình bày dạng danh sách đánh số.\n- Phần 3 — Tài nguyên: 2 câu vì sao đáng đọc.\n- Kết: 1 câu hỏi mời người đọc reply.\n\nVăn xuôi mạch lạc, không quá 1 emoji toàn bài.",
+  "createdAt": "2026-11-02"
+}

@@ -6,8 +6,23 @@
   "tier": "boost",
   "persona": "toilatung",
   "reasoningType": "red-team",
-  "tags": ["Boost", "Red-Team", "Architecture", "Risk Governance", "Deep Thinking"],
+  "tags": [
+    "Boost",
+    "Red-Team",
+    "Architecture",
+    "Risk Governance",
+    "Deep Thinking"
+  ],
   "author": "Tôi Là Tùng",
+  "category": "system-design",
+  "variables": [
+    {
+      "key": "SYSTEM_PROPOSAL",
+      "label": "Đề xuất kiến trúc / hệ thống cần phản biện",
+      "defaultValue": "Chatbot CSKH gọi trực tiếp OpenAI API từ webhook Zalo, lưu lịch sử hội thoại vào Google Sheets, không có hàng đợi.",
+      "type": "textarea"
+    }
+  ],
   "template": "/boost RED_TEAM_ARCHITECT\n\nHãy kích hoạt tư duy phản biện cao cấp (Adversarial Thinking) và đóng vai trò là Senior Lead SRE & Principal Security Architect.\nMục tiêu của bạn là \"bẻ gãy\" và tìm ra mọi rủi ro tiềm ẩn của thiết kế sau:\n\n\"{{SYSTEM_PROPOSAL}}\"\n\nTIẾN TRÌNH SUY LUẬN 4 GIAI ĐOẠN:\n1. Phân Tích Điểm Nghẽn Đơn Lẻ (Single Point of Failure - SPOF): Hệ thống sẽ gãy đổ như thế nào nếu 1 API bên ngoài (ví dụ: OpenAI, Meta, Resend) bị timeout hoặc trả về lỗi 500?\n2. Đánh Giá Khủng Hoảng Chi Phí (Token Cost Explosion): Có kịch bản nào dẫn đến vòng lặp vô tận (Infinite Loop) hoặc nạp tràn context window gây cháy ngân sách không?\n3. Prompt Injection & Dữ Liệu Độc Hại: Dữ liệu từ người dùng bên ngoài có thể tiêm nhiễm phá vỡ System Directives hay không?\n4. Phương Án Phòng Vệ Tinh Gọn (Hardened Architecture): Đưa ra 3 giải pháp gia cố tối thiểu (Circuit Breaker, Rate Limiter, Sandbox Isolation) với chi phí thấp nhất.",
   "createdAt": "2026-11-02"
 }

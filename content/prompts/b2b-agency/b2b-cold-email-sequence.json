@@ -1,0 +1,55 @@
+{
+  "id": "b2b-cold-email-sequence",
+  "title": "B2B Cold Email Sequence (4 Touchpoints)",
+  "description": "Chuỗi 4 email outbound cá nhân hóa, không spam, tập trung vào insight và một lời kêu gọi duy nhất mỗi email.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Cold Email",
+    "Outbound",
+    "B2B",
+    "Sales",
+    "Copywriting"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "PROSPECT_ROLE",
+      "label": "Chức danh người nhận",
+      "defaultValue": "Giám đốc Marketing",
+      "type": "text"
+    },
+    {
+      "key": "PROSPECT_COMPANY",
+      "label": "Loại công ty người nhận",
+      "defaultValue": "Chuỗi bán lẻ mỹ phẩm 20 cửa hàng",
+      "type": "text"
+    },
+    {
+      "key": "OFFER",
+      "label": "Giải pháp bạn đề xuất",
+      "defaultValue": "Hệ thống đo lường ROAS đa kênh realtime cho Meta + TikTok Ads",
+      "type": "text"
+    },
+    {
+      "key": "PROOF",
+      "label": "Bằng chứng / case study",
+      "defaultValue": "Giảm 31% CPA cho một chuỗi thời trang trong 60 ngày",
+      "type": "textarea"
+    },
+    {
+      "key": "TONE",
+      "label": "Giọng văn",
+      "defaultValue": "Quiet Authority",
+      "type": "select",
+      "options": [
+        "Quiet Authority",
+        "Thân thiện, gần gũi",
+        "Trực diện, ngắn gọn"
+      ]
+    }
+  ],
+  "template": "Đóng vai Senior SDR viết outbound email tiếng Việt cho thị trường B2B.\n\nNGƯỜI NHẬN: {{PROSPECT_ROLE}} tại {{PROSPECT_COMPANY}}\nGIẢI PHÁP: {{OFFER}}\nBẰNG CHỨNG: {{PROOF}}\nGIỌNG VĂN: {{TONE}}\n\nViết chuỗi 4 email:\n- Email 1 (Ngày 1): Mở bằng một insight cụ thể về ngành của họ, không giới thiệu bản thân dài dòng. Tối đa 90 từ.\n- Email 2 (Ngày 3): Chia sẻ case study dưới dạng câu chuyện 3 câu (Trước – Can thiệp – Sau).\n- Email 3 (Ngày 7): Đặt một câu hỏi chẩn đoán giúp họ tự nhận ra vấn đề.\n- Email 4 (Ngày 12): Email \"đóng hồ sơ\" lịch sự, cho phép họ từ chối dễ dàng.\n\nRàng buộc:\n- Mỗi email chỉ một CTA, dạng câu hỏi có/không.\n- Cung cấp 2 phương án subject line < 45 ký tự cho mỗi email.\n- Không dùng các cụm \"Hy vọng anh/chị khỏe\", \"Tôi viết email này để...\".\n- Đánh dấu [CÁ NHÂN HÓA] tại các vị trí cần chèn thông tin riêng của từng prospect.",
+  "createdAt": "2026-11-02"
+}

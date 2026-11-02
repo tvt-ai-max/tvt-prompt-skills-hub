@@ -1,0 +1,31 @@
+{
+  "id": "typescript-strict-migration",
+  "title": "TypeScript Strict Mode Migration Plan",
+  "description": "Lập kế hoạch và sửa code để bật strict mode TypeScript từng bước, loại bỏ any, giữ build xanh.",
+  "category": "coding",
+  "tier": "prompt",
+  "persona": "general",
+  "tags": [
+    "TypeScript",
+    "Type Safety",
+    "Migration",
+    "DX"
+  ],
+  "author": "TVT Intelligence Hub",
+  "variables": [
+    {
+      "key": "CODE",
+      "label": "File / đoạn code cần nâng cấp",
+      "defaultValue": "export function total(items: any) {\n  return items.reduce((s, i) => s + i.price * i.qty, 0)\n}",
+      "type": "textarea"
+    },
+    {
+      "key": "PROJECT_CONTEXT",
+      "label": "Bối cảnh dự án",
+      "defaultValue": "Next.js app 40k dòng, đang tắt strict, nhiều any trong lớp API",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là TypeScript expert. Giúp tôi chuyển dự án sang `\"strict\": true`.\n\nBỐI CẢNH: {{PROJECT_CONTEXT}}\n\nCODE MẪU:\n```ts\n{{CODE}}\n```\n\nYêu cầu:\n1. Kế hoạch migration theo từng flag (noImplicitAny, strictNullChecks, strictFunctionTypes...) — thứ tự và lý do.\n2. Viết lại code mẫu với kiểu chính xác, không dùng `any`, ưu tiên `unknown` + type guard khi cần.\n3. Các pattern thay thế cho any phổ biến (Record, generics, discriminated unions, satisfies).\n4. Cách dùng `// @ts-expect-error` có kiểm soát và script đếm nợ kỹ thuật.\n5. Gợi ý ESLint rules đi kèm để không tái phát.",
+  "createdAt": "2026-11-02"
+}

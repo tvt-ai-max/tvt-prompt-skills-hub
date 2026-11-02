@@ -1,0 +1,50 @@
+{
+  "id": "meta-ads-creative-angles",
+  "title": "Meta Ads Creative Angle Matrix",
+  "description": "Sinh ma trận 9 góc sáng tạo quảng cáo Meta theo mức độ nhận thức khách hàng, kèm hook, primary text và brief hình ảnh.",
+  "category": "marketing",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Meta Ads",
+    "Facebook Ads",
+    "Creative",
+    "Performance",
+    "Hook"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "PRODUCT",
+      "label": "Sản phẩm",
+      "defaultValue": "Khóa học Excel cho dân văn phòng",
+      "type": "text"
+    },
+    {
+      "key": "AUDIENCE",
+      "label": "Tệp khách hàng",
+      "defaultValue": "Nhân viên văn phòng 24–35 tuổi tại Hà Nội và TP.HCM",
+      "type": "text"
+    },
+    {
+      "key": "USP",
+      "label": "Điểm khác biệt chính",
+      "defaultValue": "Học qua 30 bài tập thực tế lấy từ file công ty thật",
+      "type": "text"
+    },
+    {
+      "key": "OBJECTIVE",
+      "label": "Mục tiêu chiến dịch",
+      "defaultValue": "Conversion (Mua hàng)",
+      "type": "select",
+      "options": [
+        "Conversion (Mua hàng)",
+        "Lead Generation",
+        "Messages (Inbox)",
+        "Awareness"
+      ]
+    }
+  ],
+  "template": "Bạn là Performance Creative Strategist quản lý ngân sách Meta Ads 7 con số mỗi tháng.\n\nSẢN PHẨM: {{PRODUCT}}\nTỆP KHÁCH: {{AUDIENCE}}\nUSP: {{USP}}\nMỤC TIÊU: {{OBJECTIVE}}\n\nTạo ma trận 3x3 góc sáng tạo:\n- Trục dọc: Mức nhận thức (Unaware / Problem-aware / Solution-aware).\n- Trục ngang: Động lực (Nỗi đau / Khao khát / Bằng chứng xã hội).\n\nVới mỗi ô (9 ô), cung cấp:\n1. Tên góc (≤ 6 từ)\n2. Hook 3 giây đầu (≤ 12 từ)\n3. Primary text (≤ 125 ký tự)\n4. Headline (≤ 40 ký tự)\n5. Brief hình ảnh/video cho designer (bố cục, chữ trên ảnh, cảm xúc)\n\nCuối cùng: chọn 3 ô nên test đầu tiên với ngân sách nhỏ và giải thích lý do, kèm chỉ số dừng (kill metric) cho từng creative. Tuân thủ chính sách quảng cáo Meta — không cam kết kết quả tuyệt đối.",
+  "createdAt": "2026-11-02"
+}

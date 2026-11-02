@@ -1,0 +1,37 @@
+{
+  "id": "hiring-ai-native-jd",
+  "title": "AI-Native Job Description & Scorecard",
+  "description": "Viết JD cho vị trí làm việc cùng AI: outcome 90 ngày, năng lực cốt lõi, bài test thực tế và scorecard phỏng vấn.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hiring",
+    "HR",
+    "Job Description",
+    "AI Native"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "ROLE",
+      "label": "Vị trí tuyển dụng",
+      "defaultValue": "AI Automation Specialist",
+      "type": "text"
+    },
+    {
+      "key": "COMPANY_CONTEXT",
+      "label": "Bối cảnh công ty",
+      "defaultValue": "Agency 12 người, đang chuyển đổi vận hành bằng n8n + Claude",
+      "type": "textarea"
+    },
+    {
+      "key": "SALARY_RANGE",
+      "label": "Khoảng lương",
+      "defaultValue": "18–28 triệu VNĐ",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Head of Talent cho công ty vận hành AI-native.\n\nVỊ TRÍ: {{ROLE}}\nBỐI CẢNH: {{COMPANY_CONTEXT}}\nLƯƠNG: {{SALARY_RANGE}}\n\nViết:\n1. JD hấp dẫn: sứ mệnh vị trí (2 câu), 3 outcome cụ thể trong 90 ngày đầu, công việc hàng tuần, môi trường làm việc, quyền lợi, lương.\n2. Năng lực cốt lõi: 5 năng lực, mỗi năng lực có mô tả hành vi quan sát được.\n3. Bài test thực tế 3 giờ (có thể dùng AI) — đề bài, tiêu chí chấm.\n4. Scorecard phỏng vấn: 6 câu hỏi hành vi + thang điểm 1–4 với mô tả từng mức.\n5. Red flags cần chú ý.\n\nTránh yêu cầu bằng cấp không cần thiết và các cụm sáo rỗng như \"môi trường năng động\".",
+  "createdAt": "2026-11-02"
+}

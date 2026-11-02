@@ -1,0 +1,37 @@
+{
+  "id": "client-weekly-report",
+  "title": "Agency Client Weekly Report Writer",
+  "description": "Chuyển số liệu thô thành báo cáo tuần cho khách hàng: tóm tắt điều hành, insight, hành động tuần tới — không đổ lỗi, không vòng vo.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "Reporting",
+    "Client Success",
+    "Agency",
+    "Operations"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "CLIENT",
+      "label": "Tên khách hàng",
+      "defaultValue": "Thương hiệu nội thất ABC",
+      "type": "text"
+    },
+    {
+      "key": "RAW_METRICS",
+      "label": "Số liệu thô tuần này",
+      "defaultValue": "Spend: 45tr | Leads: 312 | CPL: 144k (tuần trước 162k) | Tỷ lệ chốt: 8.3%",
+      "type": "textarea"
+    },
+    {
+      "key": "NOTES",
+      "label": "Sự kiện / ghi chú trong tuần",
+      "defaultValue": "Ra mắt bộ creative mới ngày thứ 3; landing page lỗi form 4 giờ ngày thứ 5",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Account Director tại TVT Agency. Viết báo cáo tuần gửi khách hàng {{CLIENT}}.\n\nSỐ LIỆU THÔ:\n{{RAW_METRICS}}\n\nGHI CHÚ TRONG TUẦN:\n{{NOTES}}\n\nCấu trúc báo cáo:\n1. Executive Summary (3 câu): kết quả chính, so với tuần trước, đánh giá tổng thể (Xanh/Vàng/Đỏ).\n2. Bảng KPI: chỉ số – tuần này – tuần trước – % thay đổi – nhận xét 1 dòng.\n3. 3 Insight: mỗi insight gồm Quan sát → Nguyên nhân khả dĩ → Ý nghĩa với kinh doanh.\n4. Sự cố & Xử lý: minh bạch, nêu tác động ước tính và biện pháp phòng ngừa.\n5. Kế hoạch tuần tới: tối đa 4 hành động, mỗi hành động có người phụ trách và chỉ số kỳ vọng.\n6. Cần khách hàng hỗ trợ: liệt kê rõ ràng, có hạn chót.\n\nVăn phong chuyên nghiệp, tự tin, không dùng thuật ngữ khi không cần thiết.",
+  "createdAt": "2026-11-02"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "seo-keyword-cluster-map",
+  "title": "SEO Keyword Cluster & Topic Map",
+  "description": "Gom nhóm từ khóa theo search intent, dựng topic cluster pillar–cluster và kế hoạch internal link 2 chiều.",
+  "category": "seo",
+  "tier": "prompt",
+  "persona": "tvt-agency",
+  "tags": [
+    "SEO",
+    "Keyword Research",
+    "Topic Cluster",
+    "Internal Link"
+  ],
+  "author": "TVT Agency",
+  "variables": [
+    {
+      "key": "SEED_TOPIC",
+      "label": "Chủ đề hạt giống",
+      "defaultValue": "Thiết kế website WordPress cho doanh nghiệp",
+      "type": "text"
+    },
+    {
+      "key": "KEYWORDS",
+      "label": "Danh sách từ khóa thô (tuỳ chọn)",
+      "defaultValue": "thiết kế website wordpress, giá làm web wordpress, theme wordpress doanh nghiệp, wordpress hay code tay",
+      "type": "textarea"
+    },
+    {
+      "key": "MARKET",
+      "label": "Thị trường / ngôn ngữ",
+      "defaultValue": "Việt Nam, tiếng Việt",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là SEO Strategist chuyên kiến trúc nội dung Topic Cluster.\n\nCHỦ ĐỀ HẠT GIỐNG: {{SEED_TOPIC}}\nTỪ KHÓA THÔ: {{KEYWORDS}}\nTHỊ TRƯỜNG: {{MARKET}}\n\nNhiệm vụ:\n1. Mở rộng thành 30–40 từ khóa liên quan (long-tail, câu hỏi, so sánh).\n2. Phân loại theo intent: Informational / Commercial / Transactional / Navigational.\n3. Gom thành 1 Pillar + 6–8 Cluster. Với mỗi cluster: tiêu đề bài đề xuất, từ khóa chính, 3 từ khóa phụ, intent, định dạng (hướng dẫn, so sánh, checklist...).\n4. Sơ đồ internal link: pillar ↔ cluster, cluster ↔ cluster liên quan, anchor text đề xuất.\n5. Thứ tự xuất bản ưu tiên dựa trên khả năng xếp hạng nhanh và giá trị thương mại.\n\nTrình bày bảng Markdown. Không bịa số liệu search volume — nếu cần, ghi \"cần xác minh bằng công cụ\".",
+  "createdAt": "2026-11-02"
+}

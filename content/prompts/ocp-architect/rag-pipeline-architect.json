@@ -1,0 +1,37 @@
+{
+  "id": "rag-pipeline-architect",
+  "title": "RAG Pipeline Architect",
+  "description": "Thiết kế pipeline Retrieval-Augmented Generation: ingest, chunking, embedding, hybrid search, rerank, đánh giá và chống hallucination.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "RAG",
+    "Vector Search",
+    "LLM",
+    "Knowledge Base"
+  ],
+  "author": "Tôi Là Tùng",
+  "variables": [
+    {
+      "key": "KNOWLEDGE_SOURCES",
+      "label": "Nguồn tri thức",
+      "defaultValue": "Google Drive SOP nội bộ (300 file), website 120 bài, FAQ Zalo",
+      "type": "textarea"
+    },
+    {
+      "key": "USERS",
+      "label": "Người dùng hệ thống",
+      "defaultValue": "Nhân viên CSKH mới cần tra cứu chính sách nhanh",
+      "type": "text"
+    },
+    {
+      "key": "CONSTRAINTS",
+      "label": "Ràng buộc",
+      "defaultValue": "Ngân sách < 50 USD/tháng, dữ liệu nhạy cảm không rời VPS",
+      "type": "textarea"
+    }
+  ],
+  "template": "Bạn là Staff ML Engineer chuyên hệ thống RAG production.\n\nNGUỒN TRI THỨC: {{KNOWLEDGE_SOURCES}}\nNGƯỜI DÙNG: {{USERS}}\nRÀNG BUỘC: {{CONSTRAINTS}}\n\nThiết kế:\n1. Ingest & làm sạch: định dạng, tần suất đồng bộ, xử lý trùng lặp, phân quyền tài liệu.\n2. Chunking: chiến lược (theo heading/semantic), kích thước, overlap — lý do chọn.\n3. Embedding & lưu trữ: phương án self-host phù hợp ràng buộc.\n4. Retrieval: hybrid (BM25 + vector), metadata filter, rerank, số chunk đưa vào context.\n5. Generation: system prompt chống bịa, bắt buộc trích dẫn nguồn, trả lời \"không biết\" khi thiếu căn cứ.\n6. Đánh giá: bộ câu hỏi vàng, metric (recall@k, faithfulness, answer relevance), quy trình review hàng tuần.\n7. Sơ đồ kiến trúc Mermaid và ước tính chi phí.",
+  "createdAt": "2026-11-02"
+}
