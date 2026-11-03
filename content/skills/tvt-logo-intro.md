@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Logo Intro", "Bumper", "Brand Identity", "Motion Identity", "Sound Design"]
+tags: ["Video", "Logo Intro", "Bumper", "Brand Identity", "Motion Identity", "Sound Design"]
 inputs:
   - name: brand_logo_svg
     type: string

@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Auto Cut", "Silence Removal", "Word-Level EDL", "Whisper ASR", "Workflow Automation"]
+tags: ["Video", "Auto Cut", "Silence Removal", "Word-Level EDL", "Whisper ASR", "Workflow Automation"]
 inputs:
   - name: raw_footage_path
     type: string

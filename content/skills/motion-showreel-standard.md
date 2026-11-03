@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Showreel", "Design Standards", "Animation Timing", "Easing Curves", "Production Directives"]
+tags: ["Video", "Showreel", "Design Standards", "Animation Timing", "Easing Curves", "Production Directives"]
 inputs:
   - name: project_showcase_list
     type: textarea

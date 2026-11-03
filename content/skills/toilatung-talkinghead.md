@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Talking Head", "Founder Video", "16:9", "Quiet Authority", "DSH Panel", "Loom Bubble"]
+tags: ["Video", "Talking Head", "Founder Video", "16:9", "Quiet Authority", "DSH Panel", "Loom Bubble"]
 inputs:
   - name: talkinghead_topic
     type: string

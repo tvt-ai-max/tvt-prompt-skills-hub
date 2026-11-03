@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Service Promo", "B2B Video", "Agency Delivery", "White Card Clean", "Conversion Video"]
+tags: ["Video", "Service Promo", "B2B Video", "Agency Delivery", "White Card Clean", "Conversion Video"]
 inputs:
   - name: service_name
     type: string

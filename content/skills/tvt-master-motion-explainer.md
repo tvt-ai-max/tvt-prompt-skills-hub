@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Long-Form Explainer", "16:9 Motion Graphics", "Educational Video", "Architecture Diagram", "B2B Tech"]
+tags: ["Video", "Long-Form Explainer", "16:9 Motion Graphics", "Educational Video", "Architecture Diagram", "B2B Tech"]
 inputs:
   - name: course_or_topic_title
     type: string

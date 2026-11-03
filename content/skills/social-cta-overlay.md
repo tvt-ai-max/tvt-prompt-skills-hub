@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["CTA Overlay", "Subscribe Animation", "ProRes 4444", "Alpha Channel", "Conversion"]
+tags: ["Video", "CTA Overlay", "Subscribe Animation", "ProRes 4444", "Alpha Channel", "Conversion"]
 inputs:
   - name: channel_name
     type: string

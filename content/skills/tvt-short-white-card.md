@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["White Card", "B2B Short", "Navy & Orange", "Clean UI", "Brand Consistency"]
+tags: ["Video", "White Card", "B2B Short", "Navy & Orange", "Clean UI", "Brand Consistency"]
 inputs:
   - name: b2b_short_script
     type: textarea

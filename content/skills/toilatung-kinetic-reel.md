@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Kinetic Typography", "Reels", "Mascot", "Audio Alignment", "AI Architecture"]
+tags: ["Video", "Kinetic Typography", "Reels", "Mascot", "Audio Alignment", "AI Architecture"]
 inputs:
   - name: script_content
     type: textarea

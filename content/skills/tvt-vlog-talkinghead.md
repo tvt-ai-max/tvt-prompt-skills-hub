@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Vlog Editing", "Mobile Footage", "Handwriting Typography", "Color Grading LUT", "B-Roll Sync"]
+tags: ["Video", "Vlog Editing", "Mobile Footage", "Handwriting Typography", "Color Grading LUT", "B-Roll Sync"]
 inputs:
   - name: footage_folder_path
     type: string

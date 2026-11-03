@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Video Production", "16:9", "AI Benchmark", "Data Audit", "Motion Graphics", "Quiet Authority"]
+tags: ["Video", "Video Production", "16:9", "AI Benchmark", "Data Audit", "Motion Graphics", "Quiet Authority"]
 inputs:
   - name: benchmark_data
     type: textarea
