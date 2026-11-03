@@ -1,0 +1,35 @@
+name: 🔀 Đề xuất Workflow
+description: Một dây chuyền nhiều bước, đầu ra bước trước làm đầu vào bước sau.
+title: "[Workflow] "
+labels: ["content", "workflow"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Tên workflow
+      placeholder: "Podcast → 10 Shorts → Lịch đăng 2 tuần"
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Độ khó
+      options: [Beginner, Advanced, Enterprise OCP]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Các bước
+      description: "Mỗi bước: Tên | Agent/Bot phụ trách | Model khuyến nghị | Đầu vào (từ người dùng / từ bước nào) | Đầu ra | Quality gate"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Cam kết
+      options:
+        - label: Mọi thao tác tốn tiền hoặc gửi ra ngoài đều dừng ở bước nháp chờ con người duyệt; không có API key trong nội dung.
+          required: true
+        - label: Tôi đồng ý phát hành nội dung này theo giấy phép MIT.
+          required: true

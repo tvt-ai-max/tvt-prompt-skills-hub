@@ -63,3 +63,14 @@ Claude Code: Please execute the milestones below sequentially. After completing 
 - [x] Slim client payload: summaries + on-demand static JSON (`/data/items/[id]`).
 - [x] README: badges, generated Curated Directory Index (`npm run readme`, CI-checked), Vercel button, Docker, static export, topics.
 - [x] CI workflow: validate → README check → tests → tsc → build.
+
+---
+
+## 🔀 MILESTONE 6 (V3): Workflows DAG Engine & 16 AI Workforce Bots
+- [x] `WorkflowItem` / `WorkflowStep` / `WorkflowInput` and `BotItem` types; validators (sequential steps, backward-only edges = acyclic, declared ↔ used variables, every intermediate output consumed, consistent user-input labels, bot links resolve).
+- [x] 5 workflows in `content/workflows/` (B2B Campaign Launcher, YouTube Shorts Factory, SEO/GEO Long-form Dominator, OCP Decision Stress Test, VPS Onboarding Automation).
+- [x] 16 bots in `content/bots/` (Lexi, Scout, Quill, Reel, Pixel, Shield, Bolt, Echo, Metric, North, Ally, Arrow, Buzz, Craft, Crown, Pulse).
+- [x] Workflow Studio: node canvas with data edges, live variable piping simulator, paste-real-output piping, Copy All Sequential Prompts, n8n JSON export, Python CLI export.
+- [x] Bots catalog with department filter, 1-click Copy System Prompt, subagent `.md` download.
+- [x] Navigation `Prompts | Skills | Bots | Workflows`; Boosts folded into Prompts as **Deep Reasoning** (`/boosts` → 308 redirect).
+- [x] SEO: JSON-LD (HowTo for workflows, SoftwareApplication for bots), sitemap, llms.txt, OG images; README index includes Workflows & Bots.

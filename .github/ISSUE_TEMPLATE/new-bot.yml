@@ -1,0 +1,31 @@
+name: 🤖 Đề xuất Bot (AI Workforce persona)
+description: Một agent chuyên trách với system prompt đầy đủ.
+title: "[Bot] "
+labels: ["content", "bot"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Tên & vai trò
+      placeholder: "Ledger — Finance & Unit Economics Analyst"
+    validations:
+      required: true
+  - type: dropdown
+    id: department
+    attributes:
+      label: Phòng ban
+      options: [command, content-video, marketing-seo, crm-automation]
+    validations:
+      required: true
+  - type: textarea
+    id: system_prompt
+    attributes:
+      label: System prompt
+      description: Gồm sứ mệnh, nguyên tắc, quy trình, định dạng đầu ra, ranh giới an toàn và khối HANDOFF.
+      render: markdown
+    validations:
+      required: true
+  - type: input
+    id: models
+    attributes:
+      label: Model khuyến nghị & tools

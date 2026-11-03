@@ -115,3 +115,20 @@ export interface BoostItem {
 ## 4. Performance & Deployment
 - Zero server database latency via build-time static generation (`generateStaticParams`).
 - Edge-ready deployment on Vercel or VPS HestiaCP/Node.js.
+
+---
+
+## 5. V3 Schemas (see `types/hub.ts` for the source of truth)
+
+### 5.1 Workflow (`content/workflows/*.json`)
+```typescript
+interface WorkflowInput { key: string; label: string; source: 'user_input' | 'previous_step'; fromStepId?: string; defaultValue?: string; type?: 'text' | 'textarea' | 'select'; options?: string[] }
+interface WorkflowStep { stepNumber: number; id: string; title: string; agentRole: string; botId?: string; targetModel: string; inputs: WorkflowInput[]; promptTemplate: string; outputFormat: 'markdown' | 'json' | 'image_prompt' | 'code'; qualityGate: string }
+interface WorkflowItem { id: string; slug: string; title: string; summary: string; category: string; difficulty: 'Beginner' | 'Advanced' | 'Enterprise OCP'; estimatedTime: string; estimatedCost: string; persona: Persona; tags: string[]; author: string; createdAt: string; steps: WorkflowStep[] }
+```
+Edges are `previous_step` inputs and may only point to earlier steps, so every workflow is a DAG by construction.
+
+### 5.2 Bot (`content/bots/*.json`)
+```typescript
+interface BotItem { id: string; name: string; role: string; department: 'command' | 'content-video' | 'marketing-seo' | 'crm-automation'; avatar: string; description: string; systemPrompt: string; recommendedModels: string[]; tools: string[]; tags: string[]; author: string; createdAt: string }
+```

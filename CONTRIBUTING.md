@@ -9,7 +9,9 @@ Not ready to open a PR? Use an [issue form](https://github.com/tvt-ai-max/tvt-pr
 |---|---|---|---|
 | **Prompt** | A single, copy-paste instruction with `{{VARIABLES}}` | JSON | `content/prompts/<group>/<id>.json` |
 | **Skill** | A repeatable agent SOP with inputs, tools and quality gates | Markdown + YAML frontmatter | `content/skills/<id>.md` |
-| **Boost** | A meta-prompt / slash command that changes *how* the model reasons | JSON | `content/boosts/<id>.json` |
+| **Deep Reasoning** (boost) | A meta-prompt / slash command that changes *how* the model reasons — listed under Prompts | JSON | `content/boosts/<id>.json` |
+| **Workflow** | A multi-step pipeline whose steps pipe outputs forward | JSON | `content/workflows/<id>.json` |
+| **Bot** | An AI Workforce persona (system prompt) | JSON | `content/bots/<id>.json` |
 
 The schema is defined in [`types/hub.ts`](types/hub.ts) and documented in [`docs/SPEC.md`](docs/SPEC.md).
 
@@ -19,6 +21,8 @@ The schema is defined in [`types/hub.ts`](types/hub.ts) and documented in [`docs
 - **Prompts:** every `{{VAR}}` in `template` must be declared in `variables`, and every declared variable must be used. `select` variables need ≥ 2 `options`.
 - **Skills:** list agent tools/stack in `tools:` (e.g. `ffmpeg`, `web_search`, `read_file`) so they appear in the hub's tool filter. `inputs[].name` matches `[a-zA-Z0-9_]+`; any `{{name}}` inside the SOP body must be one of the inputs; at least one audit gate.
 - **Boosts:** `slashCommand` looks like `/boost UPPER_SNAKE`; `persona` is `tvt-agency` or `toilatung`; at least one `{{VARIABLE}}`.
+- **Workflows:** `stepNumber` is 1, 2, 3… in order; every `{{KEY}}` in a step's `promptTemplate` is declared in that step's `inputs` (and vice versa); a `previous_step` input must point (`fromStepId`) to an **earlier** step — this keeps the graph acyclic; every step except the last must feed a later step; a `user_input` key keeps the same label everywhere; `botId` (optional) must match a file in `content/bots/`.
+- **Bots:** `department` is one of `command`, `content-video`, `marketing-seo`, `crm-automation`; `avatar` is a single emoji; `systemPrompt` is at least 400 characters; `recommendedModels` and `tools` are non-empty.
 - **No secrets.** Content that looks like an API key, token or private key fails validation.
 
 ## 3. Check locally
