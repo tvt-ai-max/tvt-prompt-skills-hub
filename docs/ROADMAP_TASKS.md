@@ -48,3 +48,18 @@ Claude Code: Please execute the milestones below sequentially. After completing 
 - [x] Add LICENSE (MIT).
 - [x] Commit all code with clean, professional commit messages.
 - [x] Summarize achievements and deliver final report.
+
+---
+
+## 🌍 MILESTONE 5 (V2): SEO / GEO, Theme Engine & GitHub Virality
+- [x] Theme engine Dark / Light / System — zero-FOUC inline boot script, `Shift + D`, animated toggle, WCAG AAA text contrast in light mode.
+- [x] JSON-LD: `WebSite` + `SearchAction`, `SoftwareApplication`, `Organization` (home); `TechArticle` + `HowTo` + `FAQPage` + `BreadcrumbList` (items).
+- [x] Canonical URLs, dynamic OpenGraph images (Vietnamese-capable fonts), `sitemap.xml`, `robots.txt` (search + AI bots), `/llms.txt`.
+- [x] Answer-first summary + visible FAQ on every item page.
+- [x] Favorites (pin to top, `localStorage`), tag cloud, agent-tool/stack filter, `?q=` / `?tag=` URL sync.
+- [x] Workbench: Clear all, Direct link with variable params, toasts.
+- [x] Social sharing (X, LinkedIn, Facebook, native share), Contribute dialog, GitHub issue forms + PR template.
+- [x] `/build-in-public` story page.
+- [x] Slim client payload: summaries + on-demand static JSON (`/data/items/[id]`).
+- [x] README: badges, generated Curated Directory Index (`npm run readme`, CI-checked), Vercel button, Docker, static export, topics.
+- [x] CI workflow: validate → README check → tests → tsc → build.
