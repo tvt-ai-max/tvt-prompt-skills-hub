@@ -22,12 +22,12 @@ export function SearchTrigger({ className = 'inline-flex h-10' }: { className?: 
     <button
       type="button"
       onClick={openPalette}
-      className={`focus-ring group items-center gap-2 rounded-lg border border-line bg-surface/80 px-3 text-sm text-muted transition hover:border-neon-cyan/40 hover:text-ink ${className}`}
+      className={`focus-ring group shrink-0 items-center gap-2 rounded-lg border border-line bg-surface/80 px-3 text-sm text-muted transition hover:border-neon-cyan/40 hover:text-ink ${className}`}
       aria-label="Mở command palette tìm kiếm"
     >
-      <Search className="size-4 text-neon-cyan" aria-hidden />
-      <span className="flex-1 text-left">Tìm kiếm…</span>
-      <span className="hidden items-center gap-0.5 sm:inline-flex">
+      <Search className="size-4 shrink-0 text-neon-cyan" aria-hidden />
+      <span className="min-w-0 flex-1 truncate text-left whitespace-nowrap">Tìm kiếm…</span>
+      <span className="hidden shrink-0 items-center gap-0.5 sm:inline-flex">
         <kbd className="kbd">{mac ? '⌘' : 'Ctrl'}</kbd>
         <kbd className="kbd">K</kbd>
       </span>
@@ -46,17 +46,17 @@ export function Navbar() {
   return (
     <header className="glass sticky top-0 z-40 border-b border-line">
       <nav className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6" aria-label="Điều hướng chính">
-        <Link href="/" className="focus-ring flex items-center gap-2.5 rounded-lg">
-          <span className="grid size-9 place-items-center rounded-xl border border-line-strong bg-gradient-to-br from-neon-cyan/25 via-neon-emerald/15 to-neon-violet/25 font-mono text-sm font-bold text-ink">
+        <Link href="/" className="focus-ring flex shrink-0 items-center gap-2.5 rounded-lg whitespace-nowrap">
+          <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-line-strong bg-gradient-to-br from-neon-cyan/25 via-neon-emerald/15 to-neon-violet/25 font-mono text-sm font-bold text-ink">
             T
           </span>
           <span className="leading-tight">
             <span className="text-gradient block text-sm font-bold tracking-tight sm:text-base">TVT Intelligence Hub</span>
-            <span className="hidden text-[11px] text-faint sm:block">Prompt · Skill · Boost</span>
+            <span className="hidden text-[11px] text-faint xl:block">Prompt · Skill · Bot · Workflow</span>
           </span>
         </Link>
 
-        <ul className="ml-4 hidden items-center gap-1 lg:flex">
+        <ul className="hidden shrink-0 items-center gap-0.5 lg:flex xl:ml-2">
           {SECTIONS.map((link) => {
             const Icon = link.Icon;
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -65,7 +65,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                  className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium whitespace-nowrap transition ${
                     active ? 'bg-overlay/[0.06] text-ink' : 'text-muted hover:bg-overlay/[0.04] hover:text-ink'
                   }`}
                 >
@@ -75,11 +75,12 @@ export function Navbar() {
               </li>
             );
           })}
-          <li>
+          <li className="hidden xl:block">
             <Link
               href="/build-in-public"
+              title="Build in Public"
               aria-current={pathname === '/build-in-public' ? 'page' : undefined}
-              className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
+              className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium whitespace-nowrap transition ${
                 pathname === '/build-in-public' ? 'bg-overlay/[0.06] text-ink' : 'text-muted hover:bg-overlay/[0.04] hover:text-ink'
               }`}
             >
@@ -90,13 +91,13 @@ export function Navbar() {
           </li>
         </ul>
 
-        <div className="ml-auto flex items-center gap-2">
-          <SearchTrigger className="hidden h-10 w-40 lg:inline-flex xl:w-56" />
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          <SearchTrigger className="hidden h-10 w-52 xl:inline-flex" />
           <button
             type="button"
             onClick={openPalette}
             aria-label="Tìm kiếm"
-            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink lg:hidden"
+            className="focus-ring grid size-10 shrink-0 place-items-center rounded-lg border border-line text-muted transition hover:text-ink xl:hidden"
           >
             <Search className="size-4" aria-hidden />
           </button>
@@ -105,7 +106,7 @@ export function Navbar() {
             onClick={openContribute}
             aria-label="Đóng góp"
             title="Đóng góp Prompt / Skill / Boost"
-            className="focus-ring hidden h-10 items-center gap-2 rounded-lg border border-neon-emerald/40 bg-neon-emerald/10 px-3 text-sm font-medium text-emerald-200 transition hover:bg-neon-emerald/20 lg:inline-flex"
+            className="focus-ring hidden h-10 shrink-0 items-center gap-2 rounded-lg border border-neon-emerald/40 bg-neon-emerald/10 px-3 text-sm font-medium whitespace-nowrap text-emerald-200 transition hover:bg-neon-emerald/20 lg:inline-flex"
           >
             <GitPullRequest className="size-4" aria-hidden />
             <span className="hidden xl:inline">Đóng góp</span>
@@ -116,18 +117,18 @@ export function Navbar() {
             target="_blank"
             rel="noreferrer"
             aria-label="Star trên GitHub"
-            className="focus-ring hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-sm text-muted transition hover:border-line-strong hover:text-ink sm:inline-flex"
+            className="focus-ring hidden h-10 shrink-0 items-center gap-2 rounded-lg border border-line px-3 text-sm whitespace-nowrap text-muted transition hover:border-line-strong hover:text-ink sm:inline-flex"
           >
             <GithubMark className="size-4" />
             <Star className="size-3.5 text-neon-amber" aria-hidden />
-            <span className="hidden xl:inline">Star</span>
+            <span className="hidden 2xl:inline">Star</span>
           </a>
           <button
             type="button"
             onClick={() => setDrawer(true)}
             aria-label="Mở menu"
             aria-expanded={drawer}
-            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink lg:hidden"
+            className="focus-ring grid size-10 shrink-0 place-items-center rounded-lg border border-line text-muted transition hover:text-ink lg:hidden"
           >
             <Menu className="size-5" aria-hidden />
           </button>
