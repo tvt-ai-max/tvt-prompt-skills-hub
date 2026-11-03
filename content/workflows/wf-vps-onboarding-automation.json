@@ -1,0 +1,188 @@
+{
+  "id": "wf-vps-onboarding-automation",
+  "slug": "vps-onboarding-automation",
+  "title": "VPS Onboarding Automation — HestiaCP, Mail Server & Uptime Monitor",
+  "summary": "Quy trình tiếp nhận khách hàng hosting và kích hoạt hạ tầng: hồ sơ tiếp nhận → kịch bản HestiaCP (web + SSL) → mail server với SPF/DKIM/DMARC → giám sát uptime → cổng bảo mật & bàn giao.",
+  "category": "devops",
+  "difficulty": "Enterprise OCP",
+  "estimatedTime": "30–45 phút (chưa gồm thời gian DNS lan truyền)",
+  "estimatedCost": "≈ 0,2–0,5 USD token / khách hàng (ước tính)",
+  "persona": "tvt-agency",
+  "tags": [
+    "HestiaCP",
+    "VPS",
+    "DevOps",
+    "Mail Server",
+    "Uptime",
+    "Onboarding"
+  ],
+  "author": "TVT Agency",
+  "createdAt": "2026-11-03",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "id": "step-1-intake",
+      "title": "Hồ sơ tiếp nhận khách hàng",
+      "agentRole": "Ally (Customer Success)",
+      "botId": "ally",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "CLIENT_NAME",
+          "label": "Tên khách hàng",
+          "source": "user_input",
+          "defaultValue": "Nha khoa Smile Care",
+          "type": "text"
+        },
+        {
+          "key": "DOMAIN",
+          "label": "Tên miền chính",
+          "source": "user_input",
+          "defaultValue": "smilecare.example.vn",
+          "type": "text"
+        },
+        {
+          "key": "PLAN",
+          "label": "Gói dịch vụ",
+          "source": "user_input",
+          "defaultValue": "Business (3 website, 20 hộp thư)",
+          "type": "select",
+          "options": [
+            "Business (3 website, 20 hộp thư)",
+            "Starter (1 website, 5 hộp thư)",
+            "Enterprise (10 website, 100 hộp thư)"
+          ]
+        },
+        {
+          "key": "MAILBOXES",
+          "label": "Danh sách hộp thư cần tạo",
+          "source": "user_input",
+          "defaultValue": "info, booking, ketoan",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Ally, phụ trách tiếp nhận khách hàng hosting.\n\nKHÁCH HÀNG: {{CLIENT_NAME}}\nTÊN MIỀN: {{DOMAIN}}\nGÓI: {{PLAN}}\nHỘP THƯ: {{MAILBOXES}}\n\nTrả về JSON hồ sơ tiếp nhận:\n{\n  \"client_slug\": string,            // chữ thường, không dấu, dùng làm username HestiaCP\n  \"domain\": string,\n  \"plan\": string,\n  \"mailboxes\": [string],            // địa chỉ đầy đủ\n  \"dns_owner\": \"client\" | \"agency\",\n  \"checklist\": [string],            // các việc cần khách xác nhận (quyền DNS, người liên hệ kỹ thuật…)\n  \"risks\": [string]\n}\nKhông ghi số điện thoại, email cá nhân hay mật khẩu vào hồ sơ.",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ; client_slug chỉ gồm [a-z0-9]; không chứa PII hay mật khẩu; checklist có mục xác nhận quyền quản lý DNS."
+    },
+    {
+      "stepNumber": 2,
+      "id": "step-2-provision",
+      "title": "Kịch bản HestiaCP: user, web, SSL",
+      "agentRole": "Bolt (Automation)",
+      "botId": "bolt",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "INTAKE",
+          "label": "Hồ sơ tiếp nhận (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-intake"
+        },
+        {
+          "key": "SERVER_ALIAS",
+          "label": "Bí danh máy chủ",
+          "source": "user_input",
+          "defaultValue": "vps-sg-01",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Bolt. Viết script bash cho máy chủ \"{{SERVER_ALIAS}}\" (HestiaCP) dựa trên hồ sơ:\n{{INTAKE}}\n\nYêu cầu:\n1. Chế độ mặc định là DRY_RUN=1: chỉ in các lệnh sẽ chạy; chỉ thực thi thật khi DRY_RUN=0.\n2. Tạo user bằng v-add-user với mật khẩu sinh ngẫu nhiên (openssl rand), lưu vào file chỉ root đọc được (chmod 600) — không in ra màn hình.\n3. Thêm web domain (v-add-web-domain) và SSL Let's Encrypt (v-add-letsencrypt-domain) sau khi kiểm tra DNS đã trỏ đúng IP.\n4. set -euo pipefail, log từng bước, và in kế hoạch rollback (v-delete-*) ở cuối.",
+      "outputFormat": "code",
+      "qualityGate": "Mặc định DRY_RUN; không mật khẩu nào được in ra/hard-code; có kiểm tra DNS trước khi xin SSL; có kế hoạch rollback."
+    },
+    {
+      "stepNumber": 3,
+      "id": "step-3-mail",
+      "title": "Mail server & SPF / DKIM / DMARC",
+      "agentRole": "Bolt (Automation)",
+      "botId": "bolt",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "INTAKE",
+          "label": "Hồ sơ tiếp nhận (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-intake"
+        },
+        {
+          "key": "PROVISION_SCRIPT",
+          "label": "Script HestiaCP (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-provision"
+        }
+      ],
+      "promptTemplate": "Tiếp nối script provisioning:\n{{PROVISION_SCRIPT}}\n\nvà hồ sơ khách hàng:\n{{INTAKE}}\n\n1. Bổ sung đoạn script tạo mail domain (v-add-mail-domain) với DKIM và các hộp thư trong hồ sơ (mật khẩu ngẫu nhiên, lưu file chmod 600).\n2. Lập bảng bản ghi DNS khách cần thêm: MX, SPF (TXT), DKIM (TXT, lấy từ v-list-mail-domain-dkim-dns), DMARC (bắt đầu p=none, rua về hộp thư báo cáo).\n3. Lệnh kiểm tra sau khi DNS lan truyền (dig MX/TXT) và kế hoạch nâng DMARC lên quarantine sau 14 ngày.",
+      "outputFormat": "code",
+      "qualityGate": "Đủ MX/SPF/DKIM/DMARC; DMARC khởi đầu p=none; không lộ mật khẩu; có lệnh kiểm tra DNS."
+    },
+    {
+      "stepNumber": 4,
+      "id": "step-4-monitoring",
+      "title": "Cấu hình giám sát uptime",
+      "agentRole": "Pulse (Health Monitor)",
+      "botId": "pulse",
+      "targetModel": "Claude Haiku 5.5",
+      "inputs": [
+        {
+          "key": "INTAKE",
+          "label": "Hồ sơ tiếp nhận (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-intake"
+        },
+        {
+          "key": "PROVISION_SCRIPT",
+          "label": "Script HestiaCP (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-provision"
+        },
+        {
+          "key": "MAIL_SETUP",
+          "label": "Cấu hình mail (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-mail"
+        }
+      ],
+      "promptTemplate": "Bạn là Pulse. Dựa trên hạ tầng vừa tạo:\n- Hồ sơ: {{INTAKE}}\n- Web/SSL: {{PROVISION_SCRIPT}}\n- Mail: {{MAIL_SETUP}}\n\nTrả về JSON cấu hình giám sát:\n{\n  \"monitors\": [{ \"name\": string, \"type\": \"http\" | \"keyword\" | \"ssl_expiry\" | \"port\" | \"dns\", \"target\": string, \"interval_sec\": number, \"alert_threshold\": string }],\n  \"alert_routing\": [{ \"severity\": \"critical\" | \"warning\", \"channel\": \"telegram\" | \"email\", \"recipient_role\": string }],\n  \"weekly_report\": { \"day\": string, \"metrics\": [string] }\n}\nBao gồm: HTTPS trang chủ, từ khóa trên trang, hạn SSL (< 14 ngày), cổng SMTP 587/IMAP 993, bản ghi MX, dung lượng đĩa > 85%.",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ; có đủ 6 loại giám sát yêu cầu; cảnh báo critical đi Telegram; không chứa token bot."
+    },
+    {
+      "stepNumber": 5,
+      "id": "step-5-handover",
+      "title": "Cổng bảo mật & bàn giao khách hàng",
+      "agentRole": "Shield (Quality Gate)",
+      "botId": "shield",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "PROVISION_SCRIPT",
+          "label": "Script HestiaCP (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-provision"
+        },
+        {
+          "key": "MAIL_SETUP",
+          "label": "Cấu hình mail (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-mail"
+        },
+        {
+          "key": "MONITORING",
+          "label": "Cấu hình giám sát (Bước 4)",
+          "source": "previous_step",
+          "fromStepId": "step-4-monitoring"
+        },
+        {
+          "key": "CLIENT_NAME",
+          "label": "Tên khách hàng",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Shield. Rà soát toàn bộ đầu ra trước khi bàn giao cho {{CLIENT_NAME}}:\n\nSCRIPT: {{PROVISION_SCRIPT}}\nMAIL: {{MAIL_SETUP}}\nGIÁM SÁT: {{MONITORING}}\n\n1. Bảng kiểm bảo mật: secret bị lộ, quyền file, DRY_RUN mặc định, SSL, DMARC, firewall/Fail2ban, backup — mỗi mục PASS/FIX.\n2. Quyết định cuối: PASS / FIX / BLOCK.\n3. Nếu PASS: soạn email bàn giao cho khách (không chứa mật khẩu — hướng dẫn nhận thông tin đăng nhập qua password manager), danh sách bản ghi DNS khách cần thêm và lịch kiểm tra 7 ngày đầu.",
+      "outputFormat": "markdown",
+      "qualityGate": "Bảng kiểm đủ 7 mục; email bàn giao không chứa mật khẩu; quyết định PASS chỉ khi không còn mục FIX."
+    }
+  ]
+}

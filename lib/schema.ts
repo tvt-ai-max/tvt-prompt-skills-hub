@@ -3,8 +3,14 @@ import {
   PROMPT_CATEGORIES,
   REASONING_TYPES,
   VARIABLE_TYPES,
+  BOT_DEPARTMENTS,
+  WORKFLOW_DIFFICULTIES,
+  WORKFLOW_INPUT_SOURCES,
+  WORKFLOW_OUTPUT_FORMATS,
+  type BotItem,
   type BoostItem,
   type HubItem,
+  type WorkflowItem,
   type PromptItem,
   type PromptVariable,
   type SkillItem,
@@ -183,4 +189,142 @@ export function checkUniqueIds(items: HubItem[]): string[] {
   const seen = new Map<string, number>();
   for (const item of items) seen.set(item.id, (seen.get(item.id) ?? 0) + 1);
   return [...seen].filter(([, n]) => n > 1).map(([id, n]) => `duplicate id "${id}" used by ${n} items`);
+}
+
+// ───────────────────────────── V3: Workflows & Bots ─────────────────────────────
+
+function checkMeta(raw: Raw, issues: Issues) {
+  requireText(raw, 'author', issues);
+  if (!isStringArray(raw.tags) || raw.tags.length === 0) issues.add(`"tags" must be a non-empty string array`);
+  if (!isString(raw.createdAt) || !DATE_PATTERN.test(raw.createdAt) || Number.isNaN(Date.parse(raw.createdAt))) {
+    issues.add(`"createdAt" must be an ISO date (YYYY-MM-DD)`);
+  }
+}
+
+/**
+ * Workflow = ordered steps forming a DAG. Edges are `previous_step` inputs, which may only point
+ * to EARLIER steps — that single rule makes cycles impossible. Every intermediate output must feed
+ * a later step, and every {{VAR}} must be declared (and vice versa).
+ */
+export function validateWorkflow(raw: Raw, where: string): { item?: WorkflowItem; issues: string[] } {
+  const issues = new Issues(where);
+  requireText(raw, 'id', issues);
+  for (const field of ['id', 'slug'] as const) {
+    if (!isString(raw[field]) || !SLUG_PATTERN.test(raw[field])) issues.add(`"${field}" must be a kebab-case slug`);
+  }
+  for (const field of ['title', 'summary', 'category', 'estimatedTime', 'estimatedCost'] as const) requireText(raw, field, issues);
+  if (!oneOf(raw.difficulty, WORKFLOW_DIFFICULTIES)) issues.add(`"difficulty" must be one of ${WORKFLOW_DIFFICULTIES.join(', ')}`);
+  if (!oneOf(raw.persona, PERSONAS)) issues.add(`"persona" must be one of ${PERSONAS.join(', ')}`);
+  checkMeta(raw, issues);
+
+  if (!Array.isArray(raw.steps) || raw.steps.length < 2) {
+    issues.add(`"steps" must contain at least 2 steps`);
+    return { issues: issues.list };
+  }
+
+  const seenStepIds: string[] = [];
+  const consumed = new Set<string>();
+  const userLabels = new Map<string, string>();
+
+  raw.steps.forEach((value: unknown, index) => {
+    const step = (value ?? {}) as Raw;
+    const at = `steps[${index}]`;
+    if (step.stepNumber !== index + 1) issues.add(`${at}.stepNumber must be ${index + 1} (sequential, 1-based)`);
+    if (!isString(step.id) || !SLUG_PATTERN.test(step.id)) issues.add(`${at}.id must be a kebab-case slug`);
+    else if (seenStepIds.includes(step.id)) issues.add(`${at}.id "${step.id}" is duplicated`);
+    for (const field of ['title', 'agentRole', 'targetModel', 'promptTemplate', 'qualityGate'] as const) {
+      if (!isNonEmpty(step[field])) issues.add(`${at}.${field} must be a non-empty string`);
+    }
+    if (!oneOf(step.outputFormat, WORKFLOW_OUTPUT_FORMATS)) issues.add(`${at}.outputFormat must be one of ${WORKFLOW_OUTPUT_FORMATS.join(', ')}`);
+    if (step.botId !== undefined && (!isString(step.botId) || !SLUG_PATTERN.test(step.botId))) issues.add(`${at}.botId must be a slug`);
+
+    const keys: string[] = [];
+    if (!Array.isArray(step.inputs)) {
+      issues.add(`${at}.inputs must be an array`);
+    } else {
+      step.inputs.forEach((inputValue: unknown, j) => {
+        const input = (inputValue ?? {}) as Raw;
+        const iat = `${at}.inputs[${j}]`;
+        if (!isString(input.key) || !KEY_PATTERN.test(input.key)) return issues.add(`${iat}.key must match ${KEY_PATTERN}`);
+        if (keys.includes(input.key)) issues.add(`${iat}.key "${input.key}" is duplicated in this step`);
+        keys.push(input.key);
+        if (!isNonEmpty(input.label)) issues.add(`${iat}.label must be a non-empty string`);
+        if (!oneOf(input.source, WORKFLOW_INPUT_SOURCES)) issues.add(`${iat}.source must be one of ${WORKFLOW_INPUT_SOURCES.join(', ')}`);
+        if (input.source === 'previous_step') {
+          if (!isString(input.fromStepId)) issues.add(`${iat} (previous_step) needs "fromStepId"`);
+          else if (!seenStepIds.includes(input.fromStepId)) {
+            issues.add(`${iat}.fromStepId "${input.fromStepId}" must reference an earlier step (no forward edges / cycles)`);
+          } else consumed.add(input.fromStepId);
+        } else if (input.source === 'user_input') {
+          if (input.fromStepId !== undefined) issues.add(`${iat} (user_input) must not set "fromStepId"`);
+          if (isString(input.label)) {
+            const previous = userLabels.get(input.key);
+            if (previous !== undefined && previous !== input.label) {
+              issues.add(`${iat}: user input "${input.key}" has label "${input.label}" but an earlier step labels it "${previous}"`);
+            } else userLabels.set(input.key, input.label);
+          }
+        }
+        if (input.type !== undefined && !oneOf(input.type, VARIABLE_TYPES)) issues.add(`${iat}.type must be one of ${VARIABLE_TYPES.join(', ')}`);
+        if (input.type === 'select' && (!isStringArray(input.options) || input.options.length < 2)) {
+          issues.add(`${iat} of type "select" needs at least 2 options`);
+        }
+      });
+    }
+    if (isString(step.promptTemplate)) {
+      const declared = keys.map((key) => ({ key, label: key }));
+      const scoped = new Issues(at);
+      checkVariableSchema(step.promptTemplate, declared, scoped, true);
+      scoped.list.forEach((m) => issues.add(m.slice(where.length + 2)));
+    }
+    if (isString(step.id)) seenStepIds.push(step.id);
+  });
+
+  // Every intermediate output must be piped somewhere downstream.
+  seenStepIds.slice(0, -1).forEach((id) => {
+    if (!consumed.has(id)) issues.add(`step "${id}" output is never used by a later step`);
+  });
+  checkSecrets(raw, issues);
+  return issues.list.length ? { issues: issues.list } : { item: raw as unknown as WorkflowItem, issues: [] };
+}
+
+export const BOT_ID_PATTERN = /^[a-z][a-z0-9-]{1,30}$/;
+const MIN_SYSTEM_PROMPT = 400;
+
+export function validateBot(raw: Raw, where: string): { item?: BotItem; issues: string[] } {
+  const issues = new Issues(where);
+  if (!isString(raw.id) || !BOT_ID_PATTERN.test(raw.id)) issues.add(`"id" must be a short lowercase slug`);
+  for (const field of ['name', 'role', 'avatar', 'description', 'systemPrompt'] as const) requireText(raw, field, issues);
+  if (!oneOf(raw.department, BOT_DEPARTMENTS)) issues.add(`"department" must be one of ${BOT_DEPARTMENTS.join(', ')}`);
+  if (isString(raw.avatar) && [...raw.avatar].length > 4) issues.add(`"avatar" must be a single emoji / short glyph`);
+  if (isString(raw.systemPrompt) && raw.systemPrompt.trim().length < MIN_SYSTEM_PROMPT) {
+    issues.add(`"systemPrompt" is too thin (${raw.systemPrompt.trim().length} chars, minimum ${MIN_SYSTEM_PROMPT})`);
+  }
+  for (const field of ['recommendedModels', 'tools'] as const) {
+    if (!isStringArray(raw[field]) || raw[field].length === 0) issues.add(`"${field}" must be a non-empty string array`);
+  }
+  checkMeta(raw, issues);
+  checkSecrets(raw, issues);
+  return issues.list.length ? { issues: issues.list } : { item: raw as unknown as BotItem, issues: [] };
+}
+
+/** Cross-collection checks: unique ids and every workflow step botId resolves to a bot. */
+export function checkV3Links(workflows: WorkflowItem[], bots: BotItem[]): string[] {
+  const issues: string[] = [];
+  const dup = (ids: string[], label: string) => {
+    const seen = new Set<string>();
+    for (const id of ids) {
+      if (seen.has(id)) issues.push(`duplicate ${label} "${id}"`);
+      seen.add(id);
+    }
+  };
+  dup(workflows.map((w) => w.id), 'workflow id');
+  dup(workflows.map((w) => w.slug), 'workflow slug');
+  dup(bots.map((b) => b.id), 'bot id');
+  const botIds = new Set(bots.map((b) => b.id));
+  for (const wf of workflows) {
+    for (const step of wf.steps) {
+      if (step.botId && !botIds.has(step.botId)) issues.push(`workflow "${wf.id}" step "${step.id}" references unknown bot "${step.botId}"`);
+    }
+  }
+  return issues;
 }
