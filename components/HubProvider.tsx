@@ -7,6 +7,7 @@ import { VariableModal } from '@/components/VariableModal';
 import { ContributeModal } from '@/components/ContributeModal';
 import { ToastProvider } from '@/components/ToastProvider';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { I18nProvider } from '@/components/I18nProvider';
 
 interface HubContextValue {
   items: HubItemSummary[];
@@ -67,6 +68,7 @@ function HubState({ items, entries, children }: { items: HubItemSummary[]; entri
 
 export function HubProvider({ items, entries = [], children }: { items: HubItemSummary[]; entries?: NavEntry[]; children: ReactNode }) {
   return (
+    <I18nProvider>
     <ToastProvider>
       <ThemeProvider>
         <HubState items={items} entries={entries}>
@@ -74,5 +76,6 @@ export function HubProvider({ items, entries = [], children }: { items: HubItemS
         </HubState>
       </ThemeProvider>
     </ToastProvider>
+    </I18nProvider>
   );
 }
