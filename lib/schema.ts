@@ -17,6 +17,7 @@ import {
   type Tier,
 } from '@/types/hub';
 import { extractVariables } from '@/lib/variables';
+import { SPECIALTIES } from '@/lib/personas';
 
 /** Runtime validation that mirrors types/hub.ts. Pure — usable in scripts and at build time. */
 
@@ -27,8 +28,9 @@ export const SLASH_PATTERN = /^\/boost [A-Z0-9_]+$/;
 
 /** Patterns that look like real secrets. Content must never ship these. */
 const SECRET_PATTERNS: [string, RegExp][] = [
-  ['OpenAI key', /sk-(?:proj-)?[A-Za-z0-9_-]{20,}/],
-  ['Anthropic key', /sk-ant-[A-Za-z0-9_-]{20,}/],
+  // Keys start a token: the look-behind avoids false positives inside words such as "risk-management-…".
+  ['OpenAI key', /(?<![A-Za-z0-9])sk-(?:proj-)?[A-Za-z0-9_-]{20,}/],
+  ['Anthropic key', /(?<![A-Za-z0-9])sk-ant-[A-Za-z0-9_-]{20,}/],
   ['AWS access key', /AKIA[0-9A-Z]{16}/],
   ['GitHub token', /gh[pousr]_[A-Za-z0-9]{30,}/],
   ['Google API key', /AIza[0-9A-Za-z_-]{35}/],
@@ -301,6 +303,14 @@ export function validateBot(raw: Raw, where: string): { item?: BotItem; issues: 
   }
   for (const field of ['recommendedModels', 'tools'] as const) {
     if (!isStringArray(raw[field]) || raw[field].length === 0) issues.add(`"${field}" must be a non-empty string array`);
+  }
+  if (raw.tier !== undefined && raw.tier !== 'core' && raw.tier !== 'specialist') issues.add(`"tier" must be "core" or "specialist"`);
+  if (raw.tier === 'specialist') {
+    if (!oneOf(raw.specialty, SPECIALTIES)) issues.add(`specialist "specialty" must be one of ${SPECIALTIES.join(', ')}`);
+    const ci = raw.customInstructions as Raw | undefined;
+    if (!ci || !isNonEmpty(ci.know) || !isNonEmpty(ci.respond)) issues.add(`specialist needs "customInstructions" with non-empty "know" and "respond"`);
+  } else if (raw.specialty !== undefined) {
+    issues.add(`"specialty" is only allowed on specialist bots`);
   }
   checkMeta(raw, issues);
   checkSecrets(raw, issues);
