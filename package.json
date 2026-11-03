@@ -11,9 +11,13 @@
     "typecheck": "tsc --noEmit",
     "validate": "tsx scripts/validate-data.ts",
     "test": "tsx --test lib/*.test.ts",
-    "prebuild": "npm run validate"
+    "prebuild": "npm run validate",
+    "build:static": "NEXT_OUTPUT=export next build",
+    "readme": "tsx scripts/generate-readme-index.ts",
+    "prebuild:static": "npm run validate"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.66.0",

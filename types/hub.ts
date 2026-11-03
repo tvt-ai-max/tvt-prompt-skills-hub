@@ -111,3 +111,23 @@ export interface WorkbenchModel {
 }
 
 export type CopyTarget = 'chat' | 'cursor' | 'skill';
+
+/**
+ * Lightweight card/search model shipped to every page. Full items (templates, SOPs)
+ * are loaded on demand from /data/items/[id] to keep HTML payloads small.
+ */
+export interface HubItemSummary {
+  id: string;
+  title: string;
+  description: string;
+  tier: Tier;
+  persona: Persona;
+  category: string;
+  tags: string[];
+  /** Agent tools / tech stack detected for the item (normalized, display-ready). */
+  stack: string[];
+  slashCommand?: string;
+  variableCount: number;
+  gateCount: number;
+  createdAt: string;
+}

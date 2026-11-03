@@ -1,5 +1,6 @@
 import 'server-only';
-import type { HubItem, HubStats } from '@/types/hub';
+import type { HubItem, HubItemSummary, HubStats } from '@/types/hub';
+import { toSummary } from '@/lib/summary';
 import { loadContent } from '@/lib/loader';
 
 let cache: HubItem[] | undefined;
@@ -25,4 +26,8 @@ export function getStats(items: HubItem[] = getAllItems()): HubStats {
   const skills = items.filter((i) => i.tier === 'skill').length;
   const boosts = items.filter((i) => i.tier === 'boost').length;
   return { prompts, skills, boosts, total: items.length };
+}
+
+export function getAllSummaries(): HubItemSummary[] {
+  return getAllItems().map(toSummary);
 }

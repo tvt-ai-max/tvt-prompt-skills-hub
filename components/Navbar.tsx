@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Menu, Search, Star, X } from 'lucide-react';
+import { GitPullRequest, Menu, Rocket, Search, Star, X } from 'lucide-react';
 import { useHub } from '@/components/HubProvider';
 import { GithubMark, TIER_ICONS, TIER_STYLES } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
 import { REPO_URL } from '@/lib/site';
+import { ThemeSegmented, ThemeToggle } from '@/components/ThemeToggle';
 
 const LINKS = [
   { href: '/prompts', label: 'Prompts', tier: 'prompt' },
@@ -15,8 +16,8 @@ const LINKS = [
   { href: '/boosts', label: 'Boosts', tier: 'boost' },
 ] as const;
 
-/** `className` must include a display utility (e.g. `flex`, `hidden md:inline-flex`). */
-export function SearchTrigger({ className = 'inline-flex' }: { className?: string }) {
+/** `className` must include display + height utilities (e.g. `flex h-12`, `hidden h-10 lg:inline-flex`). */
+export function SearchTrigger({ className = 'inline-flex h-10' }: { className?: string }) {
   const { openPalette } = useHub();
   const [mac, setMac] = useState(true);
   useEffect(() => {
@@ -26,7 +27,7 @@ export function SearchTrigger({ className = 'inline-flex' }: { className?: strin
     <button
       type="button"
       onClick={openPalette}
-      className={`focus-ring group h-10 items-center gap-2 rounded-lg border border-line bg-surface/80 px-3 text-sm text-muted transition hover:border-neon-cyan/40 hover:text-ink ${className}`}
+      className={`focus-ring group items-center gap-2 rounded-lg border border-line bg-surface/80 px-3 text-sm text-muted transition hover:border-neon-cyan/40 hover:text-ink ${className}`}
       aria-label="Mở command palette tìm kiếm"
     >
       <Search className="size-4 text-neon-cyan" aria-hidden />
@@ -41,7 +42,7 @@ export function SearchTrigger({ className = 'inline-flex' }: { className?: strin
 
 export function Navbar() {
   const pathname = usePathname();
-  const { openPalette } = useHub();
+  const { openPalette, openContribute } = useHub();
   const [drawer, setDrawer] = useState(false);
   const drawerRef = useDialog(drawer, () => setDrawer(false));
 
@@ -60,7 +61,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <ul className="ml-4 hidden items-center gap-1 md:flex">
+        <ul className="ml-4 hidden items-center gap-1 lg:flex">
           {LINKS.map((link) => {
             const Icon = TIER_ICONS[link.tier];
             const active = pathname === link.href;
@@ -70,7 +71,7 @@ export function Navbar() {
                   href={link.href}
                   aria-current={active ? 'page' : undefined}
                   className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
-                    active ? 'bg-white/[0.06] text-ink' : 'text-muted hover:bg-white/[0.04] hover:text-ink'
+                    active ? 'bg-overlay/[0.06] text-ink' : 'text-muted hover:bg-overlay/[0.04] hover:text-ink'
                   }`}
                 >
                   <Icon className={`size-4 ${TIER_STYLES[link.tier].text}`} aria-hidden />
@@ -79,34 +80,59 @@ export function Navbar() {
               </li>
             );
           })}
+          <li>
+            <Link
+              href="/build-in-public"
+              aria-current={pathname === '/build-in-public' ? 'page' : undefined}
+              className={`focus-ring inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                pathname === '/build-in-public' ? 'bg-overlay/[0.06] text-ink' : 'text-muted hover:bg-overlay/[0.04] hover:text-ink'
+              }`}
+            >
+              <Rocket className="size-4 text-amber-500" aria-hidden />
+              <span className="hidden xl:inline">Build in Public</span>
+              <span className="xl:hidden">Story</span>
+            </Link>
+          </li>
         </ul>
 
         <div className="ml-auto flex items-center gap-2">
-          <SearchTrigger className="hidden w-56 md:inline-flex" />
+          <SearchTrigger className="hidden h-10 w-40 lg:inline-flex xl:w-56" />
           <button
             type="button"
             onClick={openPalette}
             aria-label="Tìm kiếm"
-            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink md:hidden"
+            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink lg:hidden"
           >
             <Search className="size-4" aria-hidden />
           </button>
+          <button
+            type="button"
+            onClick={openContribute}
+            aria-label="Đóng góp"
+            title="Đóng góp Prompt / Skill / Boost"
+            className="focus-ring hidden h-10 items-center gap-2 rounded-lg border border-neon-emerald/40 bg-neon-emerald/10 px-3 text-sm font-medium text-emerald-200 transition hover:bg-neon-emerald/20 lg:inline-flex"
+          >
+            <GitPullRequest className="size-4" aria-hidden />
+            <span className="hidden xl:inline">Đóng góp</span>
+          </button>
+          <ThemeToggle />
           <a
             href={REPO_URL}
             target="_blank"
             rel="noreferrer"
+            aria-label="Star trên GitHub"
             className="focus-ring hidden h-10 items-center gap-2 rounded-lg border border-line px-3 text-sm text-muted transition hover:border-line-strong hover:text-ink sm:inline-flex"
           >
             <GithubMark className="size-4" />
             <Star className="size-3.5 text-neon-amber" aria-hidden />
-            <span>Star</span>
+            <span className="hidden xl:inline">Star</span>
           </a>
           <button
             type="button"
             onClick={() => setDrawer(true)}
             aria-label="Mở menu"
             aria-expanded={drawer}
-            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink md:hidden"
+            className="focus-ring grid size-10 place-items-center rounded-lg border border-line text-muted transition hover:text-ink lg:hidden"
           >
             <Menu className="size-5" aria-hidden />
           </button>
@@ -114,8 +140,8 @@ export function Navbar() {
       </nav>
 
       {drawer && (
-        <div className="fixed inset-0 z-50 md:hidden" role="presentation">
-          <div className="absolute inset-0 animate-fade-in bg-space-deep/80 backdrop-blur-sm" onClick={() => setDrawer(false)} aria-hidden />
+        <div className="fixed inset-0 z-50 lg:hidden" role="presentation">
+          <div className="absolute inset-0 animate-fade-in bg-scrim backdrop-blur-sm" onClick={() => setDrawer(false)} aria-hidden />
           <div
             ref={drawerRef}
             role="dialog"
@@ -144,7 +170,7 @@ export function Navbar() {
             >
               <Search className="size-4 text-neon-cyan" aria-hidden /> Tìm kiếm…
             </button>
-            <Link href="/" className="focus-ring rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-white/5">
+            <Link href="/" className="focus-ring rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-overlay/5">
               Trang chủ
             </Link>
             {LINKS.map((link) => {
@@ -153,18 +179,40 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="focus-ring inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-white/5"
+                  className="focus-ring inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-overlay/5"
                 >
                   <Icon className={`size-4 ${TIER_STYLES[link.tier].text}`} aria-hidden />
                   {link.label}
                 </Link>
               );
             })}
+            <Link
+              href="/build-in-public"
+              className="focus-ring inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-overlay/5"
+            >
+              <Rocket className="size-4 text-amber-500" aria-hidden />
+              Build in Public
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                setDrawer(false);
+                openContribute();
+              }}
+              className="focus-ring inline-flex items-center gap-2 rounded-lg px-3 py-3 text-left text-sm font-medium text-ink hover:bg-overlay/5"
+            >
+              <GitPullRequest className="size-4 text-emerald-300" aria-hidden />
+              Đóng góp tài nguyên
+            </button>
+            <div className="mt-auto space-y-2">
+              <p className="px-1 text-xs font-semibold tracking-wide text-faint uppercase">Giao diện · Shift + D</p>
+              <ThemeSegmented />
+            </div>
             <a
               href={REPO_URL}
               target="_blank"
               rel="noreferrer"
-              className="focus-ring mt-auto inline-flex items-center gap-2 rounded-lg border border-line px-3 py-3 text-sm text-muted"
+              className="focus-ring inline-flex items-center gap-2 rounded-lg border border-line px-3 py-3 text-sm text-muted"
             >
               <GithubMark className="size-4" /> GitHub repository
             </a>

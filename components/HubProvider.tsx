@@ -1,14 +1,18 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-import type { HubItem } from '@/types/hub';
+import type { HubItemSummary } from '@/types/hub';
 import { CommandPalette } from '@/components/CommandPalette';
 import { VariableModal } from '@/components/VariableModal';
+import { ContributeModal } from '@/components/ContributeModal';
+import { ToastProvider } from '@/components/ToastProvider';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 interface HubContextValue {
-  items: HubItem[];
+  items: HubItemSummary[];
   openItem: (id: string) => void;
   openPalette: () => void;
+  openContribute: () => void;
 }
 
 const HubContext = createContext<HubContextValue | null>(null);
@@ -19,8 +23,9 @@ export function useHub(): HubContextValue {
   return ctx;
 }
 
-export function HubProvider({ items, children }: { items: HubItem[]; children: ReactNode }) {
+function HubState({ items, children }: { items: HubItemSummary[]; children: ReactNode }) {
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [contributeOpen, setContributeOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const openItem = useCallback((id: string) => {
@@ -28,6 +33,7 @@ export function HubProvider({ items, children }: { items: HubItem[]; children: R
     setActiveId(id);
   }, []);
   const openPalette = useCallback(() => setPaletteOpen(true), []);
+  const openContribute = useCallback(() => setContributeOpen(true), []);
 
   // Global Cmd+K / Ctrl+K shortcut (and "/" when not typing).
   useEffect(() => {
@@ -46,14 +52,25 @@ export function HubProvider({ items, children }: { items: HubItem[]; children: R
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
-  const activeItem = useMemo(() => items.find((i) => i.id === activeId) ?? null, [items, activeId]);
-  const value = useMemo(() => ({ items, openItem, openPalette }), [items, openItem, openPalette]);
+  const activeSummary = useMemo(() => items.find((i) => i.id === activeId) ?? null, [items, activeId]);
+  const value = useMemo(() => ({ items, openItem, openPalette, openContribute }), [items, openItem, openPalette, openContribute]);
 
   return (
     <HubContext.Provider value={value}>
       {children}
       <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} items={items} onSelect={openItem} />
-      <VariableModal item={activeItem} onClose={() => setActiveId(null)} />
+      <VariableModal summary={activeSummary} onClose={() => setActiveId(null)} />
+      <ContributeModal open={contributeOpen} onClose={() => setContributeOpen(false)} />
     </HubContext.Provider>
+  );
+}
+
+export function HubProvider({ items, children }: { items: HubItemSummary[]; children: ReactNode }) {
+  return (
+    <ToastProvider>
+      <ThemeProvider>
+        <HubState items={items}>{children}</HubState>
+      </ThemeProvider>
+    </ToastProvider>
   );
 }

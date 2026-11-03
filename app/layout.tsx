@@ -4,7 +4,8 @@ import './globals.css';
 import { HubProvider } from '@/components/HubProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { getAllItems } from '@/lib/content';
+import { getAllSummaries } from '@/lib/content';
+import { THEME_BOOT_SCRIPT } from '@/lib/theme';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site';
 
 const inter = Inter({ subsets: ['latin', 'vietnamese'], variable: '--font-inter', display: 'swap' });
@@ -21,18 +22,31 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0A0F1E',
-  colorScheme: 'dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0A0F1E' },
+    { media: '(prefers-color-scheme: light)', color: '#F8FAFC' },
+  ],
+  colorScheme: 'dark light',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const items = getAllItems();
+  const items = getAllSummaries();
   return (
-    <html lang="vi" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html
+      lang="vi"
+      data-theme="dark"
+      data-theme-pref="dark"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrains.variable}`}
+    >
+      <head>
+        {/* Zero-FOUC: resolve Dark / Light / System before first paint. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+      </head>
       <body className="min-h-dvh font-sans">
         <a
           href="#main"
-          className="sr-only z-[100] rounded-lg bg-neon-cyan px-3 py-2 font-semibold text-space focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-[100] rounded-lg bg-neon-cyan px-3 py-2 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Bỏ qua tới nội dung
         </a>

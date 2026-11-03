@@ -1,13 +1,15 @@
 'use client';
 
-import { useId, useMemo, useState } from 'react';
-import { Bot, Check, Code2, Copy, Eye, FileDown, MessageSquare, RotateCcw, Braces, CircleAlert } from 'lucide-react';
+import { useEffect, useId, useMemo, useState } from 'react';
+import { Bot, Check, Code2, Copy, Eye, FileDown, Link2, MessageSquare, RotateCcw, Braces, CircleAlert, Eraser } from 'lucide-react';
 import type { CopyTarget, HubItem, PromptVariable } from '@/types/hub';
 import { buildWorkbenchModel, initialValues, parseTemplate, unfilledKeys } from '@/lib/variables';
 import { renderMarked, stripMarkers, tokenizePreview } from '@/lib/highlight';
 import { COPY_TARGETS } from '@/lib/exporters';
 import { downloadText } from '@/lib/clipboard';
 import { useCopy } from '@/components/useCopy';
+import { useToast } from '@/components/ToastProvider';
+import { buildDirectLink, parseDirectLink } from '@/lib/share';
 
 const TARGET_ICONS = { chat: MessageSquare, cursor: Code2, skill: Bot } as const;
 const TARGET_ORDER: CopyTarget[] = ['chat', 'cursor', 'skill'];
@@ -58,14 +60,38 @@ function VariableField({
   );
 }
 
-export function VariableWorkbench({ item, compact = false }: { item: HubItem; compact?: boolean }) {
+export function VariableWorkbench({
+  item,
+  compact = false,
+  syncFromUrl = false,
+}: {
+  item: HubItem;
+  compact?: boolean;
+  /** Pre-fill values from `?KEY=value` query params (direct links). */
+  syncFromUrl?: boolean;
+}) {
   const model = useMemo(() => buildWorkbenchModel(item), [item]);
   const defaults = useMemo(() => initialValues(model.variables), [model.variables]);
   const [values, setValues] = useState<Record<string, string>>(defaults);
   const [target, setTarget] = useState<CopyTarget>('chat');
   const [view, setView] = useState<'preview' | 'template'>('preview');
   const { copied, copy } = useCopy();
+  const toast = useToast();
   const baseId = useId();
+
+  useEffect(() => {
+    if (!syncFromUrl) return;
+    const fromUrl = parseDirectLink(window.location.search, model.variables.map((v) => v.key));
+    if (Object.keys(fromUrl).length) {
+      setValues((prev) => ({ ...prev, ...fromUrl }));
+      toast('Đã điền sẵn biến từ link chia sẻ');
+    }
+  }, [syncFromUrl, model.variables, toast]);
+
+  const copyWithToast = async (id: string, text: string, message: string) => {
+    const ok = await copy(id, text);
+    toast(ok ? message : 'Trình duyệt chặn clipboard — hãy copy thủ công');
+  };
 
   const marked = useMemo(() => renderMarked(model.template, values), [model.template, values]);
   const outputs = useMemo(() => {
@@ -103,14 +129,29 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
             Biến ({model.variables.length})
           </h3>
           {model.variables.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setValues(defaults)}
-              className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-white/5 hover:text-ink"
-            >
-              <RotateCcw className="size-3.5" aria-hidden />
-              Mặc định
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setValues(defaults)}
+                title="Khôi phục giá trị mẫu"
+                className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
+              >
+                <RotateCcw className="size-3.5" aria-hidden />
+                Mặc định
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setValues(Object.fromEntries(model.variables.map((v) => [v.key, ''])));
+                  document.getElementById(fieldId(model.variables[0].key))?.focus();
+                }}
+                title="Xóa trắng tất cả để điền lại"
+                className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
+              >
+                <Eraser className="size-3.5" aria-hidden />
+                Xóa trắng
+              </button>
+            </div>
           )}
         </div>
 
@@ -143,7 +184,7 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
       {/* ── Live preview + export ── */}
       <section aria-label="Live preview" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-space-deep/70">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-3 py-2">
-          <div role="tablist" aria-label="Định dạng đầu ra" className="flex rounded-lg bg-white/[0.04] p-0.5">
+          <div role="tablist" aria-label="Định dạng đầu ra" className="flex rounded-lg bg-overlay/[0.04] p-0.5">
             {TARGET_ORDER.map((key) => {
               const Icon = TARGET_ICONS[key];
               const selected = target === key;
@@ -167,7 +208,7 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
           <button
             type="button"
             onClick={() => setView((v) => (v === 'preview' ? 'template' : 'preview'))}
-            className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-white/5 hover:text-ink"
+            className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
             aria-pressed={view === 'template'}
           >
             {view === 'preview' ? <Braces className="size-3.5" aria-hidden /> : <Eye className="size-3.5" aria-hidden />}
@@ -224,19 +265,19 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
           </span>
         </div>
 
-        <div className="grid gap-2 border-t border-line p-3 sm:grid-cols-3">
+        <div className="grid gap-2 border-t border-line p-3 sm:grid-cols-2 xl:grid-cols-4">
           <button
             type="button"
-            onClick={() => copy('chat', outputs.chat.clean)}
+            onClick={() => copyWithToast('chat', outputs.chat.clean, 'Đã copy Markdown cho ChatGPT / Claude')}
             aria-label="Copy cho ChatGPT / Claude"
-            className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-neon-cyan px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-space transition hover:bg-cyan-400"
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-neon-cyan px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-on-accent transition hover:brightness-110"
           >
             {copied === 'chat' ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
             {copied === 'chat' ? 'Đã copy!' : 'ChatGPT / Claude'}
           </button>
           <button
             type="button"
-            onClick={() => copy('cursor', outputs.cursor.clean)}
+            onClick={() => copyWithToast('cursor', outputs.cursor.clean, 'Đã copy .cursorrules')}
             aria-label="Copy cho Cursor / Windsurf (.cursorrules)"
             className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-neon-violet/40 bg-neon-violet/15 px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-violet-100 transition hover:bg-neon-violet/25"
           >
@@ -246,7 +287,10 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
           <div className="flex gap-1">
             <button
               type="button"
-              onClick={() => downloadText(skillFilename, outputs.skill.clean)}
+              onClick={() => {
+                downloadText(skillFilename, outputs.skill.clean);
+                toast(`Đã tải ${skillFilename}`);
+              }}
               aria-label="Export file SKILL.md"
               className="focus-ring inline-flex flex-1 items-center justify-center gap-2 rounded-l-lg border border-neon-emerald/40 bg-neon-emerald/15 px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-emerald-100 transition hover:bg-neon-emerald/25"
             >
@@ -255,7 +299,7 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
             </button>
             <button
               type="button"
-              onClick={() => copy('skill', outputs.skill.clean)}
+              onClick={() => copyWithToast('skill', outputs.skill.clean, 'Đã copy SKILL.md')}
               aria-label="Copy SKILL.md vào clipboard"
               title="Copy SKILL.md"
               className="focus-ring inline-flex items-center justify-center rounded-r-lg border border-neon-emerald/40 bg-neon-emerald/15 px-3 text-emerald-100 transition hover:bg-neon-emerald/25"
@@ -263,6 +307,17 @@ export function VariableWorkbench({ item, compact = false }: { item: HubItem; co
               {copied === 'skill' ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
             </button>
           </div>
+          <button
+            type="button"
+            onClick={() =>
+              copyWithToast('link', buildDirectLink(item.id, values, defaults, window.location.origin), 'Đã copy link kèm giá trị biến')
+            }
+            aria-label="Copy direct link kèm tham số biến"
+            className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-overlay/[0.03] px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-ink transition hover:border-line-strong"
+          >
+            {copied === 'link' ? <Check className="size-4" aria-hidden /> : <Link2 className="size-4" aria-hidden />}
+            Direct link
+          </button>
         </div>
       </section>
     </div>
