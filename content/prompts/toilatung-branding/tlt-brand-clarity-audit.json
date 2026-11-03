@@ -1,0 +1,38 @@
+{
+  "id": "tlt-brand-clarity-audit",
+  "title": "Brand Clarity Audit",
+  "description": "Đánh giá tính rõ ràng của định vị thương hiệu trên homepage và đề xuất cách sửa đổi nhanh trong 3 giây đầu tiên.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NOI_DUNG_TRANG_CHU",
+      "label": "Nội dung trang chủ",
+      "type": "text"
+    },
+    {
+      "key": "CAU_GIOI_THIEU_30S",
+      "label": "Câu giới thiệu 30s",
+      "type": "text"
+    },
+    {
+      "key": "PHAN_UNG_THUONG_GAP",
+      "label": "Phản ứng thường gặp",
+      "type": "text"
+    },
+    {
+      "key": "HINH_MAU_DINH_VI_MONG_MUON",
+      "label": "Hình mẫu định vị mong muốn",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là chuyên gia chẩn đoán thương hiệu (Brand Diagnostician). Hãy tiến hành đánh giá độ rõ ràng (Clarity Audit) của thương hiệu dựa trên dữ liệu dưới đây:\n\nNội dung trang chủ (Homepage copy): {{NOI_DUNG_TRANG_CHU}}\nCâu giới thiệu nhanh 30s của bạn: {{CAU_GIOI_THIEU_30S}}\nPhản ứng thường gặp của khách hàng khi nghe pitch: {{PHAN_UNG_THUONG_GAP}}\nHình mẫu định vị mong muốn: {{HINH_MAU_DINH_VI_MONG_MUON}}\n\nOUTPUT YÊU CẦU:\n\n▸ **SYMPTOM & ROOT CAUSE ANALYSIS**\n- Chẩn đoán nguyên nhân gốc rễ dẫn đến phản ứng tiêu cực của khách hàng. Phân tích xem vấn đề nằm ở Định vị, Thông điệp, Uy tín hay Sự khác biệt.\n\n▸ **THE 3-SECOND TEST (Bài kiểm thử 3 giây)**\nĐọc lướt nội dung homepage và trả lời nhanh 3 câu hỏi với đánh giá Trực quan (Rõ / Mờ / Không rõ):\n1. Đây là sản phẩm dành cho ai?\n2. Sản phẩm giúp họ giải quyết vấn đề gì cụ thể?\n3. Tại sao họ phải chọn bạn thay vì đối thủ?\n\n▸ **CLARITY GAPS (Những khoảng trống thông điệp cần vá)**\n- Chỉ ra các điểm gây nhiễu, mơ hồ hoặc buzzwords sáo rỗng làm giảm tỷ lệ chuyển đổi.\n\n▸ **QUICK WINS (Các điều chỉnh ăn ngay trong 1 tuần)**\n- Đề xuất viết lại Headline/Sub-headline trang chủ theo cấu trúc chuyển đổi chuẩn.\n\n▸ **STRATEGIC FIXES (Kế hoạch tối ưu dài hạn 2-4 tuần)**\n- Các bước tái định vị thông điệp và trải nghiệm trên toàn bộ phễu."
+}

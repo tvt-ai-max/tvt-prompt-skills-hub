@@ -1,0 +1,23 @@
+{
+  "id": "tlt-storyboard-qa-prompt",
+  "title": "Storyboard QA Prompt",
+  "description": "Kiểm tra tính nhất quán và chất lượng bộ storyboard.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SO_LUONG",
+      "label": "Số lượng",
+      "type": "text"
+    }
+  ],
+  "template": "Kiểm tra bộ storyboard gồm {{SO_LUONG}} khung hình này theo các tiêu chí:\n1. Tính nhất quán của nhân vật (Character Consistency).\n2. Sự logic của dòng chảy câu chuyện.\n3. Độ rõ nét của các chi tiết quan trọng.\n4. Font chữ và chú thích đã đồng bộ chưa?"
+}

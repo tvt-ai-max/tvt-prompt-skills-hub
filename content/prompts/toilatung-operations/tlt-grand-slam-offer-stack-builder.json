@@ -1,0 +1,53 @@
+{
+  "id": "tlt-grand-slam-offer-stack-builder",
+  "title": "Grand Slam Offer Stack Builder",
+  "description": "Thiết kế bộ Offer Stack không thể chối từ dựa trên framework Grand Slam Offer của Alex Hormozi.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SAN_PHAM_CHINH",
+      "label": "Sản phẩm chính",
+      "type": "text"
+    },
+    {
+      "key": "DOI_TUONG",
+      "label": "Đối tượng",
+      "type": "text"
+    },
+    {
+      "key": "MUC_GIA_DU_KIEN",
+      "label": "Mức giá dự kiến",
+      "type": "text"
+    },
+    {
+      "key": "CORE",
+      "label": "Core",
+      "type": "text"
+    },
+    {
+      "key": "BONUS_1",
+      "label": "Bonus 1",
+      "type": "text"
+    },
+    {
+      "key": "BONUS_2",
+      "label": "Bonus 2",
+      "type": "text"
+    },
+    {
+      "key": "BONUS_3",
+      "label": "Bonus 3",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy áp dụng framework Grand Slam Offer để xây dựng một \"Offer Stack\" biến sản phẩm dưới đây thành thứ không thể chối từ.\n\nSản phẩm chính (Core Product): {{SAN_PHAM_CHINH}}\nĐối tượng khách hàng: {{DOI_TUONG}}\nMức giá dự kiến: {{MUC_GIA_DU_KIEN}}\n\nHãy thiết kế cấu trúc gồm:\n▸ {{CORE}} Sản phẩm phần mềm/dịch vụ chính.\n▸ {{BONUS_1}} Giải quyết vấn đề phát sinh ngay sau khi dùng core product (VD: Template setup).\n▸ {{BONUS_2}} Rút ngắn thời gian đạt kết quả (VD: Kho tài nguyên/ý tưởng có sẵn).\n▸ {{BONUS_3}} Dịch vụ/Hỗ trợ cao cấp (VD: 1 buổi Review 1-1 hoặc Onboarding call).\n\nYêu cầu: Gán giá trị quy đổi (Value) cho từng thành phần và viết câu tổng giá trị (Total Value) để tạo hiệu ứng tâm lý trị giá cực hời so với giá bán dự kiến."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "tlt-storyboard-split-prompt",
+  "title": "Storyboard Split Prompt",
+  "description": "Tách một ảnh chứa nhiều frame thành các ảnh riêng lẻ.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "The uploaded image contains multiple storyboard frames. \nPlease identify and split each individual frame into separate images. \nMaintain the original aspect ratio of each frame. \nName them Frame_01, Frame_02, etc."
+}

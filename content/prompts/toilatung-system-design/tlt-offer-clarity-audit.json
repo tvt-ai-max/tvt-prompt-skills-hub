@@ -1,0 +1,28 @@
+{
+  "id": "tlt-offer-clarity-audit",
+  "title": "Offer Clarity Audit",
+  "description": "Phân tích trang định giá (Pricing page) để chỉ ra các điểm gây nhầm lẫn làm giảm tỷ lệ chốt sale.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NOI_DUNG_PRICING_PAGE",
+      "label": "Nội dung pricing page",
+      "type": "text"
+    },
+    {
+      "key": "PHAN_HOI_THUONG_GAP_CUA_KHACH",
+      "label": "Phản hồi thường gặp của khách",
+      "type": "text"
+    }
+  ],
+  "template": "Đóng vai chuyên gia tối ưu chuyển đổi. Phân tích pricing page/thông tin gói giá mà tôi cung cấp dưới đây.\n\nNội dung Pricing Page: {{NOI_DUNG_PRICING_PAGE}}\nPhản hồi thường gặp của khách: {{PHAN_HOI_THUONG_GAP_CUA_KHACH}}\n\nHãy:\n1. Chỉ ra 3 điểm gây nhầm lẫn (confusion) khiến khách hàng do dự không dám xuống tiền hoặc chỉ chọn gói rẻ nhất.\n2. Đưa ra chẩn đoán vì sao cấu trúc này đang tự làm giảm tỷ lệ chốt sale."
+}

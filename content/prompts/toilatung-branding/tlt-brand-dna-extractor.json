@@ -1,0 +1,48 @@
+{
+  "id": "tlt-brand-dna-extractor",
+  "title": "Brand DNA Extractor",
+  "description": "Đào sâu vào cốt lõi thương hiệu để xây dựng bản đồ nhận diện 3 lớp (Bề mặt, Cốt lõi, Chiều sâu) và điểm căng thẳng thương hiệu.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_CONG_VIEC",
+      "label": "Mô tả công việc",
+      "type": "text"
+    },
+    {
+      "key": "CAU_CHUYEN_THANH_LAP",
+      "label": "Câu chuyện thành lập",
+      "type": "text"
+    },
+    {
+      "key": "NIEM_TIN_KHAC_BIET",
+      "label": "Niềm tin khác biệt",
+      "type": "text"
+    },
+    {
+      "key": "KHACH_HANG_TOT_NHAT",
+      "label": "Khách hàng tốt nhất",
+      "type": "text"
+    },
+    {
+      "key": "RANH_GIOI_KHONG_PHUC_VU",
+      "label": "Ranh giới không phục vụ",
+      "type": "text"
+    },
+    {
+      "key": "X",
+      "label": "X",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Brand Strategist chuyên xây dựng nền tảng thương hiệu (brand foundation) cho các sản phẩm B2B SaaS và dịch vụ cao cấp.\n\nNhiệm vụ của bạn là trích xuất DNA thương hiệu (Brand DNA) từ các thông tin thô dưới đây và lập ra bản đồ nhận diện 3 lớp:\n\n1. Business của bạn làm gì (1 câu đơn giản nhất): {{MO_TA_CONG_VIEC}}\n2. Bạn bắt đầu vì điều gì (câu chuyện thực tế lập nghiệp): {{CAU_CHUYEN_THANH_LAP}}\n3. Điều bạn TIN mà nhiều người trong ngành KHÔNG tin (controversial belief): {{NIEM_TIN_KHAC_BIET}}\n4. Khách hàng tốt nhất của bạn (mô tả 1 hình mẫu cụ thể): {{KHACH_HANG_TOT_NHAT}}\n5. Điều bạn KHÔNG làm / KHÔNG phục vụ (ranh giới rõ ràng): {{RANH_GIOI_KHONG_PHUC_VU}}\n\nOUTPUT YÊU CẦU:\n\n▸ **LAYER 1 — SURFACE IDENTITY (Tôi làm gì)**\n- Category: Tên ngành/phân khúc thị trường rõ ràng.\n- For: Đối tượng khách hàng cụ thể được nhắm tới.\n- Who: Tuyên bố 1 câu về hình mẫu khách hàng được phục vụ tốt nhất.\n\n▸ **LAYER 2 — CORE IDENTITY (Tôi tin gì)**\n- Belief: 1 câu tuyên bố niềm tin mạnh mẽ (niềm tin có thể gây tranh luận, không thể làm hài lòng tất cả).\n- Methodology: Cách tiếp cận độc đáo khác biệt của bạn so với phần còn lại của thị trường.\n- Anti-belief: Những tư duy, phương pháp phổ biến trong ngành mà bạn từ chối áp dụng.\n\n▸ **LAYER 3 — DEEP IDENTITY (Tôi là ai với khách hàng)**\n- Role: Vai trò thực sự đối với khách hàng (không phải \"nhà cung cấp tool\" mà là Guide, Partner, Coach...).\n- Transformation: Khách hàng sẽ chuyển đổi thành hình mẫu như thế nào sau khi làm việc với bạn.\n- Relationship type: Kiểu quan hệ giao dịch thông thường hay quan hệ đồng hành chiến lược.\n\n▸ **BRAND TENSION (Điểm căng thẳng tạo sự thú vị)**\n- Công thức: \"Bạn là {{X}} nhưng không phải là [Y thông thường trong ngành]\" (Ví dụ: \"Một công cụ quản trị tinh gọn nhưng không hề đơn giản hóa\").\n\n▸ **BRAND DEPLOYMENT NOTE**\n- Gợi ý cách ứng dụng Layer 2, Layer 3 và Brand Tension vào các trang About, Bio, Pitching và Content Marketing."
+}

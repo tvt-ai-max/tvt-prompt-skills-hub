@@ -1,0 +1,28 @@
+{
+  "id": "tlt-icp-pain-mapper",
+  "title": "ICP Pain Mapper",
+  "description": "Lập bản đồ 3 lớp nỗi đau (Bề mặt, Tài chính, Cảm xúc) của ICP để tối ưu hóa offer.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "ICP",
+      "label": "Icp",
+      "type": "text"
+    },
+    {
+      "key": "VAN_DE_THAN_PHIEN_CHINH",
+      "label": "Vấn đề than phiền chính",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy lập bản đồ Nỗi đau (Pain Mapper) cho tập khách hàng mục tiêu sau:\n\nChức danh khách hàng lý tưởng (ICP): {{ICP}}\nVấn đề họ than phiền nhiều nhất: {{VAN_DE_THAN_PHIEN_CHINH}}\n\nYêu cầu phân tích sâu 3 lớp nỗi đau:\n1. Nỗi đau bề mặt (Surface Pain): Những gì họ thấy và mô tả hàng ngày.\n2. Nỗi đau tài chính (Financial Pain): Tác động kinh tế, lãng phí ngân sách hoặc cơ hội.\n3. Nỗi đau cá nhân/cảm xúc (Personal/Emotional Pain): Sự mệt mỏi, lo lắng, hoặc vị thế của họ bị ảnh hưởng thế nào.\n\nTừ đó, hãy đánh giá xem offer hiện tại của tôi (nếu có) đã chạm đến lớp nỗi đau sâu nhất chưa và đề xuất cách điều chỉnh thông điệp."
+}

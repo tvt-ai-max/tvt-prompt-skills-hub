@@ -1,0 +1,17 @@
+{
+  "id": "tlt-prompt-tach-1-canh-trong-anh-3-3",
+  "title": "Prompt tách 1 cảnh trong ảnh 3×3",
+  "description": "Tách riêng từng ảnh từ bộ 3×3 đã tạo.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Nhân vật & Tham chiếu",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Please analyze the uploaded 3x3 grid image containing 9 different angles of the character. Extract and isolate the [SPECIFY ANGLE, e.g., center front view] into a single high-resolution image, maintaining the exact same style, lighting, and details without any background distortion."
+}

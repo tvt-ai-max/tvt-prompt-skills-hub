@@ -1,0 +1,43 @@
+{
+  "id": "tlt-competitive-moat-builder",
+  "title": "Competitive Moat Builder",
+  "description": "Thiết lập và diễn đạt 3 loại hào kỹ nghệ (Knowledge, Network, Commitment) để bảo vệ sản phẩm trước sự sao chép của đối thủ.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "THONG_TIN_DOC_QUYEN",
+      "label": "Thông tin độc quyền",
+      "type": "text"
+    },
+    {
+      "key": "VAN_HANH_KHAC_BIET",
+      "label": "Vận hành khác biệt",
+      "type": "text"
+    },
+    {
+      "key": "CONG_DONG_DU_LIEU",
+      "label": "Cộng đồng/dữ liệu",
+      "type": "text"
+    },
+    {
+      "key": "CAM_KET_DAI_HAN",
+      "label": "Cam kết dài hạn",
+      "type": "text"
+    },
+    {
+      "key": "ICP",
+      "label": "Icp",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là nhà tư vấn chiến lược cạnh tranh (Competitive Strategy Advisor). Hãy giúp tôi xác định và thiết lập 3 loại \"Hào cạnh tranh\" (Moats) khó có thể sao chép nhanh dựa trên thông tin sau:\n\nĐiều tôi đã làm/biết/có mà đối thủ không có: {{THONG_TIN_DOC_QUYEN}}\nCách tôi thiết kế và bàn giao sản phẩm khác đối thủ: {{VAN_HANH_KHAC_BIET}}\nMạng lưới/Cộng đồng/Dữ liệu độc quyền tôi sở hữu: {{CONG_DONG_DU_LIEU}}\nCam kết dài hạn mà đối thủ lớn không muốn làm: {{CAM_KET_DAI_HAN}}\n\nOUTPUT YÊU CẦU:\n\n▸ **MOAT 1 — KNOWLEDGE MOAT (Hào tri thức - Bạn biết gì họ không biết)**\n- Trích xuất Insight độc quyền, nguồn gốc uy tín và cách communicate thông điệp này đến khách hàng.\n\n▸ **MOAT 2 — NETWORK MOAT (Hào mạng lưới - Bạn kết nối với ai họ không thể)**\n- Xác định giá trị độc bản của mạng lưới cộng đồng/đối tác đối với khách hàng và cách bảo vệ hào mạng lưới này ngày càng sâu rộng.\n\n▸ **MOAT 3 — COMMITMENT MOAT (Hào cam kết - Bạn dám làm gì họ từ chối)**\n- Nêu rõ cam kết tập trung ngách sâu (Niche commitment) mà các đối thủ lớn thường bỏ qua vì rào cản chi phí cơ hội.\n\n▸ **MOAT STATEMENT (Tuyên bố hào phòng thủ cạnh tranh)**\n- Đúc kết thành một câu tuyên bố duy nhất theo cấu trúc: \"[Tên brand] là sự lựa chọn duy nhất dành cho {{ICP}} bởi vì...\" kết hợp nhuần nhuyễn cả 3 loại hào trên."
+}

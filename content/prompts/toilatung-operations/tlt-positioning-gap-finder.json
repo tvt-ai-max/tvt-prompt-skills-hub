@@ -1,0 +1,38 @@
+{
+  "id": "tlt-positioning-gap-finder",
+  "title": "Positioning Gap Finder",
+  "description": "Xác định khoảng trống định vị giữa tự cảm nhận và thị trường thực tế, vẽ ma trận so sánh đối thủ.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Phân tích & Remake",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DINH_VI_MONG_MUON",
+      "label": "Định vị mong muốn",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_THUC_TE_CUA_KHACH",
+      "label": "Mô tả thực tế của khách",
+      "type": "text"
+    },
+    {
+      "key": "DINH_VI_CUA_DOI_THU",
+      "label": "Định vị của đối thủ",
+      "type": "text"
+    },
+    {
+      "key": "NGU_CANH_TRANH",
+      "label": "Ngữ cạnh tranh",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Positioning Analyst. Hãy phân tích \"Khoảng trống định vị\" (Positioning Gap) dựa trên các dữ liệu đầu vào sau:\n\nCách bạn muốn được định vị (Ideal): {{DINH_VI_MONG_MUON}}\nCách khách hàng thực tế mô tả bạn (Actual): {{MO_TA_THUC_TE_CUA_KHACH}}\nCách các đối thủ chính đang định vị: {{DINH_VI_CUA_DOI_THU}}\nNgữ cảnh cạnh tranh trực tiếp nhất: {{NGU_CANH_TRANH}}\n\nOUTPUT YÊU CẦU:\n\n▸ **PERCEPTION DELTA (Độ lệch cảm nhận)**\n- Phân tích sự khác biệt giữa kỳ vọng của bạn và thực tế thị trường cảm nhận. Chỉ ra lý do tại sao có khoảng trống này.\n\n▸ **COMPETITIVE POSITIONING MAP (Bản đồ định vị cạnh tranh)**\n- Phác họa ma trận định vị dưới dạng văn bản (sử dụng 2 trục: Đơn giản ↔ Phức tạp / Đa năng ↔ Chuyên biệt) để định vị rõ vị trí của đối thủ, của bạn hiện tại và vùng \"White Space\" chưa ai chiếm lĩnh.\n\n▸ **WHITE SPACE ANALYSIS (Phân tích vùng trống cơ hội)**\n- Chỉ ra ít nhất 2 vùng trống thị trường (White Space) tiềm năng nhất mà bạn có năng lực nhảy vào chiếm lĩnh nhờ lợi thế cốt lõi.\n\n▸ **REPOSITIONING OPTIONS (Các phương án tái định vị)**\n- Đề xuất Option An toàn (ít rủi ro) và Option Đột phá (tạo game mới) kèm theo phân tích Ưu/Nhược điểm của từng phương án."
+}

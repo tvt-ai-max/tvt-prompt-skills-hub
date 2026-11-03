@@ -1,0 +1,28 @@
+{
+  "id": "tlt-15-minute-premium-sales-script",
+  "title": "15-Minute Premium Sales Script",
+  "description": "Xây dựng kịch bản chốt sale 15 phút qua điện thoại/Zoom theo quy trình Khám phá, Đóng khung và Xử lý từ chối giá cao.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_PREMIUM_OFFER",
+      "label": "Tên premium offer",
+      "type": "text"
+    },
+    {
+      "key": "MUC_GIA",
+      "label": "Mức giá",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy viết một kịch bản chốt sale (Sales Script) dài 15 phút (qua Zoom hoặc điện thoại) để bán gói dịch vụ Premium sau:\n\nTên Premium Offer: {{TEN_PREMIUM_OFFER}}\nMức giá: {{MUC_GIA}}\n\nYêu cầu xây dựng kịch bản chi tiết theo cấu trúc 4 phần:\n1. Khám phá (Discovery) - Đặt các câu hỏi thông minh để khơi gợi và tìm ra nỗi đau/vấn đề lớn nhất của khách hàng.\n2. Đóng khung (Reframing) - Chuyển đổi tư duy của khách hàng từ \"mua một công cụ/dịch vụ tốn tiền\" sang \"đầu tư giải pháp mang lại ROI\".\n3. Trình bày Offer (Pitching) - Tập trung hoàn toàn vào kết quả cuối cùng họ sẽ nhận được, loại bỏ việc liệt kê tính năng kỹ thuật khô khan.\n4. Xử lý từ chối giá cao (Objection Handling) - Soạn sẵn 3 kịch bản ứng phó khi khách hàng nói: \"Giá cao quá\", \"Để tôi suy nghĩ thêm\", hoặc \"So với bên khác thì...\"."
+}

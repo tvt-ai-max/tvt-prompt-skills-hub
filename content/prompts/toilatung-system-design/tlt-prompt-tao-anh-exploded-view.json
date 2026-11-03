@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-tao-anh-exploded-view",
+  "title": "Prompt tạo ảnh exploded-view",
+  "description": "Tạo ảnh tháo rời chi tiết linh kiện công nghệ cao cấp.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Ảnh Kỹ thuật",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "PRODUCT_NAME",
+      "label": "Product name",
+      "type": "text"
+    }
+  ],
+  "template": "Highly detailed exploded-view technical illustration of a {{PRODUCT_NAME}}, floating mechanical parts suspended in mid-air, separated components showing internal circuitry and gears, hyperrealistic 3d render, blueprint aesthetics, clean neutral background, 8k resolution, studio lighting, industrial design visualization."
+}

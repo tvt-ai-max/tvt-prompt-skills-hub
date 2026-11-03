@@ -1,0 +1,43 @@
+{
+  "id": "tlt-messaging-architecture-builder",
+  "title": "Messaging Architecture Builder",
+  "description": "Xây dựng kiến trúc thông điệp 3 tầng (Brand, Product, Feature) nhất quán trên mọi điểm chạm.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TUYEN_NGON_DINH_VI",
+      "label": "Tuyên ngôn định vị",
+      "type": "text"
+    },
+    {
+      "key": "TOP_3_TINH_NANG",
+      "label": "Top 3 tính năng",
+      "type": "text"
+    },
+    {
+      "key": "KET_QUA_OUTCOME",
+      "label": "Kết quả/outcome",
+      "type": "text"
+    },
+    {
+      "key": "TOUCHPOINT",
+      "label": "Touchpoint",
+      "type": "text"
+    },
+    {
+      "key": "TOUCHPOINT_DA_CHON",
+      "label": "Touchpoint đã chọn",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Message Architect chuyên về B2B SaaS. Hãy xây dựng một hệ thống kiến trúc thông điệp (Messaging Architecture) 3 tầng nhất quán và tương hỗ lẫn nhau dựa trên thông tin sau:\n\nTuyên ngôn định vị: {{TUYEN_NGON_DINH_VI}}\nTop 3 tính năng/deliverables cốt lõi: {{TOP_3_TINH_NANG}}\nKết quả lớn nhất khách hàng đạt được (Outcome): {{KET_QUA_OUTCOME}}\nĐiểm chạm (Touchpoint) quan trọng nhất hiện tại cần tối ưu: {{TOUCHPOINT}}\n\nOUTPUT YÊU CẦU:\n\n▸ **TẦNG 1 — BRAND MESSAGE (Tại sao chúng tôi tồn tại)**\n- Core Message: 1 thông điệp cốt lõi dạng niềm tin (belief), không nói về tính năng.\n- Tone: 3 tính từ đặc tả cách thương hiệu trò chuyện.\n- Anti-tone: 3 sắc thái giao tiếp mà thương hiệu tuyệt đối không bao giờ sử dụng.\n\n▸ **TẦNG 2 — PRODUCT MESSAGE (Chúng tôi làm gì và cho ai)**\n- Primary Message: 1 câu định vị giá trị sản phẩm tập trung vào outcome.\n- Support Message 1 & 2: Các thông điệp phụ bổ trợ và làm rõ cho Primary Message.\n- Proof Point: 1 bằng chứng xác thực cụ thể (số liệu, case study, quote của khách hàng).\n\n▸ **TẦNG 3 — FEATURE MESSAGE (Cụ thể chúng tôi giải quyết thế nào)**\n- Áp dụng kỹ thuật chuyển dịch từ tính năng sang outcome cho 3 tính năng cốt lõi đã cung cấp.\n\n▸ **ÁP DỤNG THỰC TẾ VÀO {{TOUCHPOINT_DA_CHON}}**\n- Viết chi tiết Headline, Sub-headline, Body Copy và nút CTA ứng dụng kiến trúc thông điệp ở trên."
+}

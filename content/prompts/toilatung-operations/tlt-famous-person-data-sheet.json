@@ -1,0 +1,23 @@
+{
+  "id": "tlt-famous-person-data-sheet",
+  "title": "Famous Person Data Sheet",
+  "description": "Chuẩn bị dữ liệu nhân vật trước khi tạo ảnh.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Phân tích & Remake",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_NHAN_VAT",
+      "label": "Tên nhân vật",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy tổng hợp dữ liệu cho nhân vật {{TEN_NHAN_VAT}} theo cấu trúc sau:\n1. Tên đầy đủ: \n2. Lĩnh vực nổi bật:\n3. Một câu quote kinh điển:\n4. 3 mốc thời gian quan trọng:\n5. Màu sắc đại diện phong cách:\nDữ liệu này sẽ được dùng để làm input cho AI Image Generator."
+}

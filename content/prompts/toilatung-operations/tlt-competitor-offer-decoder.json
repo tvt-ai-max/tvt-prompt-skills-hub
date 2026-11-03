@@ -1,0 +1,33 @@
+{
+  "id": "tlt-competitor-offer-decoder",
+  "title": "Competitor Offer Decoder",
+  "description": "Giải mã và tìm lỗ hổng trong offer của đối thủ để thiết kế offer vượt trội.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Phân tích & Remake",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SAN_PHAM_CUA_TOI",
+      "label": "Sản phẩm của tôi",
+      "type": "text"
+    },
+    {
+      "key": "DOI_THU_CHINH",
+      "label": "Đối thủ chính",
+      "type": "text"
+    },
+    {
+      "key": "DIEM_YEU_CUA_DOI_THU",
+      "label": "Điểm yếu của đối thủ",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai một chuyên gia phân tích chiến lược cạnh tranh. Dựa trên thông tin dưới đây:\n\nSản phẩm của tôi: {{SAN_PHAM_CUA_TOI}}\nĐối thủ chính: {{DOI_THU_CHINH}}\nĐiểm yếu của đối thủ: {{DIEM_YEU_CUA_DOI_THU}}\n\nHãy:\n1. Giải mã cách đối thủ đang đóng gói sản phẩm.\n2. Chỉ ra những \"khoảng trống\" trong offer của họ (ví dụ: thiếu dịch vụ onboarding, thiếu template chuyên ngành).\n3. Đề xuất 3 cách đóng gói offer của tôi nhằm \"vô hiệu hóa\" lợi thế cạnh tranh của đối thủ mà không cần đua về giá."
+}

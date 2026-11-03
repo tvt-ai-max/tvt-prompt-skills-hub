@@ -1,0 +1,43 @@
+{
+  "id": "tlt-premium-signal-audit",
+  "title": "Premium Signal Audit",
+  "description": "Đánh giá 10 vi tín hiệu (micro-signals) cao cấp trên Website, LinkedIn và quy trình Onboarding để tăng độ uy tín.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NOI_DUNG_WEBSITE",
+      "label": "Nội dung website",
+      "type": "text"
+    },
+    {
+      "key": "NOI_DUNG_LINKEDIN",
+      "label": "Nội dung linkedin",
+      "type": "text"
+    },
+    {
+      "key": "VAN_BAN_EMAIL",
+      "label": "Văn bản email",
+      "type": "text"
+    },
+    {
+      "key": "QUY_TRINH_ONBOARDING",
+      "label": "Quy trình onboarding",
+      "type": "text"
+    },
+    {
+      "key": "X",
+      "label": "X",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Chuyên gia Đánh giá Thương hiệu Cao cấp (Premium Brand Auditor). Hãy tiến hành rà soát 10 \"vi tín hiệu\" (micro-signals) mà khách hàng thường dùng để đánh giá ngầm độ uy tín của thương hiệu trước khi họ đọc kỹ nội dung chi tiết:\n\nNội dung Website chính: {{NOI_DUNG_WEBSITE}}\nMô tả LinkedIn cá nhân/công ty: {{NOI_DUNG_LINKEDIN}}\nMẫu email bán hàng/Outreach gần nhất: {{VAN_BAN_EMAIL}}\nQuy trình chào đón và Onboarding khách hàng mới: {{QUY_TRINH_ONBOARDING}}\n\nOUTPUT YÊU CẦU ĐÁNH GIÁ 10 TÍN HIỆU PREMIUM:\nĐánh giá chi tiết từng tín hiệu sau theo 3 mức độ: ✅ Đạt / ⚠️ Cần cải thiện / ❌ Chưa có kèm theo nhận xét và giải pháp cụ thể:\n1. Độ rõ ràng của định vị (Website)\n2. Độ chi tiết và chính xác của tập khách hàng mục tiêu\n3. Chất lượng của các bằng chứng xã hội (Social Proof)\n4. Sự nhất quán về giọng nói thương hiệu trên các điểm chạm\n5. Trải nghiệm chào đón khách hàng trong 48 giờ đầu tiên (Onboarding)\n6. Tốc độ và chất lượng phản hồi hỗ trợ\n7. Sự nhất quán trong phong cách thiết kế hình ảnh\n8. Độ sâu chuyên môn của các nội dung chia sẻ (Thought Leadership)\n9. Sự tự tin trong trang bảng giá (Pricing page layout)\n10. Độ phủ và uy tín của nhà sáng lập (Founder Authority)\n\n▸ **KẾT LUẬN & ĐIỂM SỐ PREMIUM SCORE: {{X}}/10**\n- Liệt kê danh sách các hạng mục cần fix ngay lập tức (trong tuần này), các hạng mục fix trong tháng này và kế hoạch điều chỉnh chiến lược lâu dài."
+}

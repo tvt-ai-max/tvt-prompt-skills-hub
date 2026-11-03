@@ -1,0 +1,38 @@
+{
+  "id": "tlt-about-page-copy-generator",
+  "title": "About Page Copy Generator",
+  "description": "Soạn thảo toàn bộ trang About Page theo cấu trúc 5 phần giúp xây dựng uy tín câu chuyện sáng lập và chuyển đổi.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "AUTHORITY_NARRATIVE",
+      "label": "Authority narrative",
+      "type": "text"
+    },
+    {
+      "key": "SU_MENH_COT_LOI",
+      "label": "Sứ mệnh cốt lõi",
+      "type": "text"
+    },
+    {
+      "key": "THANH_TUU_SO_LIEU",
+      "label": "Thành tựu/số liệu",
+      "type": "text"
+    },
+    {
+      "key": "GIONG_DIEU",
+      "label": "Giọng điệu",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là một chuyên gia Conversion Copywriter. Hãy viết toàn bộ nội dung trang Giới thiệu (About Page) hoàn chỉnh cho website B2B SaaS/Dịch vụ dựa trên các dữ liệu đầu vào sau:\n\nAuthority Narrative (Câu chuyện uy tín sáng lập): {{AUTHORITY_NARRATIVE}}\nSứ mệnh cốt lõi (Mission Statement): {{SU_MENH_COT_LOI}}\nCột mốc thành tựu & số liệu thực tế: {{THANH_TUU_SO_LIEU}}\nGiọng điệu thương hiệu (Brand Tone): {{GIONG_DIEU}}\n\nOUTPUT YÊU CẦU SOẠN THẢO CHI TIẾT THEO 5 PHẦN:\n\n▸ **PHẦN 1 — HOOK (Mở đầu cuốn hút - 2-3 câu)**\n- Bắt đầu trực tiếp bằng một thực tế gây bất ngờ hoặc đi ngược đám đông liên quan đến ngành, tuyệt đối không dùng lối mở đầu sáo rỗng \"Chúng tôi là ai...\".\n\n▸ **PHẦN 2 — THE PROBLEM WE SOLVE (Vấn đề giải quyết - 1 đoạn ngắn)**\n- Khắc họa chân thực nỗi đau lớn nhất của khách hàng bằng chính ngôn từ thực tế của họ.\n\n▸ **PHẦN 3 — OUR STORY (Câu chuyện của chúng tôi - 2 đoạn)**\n- Đoạn 1 mô tả hoàn cảnh khó khăn và động lực thực sự để sáng lập thương hiệu.\n- Đoạn 2 chia sẻ bước ngoặt tìm ra giải pháp và lý do giải pháp này khác biệt so với thị trường.\n\n▸ **PHẦN 4 — CREDIBILITY (Bằng chứng uy tín - 3-4 dòng gạch đầu dòng)**\n- Liệt kê các số liệu thực chứng, thành tựu hoặc kết quả cụ thể đã chứng minh được.\n\n▸ **PHẦN 5 — CALL TO ACTION (Kêu gọi hành động - 1-2 câu)**\n- Đưa ra lời kêu gọi hành động (CTA) và văn bản nút bấm (Button Text) nhất quán với giọng điệu, tập trung vào kết quả chuyển đổi mong muốn của người dùng."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "tlt-phan-tich-doi-thu-canh-tranh-360",
+  "title": "Phân Tích Đối Thủ Cạnh Tranh 360°",
+  "description": "Framework toàn diện phân tích đối thủ: Positioning, giá, kênh, điểm yếu và cơ hội phản công.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / ChatGPT / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_NGAN_VE_SAN_PHAM_DICH_VU_CUA_BAN",
+      "label": "Mô tả ngắn về sản phẩm/dịch vụ của bạn",
+      "type": "text"
+    }
+  ],
+  "template": "Đóng vai một Business Strategist và Market Intelligence Analyst.\n\nTôi cần phân tích đối thủ cạnh tranh cho doanh nghiệp của tôi:\n- Doanh nghiệp của tôi: {{MO_TA_NGAN_VE_SAN_PHAM_DICH_VU_CUA_BAN}}\n- Đối thủ cần phân tích: [TÊN + WEBSITE ĐỐI THỦ]\n\nPhân tích theo 7 chiều:\n\n1. POSITIONING (Định vị): Họ đang tự định vị là ai? Thông điệp chính là gì?\n2. SẢN PHẨM/DỊCH VỤ: Những gì họ cung cấp, so sánh với mình\n3. GIÁ CẢ: Mô hình định giá, phân khúc nhắm đến\n4. KÊNH PHÂN PHỐI & MARKETING: Họ đang dùng kênh nào? Tần suất? Nội dung như thế nào?\n5. ĐIỂM MẠNH: Tại sao khách hàng chọn họ?\n6. ĐIỂM YẾU & LỖ HỔNG: Những gì họ làm chưa tốt, review tiêu cực\n7. CƠ HỘI PHẢN CÔNG: 3 hướng tôi có thể chiếm lĩnh thị phần từ họ\n\nOutput cuối: Ma trận SWOT + Top 3 khuyến nghị chiến lược cụ thể có thể thực thi ngay."
+}

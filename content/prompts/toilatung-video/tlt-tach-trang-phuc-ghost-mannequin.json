@@ -1,0 +1,18 @@
+{
+  "id": "tlt-tach-trang-phuc-ghost-mannequin",
+  "title": "Tách Trang Phục (Ghost Mannequin)",
+  "description": "Tách quần áo sang nền trắng để thay đồ cho Model.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video Master",
+    "Nano Banana / Midjourney",
+    "toilatung.com",
+    "Master Prompt"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Analyze the clothing worn in the uploaded reference image. Extract the exact outfit and generate a new image featuring ONLY these garments isolated on a pure, solid white background. Present the clothing using a high-end 'flat lay' or 'ghost mannequin' product photography style. Replicate the exact fabric textures, colors, patterns, cuts, and folds from the original image. Absolutely no human body parts, no head, no shadows casting from a wearer, and no background scenery. Clean, minimalist, hyper-detailed, 8K resolution, studio lighting."
+}

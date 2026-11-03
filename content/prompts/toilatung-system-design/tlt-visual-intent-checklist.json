@@ -1,0 +1,23 @@
+{
+  "id": "tlt-visual-intent-checklist",
+  "title": "Visual Intent Checklist",
+  "description": "Xác định mục tiêu hình ảnh trước khi viết prompt.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Master Prompt",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MUC_DICH",
+      "label": "Mục đích",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai một chuyên gia Visual Communication. Tôi muốn tạo một hình ảnh AI cho {{MUC_DICH}}. \nHãy giúp tôi trả lời checklist sau để chuẩn bị dữ liệu:\n1. Đối tượng xem ảnh là ai?\n2. Thông điệp chính là gì?\n3. Cảm xúc chủ đạo (Mood & Tone)?\n4. Tỷ lệ khung hình (Aspect Ratio)?\n5. Các thành phần bắt buộc phải có?"
+}

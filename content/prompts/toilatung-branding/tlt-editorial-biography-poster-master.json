@@ -1,0 +1,48 @@
+{
+  "id": "tlt-editorial-biography-poster-master",
+  "title": "Editorial Biography Poster Master",
+  "description": "Prompt toàn năng tạo poster tiểu sử nhân vật.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Master Prompt",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MASTER_PROMPT_V2",
+      "label": "Master prompt v2",
+      "type": "text"
+    },
+    {
+      "key": "TEN_NHAN_VAT",
+      "label": "Tên nhân vật",
+      "type": "text"
+    },
+    {
+      "key": "HEADLINE_PHU",
+      "label": "Headline phụ",
+      "type": "text"
+    },
+    {
+      "key": "TIMELINE",
+      "label": "Timeline",
+      "type": "text"
+    },
+    {
+      "key": "QUOTE",
+      "label": "Quote",
+      "type": "text"
+    },
+    {
+      "key": "TY_LE",
+      "label": "Tỷ lệ",
+      "type": "text"
+    }
+  ],
+  "template": "{{MASTER_PROMPT_V2}}\nCreate a premium biography poster for {{TEN_NHAN_VAT}}.\nLayout Structure:\n- Central: High-quality portrait of {{TEN_NHAN_VAT}}.\n- Left Block: Brief biography and \"{{HEADLINE_PHU}}\".\n- Right Block: Timeline with 3-5 milestones: {{TIMELINE}}.\n- Footer: Famous quote \"{{QUOTE}}\" and data source.\nStyle: Professional magazine editorial, neutral colors, elegant typography.\nAspect ratio: {{TY_LE}}."
+}

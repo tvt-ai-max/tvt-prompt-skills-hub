@@ -1,0 +1,28 @@
+{
+  "id": "tlt-prompt-tao-character-chuyen-nghiep",
+  "title": "Prompt tạo character chuyên nghiệp",
+  "description": "Tạo full character bible (tính cách + ngoại hình + trang phục + reference).",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Nhân vật & Tham chiếu",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SUBJECT",
+      "label": "Subject",
+      "type": "text"
+    },
+    {
+      "key": "OUTFIT",
+      "label": "Outfit",
+      "type": "text"
+    }
+  ],
+  "template": "Cinematic portrait of {{SUBJECT}}, wearing {{OUTFIT}}, expressive eyes, dynamic pose, highly detailed face, photorealistic, 8k resolution, volumetric lighting, shot on 50mm lens, depth of field, sharp focus, hyper-realistic photography, high fashion editorial style."
+}

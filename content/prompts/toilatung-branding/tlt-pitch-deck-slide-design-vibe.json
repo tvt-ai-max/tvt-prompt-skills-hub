@@ -1,0 +1,17 @@
+{
+  "id": "tlt-pitch-deck-slide-design-vibe",
+  "title": "Pitch Deck Slide Design Vibe",
+  "description": "Thiết kế visual layout cho một slide thuyết trình hoặc pitch deck theo phong cách hiện đại.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "GPT Image / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "A professional presentation slide design for [Slide Theme, e.g., Market Size opportunity]. Aspect ratio 16:9. Minimalist dark mode design. Left half features large, bold, clean sans-serif typography showing the headline [Headline, e.g., $150B Market Opportunity]. Right half features a clean, high-contrast 3D glassmorphic bar chart visualizing the growth trends. Style: Elegant, premium, tech-focused, cinematic look. Color palette: Matte black background (#121214), glowing neon cyan (#06B6D4) and soft grey. Clean lines, generous whitespace, zero clutter, professional layout, 8K resolution."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "tlt-storyboard-upscale-prompt",
+  "title": "Storyboard Upscale Prompt",
+  "description": "Tăng độ phân giải cho ảnh storyboard bị mờ.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Midjourney / Magnific",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Upscale the current storyboard frame to 4K resolution. \nEnhance the details, sharpen the edges, and remove any noise/artifacts. \nKeep the original style and colors intact."
+}

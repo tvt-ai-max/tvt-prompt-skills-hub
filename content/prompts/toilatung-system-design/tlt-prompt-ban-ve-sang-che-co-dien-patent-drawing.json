@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing",
+  "title": "Prompt Bản Vẽ Sáng Chế Cổ Điển (Patent Drawing)",
+  "description": "Tạo hình vẽ thiết kế sáng chế phong cách vẽ nét đen trắng (line art) trên nền giấy cổ điển.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Ảnh Kỹ thuật",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DEVICE_NAME",
+      "label": "Device name",
+      "type": "text"
+    }
+  ],
+  "template": "Classic vintage patent drawing of a {{DEVICE_NAME}}. Clean black line art on aged parchment paper background (#F4ECD8). Technical schematic style with detailed annotation letters (e.g., Fig. 1, Fig. 2, A, B, C) and reference pointers, mechanical assembly view, high-contrast monochrome line work, historical archival catalog look, authentic drafting aesthetic."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "tlt-storyboard-crop-prompt",
+  "title": "Storyboard Crop Prompt",
+  "description": "Cắt và zoom vào các chi tiết trong storyboard.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "GPT Image",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "CHU_THE_CHI_TIET",
+      "label": "Chủ thể/chi tiết",
+      "type": "text"
+    }
+  ],
+  "template": "Crop and zoom into the {{CHU_THE_CHI_TIET}} in the current frame. \nFocus on capturing the emotion and essential details. \nMaintain a clean composition."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tlt-pricing-page-copy-generator",
+  "title": "Pricing Page Copy Generator",
+  "description": "Soạn thảo toàn bộ nội dung trang bảng giá gồm Headline, so sánh giá trị và bộ 5 câu FAQ xử lý từ chối.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "OFFER_STACK_DA_CHON",
+      "label": "Offer stack đã chọn",
+      "type": "text"
+    },
+    {
+      "key": "DOI_TUONG_MUC_TIEU",
+      "label": "Đối tượng mục tiêu",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai một chuyên gia Conversion Copywriter. Viết nội dung chi tiết cho trang Pricing Page dựa trên các dữ liệu sau:\n\nOffer Stack đã chọn: {{OFFER_STACK_DA_CHON}}\nĐối tượng mục tiêu (Target Audience): {{DOI_TUONG_MUC_TIEU}}\n\nBố cục nội dung yêu cầu xuất ra:\n▸ Headline chính: Đánh vào nỗi đau lớn nhất và lời hứa cốt lõi.\n▸ So sánh giá trị: Tại sao mua nguyên bộ Offer Stack này lại rẻ và lợi hơn nhiều so với việc mua lẻ từng phần.\n▸ Bộ FAQ thực chiến: Soạn thảo 5 câu hỏi đáp (Frequently Asked Questions) trực diện, xoáy sâu vào xử lý các từ chối thường gặp nhất về giá cả, thời gian, và độ tin cậy.\n\nLưu ý: Tuân thủ cấu trúc phân cấp thông tin (visual hierarchy) rõ ràng, thoáng mắt để dễ dàng triển khai thiết kế."
+}

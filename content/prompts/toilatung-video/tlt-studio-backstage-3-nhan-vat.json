@@ -1,0 +1,18 @@
+{
+  "id": "tlt-studio-backstage-3-nhan-vat",
+  "title": "Studio Backstage (3 Nhân Vật)",
+  "description": "Mô phỏng hậu trường với 2 models, 1 nhiếp ảnh gia và âm thanh dialogue.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video Master",
+    "Veo",
+    "toilatung.com",
+    "Master Prompt"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Slow cinematic tracking shot starting from behind the photographer's shoulder, smoothly pushing forward over 8 seconds to reveal the two fashion models in front of the camera. Gentle right-to-left orbiting arc at eye level, perfect cinematic framing and depth of field.\n\nExact same three characters from all attached reference images:\n- Girl 1 (left model in black crop top): perfect face lock, identical body proportion, black crop top with graphic logo, baggy jeans, zero drift.\n- Girl 2 (right model in red leather jacket): perfect face lock, identical body proportion, red leather jacket, black skirt, zero drift.\n- Guy 1 (photographer in background/foreground, wearing grey hoodie): consistent facial features, holding a professional DSLR camera.\nPerfect clothing consistency, realistic lighting interaction between all three characters.\n\nAction sequence with precise timing:\n0-2s: Guy 1 (photographer) lowers his camera slightly with a satisfied expression. Girl 1 and Girl 2 are striking high-fashion poses.\n2-5s: Guy 1 gives a hand gesture and says something. Girl 1 breaks character, smiles and looks at Girl 2. Girl 2 naturally shifts her weight and laughs softly.\n5-8s: Subtle hair strands flowing in light breeze, realistic fabric movement on all outfits, natural micro-interactions.\n\nProfessional photography studio background, large softbox lighting rigs visible in the frame, concrete floor, dramatic cinematic lighting setup, shallow depth of field, beautiful bokeh.\n\nHyperrealistic 8K fashion film, behind-the-scenes editorial style, professional studio photography quality, ultra-detailed fabric texture, smooth 24fps motion, natural physics, extremely high detail.\n\nAudio:\n0-2s - SFX: repeated professional camera shutter clicks (click-click-click)\n2-4s - Guy 1 (photographer) says in energetic tone: \"Perfect! Giữ nguyên pose đó nhé!\" \n4-6s - Girl 1 (black crop top) says playfully: \"Chụp đẹp đấy anh trai.\"\n6-8s - SFX: soft laughter from Girl 2, fabric rustling, background studio ambience, low lo-fi beat playing softly in the room\n(Strictly no subtitles, no on-screen text anywhere in the video. Perfect lip synchronization for all speaking characters.)"
+}

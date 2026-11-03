@@ -1,0 +1,33 @@
+{
+  "id": "tlt-value-gap-finder",
+  "title": "Value Gap Finder",
+  "description": "Phân tích khoảng trống giá trị và ROI thực tế để chứng minh sản phẩm đang bị định giá quá thấp.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TINH_NANG_COT_LOI",
+      "label": "Tính năng cốt lõi",
+      "type": "text"
+    },
+    {
+      "key": "GIA_HIEN_TAI",
+      "label": "Giá hiện tại",
+      "type": "text"
+    },
+    {
+      "key": "TAC_DONG_DEN_KINH_DOANH_CUA_KHACH",
+      "label": "Tác động đến kinh doanh của khách",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy phân tích \"Khoảng trống Giá trị\" (Value Gap) giữa số tiền khách trả và giá trị thực tế họ nhận được dựa trên các thông số sau:\n\nTính năng cốt lõi: {{TINH_NANG_COT_LOI}}\nGiá hiện tại: {{GIA_HIEN_TAI}}\nTác động đến kinh doanh của khách: {{TAC_DONG_DEN_KINH_DOANH_CUA_KHACH}}\n\nYêu cầu:\n1. So sánh chi phí công cụ với chi phí lương nhân sự hoặc chi phí cơ hội.\n2. Chứng minh bằng các con số giả định hợp lý rằng sản phẩm đang bị định giá quá thấp (undervalued).\n3. Đề xuất mức giá mới phản ánh đúng ROI thực tế nhận được."
+}

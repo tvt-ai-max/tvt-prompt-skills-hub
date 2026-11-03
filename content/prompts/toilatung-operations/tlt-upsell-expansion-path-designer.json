@@ -1,0 +1,28 @@
+{
+  "id": "tlt-upsell-expansion-path-designer",
+  "title": "Upsell & Expansion Path Designer",
+  "description": "Thiết kế 3 Trigger points và giới hạn sử dụng (Usage limits) để thúc đẩy khách nâng cấp lên gói Pro.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "GOI_BASIC",
+      "label": "Gói basic",
+      "type": "text"
+    },
+    {
+      "key": "GOI_PRO",
+      "label": "Gói pro",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy thiết kế Lộ trình Mở rộng (Expansion Path) và Upsell dựa trên thông tin sau:\n\nGói hiện tại khách đang dùng: {{GOI_BASIC}}\nGói muốn nâng cấp (Upsell): {{GOI_PRO}}\n\nYêu cầu:\n1. Xác định 3 \"Trigger points\" (Điểm nghẽn/Điểm kích hoạt) trong quá trình khách dùng gói Basic khiến họ cảm thấy cần phải lên gói Pro ngay lập tức để tiếp tục công việc.\n2. Đề xuất cách thiết kế giới hạn sử dụng (Usage limits) một cách tự nhiên và mượt mà nhất để kích hoạt nhu cầu nâng cấp mà không tạo cảm giác ức chế cho người dùng."
+}

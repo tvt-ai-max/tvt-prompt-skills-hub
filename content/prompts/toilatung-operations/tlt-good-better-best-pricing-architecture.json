@@ -1,0 +1,23 @@
+{
+  "id": "tlt-good-better-best-pricing-architecture",
+  "title": "Good-Better-Best Pricing Architecture",
+  "description": "Thiết kế bảng giá 3 tầng (Starter, Growth, Scale) tối ưu hóa doanh thu bằng decoy effect.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_SAN_PHAM",
+      "label": "Tên sản phẩm",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy thiết kế kiến trúc bảng giá theo mô hình \"Good - Better - Best\" dựa trên thông tin sản phẩm sau:\n\nSản phẩm: {{TEN_SAN_PHAM}}\nValue Metric (Đơn vị tính giá chính): [VALUE METRIC, VD: Số lượng đơn hàng, số user...]\n\nYêu cầu thiết kế:\n1. Đặt tên gọi cho 3 gói dựa trên hành trình phát triển của khách hàng (VD: Starter → Growth → Scale).\n2. Phân bổ tính năng sao cho gói \"Better\" (Gói ở giữa) là gói hấp dẫn nhất và tạo hiệu ứng chim mồi (Decoy effect).\n3. Đừng chỉ liệt kê danh sách tính năng kỹ thuật khô khan, hãy chuyển đổi chúng thành các kết quả (outcomes) mà khách hàng nhận được ở mỗi gói."
+}

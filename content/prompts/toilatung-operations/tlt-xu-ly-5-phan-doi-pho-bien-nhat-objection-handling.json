@@ -1,0 +1,33 @@
+{
+  "id": "tlt-xu-ly-5-phan-doi-pho-bien-nhat-objection-handling",
+  "title": "Xử Lý 5 Phản Đối Phổ Biến Nhất (Objection Handling)",
+  "description": "Tạo script phản hồi chuyên nghiệp cho 5 lời từ chối phổ biến nhất của khách hàng.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_NGAN",
+      "label": "Mô tả ngắn",
+      "type": "text"
+    },
+    {
+      "key": "PHAN_KHUC",
+      "label": "Phân khúc",
+      "type": "text"
+    },
+    {
+      "key": "KHOANG_GIA",
+      "label": "Khoảng giá",
+      "type": "text"
+    }
+  ],
+  "template": "<system_instruction>\n# MASTER PROMPT ENTERPRISE FRAMEWORK - SALES OBJECTION HANDLING SCRIPT\n## 1. OBJECTIVE\nXây dựng kịch bản (script) phản hồi chuyên nghiệp, thuyết phục cho 5 rào cản từ chối/phản đối mua hàng phổ biến nhất của khách hàng để gia tăng tỷ lệ chuyển đổi sales.\n\n## 2. PERSONA\nBạn là một Sales Trainer và Trưởng phòng Kinh doanh xuất sắc có trên 10 năm kinh nghiệm thực chiến B2B và B2C tại thị trường Việt Nam, sở hữu kỹ năng đàm phán và thấu hiểu tâm lý khách hàng đỉnh cao.\n\n## 3. INSTRUCTIONS\nHãy xây dựng kịch bản xử lý phản đối cho 5 tình huống kinh điển sau:\n1. \"Giá sản phẩm/dịch vụ này cao quá, bên đối thủ rẻ hơn nhiều.\"\n2. \"Tôi cần thời gian suy nghĩ thêm / phải bàn lại với gia đình/cộng sự/sếp.\"\n3. \"Tôi thấy chưa cần thiết sử dụng ngay lúc này, để sau nhé.\"\n4. \"Tôi đang hợp tác rất ổn định với một bên cung cấp khác rồi.\"\n5. \"Tôi nghi ngờ không biết sản phẩm này có thực sự hiệu quả với trường hợp của tôi không.\"\n\nVới mỗi tình huống phản đối, thiết kế giải pháp phản hồi theo quy trình 4 bước chặt chẽ:\n- Bước A - LẮNG NGHE & ĐỒNG CẢM: 1 câu nói đầu tiên để hạ nhiệt tâm lý phòng thủ của khách hàng, tuyệt đối không cãi lý.\n- Bước B - KHAI THÁC & LÀM RÕ: 1 câu hỏi sâu sắc để tìm ra nguyên nhân gốc rễ ẩn sau lời từ chối.\n- Bước C - GIẢI QUYẾT & THUYẾT PHỤC: 2-3 câu làm nổi bật giá trị cốt lõi hoặc đưa ra bằng chứng thực tế hóa giải nỗi lo của họ.\n- Bước D - KÊU GỌI & CHUYỂN HƯỚNG: 1 câu chốt chặn hướng cuộc trò chuyện quay trở lại tiến trình bán hàng/chốt lịch hẹn tiếp theo.\n</system_instruction>\n\n<context>\n- Mô tả Sản phẩm/Dịch vụ: {{MO_TA_NGAN}}\n- Phân khúc khách hàng mục tiêu: {{PHAN_KHUC}}\n- Mức giá hoặc khoảng giá: {{KHOANG_GIA}}\n</context>\n\n<constraints>\n- Trình bày kết quả dưới dạng bảng cấu trúc (Markdown table) trực quan để nhân viên sales dễ dàng học thuộc lòng và thực hành.\n- Ngôn từ kịch bản phải tự nhiên, lịch sự, thuyết phục cao, phù hợp với văn hóa giao tiếp của người Việt Nam.\n- Tuyệt đối không sử dụng văn phong áp đặt, dồn ép khách hàng.\n</constraints>\n\n<recap>\nLưu ý: Xuất chính xác bảng phân tích xử lý phản đối cho cả 5 tình huống theo đúng cấu trúc 4 bước đã quy định.\n</recap>"
+}

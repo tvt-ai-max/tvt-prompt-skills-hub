@@ -17,6 +17,9 @@ export const PROMPT_CATEGORIES = [
   'coding',
   'system-design',
   'operations',
+  'video',
+  'branding',
+  'ads',
 ] as const;
 export type PromptCategory = (typeof PROMPT_CATEGORIES)[number];
 

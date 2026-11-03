@@ -1,0 +1,33 @@
+{
+  "id": "tlt-prompt-tao-canh-lien-hoan-tach-biet",
+  "title": "Prompt tạo cảnh liên hoàn tách biệt",
+  "description": "Tạo toàn bộ chuỗi cảnh đồng nhất chỉ trong 1 prompt.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video & Animation",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SCENE_1",
+      "label": "Scene 1",
+      "type": "text"
+    },
+    {
+      "key": "SCENE_2",
+      "label": "Scene 2",
+      "type": "text"
+    },
+    {
+      "key": "SCENE_3",
+      "label": "Scene 3",
+      "type": "text"
+    }
+  ],
+  "template": "A continuous panning shot revealing multiple distinct scenes seamlessly blending into one another. First scene shows {{SCENE_1}}, camera smoothly pans right to reveal {{SCENE_2}}, then transitions smoothly into {{SCENE_3}}. Perfect continuity, cinematic lighting, hyper-realistic details, smooth camera movement, 8k resolution."
+}

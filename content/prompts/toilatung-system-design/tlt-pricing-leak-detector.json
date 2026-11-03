@@ -1,0 +1,33 @@
+{
+  "id": "tlt-pricing-leak-detector",
+  "title": "Pricing Leak Detector",
+  "description": "Chẩn đoán các lỗ rò rỉ chuyển đổi trên trang giá dựa trên các chỉ số phễu thực tế.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "LUOT_TRUY_CAP",
+      "label": "Lượt truy cập",
+      "type": "text"
+    },
+    {
+      "key": "TY_LE_CLICK",
+      "label": "Tỷ lệ click",
+      "type": "text"
+    },
+    {
+      "key": "TY_LE_THANH_TOAN",
+      "label": "Tỷ lệ thanh toán",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai chuyên gia tối ưu hóa tỷ lệ chuyển đổi (CRO). Dựa trên dữ liệu phễu trang giá sau:\n\nLượt truy cập trang giá: {{LUOT_TRUY_CAP}}\nTỷ lệ click vào nút mua: {{TY_LE_CLICK}}\nTỷ lệ hoàn tất thanh toán: {{TY_LE_THANH_TOAN}}\n\nHãy:\n1. Phân tích phễu chuyển đổi và chỉ ra 3 \"lỗ rò rỉ\" (Leaks) lớn nhất có thể đang xảy ra (Ví dụ: sticker shock, thiếu trust factors, quá nhiều lựa chọn...).\n2. Phác họa ra bức tranh vì sao tôi đang để tiền trên bàn và cách khắc phục nhanh từng lỗ rò rỉ."
+}

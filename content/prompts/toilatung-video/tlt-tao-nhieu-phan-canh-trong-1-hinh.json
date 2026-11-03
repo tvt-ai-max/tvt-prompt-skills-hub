@@ -1,0 +1,38 @@
+{
+  "id": "tlt-tao-nhieu-phan-canh-trong-1-hinh",
+  "title": "Tạo nhiều phân cảnh trong 1 hình",
+  "description": "Tạo 8–12 phân cảnh bằng 1 prompt duy nhất.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NUMBER",
+      "label": "Number",
+      "type": "text"
+    },
+    {
+      "key": "SCENE_1",
+      "label": "Scene 1",
+      "type": "text"
+    },
+    {
+      "key": "SCENE_2",
+      "label": "Scene 2",
+      "type": "text"
+    },
+    {
+      "key": "SCENE_3",
+      "label": "Scene 3",
+      "type": "text"
+    }
+  ],
+  "template": "A single comic book style page containing exactly {{NUMBER}} distinct sequential panels. Each panel shows a progression of the story: Panel 1 shows {{SCENE_1}}, Panel 2 shows {{SCENE_2}}, Panel 3 shows {{SCENE_3}}. Consistent character design across all panels, highly detailed, cinematic lighting, graphic novel style, 8k resolution."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-tao-canh-bien-hinh-khi-mac-giap",
+  "title": "Prompt tạo cảnh biến hình khi mặc giáp",
+  "description": "Tạo video cảnh các bộ phận áo giáp ghép vào cơ thể siêu mượt.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video & Animation",
+    "Veo / Seedance",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SUBJECT",
+      "label": "Subject",
+      "type": "text"
+    }
+  ],
+  "template": "Cinematic high-speed transformation sequence of {{SUBJECT}} standing still while high-tech futuristic metallic armor parts magnetically assemble and snap onto the body seamlessly. Glowing neon circuits, realistic physics, dynamic motion blur, dramatic lighting, 8k resolution, epic sci-fi action movie scene, slow motion details."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "tlt-nano-banana-ultra-photorealistic-portrait",
+  "title": "Nano Banana Ultra Photorealistic Portrait",
+  "description": "Sử dụng Scene Director Method tạo ảnh chân dung siêu thực, giữ độ chi tiết da và mắt cực tốt.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Nhân vật & Tham chiếu",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "A candid, close-up studio portrait of [Subject, e.g., Nguyễn Thanh Tùng, a 35-year-old Vietnamese entrepreneur, intelligent eyes, clean-shaven], wearing [Outfit, e.g., a dark navy structured blazer over a black tee]. Soft dewy skin texture with fine visible pores and realistic skin imperfections, sharp focus on eyes. Soft volumetric studio lighting, subtle purple accent light on the shoulder from behind, dark charcoal grey textured wall background, shot on 85mm lens at f/1.8, shallow depth of field, professional corporate lookbook style, 8K resolution, raw photo quality."
+}

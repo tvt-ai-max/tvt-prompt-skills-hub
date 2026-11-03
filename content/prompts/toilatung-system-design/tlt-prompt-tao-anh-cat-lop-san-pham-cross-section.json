@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-tao-anh-cat-lop-san-pham-cross-section",
+  "title": "Prompt Tạo Ảnh Cắt Lớp Sản Phẩm (Cross-section)",
+  "description": "Tạo ảnh chụp cắt lớp sản phẩm công nghệ để hiển thị các chi tiết cơ học và bo mạch bên trong.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Ảnh Kỹ thuật",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "PRODUCT_NAME",
+      "label": "Product name",
+      "type": "text"
+    }
+  ],
+  "template": "A professional studio product shot showing a clean cross-section cutaway of a {{PRODUCT_NAME}}. The cut reveals the complex inner mechanical components, internal copper wiring, miniature gear systems, and microchip circuit boards. Perfect symmetrical cut, clean studio lighting, realistic metallic and plastic textures, depth of field, neutral white background, industrial design catalog style, hyperrealistic 8k render."
+}

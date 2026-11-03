@@ -1,0 +1,48 @@
+{
+  "id": "tlt-visual-communication-poster-prompt",
+  "title": "Visual Communication Poster Prompt",
+  "description": "Tạo poster truyền thông có thông điệp rõ ràng.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NHAN_VAT_CHU_THE",
+      "label": "Nhân vật/chủ thể",
+      "type": "text"
+    },
+    {
+      "key": "THONG_DIEP",
+      "label": "Thông điệp",
+      "type": "text"
+    },
+    {
+      "key": "HEADLINE",
+      "label": "Headline",
+      "type": "text"
+    },
+    {
+      "key": "SUB_HEADLINE",
+      "label": "Sub-headline",
+      "type": "text"
+    },
+    {
+      "key": "MAU_SAC_HINH_ANH",
+      "label": "Màu sắc/hình ảnh",
+      "type": "text"
+    },
+    {
+      "key": "TY_LE",
+      "label": "Tỷ lệ",
+      "type": "text"
+    }
+  ],
+  "template": "Create a professional editorial poster. \nSubject: {{NHAN_VAT_CHU_THE}}. \nCore Message: {{THONG_DIEP}}. \nStyle: Minimalist, premium, clean layout. \nIncorporate text placeholder for \"{{HEADLINE}}\" and \"{{SUB_HEADLINE}}\". \nBackground: {{MAU_SAC_HINH_ANH}}. \nAspect ratio: {{TY_LE}}."
+}

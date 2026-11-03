@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-rut-gon-chu-tren-anh",
+  "title": "Prompt rút gọn chữ trên ảnh",
+  "description": "Làm cho poster thoáng hơn bằng cách rút gọn text.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "HEADLINE_RUT_GON",
+      "label": "Headline rút gọn",
+      "type": "text"
+    }
+  ],
+  "template": "The current visual is too cluttered with text. \nPlease simplify the message to only the essential headline: \"{{HEADLINE_RUT_GON}}\". \nRemove unnecessary sub-text. \nIncrease white space around the subject to create a premium, editorial feel."
+}

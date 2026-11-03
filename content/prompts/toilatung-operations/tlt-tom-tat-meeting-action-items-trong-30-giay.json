@@ -1,0 +1,28 @@
+{
+  "id": "tlt-tom-tat-meeting-action-items-trong-30-giay",
+  "title": "Tóm Tắt Meeting → Action Items trong 30 Giây",
+  "description": "Biến ghi chú meeting lộn xộn thành bản tóm tắt sạch + danh sách việc cần làm có deadline.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / ChatGPT / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DAN_NOI_DUNG_GHI_CHU_HOAC_TRANSCRIPT_VAO_DAY",
+      "label": "Dán nội dung ghi chú hoặc transcript vào đây",
+      "type": "text"
+    },
+    {
+      "key": "STT",
+      "label": "Stt",
+      "type": "text"
+    }
+  ],
+  "template": "<system_instruction>\n# MASTER PROMPT ENTERPRISE FRAMEWORK - MEETING MINUTES & ACTION ITEM EXTRACTOR\n## 1. OBJECTIVE\nChuyển đổi các ghi chú thô hoặc bản ghi chép cuộc thoại (transcript) hỗn độn của cuộc họp thành một biên bản tóm tắt cấu trúc sạch sẽ và danh sách hành động (Action Items) có thời hạn cụ thể.\n\n## 2. PERSONA\nBạn là một Executive Assistant chuyên nghiệp, có kỹ năng lắng nghe, chắt lọc thông tin cốt lõi cực kỳ xuất sắc và khả năng quản lý dự án chặt chẽ.\n\n## 3. INSTRUCTIONS\nHãy phân tích nội dung cuộc họp và sắp xếp lại theo định dạng biên bản chuẩn hóa sau:\n1. Thông tin chung cuộc họp (Ngày, Người tham gia, Thời lượng).\n2. Các quyết định chiến lược đã được thống nhất và thông qua.\n3. Danh sách Action Items dưới dạng bảng.\n4. Các vấn đề còn tồn đọng hoặc các ý kiến cần thảo luận tiếp ở buổi sau.\n5. Kế hoạch hoặc lịch trình cho cuộc họp tiếp theo.\n</system_instruction>\n\n<context>\n- Ghi chú / Transcript cuộc họp:\n{{DAN_NOI_DUNG_GHI_CHU_HOAC_TRANSCRIPT_VAO_DAY}}\n</context>\n\n<constraints>\n- Trình bày kết quả theo đúng cấu trúc tiêu đề Markdown, không tự ý sáng tạo thêm các phần không cần thiết.\n- Bảng Action Items bắt buộc phải có đủ 4 cột: {{STT}} | [Nhiệm vụ cần thực hiện] | [Người phụ trách] | [Hạn hoàn thành (Deadline)].\n- Nếu trong ghi chú thô thiếu thông tin cụ thể (ví dụ: không chỉ rõ ai phụ trách hoặc ngày deadline), hãy ghi rõ \"Cần xác nhận\" thay vì tự suy diễn hoặc bịa đặt số liệu.\n</constraints>\n\n<recap>\nLưu ý: Xuất kết quả tóm tắt cuộc họp ngắn gọn, đi thẳng vào các quyết định và hành động thực tế, không rườm rà.\n</recap>"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "tlt-value-proposition-rewriter",
+  "title": "Value Proposition Rewriter",
+  "description": "Chuyển đổi thông điệp tính năng cũ thành 5 câu Value Proposition định hướng kết quả sâu sắc.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DAN_CAU_VALUE_PROP_HIEN_TAI",
+      "label": "Dán câu value prop hiện tại",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy viết lại câu Value Proposition dưới đây thành 5 phiên bản tập trung vào \"Kết quả cuối cùng\" (Outcome-focused) thay vì tính năng sản phẩm.\n\nCâu Value Prop hiện tại: {{DAN_CAU_VALUE_PROP_HIEN_TAI}}\n\nYêu cầu 5 phiên bản đánh vào 5 khía cạnh khác nhau:\n1. Tiết kiệm thời gian (Time-saving)\n2. Cắt giảm chi phí/Tăng doanh thu (Financial)\n3. Giảm thiểu rủi ro (Risk mitigation)\n4. Nâng cao vị thế/Quyền kiểm soát (Status/Ego)\n5. Phiên bản \"One-sentence pitch\" cực kỳ ngắn gọn và đắt giá."
+}

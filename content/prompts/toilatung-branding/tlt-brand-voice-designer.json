@@ -1,0 +1,33 @@
+{
+  "id": "tlt-brand-voice-designer",
+  "title": "Brand Voice Designer",
+  "description": "Thiết kế bộ hướng dẫn giọng điệu thương hiệu (Brand Voice) với quy tắc dùng/cấm dùng từ và 5 ví dụ Trước/Sau cụ thể.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "3_THUONG_HIEU_THICH",
+      "label": "3 thương hiệu thích",
+      "type": "text"
+    },
+    {
+      "key": "2_THUONG_HIEU_TRANH",
+      "label": "2 thương hiệu tránh",
+      "type": "text"
+    },
+    {
+      "key": "DOI_TUONG_DOC_GIA",
+      "label": "Đối tượng độc giả",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Brand Voice Strategist. Hãy giúp tôi thiết kế một bộ hướng dẫn Giọng điệu thương hiệu (Brand Voice Guide) thực tế, chi tiết để toàn bộ đội ngũ nội dung có thể áp dụng đồng bộ, tránh việc phán đoán cảm tính.\n\nĐịnh vị và Core Belief: [ĐỊNH VỊ & NIỀM TIN]\n3 thương hiệu yêu thích về cách viết: {{3_THUONG_HIEU_THICH}}\n2 thương hiệu muốn tránh phong cách viết: {{2_THUONG_HIEU_TRANH}}\nAudience chính đọc nội dung: {{DOI_TUONG_DOC_GIA}}\n\nOUTPUT YÊU CẦU:\n\n▸ **VOICE PROFILE (3 chiều tính cách giọng điệu)**\n- Phân tích 3 đặc trưng giọng điệu kèm theo ranh giới sử dụng. Công thức: \"[Tính cách] — nhưng không [Cực đoan/Extreme version]\" (Ví dụ: Thẳng thắn — nhưng không suồng sã thiếu tôn trọng).\n\n▸ **VOCABULARY GUIDE (Từ điển từ ngữ)**\n- 10 Từ/Cụm từ khuyến khích DÙNG thường xuyên.\n- 10 Từ/Cụm từ CẤM DÙNG kèm theo lý do cụ thể.\n- Danh sách các Buzzword rỗng tuếch cần loại bỏ hoàn toàn (ví dụ: đột phá, đi đầu, hàng đầu...).\n\n▸ **5 VÍ DỤ TRƯỚC / SAU THỰC TẾ**\nSoạn thảo nội dung Trước (Generic/Off-brand) và Sau (On-brand) kèm theo giải thích lý do cụ thể cho 5 ngữ cảnh:\n1. Tiêu đề email (Email subject line)\n2. Thông báo lỗi hệ thống (Error message)\n3. Tiêu đề trang bảng giá (Pricing page headline)\n4. Email hướng dẫn onboarding (Onboarding email)\n5. Bài viết trên mạng xã hội (Social media post)\n\n▸ **TỔNG KẾT TONE VARIATION BY CONTEXT**\nHướng dẫn cách tinh chỉnh giọng điệu linh hoạt theo từng ngữ cảnh: Chốt sales, Chăm sóc khách hàng/Xử lý sự cố, và Bài viết chuyên gia (Thought Leadership)."
+}

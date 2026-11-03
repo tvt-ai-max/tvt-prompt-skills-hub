@@ -1,0 +1,28 @@
+{
+  "id": "tlt-the-launch-readiness-checklist",
+  "title": "The Launch Readiness Checklist",
+  "description": "Danh sách kiểm tra 12 điểm tử huyệt trước khi tung sản phẩm ra thị trường, đóng vai trò như một COO khó tính.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_OFFER",
+      "label": "Tên offer",
+      "type": "text"
+    },
+    {
+      "key": "GIA_BAN",
+      "label": "Giá bán",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai một Giám đốc Vận hành (COO) khó tính và lập cho tôi một 'Launch Readiness Checklist' (Danh sách kiểm tra độ sẵn sàng trước khi tung sản phẩm) gồm 12 điểm tử huyệt dựa trên thông tin sau:\n\nTên Offer: {{TEN_OFFER}}\nGiá bán: {{GIA_BAN}}\nNền tảng bán hàng: [NỀN TẢNG BÁN HÀNG, VD: Trang Landing page + Gọi điện chốt sale...]\n\nYêu cầu: Tập trung rà soát các lỗ hổng kỹ thuật và vận hành có thể khiến việc launch sản phẩm giá cao thất bại, bao gồm:\n- Ma sát thanh toán và quy trình xử lý lỗi giao dịch.\n- Lỗi kết nối và quy trình đặt lịch gọi tư vấn (Calendly/Zoom/n8n).\n- Rủi ro hạ tầng kỹ thuật (Tech stack, email tự động).\n- Lỗ hổng và trải nghiệm trong quy trình Onboarding khách hàng ngày đầu tiên.\n\nHãy phân loại và đánh dấu trạng thái đề xuất bằng ký hiệu trực quan: ✅ (Sẵn sàng) / ⚠️ (Cần lưu ý) / ❌ (Nguy hiểm cần sửa ngay) kèm theo Verdict (kết luận) cuối cùng về mức độ sẵn sàng launch."
+}

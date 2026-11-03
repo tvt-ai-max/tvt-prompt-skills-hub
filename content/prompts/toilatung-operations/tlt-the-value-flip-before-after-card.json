@@ -1,0 +1,43 @@
+{
+  "id": "tlt-the-value-flip-before-after-card",
+  "title": "The 'Value Flip' Before & After Card",
+  "description": "Biến sản phẩm/dịch vụ giá rẻ thành gói Premium Package thông qua định vị Before/After Card trực quan.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SAN_PHAM_TOOL_HIEN_TAI",
+      "label": "Sản phẩm/tool hiện tại",
+      "type": "text"
+    },
+    {
+      "key": "GIA_HIEN_TAI",
+      "label": "Giá hiện tại",
+      "type": "text"
+    },
+    {
+      "key": "NOI_DAU_LON_NHAT_CUA_KHACH",
+      "label": "Nỗi đau lớn nhất của khách",
+      "type": "text"
+    },
+    {
+      "key": "MUC_GIA_PREMIUM_MONG_MUON",
+      "label": "Mức giá premium mong muốn",
+      "type": "text"
+    },
+    {
+      "key": "THE_PITCH",
+      "label": "The pitch",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy đóng vai một chuyên gia tái cấu trúc Offer (Offer Architect). Dựa trên input sau, hãy biến sản phẩm giá rẻ này thành một Premium Package.\n\nSản phẩm/Tool hiện tại: {{SAN_PHAM_TOOL_HIEN_TAI}}\nGiá hiện tại: {{GIA_HIEN_TAI}}\nNỗi đau lớn nhất của khách: {{NOI_DAU_LON_NHAT_CUA_KHACH}}\nMức giá Premium mong muốn: {{MUC_GIA_PREMIUM_MONG_MUON}}\n\nYêu cầu xuất ra định dạng 'Before / After Card' trực quan:\n\n▸ **[BEFORE CARD: The Commodity Offer]**\n- Liệt kê cách định vị cũ (Chỉ tập trung vào tính năng, bán công cụ).\n- Tính toán ROI mơ hồ khiến khách hàng tiếc tiền.\n\n▸ **[AFTER CARD: The Premium 'Done-with-you' Package]**\n- Reframe lại tên gói bán (Bán kết quả, không bán tool).\n- Nhúng thêm 3 yếu tố 'Value Multipliers' (Ví dụ: 1 bộ Template Done-for-you, 1 giờ Tư vấn Setup 1-1, 1 Cam kết ROI).\n- Phân tích ROI mới để chứng minh mức giá premium là quá rẻ.\n\n▸ **{{THE_PITCH}}**\n- Viết 1 câu 'Elevator Pitch' chốt sale so sánh sự lột xác giữa Before và After."
+}

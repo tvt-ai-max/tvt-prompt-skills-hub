@@ -1,0 +1,33 @@
+{
+  "id": "tlt-linkedin-bio-optimizer",
+  "title": "LinkedIn Bio Optimizer",
+  "description": "Tối ưu hóa Bio LinkedIn gồm Headline (dưới 220 ký tự) và mục About (dưới 150 từ) theo 3 mục tiêu cụ thể.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "CAU_CHUYEN_UY_TIN",
+      "label": "Câu chuyện uy tín",
+      "type": "text"
+    },
+    {
+      "key": "DOI_TUONG_DOC_GIA",
+      "label": "Đối tượng độc giả",
+      "type": "text"
+    },
+    {
+      "key": "MUC_TIEU_CHINH_DA_CHON",
+      "label": "Mục tiêu chính đã chọn",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là chuyên gia tối ưu hóa thương hiệu cá nhân trên LinkedIn (LinkedIn Profile Strategist). Hãy giúp tôi thiết kế lại phần Bio LinkedIn theo 3 định hướng mục tiêu khác nhau dựa trên thông tin sau:\n\nTên và Chức danh hiện tại: [TÊN & CHỨC DANH]\nTóm tắt câu chuyện uy tín (Authority Narrative): {{CAU_CHUYEN_UY_TIN}}\nMục tiêu chính hiện tại trên LinkedIn: [MỤC TIÊU CHÍNH, VD: Tìm khách hàng, Xây dựng thương hiệu cá nhân...]\nĐối tượng độc giả ghé thăm profile: {{DOI_TUONG_DOC_GIA}}\n\nOUTPUT YÊU CẦU SOẠN THẢO CHO 3 VERSION:\n\n▸ **VERSION A — TẬP TRUNG THU HÚT KHÁCH HÀNG (Attract Clients)**\n- Headline (Dưới 220 ký tự, hiển thị trực quan khi tìm kiếm).\n- About Section (Dưới 150 chữ, tập trung vào giải quyết nỗi đau của khách hàng kèm CTA rõ ràng).\n\n▸ **VERSION B — TẬP TRUNG XÂY DỰNG UY TÍN CHUYÊN GIA (Build Authority)**\n- Headline (Tối ưu hóa vị thế chuyên gia, nhấn mạnh vào Credentials và Insight độc quyền).\n- About Section (Nhấn mạnh vào controversial belief hoặc kinh nghiệm thực chiến dày dạn).\n\n▸ **VERSION C — TẬP TRUNG THEO {{MUC_TIEU_CHINH_DA_CHON}}**\n- Thiết kế Headline và About Section tối ưu hóa cho mục đích cụ thể của bạn.\n\nHãy đưa ra đánh giá so sánh ngắn gọn giữa 3 phiên bản và khuyến nghị phiên bản phù hợp nhất cho tình hình hiện tại của bạn."
+}

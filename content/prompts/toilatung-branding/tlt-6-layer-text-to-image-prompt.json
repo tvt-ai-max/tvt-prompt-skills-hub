@@ -1,0 +1,48 @@
+{
+  "id": "tlt-6-layer-text-to-image-prompt",
+  "title": "6-Layer Text to Image Prompt",
+  "description": "Cấu trúc prompt 6 lớp giúp kiểm soát tối đa kết quả.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_CHU_THE",
+      "label": "Mô tả chủ thể",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_BOI_CANH",
+      "label": "Mô tả bối cảnh",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_ANH_SANG",
+      "label": "Mô tả ánh sáng",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_GOC_MAY",
+      "label": "Mô tả góc máy",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_BO_CUC",
+      "label": "Mô tả bố cục",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_PHONG_CACH",
+      "label": "Mô tả phong cách",
+      "type": "text"
+    }
+  ],
+  "template": "Cấu trúc Prompt 6 Lớp:\nLayer 1: Subject (Chủ thể chính) -> {{MO_TA_CHU_THE}}\nLayer 2: Environment (Môi trường) -> {{MO_TA_BOI_CANH}}\nLayer 3: Lighting (Ánh sáng) -> {{MO_TA_ANH_SANG}}\nLayer 4: Camera & Lens (Góc chụp) -> {{MO_TA_GOC_MAY}}\nLayer 5: Composition (Bố cục) -> {{MO_TA_BO_CUC}}\nLayer 6: Style & Vibe (Phong cách) -> {{MO_TA_PHONG_CACH}}\n\nHãy tạo ảnh dựa trên cấu trúc trên."
+}

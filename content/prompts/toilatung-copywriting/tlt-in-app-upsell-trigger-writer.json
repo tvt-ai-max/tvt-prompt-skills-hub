@@ -1,0 +1,23 @@
+{
+  "id": "tlt-in-app-upsell-trigger-writer",
+  "title": "In-App Upsell Trigger Writer",
+  "description": "Viết 3 mẫu thông báo in-app tinh tế nhằm upsell người dùng khi họ chạm mốc giới hạn tính năng của gói Free.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "GOI_CAN_UPSELL",
+      "label": "Gói cần upsell",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy viết 3 mẫu thông báo ngắn (In-app notification / Tooltip / Modal) xuất hiện ngay trong giao diện ứng dụng khi khách hàng thực hiện hành động sau:\n\nHành động khách vừa làm: [HÀNH ĐỘNG/GIỚI HẠN KHÁCH VỪA CHẠM ĐẾN, VD: Tạo xong chiến dịch thứ 5]\nGói cần Upsell: {{GOI_CAN_UPSELL}}\n\nYêu cầu kỹ thuật viết copy:\n- Độ dài: Tối đa 30 chữ mỗi mẫu.\n- Tông giọng: Tích cực, tập trung vào việc \"Bạn đang bỏ lỡ cơ hội tạo thêm kết quả lớn hơn\" thay vì thông báo tiêu cực \"Bạn đã hết dung lượng/quyền hạn\".\n- Nút kêu gọi hành động (CTA) rõ ràng, trực quan và dẫn đến một hành động nâng cấp duy nhất."
+}

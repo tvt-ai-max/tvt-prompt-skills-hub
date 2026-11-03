@@ -1,0 +1,43 @@
+{
+  "id": "tlt-brand-differentiation-one-pager",
+  "title": "Brand Differentiation One-Pager",
+  "description": "Thiết kế nội dung tài liệu một trang (One-Pager) tóm tắt định vị, hào cạnh tranh và kết quả để gửi đối tác.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TUYEN_NGON_DINH_VI",
+      "label": "Tuyên ngôn định vị",
+      "type": "text"
+    },
+    {
+      "key": "NIEM_TIN_COT_LOI",
+      "label": "Niềm tin cốt lõi",
+      "type": "text"
+    },
+    {
+      "key": "HAO_CANH_TRANH_CHINH",
+      "label": "Hào cạnh tranh chính",
+      "type": "text"
+    },
+    {
+      "key": "CASE_STUDY_NGAN",
+      "label": "Case study ngắn",
+      "type": "text"
+    },
+    {
+      "key": "THONG_TIN_LIEN_HE_CTA",
+      "label": "Thông tin liên hệ/cta",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là B2B Copywriter chuyên thiết kế tài liệu tiếp thị một trang (One-Pager). Hãy giúp tôi soạn thảo nội dung văn bản cho một trang giới thiệu năng lực (Brand Differentiation One-Pager) dựa trên thông tin sau:\n\nTuyên ngôn định vị: {{TUYEN_NGON_DINH_VI}}\nNiềm tin cốt lõi (Core Belief): {{NIEM_TIN_COT_LOI}}\nHào cạnh tranh chính (Competitive Moat): {{HAO_CANH_TRANH_CHINH}}\nCase study kết quả ngắn gọn: {{CASE_STUDY_NGAN}}\nThông tin liên hệ / CTA cuối trang: {{THONG_TIN_LIEN_HE_CTA}}\n\nYÊU CẦU CẤU TRÚC NỘI DUNG XUẤT RA (Sẵn sàng sao chép vào Canva/Google Docs):\n\n▸ **HEADER SECTION**\n- Brand Name | Tagline định vị thương hiệu tinh gọn.\n\n▸ **SECTION 1 — THE PROBLEM (Khắc họa nỗi đau)**\n- 2-3 câu mô tả sâu sắc vấn đề nhức nhối nhất của khách hàng mục tiêu.\n\n▸ **SECTION 2 — OUR APPROACH (Phương pháp tiếp cận độc đáo)**\n- 3-4 dòng gạch đầu dòng nêu bật các điểm khác biệt cốt lõi (Moats) và tuyên bố niềm tin mạnh mẽ.\n\n▸ **SECTION 3 — RESULTS (Minh chứng thực tế)**\n- 1 Case study ngắn gọn nêu rõ tên khách hàng/lĩnh vực + kết quả cụ thể đạt được trong thời gian ngắn + 2 chỉ số số liệu trực quan.\n\n▸ **SECTION 4 — FOR YOU IF (Đối tượng phù hợp)**\n- 3 Tiêu chí xác định khách hàng phù hợp hoàn hảo (Bạn là ai - Bạn đang gặp vấn đề gì - Bạn kỳ vọng kết quả gì).\n\n▸ **SECTION 5 — CALL TO ACTION (Kêu gọi hành động)**\n- Lời kêu gọi hành động cuối trang kèm link kết nối rõ ràng."
+}

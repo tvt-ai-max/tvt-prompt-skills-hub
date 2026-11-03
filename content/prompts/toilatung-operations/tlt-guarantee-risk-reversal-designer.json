@@ -1,0 +1,28 @@
+{
+  "id": "tlt-guarantee-risk-reversal-designer",
+  "title": "Guarantee & Risk Reversal Designer",
+  "description": "Thiết kế 3 loại hình bảo hành cực mạnh (Conditional, Service-based, Unconditional Bribe) để triệt tiêu nỗi sợ mua hàng.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_OFFER",
+      "label": "Tên offer",
+      "type": "text"
+    },
+    {
+      "key": "MUC_GIA_GIA_TRI",
+      "label": "Mức giá/giá trị",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy thiết kế 3 phương án Bảo hành (Risk Reversal Guarantee) cực mạnh để triệt tiêu hoàn toàn nỗi sợ mất tiền của khách hàng đối với offer dưới đây:\n\nTên Offer: {{TEN_OFFER}}\nMức giá/Giá trị: {{MUC_GIA_GIA_TRI}}\n\nYêu cầu thiết kế chi tiết 3 loại guarantee:\n1. Conditional Guarantee (Hoàn tiền nếu làm đủ các bước hướng dẫn cụ thể mà không đạt kết quả).\n2. Service-based Guarantee (Bảo hành bằng dịch vụ: \"Chúng tôi sẽ làm thay bạn hoặc đồng hành miễn phí cho đến khi ra kết quả\").\n3. Unconditional Bribe (Bảo hành vô điều kiện hoàn tiền trong X ngày + Khách hàng được giữ lại một phần quà/tài liệu giá trị làm bồi thường)."
+}

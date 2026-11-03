@@ -1,0 +1,23 @@
+{
+  "id": "tlt-storyboard-analysis-prompt",
+  "title": "Storyboard Analysis Prompt",
+  "description": "Phân tích kịch bản thành các khung hình storyboard.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "NOI_DUNG_KICH_BAN",
+      "label": "Nội dung kịch bản",
+      "type": "text"
+    }
+  ],
+  "template": "Phân tích kịch bản sau và chia thành các khung hình (frames) cho storyboard:\nKịch bản: {{NOI_DUNG_KICH_BAN}}\nMỗi frame cần bao gồm:\n1. Mô tả hình ảnh (Visual).\n2. Lời thoại/Chú thích (Caption).\n3. Góc máy (Camera Angle).\n4. Thời lượng ước tính."
+}

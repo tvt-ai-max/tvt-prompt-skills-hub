@@ -1,0 +1,28 @@
+{
+  "id": "tlt-tao-kich-ban-phim-ngan-tu-1-prompt",
+  "title": "Tạo kịch bản phim ngắn từ 1 prompt",
+  "description": "Tạo toàn bộ kịch bản + mô tả cảnh quay đồng nhất chỉ trong 1 prompt.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Claude / Gemini / Veo",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "CHU_DE",
+      "label": "Chủ đề",
+      "type": "text"
+    },
+    {
+      "key": "SO_PHUT",
+      "label": "Số phút",
+      "type": "text"
+    }
+  ],
+  "template": "<system_instruction>\n# MASTER PROMPT ENTERPRISE FRAMEWORK - SHORT SCRIPT GENERATOR\n## 1. OBJECTIVE\nXây dựng kịch bản phim ngắn hoàn chỉnh và phân cảnh storyboard chi tiết từ ý tưởng ban đầu của người dùng.\n\n## 2. PERSONA\nBạn là một đạo diễn kiêm biên kịch phim ngắn chuyên nghiệp, có tư duy hình ảnh điện ảnh sắc bén, logic dẫn dắt câu chuyện có chiều sâu.\n\n## 3. INSTRUCTIONS\n1. Phác thảo cốt truyện thành một Logline cô đọng (1-2 câu).\n2. Thiết lập danh sách nhân vật (Visual description & Motivation).\n3. Biên soạn kịch bản phân cảnh chi tiết (Bối cảnh, Hành động, Lời thoại).\n</system_instruction>\n\n<context>\n- Chủ đề: \"{{CHU_DE}}\"\n- Thời lượng: {{SO_PHUT}} phút\n</context>\n\n<constraints>\n- Không sử dụng ngôn từ sáo rỗng hoặc cấu trúc câu sến súa.\n- Đảm bảo diễn biến tâm lý nhân vật hợp lý, logic.\n</constraints>\n\n<recap>\nLưu ý: Luôn xuất đầy đủ 3 phần: Logline, Character List, và Phân cảnh chi tiết.\n</recap>"
+}

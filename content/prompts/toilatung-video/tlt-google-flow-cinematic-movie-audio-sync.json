@@ -1,0 +1,18 @@
+{
+  "id": "tlt-google-flow-cinematic-movie-audio-sync",
+  "title": "Google Flow Cinematic Movie & Audio Sync",
+  "description": "Prompt tạo video 8 giây chuyên nghiệp trên Google Flow/Veo có camera chuyển động phức tạp và âm thanh đồng bộ.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video Master",
+    "Google Flow / Gemini",
+    "toilatung.com",
+    "Master Prompt"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "[Camera motion e.g., Slow cinematic tracking shot pushing forward at eye level, smooth 24fps motion].\n\nSubject: [Describe Character e.g., A charismatic Vietnamese man in his 30s with short black hair, wearing a dark grey linen shirt], perfect face lock, consistent lighting and shadows.\n\nAction sequence with precise timing:\n0-2s: [Describe action 1, e.g., looks directly at the camera, smiling warm and confidently].\n2-5s: [Describe action 2, e.g., raises his hand slightly as if explaining a concept, natural body weight shift].\n5-8s: [Describe action 3, e.g., lowers hand, nods gently, maintaining a friendly expression].\n\nSetting: [Describe environment, e.g., A modern high-tech workspace, soft blurred server racks in the background with purple and cyan ambient lights], shallow depth of field, beautiful bokeh.\n\nStyle/Lighting: High-end cinematic lighting, soft key light on subject's face, realistic skin texture and hair strands.\n\nAudio:\n0-3s - Subject says in warm, confident tone: \"[Insert Dialogue e.g., AI Agent không chỉ là công cụ, nó là cộng sự của bạn.]\"\n3-8s - SFX: [Insert SFX e.g., subtle keyboard typing sound, light server hum].\nBackground music: Low ambient electronic pads, premium and inspiring atmosphere.\n(Strictly no subtitles, no on-screen text. Perfect lip synchronization.)"
+}

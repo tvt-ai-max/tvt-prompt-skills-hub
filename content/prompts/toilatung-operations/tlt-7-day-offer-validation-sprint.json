@@ -1,0 +1,28 @@
+{
+  "id": "tlt-7-day-offer-validation-sprint",
+  "title": "7-Day Offer Validation Sprint",
+  "description": "Kế hoạch 7 ngày kiểm chứng nhu cầu thị trường đối với một Premium Offer trước khi bắt tay vào xây dựng.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kinh doanh & Ops",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEN_OFFER",
+      "label": "Tên offer",
+      "type": "text"
+    },
+    {
+      "key": "LOI_HUA_COT_LOI",
+      "label": "Lời hứa cốt lõi",
+      "type": "text"
+    }
+  ],
+  "template": "Hãy giúp tôi lên một kế hoạch 'Validation Sprint' (Kiểm chứng nhanh) trong vòng 7 ngày để xem thị trường có sẵn sàng chi trả cho offer dưới đây hay không trước khi tôi bắt tay vào code hoặc làm landing page:\n\nTên Premium Offer: {{TEN_OFFER}}\nLời hứa cốt lõi: {{LOI_HUA_COT_LOI}}\nKênh đang có sẵn: [KÊNH TRUYỀN THÔNG HIỆN CÓ, VD: List email, group Facebook...]\n\nYêu cầu vạch ra:\n1. 3 phương án test/đo lường nhu cầu thực tế của thị trường.\n2. Cấu trúc kịch bản gửi tin nhắn trực tiếp (DM) hoặc viết bài đăng (Post) ngắn để tiếp cận họ và đề xuất pre-order (đặt hàng trước).\n3. Thiết lập quy tắc quyết định đi tiếp hay dừng lại (\"Go/No-Go Decision Rule\" - ví dụ: cần bao nhiêu người chuyển khoản cọc trước để bắt đầu xây dựng sản phẩm)."
+}

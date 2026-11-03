@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-sua-loi-chu-tieng-viet",
+  "title": "Prompt sửa lỗi chữ tiếng Việt",
+  "description": "Dùng khi AI tạo sai hoặc lỗi font chữ tiếng Việt.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "QA & Tối ưu",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TEXT_TIENG_VIET",
+      "label": "Text tiếng việt",
+      "type": "text"
+    }
+  ],
+  "template": "The text \"{{TEXT_TIENG_VIET}}\" in the image is misspelled or has font issues. \nPlease regenerate the image with the exact Vietnamese characters, ensuring correct diacritics (dấu tiếng Việt). \nUse a clean, sans-serif font that supports UTF-8. \nDo not add extra characters."
+}

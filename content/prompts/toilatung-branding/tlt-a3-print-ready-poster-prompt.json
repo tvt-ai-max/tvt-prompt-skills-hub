@@ -1,0 +1,28 @@
+{
+  "id": "tlt-a3-print-ready-poster-prompt",
+  "title": "A3 Print-ready Poster Prompt",
+  "description": "Tối ưu hóa poster để in ấn khổ lớn (A3/A2).",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "CHU_THE",
+      "label": "Chủ thể",
+      "type": "text"
+    },
+    {
+      "key": "HEADLINE",
+      "label": "Headline",
+      "type": "text"
+    }
+  ],
+  "template": "Create a high-resolution, print-ready poster in A3 portrait format. \nSubject: {{CHU_THE}}. \nEnsure all text elements are within safe margins. \nHeadline: \"{{HEADLINE}}\" in bold, elegant typography. \nResolution: 300 DPI equivalent quality. \nStyle: Clean, professional, minimal. \nAspect ratio: 2:3."
+}

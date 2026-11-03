@@ -1,0 +1,23 @@
+{
+  "id": "tlt-signature-content-angle-finder",
+  "title": "Signature Content Angle Finder",
+  "description": "Tìm kiếm 3 góc nội dung độc quyền từ brand positioning vượt qua 3 bài test độ độc bản và đề xuất tiêu đề bài viết cụ thể.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Kịch bản & Storyboard",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DOI_TUONG_DOC_GIA",
+      "label": "Đối tượng độc giả",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Content Strategist chuyên về thought leadership dành cho các nhà sáng lập. Hãy giúp tôi tìm kiếm 3 góc nhìn nội dung độc quyền (Signature Content Angles) dựa trên thông tin sau:\n\nDNA thương hiệu và Định vị: [DNA & ĐỊNH VỊ]\nKênh nội dung chính muốn xây dựng: [KÊNH NỘI DUNG, VD: LinkedIn, Newsletter...]\nĐối tượng độc giả hướng tới: {{DOI_TUONG_DOC_GIA}}\n\nYêu cầu mỗi góc nhìn nội dung được đề xuất phải vượt qua 3 bài test:\n1. Chỉ có bạn (nhờ kinh nghiệm/data độc quyền) mới có quyền nói điều này.\n2. Khách hàng lý tưởng của bạn thực sự cần nghe điều này để giải quyết nỗi đau của họ.\n3. Không có đối thủ nào khác trên thị trường đang nói theo cách tương tự.\n\nOUTPUT YÊU CẦU CHO MỖI ANGLE:\n▸ **Góc nhìn & Luận điểm chính (Thesis - 1 câu bold)**\n- Giải thích vì sao bạn có quyền viết về điều này và nỗi đau nó giải quyết cho khách hàng.\n- Đề xuất định dạng bài viết phù hợp cho kênh nội dung đã chọn.\n- Soạn thảo sẵn tiêu đề cụ thể cho 3 bài viết đầu tiên thuộc góc nhìn này để có thể triển khai ngay lập tức."
+}

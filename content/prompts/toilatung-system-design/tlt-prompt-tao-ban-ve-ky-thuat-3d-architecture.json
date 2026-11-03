@@ -1,0 +1,23 @@
+{
+  "id": "tlt-prompt-tao-ban-ve-ky-thuat-3d-architecture",
+  "title": "Prompt Tạo Bản Vẽ Kỹ Thuật 3D Architecture",
+  "description": "Tạo bản vẽ kỹ thuật kiến trúc 3D với phong cách blueprint sắc nét, chuyên nghiệp.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Ảnh Kỹ thuật",
+    "Nano Banana / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "BUILDING_STRUCTURE_NAME",
+      "label": "Building/structure name",
+      "type": "text"
+    }
+  ],
+  "template": "Highly detailed 3D architectural blueprint schematic of a {{BUILDING_STRUCTURE_NAME}}, showing interior cross-sections, multi-level isometric projection, intricate wireframe structures and measurement lines, clean cyan grid background, technical drafting aesthetic, crisp white lines, precise industrial rendering, 8k resolution, clean minimal style."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "tlt-urban-streetwalk-1-nhan-vat",
+  "title": "Urban Streetwalk (1 Nhân Vật)",
+  "description": "Quay phim thời trang 8 giây với tracking camera và audio đồng bộ.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video Master",
+    "Veo / Nano Banana",
+    "toilatung.com",
+    "Master Prompt"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Slow cinematic dolly-in from full body shot to waist-up over 8 seconds, combined with a very subtle left-to-right orbiting arc at eye level, smooth and natural camera motion, perfect cinematic framing.\n\nExact same girl from all attached reference images (especially the 8-panel reference sheet as Image 1), perfect face and body lock, zero drift, identical black crop top with graphic logo, exact light blue distressed baggy jeans, sunglasses, consistent lighting and shadows.\n\nAction sequence with precise timing: \n0-2s: stands still with cold confident expression, one hand inside jeans pocket, looking slightly to the side. \n2-5s: slowly and naturally slides hand out of the pocket, rests it on hip, creates relaxed S-curve body weight shift. \n5-8s: subtle hair strands flowing in light breeze, realistic fabric wrinkles and movement on crop top and jeans, slight head tilt maintaining cold expression.\n\nUrban street background with brick wall covered in graffiti, potted plants, concrete ground, natural daylight mixed with soft diffused studio lighting, gentle golden hour glow, shallow depth of field, beautiful bokeh.\n\nHyperrealistic 8K fashion film, editorial lookbook style, professional studio photography quality, ultra-detailed fabric texture, realistic skin pores and hair strands, smooth 24fps motion, natural physics, no motion blur artifacts, extremely high detail.\n\nAudio: \n0-3s - The girl says in cold confident tone with slight smirk: \"Không tệ đâu, đúng không?\"\n0-4s - SFX: realistic fabric rustling as she slowly slides her hand out of the jeans pocket, highly detailed denim movement\n3-6s - She continues with a soft smirk: \"Bạn nghĩ sao?\"\n4-7s - SFX: subtle laughter, hair strands flowing in light wind, soft exhale\nAmbient: gentle urban street ambience, distant city noise, light breeze\nBackground music: low moody R&B instrumental, subtle deep bass, elegant fashion film atmosphere, no lyrics, no vocals\n(Strictly no subtitles, no on-screen text anywhere in the video. Perfect lip synchronization.)"
+}

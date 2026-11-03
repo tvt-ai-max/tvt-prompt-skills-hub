@@ -1,0 +1,43 @@
+{
+  "id": "tlt-premium-reframe-strategy",
+  "title": "Premium Reframe Strategy",
+  "description": "Tái cấu trúc khung nhận thức (framing) của khách hàng để chuyển dịch sản phẩm từ commodity rẻ tiền sang premium đắt giá.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_HIEN_TAI",
+      "label": "Mô tả hiện tại",
+      "type": "text"
+    },
+    {
+      "key": "GIA_HIEN_TAI",
+      "label": "Giá hiện tại",
+      "type": "text"
+    },
+    {
+      "key": "GIA_MUC_TIEU_MONG_MUON",
+      "label": "Giá mục tiêu mong muốn",
+      "type": "text"
+    },
+    {
+      "key": "KHACH_HANG_TOT_NHAT",
+      "label": "Khách hàng tốt nhất",
+      "type": "text"
+    },
+    {
+      "key": "KET_QUA_COT_LOI",
+      "label": "Kết quả cốt lõi",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Premium Positioning Strategist. Nhiệm vụ của bạn là tái cấu trúc khung nhận thức (Reframe) của khách hàng để dịch chuyển sản phẩm từ phân khúc thông thường (commodity) sang phân khúc cao cấp (premium) mà không cần thay đổi tính năng sản phẩm cốt lõi.\n\nCách mô tả sản phẩm hiện tại: {{MO_TA_HIEN_TAI}}\nGiá hiện tại: {{GIA_HIEN_TAI}}\nMức giá Premium mục tiêu: {{GIA_MUC_TIEU_MONG_MUON}}\nKhách hàng tốt nhất đang trả tiền vui vẻ: {{KHACH_HANG_TOT_NHAT}}\nKết quả lớn nhất sản phẩm giúp họ đạt được: {{KET_QUA_COT_LOI}}\n\nOUTPUT YÊU CẦU:\n\n▸ **FRAME SHIFT (Dịch chuyển khung nhận thức)**\n- Giải thích logic so sánh giá trị mới. (Ví dụ: Chuyển từ việc so sánh giá với các tool quản lý task $15 sang so sánh với chi phí thuê một nhân sự quản trị vận hành chuyên nghiệp $2500/tháng).\n\n▸ **LANGUAGE SHIFT (7 cặp từ khóa dịch chuyển thông điệp)**\n- Liệt kê 7 cặp từ/cụm từ cũ cần thay thế bằng từ/cụm từ mới theo định hướng premium kèm giải thích lý do tâm lý học hành vi.\n\n▸ **HEADLINE REFRAME (3 phiên bản viết lại trang chủ)**\n- Viết lại tiêu đề trang chủ theo 3 hướng tiếp cận premium: Định hướng kết quả (Outcome), Định hướng danh mục mới (Category), và Định hướng bản sắc/vị thế người dùng (Identity).\n\n▸ **PRICING NARRATIVE (Lập luận bảo vệ giá cao)**\n- Soạn thảo đoạn văn lập luận đắt giá để giải thích vì sao mức giá mới là hoàn toàn hợp lý và quá rẻ so với chi phí tổn thất do vấn đề gây ra."
+}

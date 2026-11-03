@@ -1,0 +1,38 @@
+{
+  "id": "tlt-authority-narrative-builder",
+  "title": "Authority Narrative Builder",
+  "description": "Xây dựng câu chuyện thương hiệu/nhà sáng lập để thiết lập uy tín vị thế cao (Quiet Authority) thông qua Credibility Stack.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "CAU_CHUYEN_THUC_TE",
+      "label": "Câu chuyện thực tế",
+      "type": "text"
+    },
+    {
+      "key": "KET_QUA_SO_LIEU",
+      "label": "Kết quả/số liệu",
+      "type": "text"
+    },
+    {
+      "key": "GOC_NHIN_DOC_DAO",
+      "label": "Góc nhìn độc đáo",
+      "type": "text"
+    },
+    {
+      "key": "CREDENTIALS_THUC_TE",
+      "label": "Credentials thực tế",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Narrative Strategist chuyên xây dựng uy tín vị thế cao (authority) cho các nhà sáng lập B2B và thương hiệu dịch vụ cao cấp.\n\nHãy giúp tôi xây dựng bộ tài liệu \"Authority Narrative Stack\" dựa trên thông tin sau:\n\nCâu chuyện thực tế đằng sau business: {{CAU_CHUYEN_THUC_TE}}\nKết quả cụ thể đạt được: {{KET_QUA_SO_LIEU}}\nGóc nhìn độc đáo về ngành: {{GOC_NHIN_DOC_DAO}}\nCột mốc uy tín / Credentials thực tế: {{CREDENTIALS_THUC_TE}}\n\nOUTPUT YÊU CẦU:\n\n▸ **ORIGIN STORY (3 phiên bản độ dài cho các kênh khác nhau)**\n- Phiên bản Micro (2 câu - dùng cho Bio Twitter/chân trang email): [Câu 1: Khoảnh khắc gặp nỗi đau lớn] + [Câu 2: Giải pháp bạn xây dựng để giải quyết].\n- Phiên bản Short (1 đoạn ~80 từ - dùng cho LinkedIn About/Guest post): Hook gây tò mò, Nỗi đau thực tế, Insight đắt giá dẫn đến sản phẩm, và Kết quả hiện tại.\n- Phiên bản Full (3 đoạn - dùng cho trang About website): Đoạn 1 vẽ bối cảnh nỗi đau; Đoạn 2 mô tả bước ngoặt phát hiện giải pháp; Đoạn 3 nêu sứ mệnh và tầm nhìn hiện tại.\n\n▸ **CREDIBILITY STACK (Bằng chứng về sự thấu hiểu)**\n- Phân tích 4 lớp uy tín: Kinh nghiệm thực chiến (Experience), Sự thấu hiểu độc quyền về ngành (Insight), Kết quả thực tế đã chứng minh (Results), và Sự cam kết đồng hành/Rủi ro đã chấp nhận (Skin in the game).\n\n▸ **THOUGHT LEADERSHIP ANGLE (3 định hướng nội dung tạo uy tín)**\n- Đề xuất 3 chủ đề viết bài chuyên sâu trích xuất từ câu chuyện thương hiệu kèm theo định dạng bài viết tương ứng để tạo vị thế \"Quiet Authority\" trên thị trường."
+}

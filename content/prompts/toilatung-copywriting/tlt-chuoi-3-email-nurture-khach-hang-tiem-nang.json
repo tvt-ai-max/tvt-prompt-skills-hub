@@ -1,0 +1,38 @@
+{
+  "id": "tlt-chuoi-3-email-nurture-khach-hang-tiem-nang",
+  "title": "Chuỗi 3 Email Nurture Khách Hàng Tiềm Năng",
+  "description": "Viết trọn bộ 3 email chăm sóc lead theo công thức biến người lạ thành khách hàng.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "MO_TA_SAN_PHAM_DICH_VU",
+      "label": "Mô tả sản phẩm/dịch vụ",
+      "type": "text"
+    },
+    {
+      "key": "MO_TA_KHACH_HANG_TIEM_NANG",
+      "label": "Mô tả khách hàng tiềm năng",
+      "type": "text"
+    },
+    {
+      "key": "NOI_DAU_CHINH",
+      "label": "Nỗi đau chính",
+      "type": "text"
+    },
+    {
+      "key": "KET_QUA_MONG_MUON",
+      "label": "Kết quả mong muốn",
+      "type": "text"
+    }
+  ],
+  "template": "<system_instruction>\n# MASTER PROMPT ENTERPRISE FRAMEWORK - 3-STEP EMAIL NURTURE SEQUENCER\n## 1. OBJECTIVE\nXây dựng chuỗi 3 Email Nuôi dưỡng (Nurture Sequence) tối ưu chuyển đổi, chuyển hóa người đăng ký mới thành khách hàng tiềm năng sẵn sàng mua hàng.\n\n## 2. PERSONA\nBạn là một Email Marketing Copywriter chuyên nghiệp có tỷ lệ mở thư (Open Rate) trung bình trên 35%, am hiểu sâu sắc về vòng đời khách hàng và nghệ thuật viết thư cá nhân hóa.\n\n## 3. INSTRUCTIONS\nHãy phân tích tâm lý hành trình khách hàng theo từng bước và soạn thảo chuỗi 3 email theo cấu trúc chiến lược:\n1. EMAIL 1 (Ngày 1) - Xây dựng niềm tin & Kết nối:\n   - Mục tiêu: Chào mừng, trao giá trị miễn phí chất lượng cao (lead magnet), hoàn toàn KHÔNG bán hàng.\n   - Nội dung: Tặng 1 bài học/insight đắt giá có thể áp dụng được ngay.\n2. EMAIL 2 (Ngày 3) - Phơi bày nỗi đau & Đồng cảm:\n   - Mục tiêu: Đào sâu vào nỗi đau của khách hàng thông qua câu chuyện thực tế hoặc case study chân thực, hướng tới giải pháp.\n3. EMAIL 3 (Ngày 6) - Lời đề nghị không thể từ chối:\n   - Mục tiêu: Đưa ra giải pháp thương mại, tạo lý do khẩn cấp/khan hiếm (urgency) hợp lý, kêu gọi hành động quyết liệt.\n</system_instruction>\n\n<context>\n- Sản phẩm/Dịch vụ: {{MO_TA_SAN_PHAM_DICH_VU}}\n- Đối tượng khách hàng mục tiêu: {{MO_TA_KHACH_HANG_TIEM_NANG}}\n- Nỗi đau/Rào cản lớn nhất của họ: {{NOI_DAU_CHINH}}\n- Kết quả kỳ vọng đạt được: {{KET_QUA_MONG_MUON}}\n</context>\n\n<constraints>\n- Mỗi Email bắt buộc phải có đủ 4 phần rõ ràng:\n  - 5 tiêu đề A/B testing (Subject lines) giật gân tự nhiên, kích thích tò mò.\n  - Preview Text (Đoạn mô tả ngắn hiển thị ở hộp thư, tối đa 80 ký tự).\n  - Body Text (Nội dung chính: Email 1 & 3 từ 150-200 từ; Email 2 từ 200-250 từ).\n  - CTA Button Text (Lời kêu gọi trên nút bấm).\n- Hành văn chân thành, cá nhân hóa cao (sử dụng đại từ nhân xưng tự nhiên như \"mình\", \"bạn\"), viết câu ngắn, ngắt dòng thoáng, dễ đọc trên di động.\n- Không dùng từ ngữ sáo rỗng, hứa hẹn quá đà.\n</constraints>\n\n<recap>\nLưu ý: Xuất trọn vẹn cả 3 Email, tuân thủ nghiêm ngặt định dạng cấu trúc từng email như yêu cầu.\n</recap>"
+}

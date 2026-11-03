@@ -1,0 +1,28 @@
+{
+  "id": "tlt-prompt-tao-video-game-chien-dau-2-5d",
+  "title": "Prompt tạo video game chiến đấu 2,5D",
+  "description": "Tạo video đối kháng kiểu game cổ điển cực chất.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video & Animation",
+    "Veo / Seedance",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "SUBJECT_A",
+      "label": "Subject a",
+      "type": "text"
+    },
+    {
+      "key": "SUBJECT_B",
+      "label": "Subject b",
+      "type": "text"
+    }
+  ],
+  "template": "2.5D fighting game combat sequence, side-scrolling perspective. {{SUBJECT_A}} performing a dynamic spinning kick against {{SUBJECT_B}}, glowing hit effects, cinematic action camera, fluid animation, hyper-realistic textures, dramatic particle effects, dramatic lighting, dark futuristic arena background, arcade fighting style."
+}

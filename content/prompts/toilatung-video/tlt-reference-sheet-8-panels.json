@@ -1,0 +1,18 @@
+{
+  "id": "tlt-reference-sheet-8-panels",
+  "title": "Reference Sheet 8 Panels",
+  "description": "Tạo bảng tham chiếu 8 góc nhất quán cho Nano Banana.",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video Master",
+    "Nano Banana / Midjourney",
+    "toilatung.com",
+    "Master Prompt"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Create a professional person reference sheet with exactly 8 panels arranged in a clean 2-row by 4-column grid. Thin black borders between each panel, flat neutral light gray background (#E5E5E5), no text, no watermark.\n\nSubject is the exact person in Image 1 (same face, same body proportion, same hairstyle, same skin tone, same outfit).\n\nTOP ROW (Full body shots, camera at chest height, arms relaxed at sides):\n- Panel 1 (top-left): Full body FRONT VIEW, facing camera directly, 0°\n- Panel 2 (top-center-left): Full body LEFT PROFILE, body facing left, 90°\n- Panel 3 (top-center-right): Full body RIGHT PROFILE, body facing right, 270°\n- Panel 4 (top-right): Full body BACK VIEW, facing away from camera, 180°\n\nBOTTOM ROW (Close-up portrait, head + bare shoulders only):\n- Panel 5 (bottom-left): Portrait FRONT VIEW, face looking straight at camera\n- Panel 6 (bottom-center-left): Portrait LEFT PROFILE, face turned fully left 90°\n- Panel 7 (bottom-center-right): Portrait RIGHT PROFILE, face turned fully right 270°\n- Panel 8 (bottom-right): Portrait BACK VIEW, back of head facing camera\n\nLighting: Soft even diffused studio lighting, gentle highlights, no harsh shadows, perfectly consistent across all 8 panels.\nStyle: Hyperrealistic, ultra-detailed, 8K, clean editorial fashion lookbook reference sheet, professional studio photography, same model, same outfit, same lighting in every panel."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "tlt-bento-grid-infographic-layout",
+  "title": "Bento Grid Infographic Layout",
+  "description": "Tạo bố cục Bento Grid hiện đại để trình bày thông tin, dữ liệu công nghệ.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "GPT Image / Midjourney",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "A clean, modern Bento Grid style infographic layout showcasing [Topic, e.g., 5 Pillars of AI Agent Platform]. The design is split into 5 distinct rectangular and square panels arranged in a neat grid with balanced gaps. Style: Minimalist flat vector illustration, premium tech aesthetic. Palette: Deep obsidian black background (#0B0B0F), neon purple (#8B5CF6) and emerald green (#10B981) accent highlights. Each panel features a unique, simple, high-contrast icon representing [Icons: search, robot, database, gear, chart]. Use placeholder boxes and abstract lines for text. Clean layout, plenty of whitespace, 8K resolution, high-contrast UI design."
+}

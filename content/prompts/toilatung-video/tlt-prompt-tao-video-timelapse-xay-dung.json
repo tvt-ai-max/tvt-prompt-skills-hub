@@ -1,0 +1,17 @@
+{
+  "id": "tlt-prompt-tao-video-timelapse-xay-dung",
+  "title": "Prompt tạo video Timelapse Xây Dựng",
+  "description": "Tạo video timelapse công trình tua nhanh (đang cực hot 2026).",
+  "category": "video",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Video & Animation",
+    "Veo + Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "High-speed cinematic timelapse video of a futuristic building construction from start to finish. Rapid assembly of steel frames and glass panels, dynamic shifting sunlight and shadows indicating passing days, hyper-realistic, 8k resolution, smooth camera pan, bustling construction site, epic scale, architectural visualization."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tlt-batch-20-famous-posters-prompt",
+  "title": "Batch 20 Famous Posters Prompt",
+  "description": "Quy trình tạo hàng loạt 20 poster theo nhóm.",
+  "category": "branding",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Hình ảnh & Poster",
+    "Nano Banana",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DANH_SACH_20_NHAN_VAT",
+      "label": "Danh sách 20 nhân vật",
+      "type": "text"
+    },
+    {
+      "key": "EDITORIAL_BIO_MASTER",
+      "label": "Editorial bio master",
+      "type": "text"
+    }
+  ],
+  "template": "Tôi có danh sách 20 nhân vật sau: {{DANH_SACH_20_NHAN_VAT}}. \nHãy sử dụng cấu trúc {{EDITORIAL_BIO_MASTER}} để lần lượt tạo prompt cho từng người. \nĐảm bảo tính nhất quán về phong cách (style consistency) giữa các poster nhưng thay đổi màu sắc accent dựa trên đặc điểm của từng người."
+}

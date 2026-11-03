@@ -1,0 +1,33 @@
+{
+  "id": "tlt-pitch-script-designer-30s-2min",
+  "title": "Pitch Script Designer (30s & 2min)",
+  "description": "Soạn thảo kịch bản thuyết trình nhanh (elevator pitch) ở 2 định dạng: 30 giây và 2 phút phục vụ networking.",
+  "category": "copywriting",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "TUYEN_NGON_DINH_VI",
+      "label": "Tuyên ngôn định vị",
+      "type": "text"
+    },
+    {
+      "key": "KET_QUA_SO_LIEU",
+      "label": "Kết quả/số liệu",
+      "type": "text"
+    },
+    {
+      "key": "NGU_CANH_TRANH",
+      "label": "Ngữ cạnh tranh",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là một chuyên gia huấn luyện Pitching (Pitch Coach). Hãy giúp tôi soạn thảo 2 kịch bản giới thiệu nhanh (Elevator Pitch) ở hai định dạng: 30 giây và 2 phút dựa trên thông tin sau:\n\nTuyên ngôn định vị: {{TUYEN_NGON_DINH_VI}}\nSố liệu/Kết quả ấn tượng nhất đã đạt được: {{KET_QUA_SO_LIEU}}\nNgữ cảnh sử dụng pitch chính: {{NGU_CANH_TRANH}}\n\nOUTPUT YÊU CẦU:\n\n▸ **VERSION 30 GIÂY (Mục tiêu giao tiếp nhanh - 60-80 từ)**\n- Cấu trúc: [Tôi giúp ai] + [Giải quyết vấn đề gì] + [Bằng phương pháp nào] + [Bằng chứng kết quả].\n- Kết thúc bằng một câu hỏi mở gợi mở đối thoại tự nhiên, tránh cảm giác bán hàng thô bạo.\n\n▸ **VERSION 2 PHÚT (Mục tiêu giới thiệu sâu - ~300 từ)**\nPhân rã kịch bản chi tiết thành 4 đoạn (mỗi đoạn dài 30 giây):\n- Đoạn 1: Hook mở đầu tạo ấn tượng mạnh.\n- Đoạn 2: Vấn đề nhức nhối và chi phí tổn thất nếu không giải quyết.\n- Đoạn 3: Giải pháp và cơ chế vận hành độc đáo của bạn.\n- Đoạn 4: Minh chứng kết quả thực tế và lời đề nghị hợp tác/kết nối.\n\nHãy cung cấp thêm các lưu ý về điểm dừng nghỉ tự nhiên khi nói và cách điều chỉnh kịch bản theo ngữ cảnh sử dụng."
+}

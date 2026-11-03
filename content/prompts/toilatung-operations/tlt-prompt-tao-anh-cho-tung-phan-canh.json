@@ -1,0 +1,17 @@
+{
+  "id": "tlt-prompt-tao-anh-cho-tung-phan-canh",
+  "title": "Prompt Tạo Ảnh Cho Từng Phân Cảnh",
+  "description": "Mô tả từng phân cảnh theo phong cách truyện để tạo ảnh minh họa.",
+  "category": "operations",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Phân tích & Remake",
+    "Reve + Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Hãy chuyển đổi bảng phân đoạn 3-5 giây ở trên thành các Prompt tạo ảnh liền mạch (Seamless Image Prompt) bằng tiếng Anh.\n\nMỗi Prompt phải theo định dạng:\n\"Cinematic shot of [Chủ thể], [Hành động], [Bối cảnh chi tiết], photorealistic, 8k resolution, shot on 35mm lens, dramatic lighting.\""
+}

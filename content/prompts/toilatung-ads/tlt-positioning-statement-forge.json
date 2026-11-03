@@ -1,0 +1,63 @@
+{
+  "id": "tlt-positioning-statement-forge",
+  "title": "Positioning Statement Forge",
+  "description": "Đúc kết tuyên ngôn định vị độc bản theo framework Geoffrey Moore kèm 3 biến thể ngắn cho Bio, Website và Ads.",
+  "category": "ads",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Marketing & Copy",
+    "Claude / Gemini",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [
+    {
+      "key": "DU_LIEU_BRAND_DNA",
+      "label": "Dữ liệu brand dna",
+      "type": "text"
+    },
+    {
+      "key": "DOI_THU_CHINH",
+      "label": "Đối thủ chính",
+      "type": "text"
+    },
+    {
+      "key": "DIEM_KHAC_BIET",
+      "label": "Điểm khác biệt",
+      "type": "text"
+    },
+    {
+      "key": "FOR",
+      "label": "For",
+      "type": "text"
+    },
+    {
+      "key": "DO",
+      "label": "Do",
+      "type": "text"
+    },
+    {
+      "key": "UNLIKE",
+      "label": "Unlike",
+      "type": "text"
+    },
+    {
+      "key": "WHO",
+      "label": "Who",
+      "type": "text"
+    },
+    {
+      "key": "PROBLEM",
+      "label": "Problem",
+      "type": "text"
+    },
+    {
+      "key": "SOLUTION",
+      "label": "Solution",
+      "type": "text"
+    }
+  ],
+  "template": "Bạn là Positioning Strategist theo trường phái Geoffrey Moore (Crossing the Chasm). Hãy giúp tôi đúc kết tuyên ngôn định vị dựa trên các dữ liệu đầu vào sau:\n\nDữ liệu Brand DNA (Target/Belief/Transformation): {{DU_LIEU_BRAND_DNA}}\nĐối thủ được so sánh nhiều nhất: {{DOI_THU_CHINH}}\nĐiều khiến sản phẩm của tôi KHÁC BIỆT (không chỉ là Better, mà là Different): {{DIEM_KHAC_BIET}}\n\nOUTPUT YÊU CẦU:\n\n▸ **TEMPlATE ĐỊNH VỊ CHUẨN (Geoffrey Moore Format)**\n\"Dành cho [target customer cụ thể]\nNgười đang gặp phải [vấn đề / tình huống cụ thể],\n[Tên sản phẩm] là một [category]\nCung cấp [key benefit / compelling reason to buy].\nKhông giống như [primary competitor],\nSản phẩm của chúng tôi [key differentiator].\"\n\n▸ **3 BIẾN THỂ RÚT GỌN THỰC CHIẾN**\n- Version 1 (Website Hero / LinkedIn Headline - 12-15 chữ): \"[Tên] giúp {{FOR}} {{DO}} — không giống {{UNLIKE}}.\"\n- Version 2 (Ads copy / Cold outreach - 10-12 chữ): \"{{WHO}} thường gặp {{PROBLEM}}. [Tên] mang tới {{SOLUTION}}.\"\n- Version 3 (Email signature / Bio ngắn - 8-10 chữ): \"[Tên]: [Định vị tập trung vào Transformation].\"\n\n▸ **EXCLUSION TEST (Bài kiểm thử loại trừ)**\n- Chỉ ra ít nhất 3 nhóm đối tượng cụ thể sẽ bị loại trừ (exclude) hoàn toàn bởi tuyên ngôn định vị này. Nếu không loại trừ được, định vị của bạn vẫn đang quá rộng."
+}

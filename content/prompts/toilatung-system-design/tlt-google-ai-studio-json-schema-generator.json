@@ -1,0 +1,17 @@
+{
+  "id": "tlt-google-ai-studio-json-schema-generator",
+  "title": "Google AI Studio JSON Schema Generator",
+  "description": "Prompt giúp thiết lập cấu trúc JSON Schema chuẩn cho tính năng Structured Output của Gemini API.",
+  "category": "system-design",
+  "tier": "prompt",
+  "persona": "toilatung",
+  "tags": [
+    "Google AI Studio",
+    "Google AI Studio / Gemini Developer",
+    "toilatung.com"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "variables": [],
+  "template": "Đóng vai một API Architect và Senior Developer.\nTôi cần thiết lập tính năng Structured Output cho Gemini API trong Google AI Studio.\nHãy giúp tôi tạo một JSON Schema chuẩn và System Instruction tương ứng cho bài toán sau:\n- Bài toán: [MÔ TẢ BÀI TOÁN, ví dụ: Trích xuất thông tin hóa đơn mua hàng / Phân tích CV ứng viên]\n- Các trường dữ liệu cần trích xuất: [DANH SÁCH TRƯỜNG DỮ LIỆU, ví dụ: Tên công ty, Ngày xuất, Danh sách sản phẩm gồm (Tên, Số lượng, Đơn giá), Tổng tiền]\n\nYêu cầu Output:\n1. System Instruction: Cấu trúc brief hướng dẫn AI thực hiện nhiệm vụ.\n2. JSON Schema: Viết chuẩn theo định dạng JSON Schema draft-07 hoặc OpenAPI 3.0 Schema (dùng trong code cấu hình API).\n3. Bộ dữ liệu mẫu (Dummy Mock Output): 1 ví dụ output JSON tương ứng với schema trên."
+}
