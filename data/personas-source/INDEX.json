@@ -1,0 +1,2886 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-05-22",
+  "description": "Machine-readable skill router for ANTIGRAVITY Persona Engine. Query this file first to route agent to correct skill without loading all files.",
+  "routing_rules": {
+    "on_ambiguous_match": "display_menu",
+    "on_no_match": "load_CLAUDE.md and ask user",
+    "local_model_threshold_tokens": 4000,
+    "use_mini_for_local": true
+  },
+  "skills": [
+    {
+      "id": "content-strategy",
+      "name": "Content Strategy",
+      "category": "marketing",
+      "persona_source": "Content Strategist",
+      "file": "categories/marketing/skills/SKILL-CONTENT-STRATEGY.md",
+      "file_mini": "categories/marketing/skills/SKILL-CONTENT-STRATEGY.mini.md",
+      "token_estimate": 3200,
+      "triggers_vi": [
+        "kế hoạch nội dung",
+        "content plan",
+        "lịch nội dung",
+        "editorial calendar",
+        "pillar content",
+        "content strategy",
+        "content audit",
+        "kế hoạch blog"
+      ],
+      "triggers_en": [
+        "content plan",
+        "content calendar",
+        "content strategy",
+        "editorial plan",
+        "pillar content",
+        "content audit",
+        "blog strategy"
+      ],
+      "output_type": "plan + calendar",
+      "integrates_with": [
+        "wordpress",
+        "skill-seo-optimizer",
+        "skill-copywriting",
+        "skill-social-media",
+        "skill-video-marketing",
+        "openclaw"
+      ],
+      "tags": [
+        "marketing",
+        "planning",
+        "editorial",
+        "blog",
+        "strategy"
+      ]
+    },
+    {
+      "id": "seo-optimizer",
+      "name": "SEO Optimizer",
+      "category": "marketing",
+      "persona_source": "SEO Expert",
+      "file": "categories/marketing/skills/SKILL-SEO-OPTIMIZER.md",
+      "file_mini": "categories/marketing/skills/SKILL-SEO-OPTIMIZER.mini.md",
+      "token_estimate": 3600,
+      "triggers_vi": [
+        "SEO audit",
+        "audit SEO",
+        "keyword research",
+        "nghiên cứu từ khóa",
+        "tối ưu SEO",
+        "on-page SEO",
+        "schema markup",
+        "tăng traffic organic",
+        "xếp hạng Google"
+      ],
+      "triggers_en": [
+        "SEO audit",
+        "keyword research",
+        "rank for",
+        "organic traffic",
+        "on-page SEO",
+        "technical SEO",
+        "schema",
+        "SERP"
+      ],
+      "output_type": "audit report + keyword map",
+      "integrates_with": [
+        "wordpress",
+        "skill-content-strategy",
+        "skill-copywriting",
+        "skill-blogging",
+        "google-search-console"
+      ],
+      "tags": [
+        "seo",
+        "search",
+        "keyword",
+        "organic",
+        "google",
+        "ranking"
+      ]
+    },
+    {
+      "id": "social-media",
+      "name": "Social Media",
+      "category": "marketing",
+      "persona_source": "Social Media Manager",
+      "file": "categories/marketing/skills/SKILL-SOCIAL-MEDIA.md",
+      "file_mini": "categories/marketing/skills/SKILL-SOCIAL-MEDIA.mini.md",
+      "token_estimate": 2800,
+      "triggers_vi": [
+        "tạo post",
+        "social media",
+        "lịch đăng bài",
+        "caption",
+        "hashtag strategy",
+        "chiến lược social",
+        "đăng bài"
+      ],
+      "triggers_en": [
+        "social post",
+        "social media",
+        "posting schedule",
+        "caption",
+        "hashtag",
+        "social calendar",
+        "Facebook post",
+        "Instagram post",
+        "LinkedIn post"
+      ],
+      "output_type": "posts + schedule",
+      "integrates_with": [
+        "skill-content-strategy",
+        "skill-copywriting",
+        "skill-ugc-creator",
+        "skill-video-marketing",
+        "telegram"
+      ],
+      "tags": [
+        "social",
+        "facebook",
+        "instagram",
+        "tiktok",
+        "linkedin",
+        "post",
+        "caption"
+      ]
+    },
+    {
+      "id": "video-marketing",
+      "name": "Video Marketing",
+      "category": "marketing",
+      "persona_source": "Video Marketing Specialist",
+      "file": "categories/marketing/skills/SKILL-VIDEO-MARKETING.md",
+      "file_mini": "categories/marketing/skills/SKILL-VIDEO-MARKETING.mini.md",
+      "token_estimate": 1800,
+      "triggers_vi": [
+        "video strategy",
+        "kế hoạch video",
+        "video campaign",
+        "YouTube strategy",
+        "video SEO",
+        "video funnel",
+        "thumbnail"
+      ],
+      "triggers_en": [
+        "video strategy",
+        "video campaign",
+        "YouTube strategy",
+        "video SEO",
+        "video content plan",
+        "thumbnail strategy"
+      ],
+      "output_type": "video strategy + script brief",
+      "integrates_with": [
+        "hyperframes",
+        "skill-video-factory",
+        "skill-ugc-creator",
+        "skill-social-media",
+        "skill-seo-optimizer"
+      ],
+      "tags": [
+        "video",
+        "youtube",
+        "tiktok",
+        "reels",
+        "shorts",
+        "campaign",
+        "thumbnail"
+      ]
+    },
+    {
+      "id": "ugc-creator",
+      "name": "UGC Creator",
+      "category": "marketing",
+      "persona_source": "TikTok - UGC (User Generated Content)",
+      "file": "categories/marketing/skills/SKILL-UGC-CREATOR.md",
+      "file_mini": "categories/marketing/skills/SKILL-UGC-CREATOR.mini.md",
+      "token_estimate": 2700,
+      "triggers_vi": [
+        "UGC",
+        "TikTok script",
+        "reels script",
+        "nội dung người dùng",
+        "review sản phẩm video",
+        "unboxing",
+        "viral hook",
+        "hook TikTok",
+        "nội dung chân thực"
+      ],
+      "triggers_en": [
+        "UGC",
+        "TikTok script",
+        "reels script",
+        "user generated content",
+        "product review video",
+        "unboxing script",
+        "viral hook",
+        "authentic content"
+      ],
+      "output_type": "UGC script + shooting guide",
+      "integrates_with": [
+        "hyperframes",
+        "skill-viral-marketing",
+        "skill-social-media",
+        "skill-video-marketing",
+        "skill-copywriting"
+      ],
+      "tags": [
+        "ugc",
+        "tiktok",
+        "reels",
+        "shorts",
+        "viral",
+        "review",
+        "script",
+        "hook"
+      ]
+    },
+    {
+      "id": "copywriting",
+      "name": "Copywriting",
+      "category": "marketing",
+      "persona_source": "Marketing Copywriter",
+      "file": "categories/marketing/skills/SKILL-COPYWRITING.md",
+      "file_mini": "categories/marketing/skills/SKILL-COPYWRITING.mini.md",
+      "token_estimate": 3000,
+      "triggers_vi": [
+        "viết copy",
+        "headline",
+        "CTA",
+        "email copy",
+        "landing page copy",
+        "sales page",
+        "tagline",
+        "slogan",
+        "quảng cáo"
+      ],
+      "triggers_en": [
+        "write copy",
+        "headline",
+        "CTA",
+        "email copy",
+        "landing page",
+        "sales page",
+        "tagline",
+        "ad copy",
+        "marketing copy"
+      ],
+      "output_type": "ready-to-use copy",
+      "integrates_with": [
+        "skill-seo-optimizer",
+        "skill-content-strategy",
+        "skill-social-media",
+        "skill-ugc-creator",
+        "wordpress"
+      ],
+      "tags": [
+        "copy",
+        "headline",
+        "CTA",
+        "email",
+        "landing page",
+        "ad",
+        "persuasion"
+      ]
+    },
+    {
+      "id": "growth-hacking",
+      "name": "Growth Hacking",
+      "category": "marketing",
+      "persona_source": "Growth Hacker",
+      "file": "categories/marketing/skills/SKILL-GROWTH-HACKING.md",
+      "file_mini": "categories/marketing/skills/SKILL-GROWTH-HACKING.mini.md",
+      "token_estimate": 2100,
+      "triggers_vi": [
+        "growth strategy",
+        "chiến lược tăng trưởng",
+        "growth hacking",
+        "tăng users",
+        "viral loop",
+        "A/B test",
+        "funnel optimization",
+        "retention"
+      ],
+      "triggers_en": [
+        "growth strategy",
+        "growth hacking",
+        "user acquisition",
+        "viral loop",
+        "A/B test",
+        "funnel optimization",
+        "retention strategy",
+        "AARRR"
+      ],
+      "output_type": "experiment plan + growth framework",
+      "integrates_with": [
+        "skill-seo-optimizer",
+        "skill-social-media",
+        "skill-viral-marketing",
+        "skill-content-strategy",
+        "openclaw"
+      ],
+      "tags": [
+        "growth",
+        "acquisition",
+        "retention",
+        "viral",
+        "experiment",
+        "AARRR",
+        "funnel"
+      ]
+    },
+    {
+      "id": "viral-marketing",
+      "name": "Viral Marketing",
+      "category": "marketing",
+      "persona_source": "Viral Marketing Expert",
+      "file": "categories/marketing/skills/SKILL-VIRAL-MARKETING.md",
+      "file_mini": "categories/marketing/skills/SKILL-VIRAL-MARKETING.mini.md",
+      "token_estimate": 1900,
+      "triggers_vi": [
+        "viral content",
+        "làm viral",
+        "viral marketing",
+        "trending",
+        "xu hướng",
+        "meme marketing",
+        "viral campaign",
+        "shareability"
+      ],
+      "triggers_en": [
+        "viral content",
+        "go viral",
+        "viral marketing",
+        "trending topic",
+        "meme marketing",
+        "viral campaign",
+        "shareability",
+        "STEPPS"
+      ],
+      "output_type": "viral strategy + distribution plan",
+      "integrates_with": [
+        "skill-ugc-creator",
+        "skill-social-media",
+        "skill-video-marketing",
+        "hyperframes",
+        "skill-copywriting"
+      ],
+      "tags": [
+        "viral",
+        "trending",
+        "shareability",
+        "meme",
+        "hook",
+        "distribution"
+      ]
+    },
+    {
+      "id": "fullstack-dev",
+      "name": "Full-Stack Developer",
+      "category": "developing",
+      "persona_source": "Full Stack Developer",
+      "file": "categories/developing/skills/SKILL-FULLSTACK-DEV.md",
+      "file_mini": "categories/developing/skills/SKILL-FULLSTACK-DEV.mini.md",
+      "token_estimate": 1600,
+      "triggers_vi": [
+        "build app",
+        "xây dựng ứng dụng",
+        "web app",
+        "full-stack",
+        "frontend + backend",
+        "debug",
+        "fix bug",
+        "sửa lỗi"
+      ],
+      "triggers_en": [
+        "build app",
+        "web application",
+        "full-stack",
+        "frontend",
+        "backend",
+        "API",
+        "debug",
+        "architecture"
+      ],
+      "output_type": "working code + architecture",
+      "integrates_with": [
+        "openclaw",
+        "hyperframes",
+        "open-design",
+        "skill-devops",
+        "skill-uiux-dev"
+      ],
+      "tags": [
+        "code",
+        "app",
+        "fullstack",
+        "frontend",
+        "backend",
+        "API",
+        "debug",
+        "node",
+        "python"
+      ]
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "category": "developing",
+      "persona_source": "DevOps Engineer",
+      "file": "categories/developing/skills/SKILL-DEVOPS.md",
+      "file_mini": "categories/developing/skills/SKILL-DEVOPS.mini.md",
+      "token_estimate": 1700,
+      "triggers_vi": [
+        "deploy",
+        "triển khai",
+        "PM2",
+        "process manager",
+        "server setup",
+        "cấu hình server",
+        "CI/CD",
+        "service down",
+        "auto-start",
+        "startup"
+      ],
+      "triggers_en": [
+        "deploy",
+        "PM2",
+        "process manager",
+        "server setup",
+        "CI/CD",
+        "monitoring",
+        "service down",
+        "infrastructure",
+        "startup script"
+      ],
+      "output_type": "configured running system",
+      "integrates_with": [
+        "openclaw",
+        "hyperframes",
+        "skill-fullstack-dev",
+        "mac-mini"
+      ],
+      "tags": [
+        "deploy",
+        "PM2",
+        "server",
+        "infrastructure",
+        "CI/CD",
+        "monitoring",
+        "devops"
+      ]
+    },
+    {
+      "id": "uiux-dev",
+      "name": "UI/UX Developer",
+      "category": "developing",
+      "persona_source": "UI/UX Developer",
+      "file": "categories/developing/skills/SKILL-UIUX-DEV.md",
+      "file_mini": "categories/developing/skills/SKILL-UIUX-DEV.mini.md",
+      "token_estimate": 1800,
+      "triggers_vi": [
+        "design UI",
+        "thiết kế giao diện",
+        "landing page design",
+        "dashboard UI",
+        "design system",
+        "component",
+        "responsive",
+        "mobile design"
+      ],
+      "triggers_en": [
+        "design UI",
+        "UI/UX",
+        "landing page",
+        "dashboard",
+        "design system",
+        "component",
+        "responsive layout",
+        "interface"
+      ],
+      "output_type": "polished responsive UI",
+      "integrates_with": [
+        "open-design",
+        "skill-fullstack-dev",
+        "hyperframes"
+      ],
+      "tags": [
+        "UI",
+        "UX",
+        "design",
+        "interface",
+        "responsive",
+        "components",
+        "CSS",
+        "glassmorphism"
+      ]
+    },
+    {
+      "id": "ai-engineer",
+      "name": "AI Engineer",
+      "category": "technology",
+      "persona_source": "AI/Machine Learning Engineer",
+      "file": "categories/technology/skills/SKILL-AI-ENGINEER.md",
+      "file_mini": "categories/technology/skills/SKILL-AI-ENGINEER.mini.md",
+      "token_estimate": 1700,
+      "triggers_vi": [
+        "AI system design",
+        "thiết kế AI",
+        "model selection",
+        "chọn model",
+        "prompt engineering",
+        "viết prompt",
+        "agent architecture",
+        "LLM",
+        "OpenRouter"
+      ],
+      "triggers_en": [
+        "AI design",
+        "model selection",
+        "prompt engineering",
+        "agent architecture",
+        "LLM integration",
+        "fine-tune",
+        "OpenRouter",
+        "local model"
+      ],
+      "output_type": "architecture + implementation plan",
+      "integrates_with": [
+        "openclaw",
+        "hyperframes",
+        "skill-fullstack-dev"
+      ],
+      "tags": [
+        "AI",
+        "ML",
+        "LLM",
+        "prompt",
+        "agent",
+        "model",
+        "OpenRouter",
+        "Gemma",
+        "Claude"
+      ]
+    },
+    {
+      "id": "data-science",
+      "name": "Data Science",
+      "category": "technology",
+      "persona_source": "Data Scientist",
+      "file": "categories/technology/skills/SKILL-DATA-SCIENCE.md",
+      "file_mini": "categories/technology/skills/SKILL-DATA-SCIENCE.mini.md",
+      "token_estimate": 1500,
+      "triggers_vi": [
+        "phân tích data",
+        "analyze data",
+        "dashboard",
+        "visualization",
+        "metrics report",
+        "KPI analysis",
+        "trend analysis",
+        "A/B test results"
+      ],
+      "triggers_en": [
+        "analyze data",
+        "dashboard",
+        "visualization",
+        "metrics",
+        "KPI",
+        "trend analysis",
+        "A/B test",
+        "statistical analysis"
+      ],
+      "output_type": "analysis + visualizations + recommendations",
+      "integrates_with": [
+        "skill-growth-hacking",
+        "skill-seo-optimizer",
+        "skill-social-media",
+        "openclaw"
+      ],
+      "tags": [
+        "data",
+        "analytics",
+        "KPI",
+        "dashboard",
+        "visualization",
+        "statistics",
+        "insights"
+      ]
+    },
+    {
+      "id": "project-mgmt",
+      "name": "Project Management",
+      "category": "business",
+      "persona_source": "Project Manager",
+      "file": "categories/business/skills/SKILL-PROJECT-MGMT.md",
+      "file_mini": "categories/business/skills/SKILL-PROJECT-MGMT.mini.md",
+      "token_estimate": 1200,
+      "triggers_vi": [
+        "lập kế hoạch dự án",
+        "project plan",
+        "timeline",
+        "task breakdown",
+        "sprint planning",
+        "project status",
+        "progress report",
+        "gantt"
+      ],
+      "triggers_en": [
+        "project plan",
+        "timeline",
+        "task breakdown",
+        "sprint planning",
+        "status report",
+        "gantt chart",
+        "milestones",
+        "WBS"
+      ],
+      "output_type": "project plan + tracking system",
+      "integrates_with": [
+        "all-projects",
+        "task-md-pattern",
+        "skill-fullstack-dev",
+        "skill-content-strategy"
+      ],
+      "tags": [
+        "project",
+        "planning",
+        "timeline",
+        "task",
+        "sprint",
+        "milestone",
+        "tracking"
+      ]
+    },
+    {
+      "id": "startup01-strategist",
+      "name": "Startup01_Strategist",
+      "category": "business",
+      "persona_source": "Startup 01 Strategist",
+      "file": "categories/business/skills/SKILL-STARTUP-01.md",
+      "file_mini": "categories/business/skills/SKILL-STARTUP-01.mini.md",
+      "token_estimate": 1500,
+      "triggers_vi": [
+        "khởi nghiệp solo",
+        "startup 01",
+        "vibe code",
+        "vibe coding",
+        "solo founder",
+        "solopreneur",
+        "tìm ý tưởng",
+        "xây dựng sản phẩm với AI",
+        "AI Agent"
+      ],
+      "triggers_en": [
+        "startup 01",
+        "vibe code",
+        "vibe coding",
+        "solopreneur",
+        "solo founder",
+        "business idea validation",
+        "lean execution",
+        "AI agent leverage"
+      ],
+      "output_type": "lean execution plan + validation framework",
+      "integrates_with": [
+        "content-strategy",
+        "copywriting",
+        "social-media",
+        "growth-hacking"
+      ],
+      "tags": [
+        "startup",
+        "solopreneur",
+        "business",
+        "validation",
+        "vibe-coding",
+        "lean"
+      ]
+    },
+    {
+      "id": "blogging",
+      "name": "Blogging",
+      "category": "writing",
+      "persona_source": "Blogger",
+      "file": "categories/writing/skills/SKILL-BLOGGING.md",
+      "file_mini": "categories/writing/skills/SKILL-BLOGGING.mini.md",
+      "token_estimate": 900,
+      "triggers_vi": [
+        "viết blog",
+        "bài viết cho xoamuai",
+        "blog post",
+        "WordPress post",
+        "publish article",
+        "bài blog"
+      ],
+      "triggers_en": [
+        "write blog",
+        "blog post",
+        "WordPress article",
+        "publish article",
+        "blog content"
+      ],
+      "output_type": "ready-to-publish blog post",
+      "integrates_with": [
+        "wordpress",
+        "skill-seo-optimizer",
+        "skill-content-strategy",
+        "skill-copywriting",
+        "openclaw"
+      ],
+      "tags": [
+        "blog",
+        "article",
+        "wordpress",
+        "publish",
+        "xoamuai",
+        "writing"
+      ]
+    },
+    {
+      "id": "video-motion",
+      "name": "Video & Motion Graphics",
+      "category": "creative-arts",
+      "persona_source": "Animator",
+      "file": "categories/creative-arts/skills/SKILL-VIDEO-MOTION.md",
+      "file_mini": "categories/creative-arts/skills/SKILL-VIDEO-MOTION.mini.md",
+      "token_estimate": 3500,
+      "triggers_vi": [
+        "video-hyperframes",
+        "8-bit-orbit-video-template",
+        "after-hours-editorial-template",
+        "emilkowalski-motion",
+        "gsap-scrolltrigger",
+        "gsap-timeline",
+        "slack-gif-creator",
+        "gif-sticker-maker",
+        "sản xuất video",
+        "motion graphics",
+        "animation",
+        "video ngắn",
+        "video marketing",
+        "sticker động"
+      ],
+      "triggers_en": [
+        "video-hyperframes",
+        "8-bit-orbit-video-template",
+        "after-hours-editorial-template",
+        "emilkowalski-motion",
+        "gsap-scrolltrigger",
+        "gsap-timeline",
+        "slack-gif-creator",
+        "gif-sticker-maker",
+        "video production",
+        "motion graphics",
+        "animation",
+        "short video",
+        "video marketing",
+        "animated sticker"
+      ],
+      "output_type": "mp4 video / gif / animated stickers / code",
+      "integrates_with": [
+        "hyperframes",
+        "open-design",
+        "skill-uiux-dev",
+        "skill-video-marketing"
+      ],
+      "tags": [
+        "video",
+        "animation",
+        "motion",
+        "gsap",
+        "gif",
+        "remotion",
+        "hyperframes"
+      ]
+    },
+    {
+      "id": "uiux-prototype",
+      "name": "UI/UX Prototype",
+      "category": "developing",
+      "persona_source": "UI/UX Developer",
+      "file": "categories/developing/skills/SKILL-UIUX-PROTOTYPE.md",
+      "file_mini": "categories/developing/skills/SKILL-UIUX-PROTOTYPE.mini.md",
+      "token_estimate": 3500,
+      "triggers_vi": [
+        "web-prototype",
+        "saas-landing",
+        "dashboard UI",
+        "admin portal",
+        "mobile-app mockup",
+        "mobile-onboarding",
+        "shadcn-ui design",
+        "phác thảo giao diện",
+        "onboarding di động",
+        "mô phỏng iphone"
+      ],
+      "triggers_en": [
+        "web-prototype",
+        "saas-landing",
+        "dashboard UI",
+        "admin portal",
+        "mobile-app mockup",
+        "mobile-onboarding",
+        "shadcn-ui design",
+        "wpds component",
+        "iphone frame"
+      ],
+      "output_type": "HTML/CSS mockup / React components / layouts",
+      "integrates_with": [
+        "open-design",
+        "skill-fullstack-dev",
+        "agent-browser"
+      ],
+      "tags": [
+        "ui",
+        "ux",
+        "prototype",
+        "landing",
+        "dashboard",
+        "mobile",
+        "shadcn"
+      ]
+    },
+    {
+      "id": "presentation-decks",
+      "name": "Presentation Decks",
+      "category": "business",
+      "persona_source": "Project Manager",
+      "file": "categories/business/skills/SKILL-PRESENTATION-DECKS.md",
+      "file_mini": "categories/business/skills/SKILL-PRESENTATION-DECKS.mini.md",
+      "token_estimate": 3800,
+      "triggers_vi": [
+        "guizang-ppt",
+        "guizang-editorial-deck",
+        "magazine-web-ppt",
+        "deck-swiss-international",
+        "swiss slide",
+        "tối giản Thụy Sĩ",
+        "pptx-generator",
+        "html to pptx",
+        "xuất file pdf slide",
+        "slide thuyết trình",
+        "thiết kế slide"
+      ],
+      "triggers_en": [
+        "guizang-ppt",
+        "guizang-editorial-deck",
+        "magazine-web-ppt",
+        "deck-swiss-international",
+        "swiss slide",
+        "pptx-generator",
+        "html to pptx",
+        "pdf slide export",
+        "presentation deck",
+        "B2B pitch deck"
+      ],
+      "output_type": "HTML deck / PPTX file / PDF document",
+      "integrates_with": [
+        "open-design",
+        "skill-project-mgmt"
+      ],
+      "tags": [
+        "slides",
+        "ppt",
+        "pptx",
+        "deck",
+        "presentation",
+        "swiss",
+        "guizang"
+      ]
+    },
+    {
+      "id": "data-documents",
+      "name": "Data & Documents",
+      "category": "technology",
+      "persona_source": "Data Scientist",
+      "file": "categories/technology/skills/SKILL-DATA-DOCUMENTS.md",
+      "file_mini": "categories/technology/skills/SKILL-DATA-DOCUMENTS.mini.md",
+      "token_estimate": 3500,
+      "triggers_vi": [
+        "d3-visualization",
+        "d3 chart",
+        "d3.js map",
+        "frame-data-chart-nyt",
+        "NYT style chart",
+        "minimax-pdf",
+        "export docx report",
+        "tạo file word tự động",
+        "trực quan hóa dữ liệu",
+        "vẽ biểu đồ",
+        "xuất báo cáo"
+      ],
+      "triggers_en": [
+        "d3-visualization",
+        "d3 chart",
+        "d3.js map",
+        "frame-data-chart-nyt",
+        "NYT style chart",
+        "minimax-pdf",
+        "export docx report",
+        "word document generator",
+        "data visualization",
+        "chart render"
+      ],
+      "output_type": "D3.js interactive chart / Word .docx / PDF report",
+      "integrates_with": [
+        "open-design",
+        "skill-data-science"
+      ],
+      "tags": [
+        "data",
+        "chart",
+        "d3",
+        "nyt",
+        "docx",
+        "pdf",
+        "report"
+      ]
+    },
+    {
+      "id": "automation-integration",
+      "name": "Automation & Integration",
+      "category": "technology",
+      "persona_source": "AI/Machine Learning Engineer",
+      "file": "categories/technology/skills/SKILL-AUTOMATION-INTEGRATION.md",
+      "file_mini": "categories/technology/skills/SKILL-AUTOMATION-INTEGRATION.mini.md",
+      "token_estimate": 3800,
+      "triggers_vi": [
+        "agent-browser",
+        "remote debugging chrome",
+        "headless chrome control",
+        "take a screenshot",
+        "chụp ảnh màn hình chrome",
+        "figma-use",
+        "figma-code-connect-components",
+        "youtube-clipper",
+        "competitive-ads-extractor",
+        "tự động hóa trình duyệt"
+      ],
+      "triggers_en": [
+        "agent-browser",
+        "remote debugging chrome",
+        "headless chrome",
+        "take a screenshot",
+        "chrome screenshot",
+        "figma-use",
+        "figma-code-connect",
+        "youtube-clipper",
+        "competitive-ads-extractor",
+        "browser automation"
+      ],
+      "output_type": "scraped data / screenshots / component map / video clips",
+      "integrates_with": [
+        "open-design",
+        "skill-growth-hacking"
+      ],
+      "tags": [
+        "automation",
+        "browser",
+        "chrome",
+        "screenshot",
+        "figma",
+        "youtube",
+        "scraper"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "marketing",
+      "file": "categories/marketing/_CATEGORY-CLAUDE.md",
+      "sop": "categories/marketing/_CATEGORY-SOP.md",
+      "skill_count": 8
+    },
+    {
+      "id": "developing",
+      "file": "categories/developing/_CATEGORY-CLAUDE.md",
+      "sop": "categories/developing/_CATEGORY-SOP.md",
+      "skill_count": 4
+    },
+    {
+      "id": "technology",
+      "file": "categories/technology/_CATEGORY-CLAUDE.md",
+      "sop": "categories/technology/_CATEGORY-SOP.md",
+      "skill_count": 4
+    },
+    {
+      "id": "business",
+      "file": "categories/business/_CATEGORY-CLAUDE.md",
+      "sop": "categories/business/_CATEGORY-SOP.md",
+      "skill_count": 3
+    },
+    {
+      "id": "writing",
+      "file": "categories/writing/_CATEGORY-CLAUDE.md",
+      "sop": "categories/writing/_CATEGORY-SOP.md",
+      "skill_count": 1
+    },
+    {
+      "id": "creative-arts",
+      "file": "categories/creative-arts/_CATEGORY-CLAUDE.md",
+      "sop": "categories/creative-arts/_CATEGORY-SOP.md",
+      "skill_count": 1
+    },
+    {
+      "id": "education",
+      "file": "categories/education/_CATEGORY-CLAUDE.md",
+      "sop": "categories/education/_CATEGORY-SOP.md",
+      "skill_count": 0
+    },
+    {
+      "id": "entertainment",
+      "file": "categories/entertainment/_CATEGORY-CLAUDE.md",
+      "sop": "categories/entertainment/_CATEGORY-SOP.md",
+      "skill_count": 0
+    },
+    {
+      "id": "finance",
+      "file": "categories/finance/_CATEGORY-CLAUDE.md",
+      "sop": "categories/finance/_CATEGORY-SOP.md",
+      "skill_count": 0
+    },
+    {
+      "id": "fitness",
+      "file": "categories/fitness/_CATEGORY-CLAUDE.md",
+      "sop": "categories/fitness/_CATEGORY-SOP.md",
+      "skill_count": 0
+    }
+  ],
+  "disambiguation_pairs": [
+    {
+      "skill_a": "video-marketing",
+      "skill_b": "ugc-creator",
+      "question": "Bạn cần chiến lược video (phân tích, platform, phân phối) hay script UGC cụ thể (TikTok hook, shoot guide)?"
+    },
+    {
+      "skill_a": "copywriting",
+      "skill_b": "blogging",
+      "question": "Bạn cần copy ngắn (headline, ad, email, CTA) hay bài blog dài (1500+ words, SEO-optimized)?"
+    },
+    {
+      "skill_a": "data-science",
+      "skill_b": "seo-optimizer",
+      "question": "Bạn cần phân tích data tổng quát (metrics, trend) hay audit SEO cụ thể (ranking, on-page)?"
+    },
+    {
+      "skill_a": "content-strategy",
+      "skill_b": "blogging",
+      "question": "Bạn cần lập kế hoạch nội dung (calendar, pillars, strategy) hay viết 1 bài blog cụ thể?"
+    },
+    {
+      "skill_a": "growth-hacking",
+      "skill_b": "viral-marketing",
+      "question": "Bạn cần framework tăng trưởng tổng thể (AARRR, experiments) hay chiến thuật viral cụ thể (hook, shareability)?"
+    }
+  ],
+  "personas": [
+    {
+      "name": "Special Education Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Special Education Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Security Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Security Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "CrossFit Trainer",
+      "category": "fitness",
+      "file": "categories/fitness/personas/CrossFit Trainer.md",
+      "favorite": false
+    },
+    {
+      "name": "Talent Scout",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Talent Scout.md",
+      "favorite": false
+    },
+    {
+      "name": "Storyboard Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Storyboard Artist.md",
+      "favorite": true
+    },
+    {
+      "name": "Foreign Exchange (Forex) Specialist",
+      "category": "finance",
+      "file": "categories/finance/personas/Foreign Exchange (Forex) Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Educational Consultant",
+      "category": "education",
+      "file": "categories/education/personas/Educational Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Early Childhood Educator",
+      "category": "education",
+      "file": "categories/education/personas/Early Childhood Educator.md",
+      "favorite": false
+    },
+    {
+      "name": "AR/VR Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/AR-VR Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Aquatics Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Aquatics Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Music Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Music Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Set Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Set Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Spin Class Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Spin Class Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Comics Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Comics Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Marketing Communications Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Marketing Communications Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Network Engineer",
+      "category": "technology",
+      "file": "categories/technology/personas/Network Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Screenwriter",
+      "category": "writing",
+      "file": "categories/writing/personas/Screenwriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Growth Hacker",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Growth Hacker.md",
+      "favorite": false
+    },
+    {
+      "name": "Crowdfunding Specialist",
+      "category": "finance",
+      "file": "categories/finance/personas/Crowdfunding Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Multimedia Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Multimedia Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "E-commerce Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/E-commerce Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Derivatives Trader",
+      "category": "finance",
+      "file": "categories/finance/personas/Derivatives Trader.md",
+      "favorite": false
+    },
+    {
+      "name": "Real Estate Finance Expert",
+      "category": "finance",
+      "file": "categories/finance/personas/Real Estate Finance Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Insurance Specialist",
+      "category": "finance",
+      "file": "categories/finance/personas/Insurance Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "API Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/API Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Multimedia Tools Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Multimedia Tools Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Producer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Producer.md",
+      "favorite": false
+    },
+    {
+      "name": "Haptic Technology Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Haptic Technology Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Trust Fund Manager",
+      "category": "finance",
+      "file": "categories/finance/personas/Trust Fund Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Translator",
+      "category": "writing",
+      "file": "categories/writing/personas/Translator.md",
+      "favorite": false
+    },
+    {
+      "name": "Game Show Host",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Game Show Host.md",
+      "favorite": false
+    },
+    {
+      "name": "Compliance Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Compliance Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Network Security Expert",
+      "category": "technology",
+      "file": "categories/technology/personas/Network Security Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Photographer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Photographer.md",
+      "favorite": false
+    },
+    {
+      "name": "Procurement Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Procurement Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Back-End Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Back-End Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "SEO Expert",
+      "category": "marketing",
+      "file": "categories/marketing/personas/SEO Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Stunt Performer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Stunt Performer.md",
+      "favorite": false
+    },
+    {
+      "name": "Project Manager",
+      "category": "business",
+      "file": "categories/business/personas/Project Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "AI/Machine Learning Engineer",
+      "category": "technology",
+      "file": "categories/technology/personas/AI-Machine Learning Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Financial Planner",
+      "category": "finance",
+      "file": "categories/finance/personas/Financial Planner.md",
+      "favorite": false
+    },
+    {
+      "name": "Digital Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Digital Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Wellness Coach",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Wellness Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Business Development Manager",
+      "category": "business",
+      "file": "categories/business/personas/Business Development Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Executive Assistant",
+      "category": "business",
+      "file": "categories/business/personas/Executive Assistant.md",
+      "favorite": false
+    },
+    {
+      "name": "Art Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Art Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Fitness Blogger/Vlogger",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Fitness Blogger-Vlogger.md",
+      "favorite": false
+    },
+    {
+      "name": "Weightlifting Coach",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Weightlifting Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Business Analyst",
+      "category": "business",
+      "file": "categories/business/personas/Business Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Community Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Community Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Mobile Marketing Expert",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Mobile Marketing Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Literacy Specialist",
+      "category": "education",
+      "file": "categories/education/personas/Literacy Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Loyalty Program Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Loyalty Program Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Marketing Automation Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Marketing Automation Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "History Educator",
+      "category": "education",
+      "file": "categories/education/personas/History Educator.md",
+      "favorite": false
+    },
+    {
+      "name": "TV/Film Director",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/TV-Film Director.md",
+      "favorite": false
+    },
+    {
+      "name": "Magician",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Magician.md",
+      "favorite": false
+    },
+    {
+      "name": "Event Organizer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Event Organizer.md",
+      "favorite": false
+    },
+    {
+      "name": "Risk Management Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Risk Management Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Game Engine Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Game Engine Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Young Adult Fiction Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Young Adult Fiction Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Postnatal Fitness Expert",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Postnatal Fitness Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Venture Capitalist",
+      "category": "finance",
+      "file": "categories/finance/personas/Venture Capitalist.md",
+      "favorite": false
+    },
+    {
+      "name": "Customer Experience Designer",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Customer Experience Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Hardware Engineer",
+      "category": "technology",
+      "file": "categories/technology/personas/Hardware Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Sound Engineer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Sound Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Cloud Solutions Architect",
+      "category": "technology",
+      "file": "categories/technology/personas/Cloud Solutions Architect.md",
+      "favorite": false
+    },
+    {
+      "name": "Tattoo Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Tattoo Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Framework Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Framework Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Franchise Manager",
+      "category": "business",
+      "file": "categories/business/personas/Franchise Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Athletic Trainer",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Athletic Trainer.md",
+      "favorite": false
+    },
+    {
+      "name": "Financial Educator",
+      "category": "finance",
+      "file": "categories/finance/personas/Financial Educator.md",
+      "favorite": false
+    },
+    {
+      "name": "Interior Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Interior Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Risk Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Risk Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "UI/UX Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/UI-UX Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Conversion Rate Optimizer",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Conversion Rate Optimizer.md",
+      "favorite": false
+    },
+    {
+      "name": "Calligrapher",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Calligrapher.md",
+      "favorite": false
+    },
+    {
+      "name": "Robotics Engineer",
+      "category": "technology",
+      "file": "categories/technology/personas/Robotics Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Web Applications Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Web Applications Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "IT Project Manager",
+      "category": "technology",
+      "file": "categories/technology/personas/IT Project Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Influencer Marketing Coordinator",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Influencer Marketing Coordinator.md",
+      "favorite": false
+    },
+    {
+      "name": "Strategy Consultant",
+      "category": "business",
+      "file": "categories/business/personas/Strategy Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Travel Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Travel Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Yoga Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Yoga Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Speechwriter",
+      "category": "writing",
+      "file": "categories/writing/personas/Speechwriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Music Video Director",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Music Video Director.md",
+      "favorite": false
+    },
+    {
+      "name": "Jewelry Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Jewelry Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Content Creator",
+      "category": "writing",
+      "file": "categories/writing/personas/Content Creator.md",
+      "favorite": false
+    },
+    {
+      "name": "Cinematographer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Cinematographer.md",
+      "favorite": false
+    },
+    {
+      "name": "Franchise Development Consultant",
+      "category": "business",
+      "file": "categories/business/personas/Franchise Development Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Social Media Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Social Media Manager.md",
+      "favorite": true
+    },
+    {
+      "name": "Tech Policy Analyst",
+      "category": "technology",
+      "file": "categories/technology/personas/Tech Policy Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Visual Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Visual Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Student Affairs Specialist",
+      "category": "education",
+      "file": "categories/education/personas/Student Affairs Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Scripting Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Scripting Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Curriculum Developer",
+      "category": "education",
+      "file": "categories/education/personas/Curriculum Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Talent Agent",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Talent Agent.md",
+      "favorite": false
+    },
+    {
+      "name": "Marketing Copywriter",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Marketing Copywriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Biographer",
+      "category": "writing",
+      "file": "categories/writing/personas/Biographer.md",
+      "favorite": false
+    },
+    {
+      "name": "Ghostwriter",
+      "category": "writing",
+      "file": "categories/writing/personas/Ghostwriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Education Administrator",
+      "category": "education",
+      "file": "categories/education/personas/Education Administrator.md",
+      "favorite": false
+    },
+    {
+      "name": "Blockchain Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Blockchain Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Guerilla Marketing Coordinator",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Guerilla Marketing Coordinator.md",
+      "favorite": false
+    },
+    {
+      "name": "Hiking Guide",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Hiking Guide.md",
+      "favorite": false
+    },
+    {
+      "name": "Film Critic",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Film Critic.md",
+      "favorite": false
+    },
+    {
+      "name": "Performance Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Performance Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Technical Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Technical Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Rehabilitation Specialist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Rehabilitation Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Organizational Development Consultant",
+      "category": "business",
+      "file": "categories/business/personas/Organizational Development Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Grant Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Grant Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "High School Teacher",
+      "category": "education",
+      "file": "categories/education/personas/High School Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Mergers and Acquisitions Consultant",
+      "category": "business",
+      "file": "categories/business/personas/Mergers and Acquisitions Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Medical Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Medical Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Corporate Trainer",
+      "category": "business",
+      "file": "categories/business/personas/Corporate Trainer.md",
+      "favorite": false
+    },
+    {
+      "name": "Blogger",
+      "category": "writing",
+      "file": "categories/writing/personas/Blogger.md",
+      "favorite": false
+    },
+    {
+      "name": "DJ (Disk Jockey)",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/DJ (Disk Jockey).md",
+      "favorite": false
+    },
+    {
+      "name": "Facility Manager",
+      "category": "business",
+      "file": "categories/business/personas/Facility Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Lighting Technician",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Lighting Technician.md",
+      "favorite": false
+    },
+    {
+      "name": "Nutritionist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Nutritionist.md",
+      "favorite": false
+    },
+    {
+      "name": "Martial Arts Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Martial Arts Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Hedge Fund Manager",
+      "category": "finance",
+      "file": "categories/finance/personas/Hedge Fund Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Personal Finance Advisor",
+      "category": "finance",
+      "file": "categories/finance/personas/Personal Finance Advisor.md",
+      "favorite": false
+    },
+    {
+      "name": "Financial Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Financial Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Musician",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Musician.md",
+      "favorite": false
+    },
+    {
+      "name": "VFX Artist",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/VFX Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Film Editor",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Film Editor.md",
+      "favorite": false
+    },
+    {
+      "name": "Art Critic",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Art Critic.md",
+      "favorite": false
+    },
+    {
+      "name": "Cybersecurity Expert",
+      "category": "technology",
+      "file": "categories/technology/personas/Cybersecurity Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Brand Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Brand Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Voice-over Artist",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Voice-over Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Corporate Social Responsibility Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Corporate Social Responsibility Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Wealth Manager",
+      "category": "finance",
+      "file": "categories/finance/personas/Wealth Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Auditor",
+      "category": "finance",
+      "file": "categories/finance/personas/Auditor.md",
+      "favorite": false
+    },
+    {
+      "name": "Aerobics Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Aerobics Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Viral Marketing Expert",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Viral Marketing Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Database Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Database Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "B2B Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/B2B Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Actuary",
+      "category": "finance",
+      "file": "categories/finance/personas/Actuary.md",
+      "favorite": false
+    },
+    {
+      "name": "Comedian",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Comedian.md",
+      "favorite": false
+    },
+    {
+      "name": "Quantum Computing Specialist",
+      "category": "technology",
+      "file": "categories/technology/personas/Quantum Computing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Mobile App Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Mobile App Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Concept Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Concept Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Gym Owner/Manager",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Gym Owner-Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Prenatal Fitness Expert",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Prenatal Fitness Expert.md",
+      "favorite": false
+    },
+    {
+      "name": "Small Business Owner",
+      "category": "business",
+      "file": "categories/business/personas/Small Business Owner.md",
+      "favorite": false
+    },
+    {
+      "name": "Public Relations Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Public Relations Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "IT Auditor",
+      "category": "technology",
+      "file": "categories/technology/personas/IT Auditor.md",
+      "favorite": false
+    },
+    {
+      "name": "Language Instructor",
+      "category": "education",
+      "file": "categories/education/personas/Language Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "ERP Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/ERP Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Theatrical Producer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Theatrical Producer.md",
+      "favorite": false
+    },
+    {
+      "name": "Firmware Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Firmware Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Portfolio Manager",
+      "category": "finance",
+      "file": "categories/finance/personas/Portfolio Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Data Scientist",
+      "category": "technology",
+      "file": "categories/technology/personas/Data Scientist.md",
+      "favorite": false
+    },
+    {
+      "name": "Content Strategist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Content Strategist.md",
+      "favorite": false
+    },
+    {
+      "name": "IT Consultant",
+      "category": "technology",
+      "file": "categories/technology/personas/IT Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Sports Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Sports Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Printmaker",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Printmaker.md",
+      "favorite": false
+    },
+    {
+      "name": "Export/Import Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Export-Import Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Virtual Reality Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Virtual Reality Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Embedded Systems Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Embedded Systems Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Montessori Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Montessori Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Educational Technology Specialist",
+      "category": "education",
+      "file": "categories/education/personas/Educational Technology Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Playwright",
+      "category": "writing",
+      "file": "categories/writing/personas/Playwright.md",
+      "favorite": false
+    },
+    {
+      "name": "DevOps Engineer",
+      "category": "developing",
+      "file": "categories/developing/personas/DevOps Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Instructional Designer",
+      "category": "education",
+      "file": "categories/education/personas/Instructional Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Historical Fiction Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Historical Fiction Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Extracurricular Instructor",
+      "category": "education",
+      "file": "categories/education/personas/Extracurricular Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Telecommunications Engineer",
+      "category": "technology",
+      "file": "categories/technology/personas/Telecommunications Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Comic Book Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Comic Book Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "B2C Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/B2C Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Video Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Video Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Corporate Communications Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Corporate Communications Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Tech Support Specialist",
+      "category": "technology",
+      "file": "categories/technology/personas/Tech Support Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Film Director",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Film Director.md",
+      "favorite": false
+    },
+    {
+      "name": "School Librarian",
+      "category": "education",
+      "file": "categories/education/personas/School Librarian.md",
+      "favorite": false
+    },
+    {
+      "name": "CRM Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/CRM Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Ceramic Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Ceramic Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Tools and Utilities Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Tools and Utilities Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Jingle Writer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Jingle Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Review Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Review Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Personal Trainer",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Personal Trainer.md",
+      "favorite": false
+    },
+    {
+      "name": "Talent Manager",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Talent Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Science Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Science Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "E-book Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/E-book Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Compliance Officer",
+      "category": "business",
+      "file": "categories/business/personas/Compliance Officer.md",
+      "favorite": false
+    },
+    {
+      "name": "Animator",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Animator.md",
+      "favorite": false
+    },
+    {
+      "name": "International Business Consultant",
+      "category": "business",
+      "file": "categories/business/personas/International Business Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Operations Manager",
+      "category": "business",
+      "file": "categories/business/personas/Operations Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Quality Assurance Engineer",
+      "category": "developing",
+      "file": "categories/developing/personas/Quality Assurance Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Quality Assurance Manager",
+      "category": "business",
+      "file": "categories/business/personas/Quality Assurance Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "CMS Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/CMS Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Product Marketing Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Product Marketing Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Food and Drink Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Food and Drink Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Textbook Author",
+      "category": "education",
+      "file": "categories/education/personas/Textbook Author.md",
+      "favorite": false
+    },
+    {
+      "name": "University Professor",
+      "category": "education",
+      "file": "categories/education/personas/University Professor.md",
+      "favorite": false
+    },
+    {
+      "name": "Email Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Email Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Lyricist",
+      "category": "writing",
+      "file": "categories/writing/personas/Lyricist.md",
+      "favorite": false
+    },
+    {
+      "name": "Bioinformatics Scientist",
+      "category": "technology",
+      "file": "categories/technology/personas/Bioinformatics Scientist.md",
+      "favorite": false
+    },
+    {
+      "name": "Human Resources Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Human Resources Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Pilates Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Pilates Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Digital Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Digital Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Private Equity Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Private Equity Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Database Administrator",
+      "category": "technology",
+      "file": "categories/technology/personas/Database Administrator.md",
+      "favorite": false
+    },
+    {
+      "name": "Teaching Assistant",
+      "category": "education",
+      "file": "categories/education/personas/Teaching Assistant.md",
+      "favorite": false
+    },
+    {
+      "name": "Tutor",
+      "category": "education",
+      "file": "categories/education/personas/Tutor.md",
+      "favorite": false
+    },
+    {
+      "name": "School Counselor",
+      "category": "education",
+      "file": "categories/education/personas/School Counselor.md",
+      "favorite": false
+    },
+    {
+      "name": "Textile Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Textile Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Sports Psychologist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Sports Psychologist.md",
+      "favorite": false
+    },
+    {
+      "name": "Fashion Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Fashion Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Supply Chain Manager",
+      "category": "business",
+      "file": "categories/business/personas/Supply Chain Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Art Director",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Art Director.md",
+      "favorite": false
+    },
+    {
+      "name": "TV Host",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/TV Host.md",
+      "favorite": false
+    },
+    {
+      "name": "Algorithm Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Algorithm Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Certified Public Accountant (CPA)",
+      "category": "finance",
+      "file": "categories/finance/personas/Certified Public Accountant (CPA).md",
+      "favorite": false
+    },
+    {
+      "name": "Zumba Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Zumba Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Affiliate Marketing Manager",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Affiliate Marketing Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Event Marketing Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Event Marketing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Platform Engineer",
+      "category": "developing",
+      "file": "categories/developing/personas/Platform Engineer.md",
+      "favorite": false
+    },
+    {
+      "name": "Exercise Physiologist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Exercise Physiologist.md",
+      "favorite": false
+    },
+    {
+      "name": "Choreographer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Choreographer.md",
+      "favorite": false
+    },
+    {
+      "name": "Mortgage Advisor",
+      "category": "finance",
+      "file": "categories/finance/personas/Mortgage Advisor.md",
+      "favorite": false
+    },
+    {
+      "name": "Distance Learning Coordinator",
+      "category": "education",
+      "file": "categories/education/personas/Distance Learning Coordinator.md",
+      "favorite": false
+    },
+    {
+      "name": "Singer/Songwriter",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Singer-Songwriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Sports Nutritionist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Sports Nutritionist.md",
+      "favorite": false
+    },
+    {
+      "name": "Credit Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Credit Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Copywriter",
+      "category": "writing",
+      "file": "categories/writing/personas/Copywriter.md",
+      "favorite": false
+    },
+    {
+      "name": "Change Management Specialist",
+      "category": "business",
+      "file": "categories/business/personas/Change Management Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "IoT Specialist (Internet of Things)",
+      "category": "technology",
+      "file": "categories/technology/personas/IoT Specialist (Internet of Things).md",
+      "favorite": false
+    },
+    {
+      "name": "Customer Relationship Manager",
+      "category": "business",
+      "file": "categories/business/personas/Customer Relationship Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Radio Host",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Radio Host.md",
+      "favorite": false
+    },
+    {
+      "name": "Journalist",
+      "category": "writing",
+      "file": "categories/writing/personas/Journalist.md",
+      "favorite": false
+    },
+    {
+      "name": "Curriculum Designer",
+      "category": "writing",
+      "file": "categories/writing/personas/Curriculum Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Physical Therapist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Physical Therapist.md",
+      "favorite": false
+    },
+    {
+      "name": "Market Research Analyst",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Market Research Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Game Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Game Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "E-learning Developer",
+      "category": "education",
+      "file": "categories/education/personas/E-learning Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Landscape Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Landscape Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Tech Product Reviewer",
+      "category": "technology",
+      "file": "categories/technology/personas/Tech Product Reviewer.md",
+      "favorite": false
+    },
+    {
+      "name": "Session Musician",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Session Musician.md",
+      "favorite": false
+    },
+    {
+      "name": "Sports Coach",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Sports Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Columnist",
+      "category": "writing",
+      "file": "categories/writing/personas/Columnist.md",
+      "favorite": false
+    },
+    {
+      "name": "Adult Education Instructor",
+      "category": "education",
+      "file": "categories/education/personas/Adult Education Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Tax Consultant",
+      "category": "finance",
+      "file": "categories/finance/personas/Tax Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "Visual Merchandiser",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Visual Merchandiser.md",
+      "favorite": false
+    },
+    {
+      "name": "Business Intelligence Analyst",
+      "category": "business",
+      "file": "categories/business/personas/Business Intelligence Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Puppeteer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Puppeteer.md",
+      "favorite": false
+    },
+    {
+      "name": "Marketing Analytics Specialist",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Marketing Analytics Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "TikTok - UGC (User Generated Content)",
+      "category": "marketing",
+      "file": "categories/marketing/personas/TikTok - UGC (User Generated Content).md",
+      "favorite": false
+    },
+    {
+      "name": "Poetry Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Poetry Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Virtual Assistant Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Virtual Assistant Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Adventure Fitness Trainer",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Adventure Fitness Trainer.md",
+      "favorite": false
+    },
+    {
+      "name": "Career Counselor",
+      "category": "education",
+      "file": "categories/education/personas/Career Counselor.md",
+      "favorite": false
+    },
+    {
+      "name": "Running Coach",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Running Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Novelist",
+      "category": "writing",
+      "file": "categories/writing/personas/Novelist.md",
+      "favorite": false
+    },
+    {
+      "name": "Physical Education Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Physical Education Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Foley Artist",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Foley Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Dancer",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Dancer.md",
+      "favorite": false
+    },
+    {
+      "name": "Casting Director",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Casting Director.md",
+      "favorite": false
+    },
+    {
+      "name": "Full Stack Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Full Stack Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Cloud Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Cloud Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Voice User Interface Designer",
+      "category": "technology",
+      "file": "categories/technology/personas/Voice User Interface Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "Business Coach",
+      "category": "business",
+      "file": "categories/business/personas/Business Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Product Manager",
+      "category": "business",
+      "file": "categories/business/personas/Product Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Boot Camp Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Boot Camp Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Asset Manager",
+      "category": "finance",
+      "file": "categories/finance/personas/Asset Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Microfinance Officer",
+      "category": "finance",
+      "file": "categories/finance/personas/Microfinance Officer.md",
+      "favorite": false
+    },
+    {
+      "name": "Media Buyer",
+      "category": "marketing",
+      "file": "categories/marketing/personas/Media Buyer.md",
+      "favorite": false
+    },
+    {
+      "name": "Art Curator",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Art Curator.md",
+      "favorite": false
+    },
+    {
+      "name": "Resume Writer",
+      "category": "writing",
+      "file": "categories/writing/personas/Resume Writer.md",
+      "favorite": false
+    },
+    {
+      "name": "Sculptor",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Sculptor.md",
+      "favorite": false
+    },
+    {
+      "name": "Holistic Fitness Coach",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Holistic Fitness Coach.md",
+      "favorite": false
+    },
+    {
+      "name": "Makeup Artist",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Makeup Artist.md",
+      "favorite": false
+    },
+    {
+      "name": "Dance Instructor",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Dance Instructor.md",
+      "favorite": false
+    },
+    {
+      "name": "Natural Language Processing Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Natural Language Processing Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Elementary School Teacher",
+      "category": "education",
+      "file": "categories/education/personas/Elementary School Teacher.md",
+      "favorite": false
+    },
+    {
+      "name": "Children's Book Author",
+      "category": "writing",
+      "file": "categories/writing/personas/Children's Book Author.md",
+      "favorite": false
+    },
+    {
+      "name": "Open Source Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Open Source Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Middleware Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Middleware Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Senior Fitness Specialist",
+      "category": "fitness",
+      "file": "categories/fitness/personas/Senior Fitness Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Loan Officer",
+      "category": "finance",
+      "file": "categories/finance/personas/Loan Officer.md",
+      "favorite": false
+    },
+    {
+      "name": "Sustainability Consultant",
+      "category": "business",
+      "file": "categories/business/personas/Sustainability Consultant.md",
+      "favorite": false
+    },
+    {
+      "name": "PPC Specialist (Pay-per-Click)",
+      "category": "marketing",
+      "file": "categories/marketing/personas/PPC Specialist (Pay-per-Click).md",
+      "favorite": false
+    },
+    {
+      "name": "Front-End Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Front-End Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Illustrator",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Illustrator.md",
+      "favorite": false
+    },
+    {
+      "name": "Treasurer",
+      "category": "finance",
+      "file": "categories/finance/personas/Treasurer.md",
+      "favorite": false
+    },
+    {
+      "name": "Editor",
+      "category": "writing",
+      "file": "categories/writing/personas/Editor.md",
+      "favorite": false
+    },
+    {
+      "name": "Knowledge Manager",
+      "category": "business",
+      "file": "categories/business/personas/Knowledge Manager.md",
+      "favorite": false
+    },
+    {
+      "name": "Investment Banker",
+      "category": "finance",
+      "file": "categories/finance/personas/Investment Banker.md",
+      "favorite": false
+    },
+    {
+      "name": "Data Privacy Officer",
+      "category": "technology",
+      "file": "categories/technology/personas/Data Privacy Officer.md",
+      "favorite": false
+    },
+    {
+      "name": "Systems Administrator",
+      "category": "technology",
+      "file": "categories/technology/personas/Systems Administrator.md",
+      "favorite": false
+    },
+    {
+      "name": "Edge Computing Specialist",
+      "category": "technology",
+      "file": "categories/technology/personas/Edge Computing Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Mergers and Acquisitions Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Mergers and Acquisitions Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "Augmented Reality Developer",
+      "category": "technology",
+      "file": "categories/technology/personas/Augmented Reality Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Actor/Actress",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Actor-Actress.md",
+      "favorite": false
+    },
+    {
+      "name": "Stand-up Comedian",
+      "category": "entertainment",
+      "file": "categories/entertainment/personas/Stand-up Comedian.md",
+      "favorite": false
+    },
+    {
+      "name": "Graphic Designer",
+      "category": "creative-arts",
+      "file": "categories/creative-arts/personas/Graphic Designer.md",
+      "favorite": false
+    },
+    {
+      "name": "STEM Educator",
+      "category": "education",
+      "file": "categories/education/personas/STEM Educator.md",
+      "favorite": false
+    },
+    {
+      "name": "Graphics Software Developer",
+      "category": "developing",
+      "file": "categories/developing/personas/Graphics Software Developer.md",
+      "favorite": false
+    },
+    {
+      "name": "Equity Research Analyst",
+      "category": "finance",
+      "file": "categories/finance/personas/Equity Research Analyst.md",
+      "favorite": false
+    },
+    {
+      "name": "IT Specialist",
+      "category": "technology",
+      "file": "categories/technology/personas/IT Specialist.md",
+      "favorite": false
+    },
+    {
+      "name": "Environmental Educator",
+      "category": "education",
+      "file": "categories/education/personas/Environmental Educator.md",
+      "favorite": false
+    }
+  ]
+}
