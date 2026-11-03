@@ -13,6 +13,8 @@ export interface ContentLoadResult {
   boosts: BoostItem[];
   issues: string[];
   files: number;
+  /** item id → repository-relative source path (for README index & edit links). */
+  sources: Record<string, string>;
 }
 
 function walk(dir: string, extensions: string[]): string[] {
@@ -71,6 +73,7 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
   const skills: SkillItem[] = [];
   const boosts: BoostItem[] = [];
   let files = 0;
+  const sources: Record<string, string> = {};
 
   for (const file of walk(path.join(root, 'prompts'), ['.json'])) {
     files++;
@@ -78,7 +81,10 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
     if (!raw) continue;
     const result = validatePrompt(raw, rel(file));
     issues.push(...result.issues);
-    if (result.item) prompts.push(result.item);
+    if (result.item) {
+      prompts.push(result.item);
+      sources[result.item.id] = rel(file);
+    }
   }
 
   for (const file of walk(path.join(root, 'skills'), ['.md'])) {
@@ -92,7 +98,10 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
     }
     const result = validateSkill(raw, rel(file));
     issues.push(...result.issues);
-    if (result.item) skills.push(result.item);
+    if (result.item) {
+      skills.push(result.item);
+      sources[result.item.id] = rel(file);
+    }
   }
 
   for (const file of walk(path.join(root, 'boosts'), ['.json'])) {
@@ -101,10 +110,13 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
     if (!raw) continue;
     const result = validateBoost(raw, rel(file));
     issues.push(...result.issues);
-    if (result.item) boosts.push(result.item);
+    if (result.item) {
+      boosts.push(result.item);
+      sources[result.item.id] = rel(file);
+    }
   }
 
   issues.push(...checkUniqueIds([...prompts, ...skills, ...boosts]));
-  return { prompts, skills, boosts, issues, files };
+  return { prompts, skills, boosts, issues, files, sources };
 }
 

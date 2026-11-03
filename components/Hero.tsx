@@ -35,13 +35,16 @@ export function Hero({ stats }: { stats: HubStats }) {
   return (
     <section className="relative pt-12 pb-10 sm:pt-20 sm:pb-14">
       <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1 text-xs text-muted">
+        <Link
+          href="/build-in-public"
+          className="focus-ring inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1 text-xs text-muted shadow-card transition hover:border-line-strong hover:text-ink"
+        >
           <span className="relative flex size-2">
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-neon-emerald opacity-60" />
             <span className="relative inline-flex size-2 rounded-full bg-neon-emerald" />
           </span>
-          Open-source · GitOps content · {stats.total} mục sẵn sàng
-        </span>
+          Build in Public · {stats.total} mục mã nguồn mở · xem câu chuyện →
+        </Link>
         <h1 className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight text-balance sm:text-6xl">
           <span className="text-gradient">TVT Intelligence Hub</span>
         </h1>
@@ -51,10 +54,10 @@ export function Hero({ stats }: { stats: HubStats }) {
           ChatGPT, Claude, Cursor hoặc xuất SKILL.md cho AI Agent.
         </p>
         <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
-          <SearchTrigger className="flex h-12 flex-1 text-base" />
+          <SearchTrigger className="flex h-12 text-base sm:flex-1" />
           <Link
             href="#catalog"
-            className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-emerald px-5 text-sm font-semibold text-space transition hover:brightness-110"
+            className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-emerald px-5 text-sm font-semibold text-on-accent transition hover:brightness-110"
           >
             Khám phá kho <ArrowRight className="size-4" aria-hidden />
           </Link>
@@ -66,7 +69,7 @@ export function Hero({ stats }: { stats: HubStats }) {
           <Link
             key={key}
             href={href}
-            className="focus-ring group flex items-start gap-4 rounded-2xl border border-line bg-surface/70 p-4 transition hover:border-line-strong hover:bg-surface"
+            className="focus-ring group flex items-start gap-4 rounded-2xl border border-line bg-surface/70 shadow-card p-4 transition hover:border-line-strong hover:bg-surface"
           >
             <span className={`grid size-11 shrink-0 place-items-center rounded-xl border ${tone}`}>
               <Icon className="size-5" aria-hidden />

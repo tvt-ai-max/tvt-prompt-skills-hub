@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Shorts 9:16", "Dark Card", "Be Vietnam Pro", "SVG Diagram", "Zero Hallucination"]
+tags: ["Video", "Shorts 9:16", "Dark Card", "Be Vietnam Pro", "SVG Diagram", "Zero Hallucination"]
 inputs:
   - name: voice_audio_path
     type: string

@@ -1,25 +1,45 @@
 'use client';
 
-import { ChevronDown, Search, SlidersHorizontal, X } from 'lucide-react';
+import { ChevronDown, Search, SlidersHorizontal, Star, Tags, Wrench, X } from 'lucide-react';
 import type { Persona, Tier } from '@/types/hub';
 import { PERSONAS } from '@/types/hub';
+import type { FacetCount } from '@/lib/facets';
 import { categoryLabel, PERSONA_META, TIER_META } from '@/lib/labels';
 
 export type TierFilter = Tier | 'all';
 
-interface Props {
+export interface FilterState {
   tier: TierFilter;
   persona: Persona | 'all';
   category: string;
+  stack: string;
+  tags: string[];
   query: string;
-  categories: string[];
-  counts: Record<TierFilter, number>;
-  onTier: (tier: TierFilter) => void;
-  onPersona: (persona: Persona | 'all') => void;
-  onCategory: (category: string) => void;
-  onQuery: (query: string) => void;
+  favoritesOnly: boolean;
+}
+
+export const EMPTY_FILTERS: FilterState = {
+  tier: 'all',
+  persona: 'all',
+  category: 'all',
+  stack: 'all',
+  tags: [],
+  query: '',
+  favoritesOnly: false,
+};
+
+interface Props {
+  state: FilterState;
+  onChange: (patch: Partial<FilterState>) => void;
   onReset: () => void;
+  categories: string[];
+  tagCloud: FacetCount[];
+  stackFacets: FacetCount[];
+  counts: Record<TierFilter, number>;
+  favoriteCount: number;
   resultCount: number;
+  advancedOpen: boolean;
+  onToggleAdvanced: () => void;
 }
 
 const TIER_PILLS: TierFilter[] = ['all', 'prompt', 'skill', 'boost'];
@@ -28,20 +48,25 @@ function SelectBox({
   label,
   value,
   onChange,
+  icon,
   children,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <label className="relative flex min-w-0 flex-1 items-center sm:flex-none">
       <span className="sr-only">{label}</span>
+      {icon && <span className="pointer-events-none absolute left-3 text-faint">{icon}</span>}
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="focus-ring h-10 w-full appearance-none rounded-lg border border-line bg-surface py-0 pr-8 pl-3 text-sm text-ink transition hover:border-line-strong sm:w-44"
+        className={`focus-ring h-10 w-full appearance-none rounded-lg border border-line bg-surface py-0 pr-8 text-sm text-ink transition hover:border-line-strong sm:w-44 ${
+          icon ? 'pl-9' : 'pl-3'
+        }`}
       >
         {children}
       </select>
@@ -51,33 +76,59 @@ function SelectBox({
 }
 
 export function FilterBar(props: Props) {
-  const { tier, persona, category, query, categories, counts, resultCount } = props;
-  const dirty = tier !== 'all' || persona !== 'all' || category !== 'all' || query !== '';
+  const { state, onChange, categories, tagCloud, stackFacets, counts, favoriteCount, resultCount, advancedOpen } = props;
+  const dirty =
+    state.tier !== 'all' ||
+    state.persona !== 'all' ||
+    state.category !== 'all' ||
+    state.stack !== 'all' ||
+    state.tags.length > 0 ||
+    state.query !== '' ||
+    state.favoritesOnly;
+  const advancedActive = state.tags.length + (state.stack !== 'all' ? 1 : 0);
+
+  const toggleTag = (tag: string) =>
+    onChange({ tags: state.tags.includes(tag) ? state.tags.filter((t) => t !== tag) : [...state.tags, tag] });
 
   return (
     <div className="glass z-30 -mx-4 space-y-3 border-y border-line px-4 py-3 sm:mx-0 sm:rounded-2xl sm:border lg:sticky lg:top-20">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         <div role="tablist" aria-label="Lọc theo tầng" className="scrollbar-thin -mx-1 flex gap-1 overflow-x-auto px-1">
           {TIER_PILLS.map((key) => {
-            const selected = tier === key;
+            const selected = state.tier === key && !state.favoritesOnly;
             return (
               <button
                 key={key}
                 type="button"
                 role="tab"
                 aria-selected={selected}
-                onClick={() => props.onTier(key)}
+                onClick={() => onChange({ tier: key, category: 'all', favoritesOnly: false })}
                 className={`focus-ring inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
                   selected
                     ? 'border-neon-cyan/50 bg-neon-cyan/15 text-cyan-100'
-                    : 'border-line bg-white/[0.02] text-muted hover:border-line-strong hover:text-ink'
+                    : 'border-line bg-overlay/[0.02] text-muted hover:border-line-strong hover:text-ink'
                 }`}
               >
                 {key === 'all' ? 'Tất cả' : TIER_META[key].plural}
-                <span className={`rounded-full px-1.5 text-[11px] ${selected ? 'bg-neon-cyan/25' : 'bg-white/5'}`}>{counts[key]}</span>
+                <span className={`rounded-full px-1.5 text-[11px] ${selected ? 'bg-neon-cyan/25' : 'bg-overlay/5'}`}>{counts[key]}</span>
               </button>
             );
           })}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={state.favoritesOnly}
+            onClick={() => onChange({ favoritesOnly: !state.favoritesOnly })}
+            className={`focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
+              state.favoritesOnly
+                ? 'border-neon-amber/50 bg-neon-amber/15 text-amber-200'
+                : 'border-line bg-overlay/[0.02] text-muted hover:border-line-strong hover:text-ink'
+            }`}
+          >
+            <Star className={`size-3.5 ${state.favoritesOnly ? 'fill-current' : ''}`} aria-hidden />
+            Yêu thích
+            <span className={`rounded-full px-1.5 text-[11px] ${state.favoritesOnly ? 'bg-neon-amber/25' : 'bg-overlay/5'}`}>{favoriteCount}</span>
+          </button>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -85,13 +136,14 @@ export function FilterBar(props: Props) {
             <span className="sr-only">Lọc nhanh</span>
             <Search className="pointer-events-none absolute left-3 size-4 text-faint" aria-hidden />
             <input
-              value={query}
-              onChange={(e) => props.onQuery(e.target.value)}
+              type="search"
+              value={state.query}
+              onChange={(e) => onChange({ query: e.target.value })}
               placeholder="Lọc nhanh…"
               className="focus-ring h-10 w-full rounded-lg border border-line bg-surface pr-3 pl-9 text-sm text-ink placeholder:text-faint sm:w-52"
             />
           </label>
-          <SelectBox label="Persona" value={persona} onChange={(v) => props.onPersona(v as Persona | 'all')}>
+          <SelectBox label="Persona" value={state.persona} onChange={(v) => onChange({ persona: v as Persona | 'all' })}>
             <option value="all">Mọi persona</option>
             {PERSONAS.map((p) => (
               <option key={p} value={p}>
@@ -99,7 +151,7 @@ export function FilterBar(props: Props) {
               </option>
             ))}
           </SelectBox>
-          <SelectBox label="Danh mục" value={category} onChange={props.onCategory}>
+          <SelectBox label="Danh mục" value={state.category} onChange={(v) => onChange({ category: v })}>
             <option value="all">Mọi danh mục</option>
             {categories.map((c) => (
               <option key={c} value={c}>
@@ -110,10 +162,61 @@ export function FilterBar(props: Props) {
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-faint">
-        <span className="inline-flex items-center gap-1.5">
-          <SlidersHorizontal className="size-3.5" aria-hidden />
-          {resultCount} kết quả
+      {advancedOpen && (
+        <div id="advanced-filters" className="space-y-3 border-t border-line pt-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted uppercase">
+              <Tags className="size-3.5" aria-hidden /> Tags phổ biến
+            </span>
+            {tagCloud.map(({ value, count }) => {
+              const active = state.tags.includes(value);
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => toggleTag(value)}
+                  className={`focus-ring rounded-full border px-2.5 py-1 text-xs transition ${
+                    active
+                      ? 'border-neon-emerald/50 bg-neon-emerald/15 text-emerald-200'
+                      : 'border-line text-muted hover:border-line-strong hover:text-ink'
+                  }`}
+                >
+                  #{value} <span className="text-faint">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+          <SelectBox
+            label="Công cụ Agent / Stack"
+            value={state.stack}
+            onChange={(v) => onChange({ stack: v })}
+            icon={<Wrench className="size-4" aria-hidden />}
+          >
+            <option value="all">Mọi công cụ Agent</option>
+            {stackFacets.map(({ value, count }) => (
+              <option key={value} value={value}>
+                {value} ({count})
+              </option>
+            ))}
+          </SelectBox>
+        </div>
+      )}
+
+      <div className="flex items-center justify-between gap-3 text-xs text-faint">
+        <span className="inline-flex items-center gap-3">
+          <span>{resultCount} kết quả</span>
+          <button
+            type="button"
+            onClick={props.onToggleAdvanced}
+            aria-expanded={advancedOpen}
+            aria-controls="advanced-filters"
+            className="focus-ring inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 text-muted transition hover:text-ink"
+          >
+            <SlidersHorizontal className="size-3.5" aria-hidden />
+            {advancedOpen ? 'Ẩn bộ lọc nâng cao' : 'Tags & công cụ'}
+            {advancedActive > 0 && <span className="rounded-full bg-neon-emerald/20 px-1.5 text-emerald-200">{advancedActive}</span>}
+          </button>
         </span>
         {dirty && (
           <button

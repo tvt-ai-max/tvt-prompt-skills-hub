@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Hook Generation", "Karaoke Caption", "Retention Engine", "TikTok", "Shorts"]
+tags: ["Video", "Hook Generation", "Karaoke Caption", "Retention Engine", "TikTok", "Shorts"]
 inputs:
   - name: video_topic
     type: string

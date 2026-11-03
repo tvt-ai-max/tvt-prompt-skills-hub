@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Faceless Video", "2D Motion Graphics", "Voiceover Timing", "Retention Hooks", "Viral Shorts"]
+tags: ["Video", "Faceless Video", "2D Motion Graphics", "Voiceover Timing", "Retention Hooks", "Viral Shorts"]
 inputs:
   - name: voiceover_audio_path
     type: string

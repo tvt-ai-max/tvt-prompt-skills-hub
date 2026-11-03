@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Editorial Magazine", "Typography Video", "Luxury Brand", "Serif Motion", "Corporate Explainer"]
+tags: ["Video", "Editorial Magazine", "Typography Video", "Luxury Brand", "Serif Motion", "Corporate Explainer"]
 inputs:
   - name: article_title
     type: string

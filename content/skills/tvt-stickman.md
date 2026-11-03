@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Stickman", "Whiteboard Animation", "Storytelling", "5 Expressions", "Pure Code Animation"]
+tags: ["Video", "Stickman", "Whiteboard Animation", "Storytelling", "5 Expressions", "Pure Code Animation"]
 inputs:
   - name: story_beats_json
     type: textarea

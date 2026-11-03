@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Split Screen", "Talking Head", "Lipsync", "UI Morphing", "High Retention", "Shorts"]
+tags: ["Video", "Split Screen", "Talking Head", "Lipsync", "UI Morphing", "High Retention", "Shorts"]
 inputs:
   - name: character_image_path
     type: string

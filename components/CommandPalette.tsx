@@ -3,8 +3,9 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUp, CornerDownLeft, Search } from 'lucide-react';
-import type { HubItem, Tier } from '@/types/hub';
-import { createSearchIndex, itemCategory, searchIds } from '@/lib/search';
+import type { HubItemSummary, Tier } from '@/types/hub';
+import { createSearchIndex, searchIds } from '@/lib/search';
+import { prefetchItem } from '@/components/useItem';
 import { categoryLabel, TIER_META } from '@/lib/labels';
 import { TIER_ICONS, TIER_STYLES } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
@@ -12,11 +13,11 @@ import { useDialog } from '@/components/useDialog';
 interface Props {
   open: boolean;
   onClose: () => void;
-  items: HubItem[];
+  items: HubItemSummary[];
   onSelect: (id: string) => void;
 }
 
-type Row = { kind: 'item'; item: HubItem } | { kind: 'nav'; tier: Tier; href: string };
+type Row = { kind: 'item'; item: HubItemSummary } | { kind: 'nav'; tier: Tier; href: string };
 
 const NAV_ROWS: Row[] = [
   { kind: 'nav', tier: 'prompt', href: '/prompts' },
@@ -56,6 +57,11 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
   useEffect(() => setActive(0), [query]);
 
   useEffect(() => {
+    const row = rows[active];
+    if (open && row?.kind === 'item') prefetchItem(row.item.id);
+  }, [open, rows, active]);
+
+  useEffect(() => {
     listRef.current?.querySelector<HTMLElement>(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' });
   }, [active]);
 
@@ -87,13 +93,13 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-start justify-center px-4 pt-[12vh]" role="presentation">
-      <div className="absolute inset-0 animate-fade-in bg-space-deep/70 backdrop-blur-sm" onClick={onClose} aria-hidden />
+      <div className="absolute inset-0 animate-fade-in bg-scrim backdrop-blur-sm" onClick={onClose} aria-hidden />
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Command palette — tìm kiếm"
-        className="glass relative w-full max-w-2xl animate-pop-in overflow-hidden rounded-2xl border border-line-strong shadow-2xl shadow-black/50"
+        className="glass relative w-full max-w-2xl animate-pop-in overflow-hidden rounded-2xl border border-line-strong shadow-2xl shadow-black/50 light:shadow-slate-900/15"
       >
         <div className="flex items-center gap-3 border-b border-line px-4">
           <Search className="size-5 shrink-0 text-neon-cyan" aria-hidden />
@@ -123,7 +129,7 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
           {rows.map((row, i) => {
             const selected = i === active;
             const base = `flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${
-              selected ? 'bg-white/[0.07]' : 'hover:bg-white/[0.04]'
+              selected ? 'bg-overlay/[0.07]' : 'hover:bg-overlay/[0.04]'
             }`;
             if (row.kind === 'nav') {
               const Icon = TIER_ICONS[row.tier];
@@ -163,8 +169,8 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm font-medium text-ink">{item.title}</span>
                   <span className="block truncate text-xs text-muted">
-                    {item.tier === 'boost' ? <span className="font-mono text-violet-300">{item.slashCommand} · </span> : null}
-                    {categoryLabel(itemCategory(item))} · {item.tags.slice(0, 3).join(', ')}
+                    {item.slashCommand ? <span className="font-mono text-violet-300">{item.slashCommand} · </span> : null}
+                    {categoryLabel(item.category)} · {item.tags.slice(0, 3).join(', ')}
                   </span>
                 </span>
                 {selected && <CornerDownLeft className="size-4 shrink-0 text-faint" aria-hidden />}

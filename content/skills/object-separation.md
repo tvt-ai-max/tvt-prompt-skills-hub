@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["Rotoscoping", "Background Removal", "Presenter Separation", "Green Screen Free", "Alpha Matte"]
+tags: ["Video", "Rotoscoping", "Background Removal", "Presenter Separation", "Green Screen Free", "Alpha Matte"]
 inputs:
   - name: source_video_path
     type: string

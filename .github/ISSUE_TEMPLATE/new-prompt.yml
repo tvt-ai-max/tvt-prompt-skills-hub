@@ -1,0 +1,55 @@
+name: ✨ Đề xuất Prompt mới
+description: Một micro-prompt copy-paste có biến {{VARIABLE}}.
+title: "[Prompt] "
+labels: ["content", "tier:prompt"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã đóng góp! Prompt tốt mở đầu bằng **vai trò**, tiếp theo là **các bước đánh số** và **ràng buộc đầu ra**.
+        Muốn tự gửi PR? Xem [CONTRIBUTING.md](https://github.com/tvt-ai-max/tvt-prompt-skills-hub/blob/main/CONTRIBUTING.md).
+  - type: input
+    id: title
+    attributes:
+      label: Tiêu đề
+      placeholder: "LinkedIn Hook Writer cho B2B SaaS"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Danh mục
+      options: [marketing, seo, copywriting, coding, system-design, operations]
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Mô tả ngắn (1–2 câu)
+    validations:
+      required: true
+  - type: textarea
+    id: template
+    attributes:
+      label: Template
+      description: Dùng `{{TEN_BIEN}}` (chữ, số, gạch dưới) cho mỗi biến.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: variables
+    attributes:
+      label: Danh sách biến
+      description: "Mỗi dòng: KEY | Nhãn hiển thị | Giá trị mẫu"
+      placeholder: "TOPIC | Chủ đề bài viết | Tối ưu chi phí vận hành với AI Agent"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Cam kết
+      options:
+        - label: Nội dung không chứa API key, token, mật khẩu hay dữ liệu cá nhân.
+          required: true
+        - label: Tôi đồng ý phát hành nội dung này theo giấy phép MIT.
+          required: true

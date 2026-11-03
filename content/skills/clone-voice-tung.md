@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: toilatung
 author: "Tôi Là Tùng"
-tags: ["Voiceover", "Voice Clone", "ElevenLabs", "Audio Cadence", "Speech Timing"]
+tags: ["Video", "Voiceover", "Voice Clone", "ElevenLabs", "Audio Cadence", "Speech Timing"]
 inputs:
   - name: raw_script
     type: textarea

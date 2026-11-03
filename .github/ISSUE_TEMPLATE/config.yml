@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Hướng dẫn đóng góp (CONTRIBUTING)
+    url: https://github.com/tvt-ai-max/tvt-prompt-skills-hub/blob/main/CONTRIBUTING.md
+    about: Định dạng file, quy tắc validator và cách mở Pull Request.
+  - name: 🌐 TVT Intelligence Hub
+    url: https://hub.toilatung.com
+    about: Duyệt toàn bộ Prompt, Skill, Boost với form điền biến và live preview.

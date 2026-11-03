@@ -6,7 +6,7 @@ category: video
 tier: skill
 persona: tvt-agency
 author: "TVT Agency"
-tags: ["B-Roll", "Motion Graphics", "Word-Level Timing", "Kinetic SVG", "Video Retention"]
+tags: ["Video", "B-Roll", "Motion Graphics", "Word-Level Timing", "Kinetic SVG", "Video Retention"]
 inputs:
   - name: transcript_alignment
     type: textarea

@@ -1,52 +1,79 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight, Braces, Check, Copy, ListChecks, Terminal } from 'lucide-react';
-import type { HubItem } from '@/types/hub';
+import { ArrowUpRight, Braces, Check, Copy, ListChecks, Loader2, Terminal } from 'lucide-react';
+import { useState } from 'react';
+import type { HubItemSummary } from '@/types/hub';
 import { PersonaBadge, TIER_STYLES, TierBadge } from '@/components/Badges';
+import { FavoriteButton } from '@/components/FavoriteButton';
 import { useHub } from '@/components/HubProvider';
+import { useToast } from '@/components/ToastProvider';
+import { fetchItem, prefetchItem } from '@/components/useItem';
 import { useCopy } from '@/components/useCopy';
 import { buildWorkbenchModel, initialValues, renderTemplate } from '@/lib/variables';
 import { toChatMarkdown } from '@/lib/exporters';
 import { categoryLabel } from '@/lib/labels';
-import { itemCategory } from '@/lib/search';
 
-export function ItemCard({ item }: { item: HubItem }) {
+export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinned?: boolean }) {
   const { openItem } = useHub();
+  const toast = useToast();
   const { copied, copy } = useCopy();
-  const model = buildWorkbenchModel(item);
+  const [busy, setBusy] = useState(false);
   const styles = TIER_STYLES[item.tier];
 
-  const quickCopy = (event: React.MouseEvent) => {
+  const quickCopy = async (event: React.MouseEvent) => {
     event.stopPropagation();
-    const rendered = renderTemplate(model.template, initialValues(model.variables));
-    void copy('quick', toChatMarkdown(item, rendered));
+    setBusy(true);
+    try {
+      const full = await fetchItem(item.id);
+      const model = buildWorkbenchModel(full);
+      const ok = await copy('quick', toChatMarkdown(full, renderTemplate(model.template, initialValues(model.variables))));
+      toast(ok ? `Đã copy “${item.title}”` : 'Trình duyệt chặn clipboard — mở chi tiết để copy');
+    } catch {
+      toast('Không tải được nội dung, thử lại sau');
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
     <article
-      className={`group relative flex h-full flex-col rounded-2xl border border-line bg-surface/80 p-5 transition duration-200 hover:-translate-y-0.5 ${styles.glow}`}
+      onPointerEnter={() => prefetchItem(item.id)}
+      className={`surface-card group relative flex h-full flex-col rounded-2xl p-5 transition duration-200 hover:-translate-y-0.5 ${styles.glow} ${
+        pinned ? 'ring-1 ring-neon-amber/30' : ''
+      }`}
     >
       <div className="mb-3 flex items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-1.5">
           <TierBadge tier={item.tier} />
           <PersonaBadge persona={item.persona} />
         </div>
-        <button
-          type="button"
-          onClick={quickCopy}
-          aria-label={`Copy nhanh ${item.title}`}
-          title="Copy nhanh (giá trị mặc định)"
-          className="focus-ring relative z-10 rounded-lg border border-line bg-space/60 p-2 text-muted transition hover:border-line-strong hover:text-ink"
-        >
-          {copied ? <Check className="size-4 text-neon-emerald" aria-hidden /> : <Copy className="size-4" aria-hidden />}
-        </button>
+        <div className="relative z-10 flex items-center gap-1.5">
+          <FavoriteButton id={item.id} title={item.title} />
+          <button
+            type="button"
+            onClick={quickCopy}
+            onFocus={() => prefetchItem(item.id)}
+            aria-label={`Copy nhanh ${item.title}`}
+            title="Copy nhanh (giá trị mặc định)"
+            className="focus-ring rounded-lg border border-line bg-space/60 p-2 text-muted transition hover:border-line-strong hover:text-ink"
+          >
+            {busy ? (
+              <Loader2 className="size-4 animate-spin" aria-hidden />
+            ) : copied ? (
+              <Check className="size-4 text-neon-emerald" aria-hidden />
+            ) : (
+              <Copy className="size-4" aria-hidden />
+            )}
+          </button>
+        </div>
       </div>
 
       <h3 className="text-base leading-snug font-semibold text-ink">
         <button
           type="button"
           onClick={() => openItem(item.id)}
+          onFocus={() => prefetchItem(item.id)}
           className="text-left outline-none after:absolute after:inset-0 after:rounded-2xl focus-visible:after:ring-2 focus-visible:after:ring-neon-cyan/70"
         >
           {item.title}
@@ -54,7 +81,7 @@ export function ItemCard({ item }: { item: HubItem }) {
       </h3>
       <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{item.description}</p>
 
-      {item.tier === 'boost' && (
+      {item.slashCommand && (
         <code className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-md border border-neon-violet/25 bg-neon-violet/10 px-2 py-1 font-mono text-xs text-violet-200">
           <Terminal className="size-3.5" aria-hidden />
           {item.slashCommand}
@@ -63,7 +90,7 @@ export function ItemCard({ item }: { item: HubItem }) {
 
       <div className="mt-4 flex flex-wrap gap-1.5">
         {item.tags.slice(0, 4).map((tag) => (
-          <span key={tag} className="rounded-md bg-white/[0.04] px-1.5 py-0.5 text-[11px] text-faint">
+          <span key={tag} className="rounded-md bg-overlay/[0.04] px-1.5 py-0.5 text-[11px] text-faint">
             #{tag}
           </span>
         ))}
@@ -71,10 +98,10 @@ export function ItemCard({ item }: { item: HubItem }) {
 
       <div className="mt-auto flex items-center justify-between gap-2 pt-4 text-xs text-faint">
         <span className="flex items-center gap-3">
-          <span>{categoryLabel(itemCategory(item))}</span>
+          <span>{categoryLabel(item.category)}</span>
           <span className={`inline-flex items-center gap-1 ${styles.text}`}>
             {item.tier === 'skill' ? <ListChecks className="size-3.5" aria-hidden /> : <Braces className="size-3.5" aria-hidden />}
-            {item.tier === 'skill' ? `${item.auditGates.length} gates` : `${model.variables.length} biến`}
+            {item.tier === 'skill' ? `${item.gateCount} gates` : `${item.variableCount} biến`}
           </span>
         </span>
         <Link
