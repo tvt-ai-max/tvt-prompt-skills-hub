@@ -128,10 +128,12 @@ test('bot validator enforces department, avatar and a substantial system prompt'
 });
 
 // ── loader (real content) ───────────────────────────────────────────────────
-test('loader: 16 bots and ≥5 workflows load cleanly with resolvable bot links', () => {
+test('loader: 317 bots (16 core) and ≥5 workflows load cleanly with resolvable bot links', () => {
   const content = loadContent();
   assert.deepEqual(content.issues, []);
-  assert.equal(content.bots.length, 16);
+  const loaded = content;
+  assert.ok(loaded.bots.length >= 317, `expected ≥ 317 bots, got ${loaded.bots.length}`);
+  assert.equal(content.bots.filter((b) => b.tier !== 'specialist').length, 16, '16 core workforce bots');
   assert.ok(content.workflows.length >= 5);
   const botIds = new Set(content.bots.map((b) => b.id));
   for (const id of ['lexi', 'scout', 'quill', 'reel', 'pixel', 'shield', 'bolt', 'echo', 'metric', 'north', 'ally', 'arrow', 'buzz', 'craft', 'crown', 'pulse']) {
@@ -236,7 +238,7 @@ test('sitemap & llms.txt include bots and workflows', async () => {
   assert.ok(bots.every((b) => urls.includes(`${base}/bots/${b.id}`)));
   const llms = buildLlmsTxt([], base, { workflows, bots });
   assert.match(llms, /## Workflows \(\d+\)/);
-  assert.match(llms, /## Bots — AI Workforce \(16\)/);
+  assert.match(llms, /## Bots — AI Workforce \(317\)/);
   const howto = (workflowJsonLd(workflows[0], base)['@graph'] as { '@type': string; step?: unknown[] }[])[0];
   assert.equal(howto['@type'], 'HowTo');
   assert.equal(howto.step?.length, workflows[0].steps.length);
@@ -251,5 +253,6 @@ test('README index lists workflows and bots with anchors and source links', asyn
   assert.ok(index.includes(`(https://hub.example.com/bots/lexi)`));
   assert.ok(workflows.every((w) => index.includes(`/workflows/${w.slug})`)));
   assert.ok(index.includes('[📄](content/bots/lexi.json)'));
-  assert.match(index, /\*\*21 tài sản\*\*/);
+  assert.match(index, /\*\*322 tài sản\*\*/);
+  assert.ok(index.includes('🌐 Specialist Personas (301)'));
 });

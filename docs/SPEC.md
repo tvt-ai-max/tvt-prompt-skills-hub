@@ -132,3 +132,10 @@ Edges are `previous_step` inputs and may only point to earlier steps, so every w
 ```typescript
 interface BotItem { id: string; name: string; role: string; department: 'command' | 'content-video' | 'marketing-seo' | 'crm-automation'; avatar: string; description: string; systemPrompt: string; recommendedModels: string[]; tools: string[]; tags: string[]; author: string; createdAt: string }
 ```
+
+---
+
+## 6. V4 additions
+- `BotItem.tier?: 'core' | 'specialist'`, `specialty?` (one of 10 fields), `customInstructions?: { know, respond }`.
+- **MCP server** — `POST /api/mcp`, JSON-RPC 2.0 over Streamable HTTP (stateless). Methods: `initialize`, `ping`, `tools/list`, `tools/call`; tools: `tvt_search(query, tier?, limit?)`, `tvt_get_prompt(id)`, `tvt_get_skill(id)`, `tvt_get_bot(id)`, `tvt_list_workflows(id?)`. Results use `{ content: [{ type: "text", text }] }` (+ `structuredContent`); unknown ids return `isError: true`.
+- **i18n** — `locales/{vi,en}.json`, `MessageKey` type derived from `vi.json`, `useTranslation()` / `<T k />`, locale order `?lang=` → localStorage/`NEXT_LOCALE` cookie → browser language (crawlers stay on `vi`).

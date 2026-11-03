@@ -2,7 +2,7 @@
 
 # 🌌 TVT Intelligence Hub
 
-### Awesome Prompts, Agent Skills (`SKILL.md`) & Boost meta-prompts, with a fill-in-the-variables workbench
+### Awesome Prompts, Agent Skills (`SKILL.md`), 317 AI Bots & Workflows — with an MCP server and a bilingual (VI/EN) workbench
 
 **Pick a prompt, fill in its `{{VARIABLES}}`, preview the result, and copy it in one click to ChatGPT · Claude · Cursor, or export it as `SKILL.md`.**
 
@@ -16,7 +16,7 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 
-[**🌐 Live hub**](https://hub.toilatung.com) · [**📚 Directory index**](#-curated-directory-index) · [**🚀 Deploy**](#-deploy-in-one-click) · [**🤝 Contribute**](CONTRIBUTING.md) · [**📖 Build in Public**](https://hub.toilatung.com/build-in-public)
+[**🌐 Live hub**](https://hub.toilatung.com) · [**🔌 MCP API**](https://hub.toilatung.com/docs/api) · [**📖 Prompt Guide 2026**](https://hub.toilatung.com/guide) · [**📚 Directory index**](#-curated-directory-index) · [**🚀 Deploy**](#-deploy-in-one-click) · [**🤝 Contribute**](CONTRIBUTING.md)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ftvt-ai-max%2Ftvt-prompt-skills-hub&project-name=tvt-intelligence-hub&env=NEXT_PUBLIC_SITE_URL&envDescription=Public%20URL%20used%20for%20canonical%20links%2C%20sitemap%20and%20OpenGraph)
 
@@ -31,7 +31,7 @@ Most prompt libraries, such as `prompts.chat`, are static text you edit by hand.
 ```
 WORKFLOWS  multi-step DAG pipelines: each step's output pipes into the next → copy / n8n / Python
     ▲  chain specialists into a production line
-BOTS       16 AI Workforce personas with deep system prompts and HANDOFF blocks
+BOTS       16 TVT core agents + 301 specialist personas (10 fields) — system prompts & ChatGPT custom instructions
     ▲  give each job to the right specialist
 SKILLS     SKILL.md agent SOPs: inputs → tools → steps → quality gates
     ▲  standardize into a repeatable flow
@@ -45,7 +45,10 @@ Most content is written in Vietnamese for B2B agencies, solopreneurs (OCP), vide
 | | |
 |---|---|
 | 🔀 **Workflows Studio (DAG)** | A visual node canvas with glowing data edges (including jumps across steps). A **live piping simulator**: enter the inputs once and every step's prompt fills in instantly. Paste a step's real output and it flows into every downstream step. One-click **Copy All Sequential Prompts**, **Export n8n Workflow JSON** (Basic LLM Chain + model node per step, no keys inside) and **Export Python CLI Script** (Anthropic SDK, `--dry-run`, piping between steps). |
-| 🤖 **Bots: 16 AI Workforce personas** | Lexi, Scout, Quill, Reel, Pixel, Shield, Bolt, Echo, Metric, North, Ally, Arrow, Buzz, Craft, Crown and Pulse. Each has a role, process, output format, safety boundaries and a HANDOFF block to the next bot. Filter by department, **copy the system prompt in one click**, or download it as a subagent `.md`. |
+| 🤖 **Bots: 317 personas in 2 tiers** | **⭐ TVT Core Workforce (16)**: Lexi, Scout, Quill, Reel, Pixel, Shield, Bolt, Echo, Metric, North, Ally, Arrow, Buzz, Craft, Crown, Pulse — each with a process, output format, safety boundaries and a HANDOFF block. **🌐 Specialist Personas (301)** across 10 fields (Marketing, Developing, Technology, Business, Writing, Creative Arts, Finance, Education, Entertainment, Fitness). Real-time search, field filters, **📋 Copy System Prompt (Claude/Cursor)** and **⚙️ Copy Custom Instructions (ChatGPT)** in one click. |
+| 🔌 **MCP-first API** | `POST /api/mcp` is a read-only **Model Context Protocol** server (JSON-RPC 2.0, Streamable HTTP) with `tvt_search`, `tvt_get_prompt`, `tvt_get_skill`, `tvt_get_bot`, `tvt_list_workflows`. Plug it into Cursor, Claude Desktop, Claude Code, Windsurf or Antigravity — configs on [/docs/api](https://hub.toilatung.com/docs/api). Verified with the official MCP TypeScript SDK client. |
+| 🌍 **Bilingual UI (VI 🇻🇳 / EN 🇬🇧)** | Type-safe dictionaries (`locales/vi.json`, `locales/en.json`, 100% key parity enforced by tests), `🇻🇳 VI \| 🇬🇧 EN` switcher, saved in `localStorage` + `NEXT_LOCALE` cookie, browser-language detection, `?lang=en` URLs with `hreflang` alternates, and a zero-FOUC boot script. |
+| 📚 **Docs & Master Guide** | [/docs/api](https://hub.toilatung.com/docs/api), [/docs/self-hosting](https://hub.toilatung.com/docs/self-hosting) and the 5-chapter [**How to Write Effective Prompts 2026**](https://hub.toilatung.com/guide) guide with copyable code blocks linked to live examples. |
 | 🧩 **Interactive Variable Workbench** | Each `{{VARIABLE}}` gets its own input (text / textarea / select), pre-filled with an example. The live preview highlights filled values and flags empty ones. **Reset to examples**, **Clear all**, and **Direct link** (a URL that opens the form already filled in). |
 | 📋 **Multi-target export** | **ChatGPT / Claude** (clean Markdown) · **Cursor / Windsurf** (`.cursorrules`) · **`SKILL.md`** for Claude Code / OpenClaw / Hermes · **Direct link** with the variable values in the URL. |
 | ⭐ **Favorites (pin to top)** | Star any card to pin it to the top of the grid and show it under the **Favorites** filter. Stored in `localStorage` and synced across tabs. |
@@ -62,7 +65,7 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 
 <!-- DIRECTORY-INDEX:START — generated by `npm run readme`, do not edit by hand -->
 
-**224 tài sản** · 139 Prompts · 57 Skills · 7 Deep Reasoning · 5 Workflows · 16 Bots
+**525 tài sản** · 139 Prompts · 57 Skills · 7 Deep Reasoning · 5 Workflows · 317 Bots
 
 | Tầng | Chuyên khoa | Số lượng |
 |---|---|---:|
@@ -88,7 +91,7 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 | 🤖 Skills | [Coding & Dev](#skill-coding) | 1 |
 | 🧠 Deep Reasoning | [Deep Reasoning](#boost-deep-reasoning) | 7 |
 | 🔀 Workflows | [Tất cả workflows](#workflows) | 5 |
-| 🤖 Bots | [AI Workforce](#bots) | 16 |
+| 🤖 Bots | [AI Workforce](#bots) | 317 |
 
 ### ✨ Prompts (139)
 
@@ -460,7 +463,9 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 
 <a id="bots"></a>
 
-### 🤖 Bots — AI Workforce (16)
+### 🤖 Bots — AI Workforce (317)
+
+#### ⭐ TVT Core Workforce (16)
 
 | Bot | Vai trò | Phòng ban | Nguồn |
 |---|---|---|---|
@@ -481,6 +486,68 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 | 🔭 [Scout](https://hub.toilatung.com/bots/scout) | Deep Research & Competitor Spy | Marketing/SEO | [📄](content/bots/scout.json) |
 | 🛡️ [Shield](https://hub.toilatung.com/bots/shield) | Security, Prompt Injection Firewall & RLS Audit | CRM/Automation | [📄](content/bots/shield.json) |
 
+#### 🌐 Specialist Personas (301)
+
+<details><summary>💼 <b>Business</b> (30)</summary>
+
+[Business Analyst](https://hub.toilatung.com/bots/business-analyst) · [Business Coach](https://hub.toilatung.com/bots/business-coach) · [Business Development Manager](https://hub.toilatung.com/bots/business-dev-manager) · [Business Intelligence Analyst](https://hub.toilatung.com/bots/business-intelligence-analyst) · [Change Management Specialist](https://hub.toilatung.com/bots/change-mgmt-specialist) · [Compliance Officer](https://hub.toilatung.com/bots/compliance-officer) · [Corporate Communications Specialist](https://hub.toilatung.com/bots/corporate-comms-specialist) · [Corporate Social Responsibility Specialist](https://hub.toilatung.com/bots/corporate-social-responsibility) · [Corporate Trainer](https://hub.toilatung.com/bots/corporate-trainer) · [Customer Relationship Manager](https://hub.toilatung.com/bots/customer-relationship-manager) · [Executive Assistant](https://hub.toilatung.com/bots/executive-assistant) · [Export/Import Specialist](https://hub.toilatung.com/bots/export-import-specialist) · [Facility Manager](https://hub.toilatung.com/bots/facility-manager) · [Franchise Development Consultant](https://hub.toilatung.com/bots/franchise-dev-consultant) · [Franchise Manager](https://hub.toilatung.com/bots/franchise-manager) · [Human Resources Specialist](https://hub.toilatung.com/bots/human-resources-specialist) · [International Business Consultant](https://hub.toilatung.com/bots/intl-business-consultant) · [Knowledge Manager](https://hub.toilatung.com/bots/knowledge-manager) · [Mergers and Acquisitions Consultant](https://hub.toilatung.com/bots/mergers-acquisitions-consultant) · [Operations Manager](https://hub.toilatung.com/bots/operations-manager) · [Organizational Development Consultant](https://hub.toilatung.com/bots/org-dev-consultant) · [Procurement Specialist](https://hub.toilatung.com/bots/procurement-specialist) · [Product Manager](https://hub.toilatung.com/bots/product-manager) · [Project Manager](https://hub.toilatung.com/bots/project-manager) · [Quality Assurance Manager](https://hub.toilatung.com/bots/quality-assurance-manager) · [Risk Management Specialist](https://hub.toilatung.com/bots/risk-mgmt-specialist) · [Small Business Owner](https://hub.toilatung.com/bots/small-business-owner) · [Strategy Consultant](https://hub.toilatung.com/bots/strategy-consultant) · [Supply Chain Manager](https://hub.toilatung.com/bots/supply-chain-manager) · [Sustainability Consultant](https://hub.toilatung.com/bots/sustainability-consultant)
+
+</details>
+
+<details><summary>🎨 <b>Creative Arts</b> (30)</summary>
+
+[Animator](https://hub.toilatung.com/bots/animator) · [Art Critic](https://hub.toilatung.com/bots/art-critic) · [Art Curator](https://hub.toilatung.com/bots/art-curator) · [Art Director](https://hub.toilatung.com/bots/art-director) · [Calligrapher](https://hub.toilatung.com/bots/calligrapher) · [Ceramic Artist](https://hub.toilatung.com/bots/ceramic-artist) · [Choreographer](https://hub.toilatung.com/bots/choreographer) · [Cinematographer](https://hub.toilatung.com/bots/cinematographer) · [Comics Artist](https://hub.toilatung.com/bots/comics-artist) · [Concept Artist](https://hub.toilatung.com/bots/concept-artist) · [Digital Artist](https://hub.toilatung.com/bots/digital-artist) · [Fashion Designer](https://hub.toilatung.com/bots/fashion-designer) · [Film Director](https://hub.toilatung.com/bots/film-director) · [Graphic Designer](https://hub.toilatung.com/bots/graphic-designer) · [Illustrator](https://hub.toilatung.com/bots/illustrator) · [Interior Designer](https://hub.toilatung.com/bots/interior-designer) · [Jewelry Designer](https://hub.toilatung.com/bots/jewelry-designer) · [Landscape Designer](https://hub.toilatung.com/bots/landscape-designer) · [Makeup Artist](https://hub.toilatung.com/bots/makeup-artist) · [Multimedia Artist](https://hub.toilatung.com/bots/multimedia-artist) · [Performance Artist](https://hub.toilatung.com/bots/performance-artist) · [Photographer](https://hub.toilatung.com/bots/photographer) · [Printmaker](https://hub.toilatung.com/bots/printmaker) · [Producer](https://hub.toilatung.com/bots/producer) · [Sculptor](https://hub.toilatung.com/bots/sculptor) · [Set Designer](https://hub.toilatung.com/bots/set-designer) · [Storyboard Artist](https://hub.toilatung.com/bots/storyboard-artist) · [Tattoo Artist](https://hub.toilatung.com/bots/tattoo-artist) · [Textile Designer](https://hub.toilatung.com/bots/textile-designer) · [Visual Artist](https://hub.toilatung.com/bots/visual-artist)
+
+</details>
+
+<details><summary>💻 <b>Developing</b> (30)</summary>
+
+[Algorithm Developer](https://hub.toilatung.com/bots/algorithm-developer) · [API Developer](https://hub.toilatung.com/bots/api-developer) · [AR/VR Developer](https://hub.toilatung.com/bots/ar-vr-developer) · [Back-End Developer](https://hub.toilatung.com/bots/back-end-developer) · [Cloud Developer](https://hub.toilatung.com/bots/cloud-developer) · [CMS Developer](https://hub.toilatung.com/bots/cms-developer) · [CRM Developer](https://hub.toilatung.com/bots/crm-developer) · [Database Developer](https://hub.toilatung.com/bots/database-developer) · [DevOps Engineer](https://hub.toilatung.com/bots/devops-engineer) · [E-commerce Developer](https://hub.toilatung.com/bots/e-commerce-developer) · [Embedded Systems Developer](https://hub.toilatung.com/bots/embedded-systems-developer) · [ERP Developer](https://hub.toilatung.com/bots/erp-developer) · [Firmware Developer](https://hub.toilatung.com/bots/firmware-developer) · [Framework Developer](https://hub.toilatung.com/bots/framework-developer) · [Front-End Developer](https://hub.toilatung.com/bots/front-end-developer) · [Full Stack Developer](https://hub.toilatung.com/bots/full-stack-developer) · [Game Developer](https://hub.toilatung.com/bots/game-developer) · [Graphics Software Developer](https://hub.toilatung.com/bots/graphics-software-developer) · [Middleware Developer](https://hub.toilatung.com/bots/middleware-developer) · [Mobile App Developer](https://hub.toilatung.com/bots/mobile-app-developer) · [Multimedia Tools Developer](https://hub.toilatung.com/bots/multimedia-tools-developer) · [Natural Language Processing Developer](https://hub.toilatung.com/bots/nlp-developer) · [Open Source Developer](https://hub.toilatung.com/bots/open-source-developer) · [Platform Engineer](https://hub.toilatung.com/bots/platform-engineer) · [Quality Assurance Engineer](https://hub.toilatung.com/bots/quality-assurance-engineer) · [Scripting Developer](https://hub.toilatung.com/bots/scripting-developer) · [Security Developer](https://hub.toilatung.com/bots/security-developer) · [Tools and Utilities Developer](https://hub.toilatung.com/bots/tools-utilities-developer) · [UI/UX Developer](https://hub.toilatung.com/bots/ui-ux-developer) · [Web Applications Developer](https://hub.toilatung.com/bots/web-applications-developer)
+
+</details>
+
+<details><summary>🎓 <b>Education</b> (30)</summary>
+
+[Adult Education Instructor](https://hub.toilatung.com/bots/adult-education-instructor) · [Art Teacher](https://hub.toilatung.com/bots/art-teacher) · [Career Counselor](https://hub.toilatung.com/bots/career-counselor) · [Curriculum Developer](https://hub.toilatung.com/bots/curriculum-developer) · [Distance Learning Coordinator](https://hub.toilatung.com/bots/distance-learning-coordinator) · [E-learning Developer](https://hub.toilatung.com/bots/e-learning-developer) · [Early Childhood Educator](https://hub.toilatung.com/bots/early-childhood-educator) · [Education Administrator](https://hub.toilatung.com/bots/education-admin) · [Educational Consultant](https://hub.toilatung.com/bots/educational-consultant) · [Educational Technology Specialist](https://hub.toilatung.com/bots/educational-tech-specialist) · [Elementary School Teacher](https://hub.toilatung.com/bots/elementary-school-teacher) · [Environmental Educator](https://hub.toilatung.com/bots/environmental-educator) · [Extracurricular Instructor](https://hub.toilatung.com/bots/extracurricular-instructor) · [High School Teacher](https://hub.toilatung.com/bots/high-school-teacher) · [History Educator](https://hub.toilatung.com/bots/history-educator) · [Instructional Designer](https://hub.toilatung.com/bots/instructional-designer) · [Language Instructor](https://hub.toilatung.com/bots/language-instructor) · [Literacy Specialist](https://hub.toilatung.com/bots/literacy-specialist) · [Montessori Teacher](https://hub.toilatung.com/bots/montessori-teacher) · [Music Teacher](https://hub.toilatung.com/bots/music-teacher) · [Physical Education Teacher](https://hub.toilatung.com/bots/physical-education-teacher) · [School Counselor](https://hub.toilatung.com/bots/school-counselor) · [School Librarian](https://hub.toilatung.com/bots/school-librarian) · [Special Education Teacher](https://hub.toilatung.com/bots/special-education-teacher) · [STEM Educator](https://hub.toilatung.com/bots/stem-educator) · [Student Affairs Specialist](https://hub.toilatung.com/bots/student-affairs-specialist) · [Teaching Assistant](https://hub.toilatung.com/bots/teaching-assistant) · [Textbook Author](https://hub.toilatung.com/bots/textbook-author) · [Tutor](https://hub.toilatung.com/bots/tutor) · [University Professor](https://hub.toilatung.com/bots/university-professor)
+
+</details>
+
+<details><summary>🎬 <b>Entertainment</b> (30)</summary>
+
+[Actor/Actress](https://hub.toilatung.com/bots/actor-actress) · [Casting Director](https://hub.toilatung.com/bots/casting-director) · [Comedian](https://hub.toilatung.com/bots/comedian) · [Dancer](https://hub.toilatung.com/bots/dancer) · [DJ (Disk Jockey)](https://hub.toilatung.com/bots/dj) · [Event Organizer](https://hub.toilatung.com/bots/event-organizer) · [Film Critic](https://hub.toilatung.com/bots/film-critic) · [Film Editor](https://hub.toilatung.com/bots/film-editor) · [Foley Artist](https://hub.toilatung.com/bots/foley-artist) · [Game Show Host](https://hub.toilatung.com/bots/game-show-host) · [Jingle Writer](https://hub.toilatung.com/bots/jingle-writer) · [Lighting Technician](https://hub.toilatung.com/bots/lighting-technician) · [Magician](https://hub.toilatung.com/bots/magician) · [Music Video Director](https://hub.toilatung.com/bots/music-video-director) · [Musician](https://hub.toilatung.com/bots/musician) · [Puppeteer](https://hub.toilatung.com/bots/puppeteer) · [Radio Host](https://hub.toilatung.com/bots/radio-host) · [Session Musician](https://hub.toilatung.com/bots/session-musician) · [Singer/Songwriter](https://hub.toilatung.com/bots/singer-songwriter) · [Sound Engineer](https://hub.toilatung.com/bots/sound-engineer) · [Stand-up Comedian](https://hub.toilatung.com/bots/stand-up-comedian) · [Stunt Performer](https://hub.toilatung.com/bots/stunt-performer) · [Talent Agent](https://hub.toilatung.com/bots/talent-agent) · [Talent Manager](https://hub.toilatung.com/bots/talent-manager) · [Talent Scout](https://hub.toilatung.com/bots/talent-scout) · [Theatrical Producer](https://hub.toilatung.com/bots/theatrical-producer) · [TV Host](https://hub.toilatung.com/bots/tv-host) · [TV/Film Director](https://hub.toilatung.com/bots/tv-film-director) · [VFX Artist](https://hub.toilatung.com/bots/vfx-artist) · [Voice-over Artist](https://hub.toilatung.com/bots/voice-over-artist)
+
+</details>
+
+<details><summary>📈 <b>Finance</b> (30)</summary>
+
+[Actuary](https://hub.toilatung.com/bots/actuary) · [Asset Manager](https://hub.toilatung.com/bots/asset-manager) · [Auditor](https://hub.toilatung.com/bots/auditor) · [Certified Public Accountant (CPA)](https://hub.toilatung.com/bots/certified-public-accountant) · [Compliance Analyst](https://hub.toilatung.com/bots/compliance-analyst) · [Credit Analyst](https://hub.toilatung.com/bots/credit-analyst) · [Crowdfunding Specialist](https://hub.toilatung.com/bots/crowdfunding-specialist) · [Derivatives Trader](https://hub.toilatung.com/bots/derivatives-trader) · [Equity Research Analyst](https://hub.toilatung.com/bots/equity-research-analyst) · [Financial Analyst](https://hub.toilatung.com/bots/financial-analyst) · [Financial Educator](https://hub.toilatung.com/bots/financial-educator) · [Financial Planner](https://hub.toilatung.com/bots/financial-planner) · [Foreign Exchange (Forex) Specialist](https://hub.toilatung.com/bots/foreign-exchange-specialist) · [Hedge Fund Manager](https://hub.toilatung.com/bots/hedge-fund-manager) · [Insurance Specialist](https://hub.toilatung.com/bots/insurance-specialist) · [Investment Banker](https://hub.toilatung.com/bots/investment-banker) · [Loan Officer](https://hub.toilatung.com/bots/loan-officer) · [Mergers and Acquisitions Analyst](https://hub.toilatung.com/bots/mergers-acquisitions-analyst) · [Microfinance Officer](https://hub.toilatung.com/bots/microfinance-officer) · [Mortgage Advisor](https://hub.toilatung.com/bots/mortgage-advisor) · [Personal Finance Advisor](https://hub.toilatung.com/bots/personal-finance-advisor) · [Portfolio Manager](https://hub.toilatung.com/bots/portfolio-manager) · [Private Equity Analyst](https://hub.toilatung.com/bots/private-equity-analyst) · [Real Estate Finance Expert](https://hub.toilatung.com/bots/real-estate-finance-expert) · [Risk Analyst](https://hub.toilatung.com/bots/risk-analyst) · [Tax Consultant](https://hub.toilatung.com/bots/tax-consultant) · [Treasurer](https://hub.toilatung.com/bots/treasurer) · [Trust Fund Manager](https://hub.toilatung.com/bots/trust-fund-manager) · [Venture Capitalist](https://hub.toilatung.com/bots/venture-capitalist) · [Wealth Manager](https://hub.toilatung.com/bots/wealth-manager)
+
+</details>
+
+<details><summary>⚡ <b>Fitness</b> (30)</summary>
+
+[Adventure Fitness Trainer](https://hub.toilatung.com/bots/adventure-fitness-trainer) · [Aerobics Instructor](https://hub.toilatung.com/bots/aerobics-instructor) · [Aquatics Instructor](https://hub.toilatung.com/bots/aquatics-instructor) · [Athletic Trainer](https://hub.toilatung.com/bots/athletic-trainer) · [Boot Camp Instructor](https://hub.toilatung.com/bots/boot-camp-instructor) · [CrossFit Trainer](https://hub.toilatung.com/bots/crossfit-trainer) · [Dance Instructor](https://hub.toilatung.com/bots/dance-instructor) · [Exercise Physiologist](https://hub.toilatung.com/bots/exercise-physiologist) · [Fitness Blogger/Vlogger](https://hub.toilatung.com/bots/fitness-blogger-vlogger) · [Gym Owner/Manager](https://hub.toilatung.com/bots/gym-owner-manager) · [Hiking Guide](https://hub.toilatung.com/bots/hiking-guide) · [Holistic Fitness Coach](https://hub.toilatung.com/bots/holistic-fitness-coach) · [Martial Arts Instructor](https://hub.toilatung.com/bots/martial-arts-instructor) · [Nutritionist](https://hub.toilatung.com/bots/nutritionist) · [Personal Trainer](https://hub.toilatung.com/bots/personal-trainer) · [Physical Therapist](https://hub.toilatung.com/bots/physical-therapist) · [Pilates Instructor](https://hub.toilatung.com/bots/pilates-instructor) · [Postnatal Fitness Expert](https://hub.toilatung.com/bots/postnatal-fitness-expert) · [Prenatal Fitness Expert](https://hub.toilatung.com/bots/prenatal-fitness-expert) · [Rehabilitation Specialist](https://hub.toilatung.com/bots/rehabilitation-specialist) · [Running Coach](https://hub.toilatung.com/bots/running-coach) · [Senior Fitness Specialist](https://hub.toilatung.com/bots/senior-fitness-specialist) · [Spin Class Instructor](https://hub.toilatung.com/bots/spin-class-instructor) · [Sports Coach](https://hub.toilatung.com/bots/sports-coach) · [Sports Nutritionist](https://hub.toilatung.com/bots/sports-nutritionist) · [Sports Psychologist](https://hub.toilatung.com/bots/sports-psychologist) · [Weightlifting Coach](https://hub.toilatung.com/bots/weightlifting-coach) · [Wellness Coach](https://hub.toilatung.com/bots/wellness-coach) · [Yoga Instructor](https://hub.toilatung.com/bots/yoga-instructor) · [Zumba Instructor](https://hub.toilatung.com/bots/zumba-instructor)
+
+</details>
+
+<details><summary>📢 <b>Marketing</b> (31)</summary>
+
+[Affiliate Marketing Manager](https://hub.toilatung.com/bots/affiliate-marketing-manager) · [B2B Marketing Specialist](https://hub.toilatung.com/bots/b2b-marketing-specialist) · [B2C Marketing Specialist](https://hub.toilatung.com/bots/b2c-marketing-specialist) · [Brand Manager](https://hub.toilatung.com/bots/brand-manager) · [Community Manager](https://hub.toilatung.com/bots/community-manager) · [Content Strategist](https://hub.toilatung.com/bots/content-strategist) · [Conversion Rate Optimizer](https://hub.toilatung.com/bots/conversion-rate-optimizer) · [Customer Experience Designer](https://hub.toilatung.com/bots/customer-experience-designer) · [Digital Marketing Specialist](https://hub.toilatung.com/bots/digital-marketing-specialist) · [Email Marketing Specialist](https://hub.toilatung.com/bots/email-marketing-specialist) · [Event Marketing Specialist](https://hub.toilatung.com/bots/event-marketing-specialist) · [Growth Hacker](https://hub.toilatung.com/bots/growth-hacker) · [Guerilla Marketing Coordinator](https://hub.toilatung.com/bots/guerilla-marketing-coordinator) · [Influencer Marketing Coordinator](https://hub.toilatung.com/bots/influencer-marketing) · [Loyalty Program Specialist](https://hub.toilatung.com/bots/loyalty-program-specialist) · [Market Research Analyst](https://hub.toilatung.com/bots/market-research-analyst) · [Marketing Analytics Specialist](https://hub.toilatung.com/bots/marketing-analytics-specialist) · [Marketing Automation Specialist](https://hub.toilatung.com/bots/marketing-automation-specialist) · [Marketing Communications Manager](https://hub.toilatung.com/bots/marketing-comms-manager) · [Marketing Copywriter](https://hub.toilatung.com/bots/marketing-copywriter) · [Media Buyer](https://hub.toilatung.com/bots/media-buyer) · [Mobile Marketing Expert](https://hub.toilatung.com/bots/mobile-marketing-expert) · [PPC Specialist (Pay-per-Click)](https://hub.toilatung.com/bots/ppc-specialist) · [Product Marketing Manager](https://hub.toilatung.com/bots/product-marketing-manager) · [Public Relations Specialist](https://hub.toilatung.com/bots/public-relations-specialist) · [SEO Expert](https://hub.toilatung.com/bots/seo-expert) · [Social Media Manager](https://hub.toilatung.com/bots/social-media-manager) · [TikTok - UGC (User Generated Content)](https://hub.toilatung.com/bots/tiktok-ugc) · [Video Marketing Specialist](https://hub.toilatung.com/bots/video-marketing-specialist) · [Viral Marketing Expert](https://hub.toilatung.com/bots/viral-marketing-expert) · [Visual Merchandiser](https://hub.toilatung.com/bots/visual-merchandiser)
+
+</details>
+
+<details><summary>🤖 <b>Technology</b> (30)</summary>
+
+[AI/Machine Learning Engineer](https://hub.toilatung.com/bots/ai-machine-learning-engineer) · [Augmented Reality Developer](https://hub.toilatung.com/bots/augmented-reality-developer) · [Bioinformatics Scientist](https://hub.toilatung.com/bots/bioinformatics-scientist) · [Blockchain Developer](https://hub.toilatung.com/bots/blockchain-developer) · [Cloud Solutions Architect](https://hub.toilatung.com/bots/cloud-solutions-architect) · [Cybersecurity Expert](https://hub.toilatung.com/bots/cybersecurity-expert) · [Data Privacy Officer](https://hub.toilatung.com/bots/data-privacy-officer) · [Data Scientist](https://hub.toilatung.com/bots/data-scientist) · [Database Administrator](https://hub.toilatung.com/bots/database-admin) · [Edge Computing Specialist](https://hub.toilatung.com/bots/edge-computing-specialist) · [Game Engine Developer](https://hub.toilatung.com/bots/game-engine-developer) · [Haptic Technology Developer](https://hub.toilatung.com/bots/haptic-tech-developer) · [Hardware Engineer](https://hub.toilatung.com/bots/hardware-engineer) · [IoT Specialist (Internet of Things)](https://hub.toilatung.com/bots/iot-specialist) · [IT Auditor](https://hub.toilatung.com/bots/it-auditor) · [IT Consultant](https://hub.toilatung.com/bots/it-consultant) · [IT Project Manager](https://hub.toilatung.com/bots/it-project-manager) · [IT Specialist](https://hub.toilatung.com/bots/it-specialist) · [Network Engineer](https://hub.toilatung.com/bots/network-engineer) · [Network Security Expert](https://hub.toilatung.com/bots/network-security-expert) · [Quantum Computing Specialist](https://hub.toilatung.com/bots/quantum-computing-specialist) · [Robotics Engineer](https://hub.toilatung.com/bots/robotics-engineer) · [Systems Administrator](https://hub.toilatung.com/bots/systems-admin) · [Tech Policy Analyst](https://hub.toilatung.com/bots/tech-policy-analyst) · [Tech Product Reviewer](https://hub.toilatung.com/bots/tech-product-reviewer) · [Tech Support Specialist](https://hub.toilatung.com/bots/tech-support-specialist) · [Telecommunications Engineer](https://hub.toilatung.com/bots/telecommunications-engineer) · [Virtual Assistant Developer](https://hub.toilatung.com/bots/virtual-assistant-developer) · [Virtual Reality Developer](https://hub.toilatung.com/bots/virtual-reality-developer) · [Voice User Interface Designer](https://hub.toilatung.com/bots/voice-user-interface-designer)
+
+</details>
+
+<details><summary>✍️ <b>Writing</b> (30)</summary>
+
+[Biographer](https://hub.toilatung.com/bots/biographer) · [Blogger](https://hub.toilatung.com/bots/blogger) · [Children's Book Author](https://hub.toilatung.com/bots/children-s-book-author) · [Columnist](https://hub.toilatung.com/bots/columnist) · [Comic Book Writer](https://hub.toilatung.com/bots/comic-book-writer) · [Content Creator](https://hub.toilatung.com/bots/content-creator) · [Copywriter](https://hub.toilatung.com/bots/copywriter) · [Curriculum Designer](https://hub.toilatung.com/bots/curriculum-designer) · [E-book Writer](https://hub.toilatung.com/bots/e-book-writer) · [Editor](https://hub.toilatung.com/bots/editor) · [Food and Drink Writer](https://hub.toilatung.com/bots/food-drink-writer) · [Ghostwriter](https://hub.toilatung.com/bots/ghostwriter) · [Grant Writer](https://hub.toilatung.com/bots/grant-writer) · [Historical Fiction Writer](https://hub.toilatung.com/bots/historical-fiction-writer) · [Journalist](https://hub.toilatung.com/bots/journalist) · [Lyricist](https://hub.toilatung.com/bots/lyricist) · [Medical Writer](https://hub.toilatung.com/bots/medical-writer) · [Novelist](https://hub.toilatung.com/bots/novelist) · [Playwright](https://hub.toilatung.com/bots/playwright) · [Poetry Writer](https://hub.toilatung.com/bots/poetry-writer) · [Resume Writer](https://hub.toilatung.com/bots/resume-writer) · [Review Writer](https://hub.toilatung.com/bots/review-writer) · [Science Writer](https://hub.toilatung.com/bots/science-writer) · [Screenwriter](https://hub.toilatung.com/bots/screenwriter) · [Speechwriter](https://hub.toilatung.com/bots/speechwriter) · [Sports Writer](https://hub.toilatung.com/bots/sports-writer) · [Technical Writer](https://hub.toilatung.com/bots/technical-writer) · [Translator](https://hub.toilatung.com/bots/translator) · [Travel Writer](https://hub.toilatung.com/bots/travel-writer) · [Young Adult Fiction Writer](https://hub.toilatung.com/bots/young-adult-fiction-writer)
+
+</details>
+
 <!-- DIRECTORY-INDEX:END -->
 
 ## 🛠️ Quickstart
@@ -498,11 +565,12 @@ npm run dev          # http://localhost:3000
 |---|---|
 | `npm run dev` | Local dev server |
 | `npm run validate` | Validate every file in `content/` |
-| `npm test` | Unit tests: variable engine, exporters, schema, theme, favorites, filters, SEO builders, README index, workflow validator & piping, n8n / Python exports, bot loader |
+| `npm test` | 52 unit tests: variable engine, exporters, schema & secret scan, theme, favorites, filters, SEO builders, README index, workflow DAG validator & exports, persona import, i18n parity & boot script, MCP JSON-RPC |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run build` | Validate, then production build (all pages prerendered) |
 | `npm run build:static` | Fully static export to `./out` for any static host (Nginx, HestiaCP, S3…) |
 | `npm run readme` | Regenerate the directory index above |
+| `npm run personas:import` | Re-import the 301 specialists from `data/personas-source/` into `content/bots/specialists/` |
 
 Set **`NEXT_PUBLIC_SITE_URL`** to your public URL. It is used for canonical links, `sitemap.xml`, JSON-LD and OpenGraph, and defaults to `https://hub.toilatung.com`.
 
@@ -526,14 +594,18 @@ To improve discoverability, add these topics under **Settings → About → Topi
 ```
 app/                       Next.js App Router
   page.tsx, prompts|skills/, items/[id]/   catalog & item pages (+ opengraph-image)
-  bots/, bots/[id]/        AI Workforce personas (+ opengraph-image)
+  bots/, bots/[id]/        317 bot personas (+ opengraph-image)
+  api/mcp/route.dynamic.ts MCP server (server builds only; skipped by the static export)
+  docs/api, docs/self-hosting, guide/   documentation & master guide
   workflows/, workflows/[slug]/   Workflow Studio (+ opengraph-image)
   build-in-public/         project story
   data/items/[id]/         static JSON per item (loaded on demand)
   sitemap.ts, robots.ts, llms.txt/                crawl infrastructure
 components/                Navbar, ThemeToggle, FilterBar, ItemCard, VariableWorkbench, CommandPalette, ShareBar…
-content/                   prompts/**/*.json · skills/*.md · boosts/*.json (Deep Reasoning) · workflows/*.json · bots/*.json
-lib/                       variables, exporters, schema, loader, workflow engine, facets, filter, favorites, theme, seo, og, readme
+content/                   prompts/**/*.json · skills/*.md · boosts/*.json (Deep Reasoning) · workflows/*.json · bots/*.json · bots/specialists/<field>/*.json
+data/personas-source/      source Markdown for the 301 specialists (imported by npm run personas:import)
+locales/                   vi.json · en.json (UI dictionaries)
+lib/                       variables, exporters, schema, loader, workflow engine, personas, mcp, i18n, facets, filter, favorites, theme, seo, og, readme
 scripts/                   validate-data.ts · generate-readme-index.ts
 types/hub.ts               single source of truth for every schema
 .github/                   CI workflow, issue forms (prompt / skill / boost / bug), PR template

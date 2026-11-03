@@ -74,3 +74,13 @@ Claude Code: Please execute the milestones below sequentially. After completing 
 - [x] Bots catalog with department filter, 1-click Copy System Prompt, subagent `.md` download.
 - [x] Navigation `Prompts | Skills | Bots | Workflows`; Boosts folded into Prompts as **Deep Reasoning** (`/boosts` → 308 redirect).
 - [x] SEO: JSON-LD (HowTo for workflows, SoftwareApplication for bots), sitemap, llms.txt, OG images; README index includes Workflows & Bots.
+
+---
+
+## 👑 MILESTONE 7 (V4): The Grand Finale
+- [x] 301 specialist personas imported from `data/personas-source/` (relative paths, `npm run personas:import`) → 317 bots; safe ≤ 31-char slugs (`risk-mgmt-specialist`), department mapping, ChatGPT custom instructions.
+- [x] `/bots`: ⭐ TVT Core Workforce (16) / 🌐 Specialist Personas (301) tabs, 10-field filter, real-time search, Copy System Prompt + Copy Custom Instructions; on-demand `/data/bots/[id]`.
+- [x] MCP-first API: `POST /api/mcp` (JSON-RPC 2.0, Streamable HTTP) with 5 tools; verified with the official MCP SDK client.
+- [x] `/docs/api`, `/docs/self-hosting`, `/guide` (5 chapters, bilingual, copyable code).
+- [x] Bilingual UI: type-safe `locales/vi.json` + `en.json`, switcher, cookie + localStorage, browser detection, `?lang=en`, hreflang, zero-FOUC.
+- [x] Secret scanner hardened against in-word false positives (`risk-management-…`).
