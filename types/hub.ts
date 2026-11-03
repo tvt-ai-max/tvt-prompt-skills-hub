@@ -101,9 +101,13 @@ export type HubItem = PromptItem | SkillItem | BoostItem;
 
 /** Lightweight stats for the hero section. */
 export interface HubStats {
+  /** Prompt-tier items only (Deep Reasoning boosts are counted separately in `boosts`). */
   prompts: number;
   skills: number;
   boosts: number;
+  bots: number;
+  workflows: number;
+  /** Prompts + Skills + Boosts (catalog items). */
   total: number;
 }
 
@@ -133,4 +137,102 @@ export interface HubItemSummary {
   variableCount: number;
   gateCount: number;
   createdAt: string;
+}
+
+// ───────────────────────────── V3: Workflows (multi-step DAG pipelines) ─────────────────────────────
+
+export const WORKFLOW_DIFFICULTIES = ['Beginner', 'Advanced', 'Enterprise OCP'] as const;
+export type WorkflowDifficulty = (typeof WORKFLOW_DIFFICULTIES)[number];
+
+export const WORKFLOW_OUTPUT_FORMATS = ['markdown', 'json', 'image_prompt', 'code'] as const;
+export type WorkflowOutputFormat = (typeof WORKFLOW_OUTPUT_FORMATS)[number];
+
+export const WORKFLOW_INPUT_SOURCES = ['user_input', 'previous_step'] as const;
+export type WorkflowInputSource = (typeof WORKFLOW_INPUT_SOURCES)[number];
+
+export interface WorkflowInput {
+  /** Variable name used as {{KEY}} in the step's promptTemplate. */
+  key: string;
+  label: string;
+  source: WorkflowInputSource;
+  /** Required when source = previous_step; must reference an EARLIER step (keeps the graph acyclic). */
+  fromStepId?: string;
+  /** Example value for user inputs (pre-fills the simulator). */
+  defaultValue?: string;
+  placeholder?: string;
+  type?: VariableType;
+  options?: string[];
+}
+
+export interface WorkflowStep {
+  /** 1-based, sequential. */
+  stepNumber: number;
+  /** e.g. "step-1-research" */
+  id: string;
+  title: string;
+  /** e.g. "Scout (Deep Research)" */
+  agentRole: string;
+  /** Optional link to a Bot persona in content/bots (validated). */
+  botId?: string;
+  /** e.g. "Claude Sonnet 5.5", "Gemini 2.5 Flash", "Midjourney v6.1" */
+  targetModel: string;
+  inputs: WorkflowInput[];
+  promptTemplate: string;
+  outputFormat: WorkflowOutputFormat;
+  /** Acceptance criteria for the step's output. */
+  qualityGate: string;
+}
+
+export interface WorkflowItem {
+  id: string;
+  /** URL slug: /workflows/[slug] */
+  slug: string;
+  title: string;
+  summary: string;
+  category: string;
+  difficulty: WorkflowDifficulty;
+  estimatedTime: string;
+  estimatedCost: string;
+  persona: Persona;
+  tags: string[];
+  author: string;
+  createdAt: string;
+  steps: WorkflowStep[];
+}
+
+// ───────────────────────────── V3: Bots (AI workforce personas) ─────────────────────────────
+
+export const BOT_DEPARTMENTS = ['command', 'content-video', 'marketing-seo', 'crm-automation'] as const;
+export type BotDepartment = (typeof BOT_DEPARTMENTS)[number];
+
+export interface BotItem {
+  /** e.g. "lexi" */
+  id: string;
+  /** Display name, e.g. "Lexi" */
+  name: string;
+  /** e.g. "Senior AI Operations Manager" */
+  role: string;
+  department: BotDepartment;
+  /** Single emoji used as the avatar glyph. */
+  avatar: string;
+  /** One-paragraph summary for cards & meta description. */
+  description: string;
+  systemPrompt: string;
+  recommendedModels: string[];
+  tools: string[];
+  tags: string[];
+  author: string;
+  createdAt: string;
+}
+
+/** Lightweight palette/search entry for non-catalog pages (bots, workflows). */
+export interface NavEntry {
+  kind: 'bot' | 'workflow';
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  href: string;
+  glyph?: string;
 }

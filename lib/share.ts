@@ -53,7 +53,16 @@ export function buildShareUrls(url: string, text: string): ShareTargets {
 
 /** Short, hook-style caption for social posts (fits X's limit together with the URL). */
 export function shareCaption(item: { title: string; description: string; tier: string }, max = 220): string {
-  const label = item.tier === 'skill' ? 'Agent Skill' : item.tier === 'boost' ? 'Boost meta-prompt' : 'Prompt';
+  const label =
+    item.tier === 'skill'
+      ? 'Agent Skill'
+      : item.tier === 'boost'
+        ? 'Deep Reasoning prompt'
+        : item.tier === 'bot'
+          ? 'AI Bot'
+          : item.tier === 'workflow'
+            ? 'AI Workflow'
+            : 'Prompt';
   const base = `⚡ ${label}: ${item.title} — ${item.description}`;
   const suffix = ' #AI #PromptEngineering #AgentSkills';
   const room = max - suffix.length;

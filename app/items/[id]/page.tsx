@@ -6,7 +6,7 @@ import { getAllItems, getAllSummaries, getItemById } from '@/lib/content';
 import { PersonaBadge, TIER_STYLES, TierBadge } from '@/components/Badges';
 import { VariableWorkbench } from '@/components/VariableWorkbench';
 import { ItemCard } from '@/components/ItemCard';
-import { categoryLabel, TIER_META } from '@/lib/labels';
+import { catalogTier, categoryLabel } from '@/lib/labels';
 import { itemCategory } from '@/lib/summary';
 import { extractStack } from '@/lib/facets';
 import { answerFirst, buildItemFaq, itemJsonLd, itemUrl } from '@/lib/seo';
@@ -78,8 +78,8 @@ export default async function ItemPage({ params }: ItemPageProps) {
           Hub
         </Link>
         <ChevronRight className="size-3.5" aria-hidden />
-        <Link href={`/${item.tier}s`} className="hover:text-ink">
-          {TIER_META[item.tier].plural}
+        <Link href={`/${catalogTier(item.tier)}s`} className="hover:text-ink">
+          {catalogTier(item.tier) === 'skill' ? 'Skills' : 'Prompts'}
         </Link>
         <ChevronRight className="size-3.5" aria-hidden />
         <span className="truncate text-muted">{item.title}</span>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Bot, Brain, ExternalLink, GitPullRequest, Sparkles, X } from 'lucide-react';
+import { Bot, ExternalLink, GitPullRequest, Sparkles, Workflow, X } from 'lucide-react';
 import { GithubMark } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
 import { REPO_URL } from '@/lib/site';
@@ -22,17 +22,17 @@ const TEMPLATES = [
     tone: 'text-emerald-300',
   },
   {
-    Icon: Brain,
-    title: 'Đề xuất Boost',
-    body: 'Meta-prompt / slash command thay đổi cách model suy luận.',
-    href: `${REPO_URL}/issues/new?template=new-boost.yml`,
-    tone: 'text-violet-300',
+    Icon: Workflow,
+    title: 'Đề xuất Workflow',
+    body: 'Dây chuyền nhiều bước, đầu ra bước trước nối vào bước sau.',
+    href: `${REPO_URL}/issues/new?template=new-workflow.yml`,
+    tone: 'text-amber-500',
   },
 ] as const;
 
 const STEPS = [
   'Fork repo và tạo nhánh mới, ví dụ: content/add-linkedin-hook-prompt',
-  'Thêm 1 file vào content/prompts | skills | boosts theo mẫu trong CONTRIBUTING.md',
+  'Thêm 1 file vào content/prompts | skills | workflows | bots theo mẫu trong CONTRIBUTING.md',
   'Chạy npm run validate && npm test — validator chặn biến thiếu khai báo, id trùng và secret bị lộ',
   'Mở Pull Request: template PR có sẵn checklist để review nhanh',
 ];

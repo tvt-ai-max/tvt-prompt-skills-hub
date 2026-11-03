@@ -1,0 +1,143 @@
+{
+  "id": "wf-seo-geo-longform-dominator",
+  "slug": "seo-geo-longform-dominator",
+  "title": "SEO/GEO Long-form Dominator — bài 2.500 từ được AI trích dẫn",
+  "summary": "Dây chuyền bài viết chuyên sâu chuẩn SEO + GEO/AIO: cụm ngữ nghĩa & dàn ý → sơ đồ visual anchor → toàn văn qua 7-Point Audit → FAQ & JSON-LD schema.",
+  "category": "seo",
+  "difficulty": "Advanced",
+  "estimatedTime": "40–60 phút",
+  "estimatedCost": "≈ 0,3–0,9 USD token / bài (ước tính)",
+  "persona": "tvt-agency",
+  "tags": [
+    "SEO",
+    "GEO",
+    "Long-form",
+    "Schema",
+    "Content"
+  ],
+  "author": "TVT Agency",
+  "createdAt": "2026-11-03",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "id": "step-1-cluster",
+      "title": "Cụm ngữ nghĩa & dàn ý Answer-first",
+      "agentRole": "North (SEO/GEO Architect)",
+      "botId": "north",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "KEYWORD",
+          "label": "Từ khóa chính",
+          "source": "user_input",
+          "defaultValue": "quản trị VPS HestiaCP cho doanh nghiệp",
+          "type": "text"
+        },
+        {
+          "key": "AUDIENCE",
+          "label": "Người đọc mục tiêu",
+          "source": "user_input",
+          "defaultValue": "Chủ doanh nghiệp tự quản lý website, không chuyên kỹ thuật",
+          "type": "text"
+        },
+        {
+          "key": "BRAND",
+          "label": "Thương hiệu",
+          "source": "user_input",
+          "defaultValue": "TVT Agency",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là North, kiến trúc sư nội dung SEO/GEO.\n\nTỪ KHÓA: {{KEYWORD}}\nNGƯỜI ĐỌC: {{AUDIENCE}}\nTHƯƠNG HIỆU: {{BRAND}}\n\nTrả về JSON:\n{\n  \"intent\": string,\n  \"entities\": [string],            // 8–12 thực thể liên quan\n  \"questions\": [string],           // 8 câu hỏi thật người dùng hay hỏi\n  \"outline\": [{ \"h2\": string, \"answer_first\": string, \"h3\": [string] }],\n  \"internal_link_ideas\": [string],\n  \"title_options\": [string],       // 3 phương án 50–60 ký tự\n  \"meta_description\": string       // 140–155 ký tự\n}\nMỗi \"answer_first\" là một câu ≤ 30 từ có thể trích dẫn độc lập.",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ; 6–9 H2; mỗi H2 có câu answer_first ≤ 30 từ; title 50–60 ký tự; meta 140–155 ký tự."
+    },
+    {
+      "stepNumber": 2,
+      "id": "step-2-visual-anchor",
+      "title": "Visual diagram anchors",
+      "agentRole": "Pixel (Visual)",
+      "botId": "pixel",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "OUTLINE",
+          "label": "Dàn ý (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-cluster"
+        }
+      ],
+      "promptTemplate": "Bạn là Pixel. Dựa trên dàn ý:\n{{OUTLINE}}\n\nThiết kế bộ visual anchor cho bài viết:\n1. 1 ảnh bìa 16:9: prompt hình ảnh 6 lớp + alt text.\n2. 2–3 sơ đồ quy trình/so sánh dạng Mermaid (graph TD hoặc flowchart) đặt dưới các H2 phù hợp, kèm chú thích 1 câu.\n3. 1 bảng so sánh Markdown.\nGhi rõ mỗi visual đặt dưới H2 nào.",
+      "outputFormat": "markdown",
+      "qualityGate": "Có 1 ảnh bìa + ≥ 2 sơ đồ Mermaid hợp lệ + 1 bảng; mỗi visual gắn với một H2; alt text mô tả rõ nội dung."
+    },
+    {
+      "stepNumber": 3,
+      "id": "step-3-article",
+      "title": "Toàn văn 2.500 từ qua 7-Point Audit",
+      "agentRole": "Quill (Copywriter)",
+      "botId": "quill",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "OUTLINE",
+          "label": "Dàn ý (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-cluster"
+        },
+        {
+          "key": "VISUALS",
+          "label": "Visual anchors (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-visual-anchor"
+        },
+        {
+          "key": "KEYWORD",
+          "label": "Từ khóa chính",
+          "source": "user_input",
+          "type": "text"
+        },
+        {
+          "key": "AUDIENCE",
+          "label": "Người đọc mục tiêu",
+          "source": "user_input",
+          "type": "text"
+        },
+        {
+          "key": "BRAND",
+          "label": "Thương hiệu",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Quill. Viết bài khoảng 2.500 từ cho từ khóa \"{{KEYWORD}}\", người đọc là {{AUDIENCE}}, thương hiệu {{BRAND}}.\n\nDÀN Ý:\n{{OUTLINE}}\n\nVISUAL ANCHORS (chèn đúng vị trí):\n{{VISUALS}}\n\nYêu cầu:\n- Đoạn mở trả lời trực tiếp câu hỏi chính trong 60 từ đầu.\n- Mỗi H2 mở bằng câu answer_first, sau đó giải thích có ví dụ/số liệu (có nguồn hoặc [CẦN XÁC MINH]).\n- Giọng Quiet Authority, không sáo rỗng, đoạn văn ≤ 4 câu.\n- Kết bài: tóm tắt 3 ý + CTA 3 cấp (đọc thêm → tải tài nguyên → liên hệ tư vấn).\nSau bài viết, tự chấm 7-Point Audit (Intent, Cấu trúc, E-E-A-T, Giọng văn, Visual, On-page, CTA) thang 100.",
+      "outputFormat": "markdown",
+      "qualityGate": "7-Point Audit ≥ 85/100; 2.200–2.800 từ; có đủ visual anchors; không số liệu nào thiếu nguồn hoặc nhãn [CẦN XÁC MINH]."
+    },
+    {
+      "stepNumber": 4,
+      "id": "step-4-schema",
+      "title": "FAQ & JSON-LD schema",
+      "agentRole": "North (SEO/GEO Architect)",
+      "botId": "north",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "ARTICLE",
+          "label": "Bài viết hoàn chỉnh (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-article"
+        },
+        {
+          "key": "KEYWORD",
+          "label": "Từ khóa chính",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Dựa trên bài viết:\n{{ARTICLE}}\n\nTạo cho từ khóa \"{{KEYWORD}}\":\n1. 6 câu FAQ lấy từ nội dung bài (câu trả lời ≤ 80 từ, câu đầu trả lời trực tiếp).\n2. Một khối JSON-LD dùng \"@graph\" gồm Article (headline, description, author, datePublished) và FAQPage khớp 1-1 với 6 câu trên.\nChỉ trả về JSON hợp lệ, escape đúng ký tự đặc biệt.",
+      "outputFormat": "json",
+      "qualityGate": "JSON-LD hợp lệ theo schema.org; FAQ khớp nội dung bài, không bịa thông tin mới; 6 câu hỏi."
+    }
+  ]
+}

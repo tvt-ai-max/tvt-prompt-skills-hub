@@ -42,7 +42,7 @@ interface Props {
   onToggleAdvanced: () => void;
 }
 
-const TIER_PILLS: TierFilter[] = ['all', 'prompt', 'skill', 'boost'];
+const TIER_PILLS: TierFilter[] = ['all', 'prompt', 'skill'];
 
 function SelectBox({
   label,
@@ -109,7 +109,7 @@ export function FilterBar(props: Props) {
                     : 'border-line bg-overlay/[0.02] text-muted hover:border-line-strong hover:text-ink'
                 }`}
               >
-                {key === 'all' ? 'Tất cả' : TIER_META[key].plural}
+                {key === 'all' ? 'Tất cả' : key === 'prompt' ? 'Prompts' : TIER_META[key].plural}
                 <span className={`rounded-full px-1.5 text-[11px] ${selected ? 'bg-neon-cyan/25' : 'bg-overlay/5'}`}>{counts[key]}</span>
               </button>
             );

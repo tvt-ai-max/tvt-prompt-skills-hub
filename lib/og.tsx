@@ -24,10 +24,14 @@ function loadFonts() {
   return fontsPromise;
 }
 
-const TIER_COLORS: Record<Tier | 'hub', { accent: string; label: string }> = {
+export type OgTier = Tier | 'hub' | 'bot' | 'workflow';
+
+const TIER_COLORS: Record<OgTier, { accent: string; label: string }> = {
   prompt: { accent: '#06B6D4', label: 'PROMPT' },
   skill: { accent: '#10B981', label: 'AGENT SKILL' },
-  boost: { accent: '#8B5CF6', label: 'BOOST' },
+  boost: { accent: '#8B5CF6', label: 'DEEP REASONING' },
+  bot: { accent: '#8B5CF6', label: 'AI BOT' },
+  workflow: { accent: '#F59E0B', label: 'WORKFLOW' },
   hub: { accent: '#06B6D4', label: 'OPEN SOURCE' },
 };
 
@@ -36,7 +40,7 @@ function clamp(text: string, max: number) {
 }
 
 export async function renderOgCard(opts: {
-  tier: Tier | 'hub';
+  tier: OgTier;
   eyebrow: string;
   title: string;
   description: string;

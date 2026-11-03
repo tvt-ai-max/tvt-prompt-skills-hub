@@ -1,12 +1,6 @@
-import type { Metadata } from 'next';
-import { TierPage } from '@/components/TierPage';
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Boosts',
-  description: 'Danh sách Boosts trong TVT Intelligence Hub — điền biến, xem trước và copy 1 chạm cho ChatGPT, Claude, Cursor, SKILL.md.',
-  alternates: { canonical: '/boosts' },
-};
-
+/** Since V3, Boosts live inside Prompts as the "Deep Reasoning" category. */
 export default function BoostsPage() {
-  return <TierPage tier="boost" />;
+  permanentRedirect('/prompts?category=deep-reasoning');
 }

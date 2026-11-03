@@ -3,29 +3,32 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, ArrowUp, CornerDownLeft, Search } from 'lucide-react';
-import type { HubItemSummary, Tier } from '@/types/hub';
+import Fuse from 'fuse.js';
+import type { HubItemSummary, NavEntry } from '@/types/hub';
 import { createSearchIndex, searchIds } from '@/lib/search';
 import { prefetchItem } from '@/components/useItem';
-import { categoryLabel, TIER_META } from '@/lib/labels';
-import { TIER_ICONS, TIER_STYLES } from '@/components/Badges';
+import { categoryLabel } from '@/lib/labels';
+import { SECTIONS, TIER_ICONS, TIER_STYLES } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
 
 interface Props {
   open: boolean;
   onClose: () => void;
   items: HubItemSummary[];
+  entries: NavEntry[];
   onSelect: (id: string) => void;
 }
 
-type Row = { kind: 'item'; item: HubItemSummary } | { kind: 'nav'; tier: Tier; href: string };
+type Row =
+  | { kind: 'item'; item: HubItemSummary }
+  | { kind: 'nav'; section: (typeof SECTIONS)[number] }
+  | { kind: 'entry'; entry: NavEntry };
 
-const NAV_ROWS: Row[] = [
-  { kind: 'nav', tier: 'prompt', href: '/prompts' },
-  { kind: 'nav', tier: 'skill', href: '/skills' },
-  { kind: 'nav', tier: 'boost', href: '/boosts' },
-];
+const NAV_ROWS: Row[] = SECTIONS.map((section) => ({ kind: 'nav' as const, section }));
+const BOT_SECTION = SECTIONS.find((s) => s.key === 'bots')!;
+const WORKFLOW_SECTION = SECTIONS.find((s) => s.key === 'workflows')!;
 
-export function CommandPalette({ open, onClose, items, onSelect }: Props) {
+export function CommandPalette({ open, onClose, items, entries, onSelect }: Props) {
   const router = useRouter();
   const panelRef = useDialog(open, onClose);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -34,6 +37,21 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
   const [active, setActive] = useState(0);
 
   const index = useMemo(() => createSearchIndex(items), [items]);
+  const entryIndex = useMemo(
+    () =>
+      new Fuse(entries, {
+        ignoreLocation: true,
+        threshold: 0.38,
+        minMatchCharLength: 2,
+        keys: [
+          { name: 'title', weight: 0.5 },
+          { name: 'tags', weight: 0.25 },
+          { name: 'subtitle', weight: 0.1 },
+          { name: 'description', weight: 0.15 },
+        ],
+      }),
+    [entries],
+  );
   const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
 
   const rows: Row[] = useMemo(() => {
@@ -42,9 +60,12 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
       const item = byId.get(id);
       return item ? [{ kind: 'item' as const, item }] : [];
     });
-    if (query.trim()) return itemRows;
+    if (query.trim()) {
+      const entryRows: Row[] = entryIndex.search(query.trim(), { limit: 6 }).map((r) => ({ kind: 'entry' as const, entry: r.item }));
+      return [...entryRows, ...itemRows];
+    }
     return [...NAV_ROWS, ...itemRows];
-  }, [index, items, byId, query]);
+  }, [index, entryIndex, items, byId, query]);
 
   useEffect(() => {
     if (open) {
@@ -72,7 +93,7 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
     if (row.kind === 'item') onSelect(row.item.id);
     else {
       onClose();
-      router.push(row.href);
+      router.push(row.kind === 'nav' ? row.section.href : row.entry.href);
     }
   };
 
@@ -108,7 +129,7 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
-            placeholder="Tìm prompt, skill, boost, tag, /slash…"
+            placeholder="Tìm prompt, skill, bot, workflow, tag, /slash…"
             className="h-14 w-full bg-transparent text-base text-ink placeholder:text-faint outline-none"
             role="combobox"
             aria-expanded="true"
@@ -123,7 +144,7 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
           {rows.length === 0 && (
             <li className="px-3 py-10 text-center text-sm text-muted">
               Không tìm thấy kết quả cho “{query}”. Thử từ khóa khác như <span className="text-ink">SEO</span>,{' '}
-              <span className="text-ink">Meta Ads</span> hoặc <span className="text-ink">/boost</span>.
+              <span className="text-ink">Meta Ads</span> hoặc <span className="text-ink">Scout</span>.
             </li>
           )}
           {rows.map((row, i) => {
@@ -131,11 +152,12 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
             const base = `flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-left transition ${
               selected ? 'bg-overlay/[0.07]' : 'hover:bg-overlay/[0.04]'
             }`;
-            if (row.kind === 'nav') {
-              const Icon = TIER_ICONS[row.tier];
+            if (row.kind === 'entry') {
+              const section = row.entry.kind === 'bot' ? BOT_SECTION : WORKFLOW_SECTION;
+              const Icon = section.Icon;
               return (
                 <li
-                  key={`nav-${row.tier}`}
+                  key={`entry-${row.entry.kind}-${row.entry.id}`}
                   id={`cmdk-row-${i}`}
                   data-index={i}
                   role="option"
@@ -144,8 +166,34 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
                   onMouseMove={() => setActive(i)}
                   onClick={() => choose(row)}
                 >
-                  <Icon className={`size-4 ${TIER_STYLES[row.tier].text}`} aria-hidden />
-                  <span className="flex-1 text-sm text-ink">Duyệt tất cả {TIER_META[row.tier].plural}</span>
+                  <span className={`grid size-8 shrink-0 place-items-center rounded-lg border border-line bg-surface ${section.text}`}>
+                    {row.entry.glyph ? <span aria-hidden>{row.entry.glyph}</span> : <Icon className="size-4" aria-hidden />}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-medium text-ink">{row.entry.title}</span>
+                    <span className="block truncate text-xs text-muted">
+                      {section.label} · {row.entry.subtitle}
+                    </span>
+                  </span>
+                  <ArrowRight className="size-4 shrink-0 text-faint" aria-hidden />
+                </li>
+              );
+            }
+            if (row.kind === 'nav') {
+              const Icon = row.section.Icon;
+              return (
+                <li
+                  key={`nav-${row.section.key}`}
+                  id={`cmdk-row-${i}`}
+                  data-index={i}
+                  role="option"
+                  aria-selected={selected}
+                  className={base}
+                  onMouseMove={() => setActive(i)}
+                  onClick={() => choose(row)}
+                >
+                  <Icon className={`size-4 ${row.section.text}`} aria-hidden />
+                  <span className="flex-1 text-sm text-ink">Duyệt tất cả {row.section.label}</span>
                   <ArrowRight className="size-4 text-faint" aria-hidden />
                 </li>
               );
@@ -187,7 +235,7 @@ export function CommandPalette({ open, onClose, items, onSelect }: Props) {
             <kbd className="kbd ml-2"><CornerDownLeft className="size-3" aria-hidden /></kbd>
             mở
           </span>
-          <span>{items.length} mục · fuzzy search</span>
+          <span>{items.length + entries.length} mục · fuzzy search</span>
         </footer>
       </div>
     </div>

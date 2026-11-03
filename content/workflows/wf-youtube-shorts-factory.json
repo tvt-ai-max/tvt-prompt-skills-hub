@@ -1,0 +1,169 @@
+{
+  "id": "wf-youtube-shorts-factory",
+  "slug": "youtube-shorts-factory",
+  "title": "YouTube Shorts Factory — nhà máy video ngắn 9:16",
+  "summary": "Từ một chủ đề đến composition Remotion sẵn render: ý tưởng → kịch bản 4 hồi → script giọng đọc ElevenLabs → storyboard → code composition 9:16.",
+  "category": "video",
+  "difficulty": "Enterprise OCP",
+  "estimatedTime": "60–90 phút cho video đầu tiên, 20 phút cho các video sau",
+  "estimatedCost": "≈ 0,5–1,5 USD token / video (ước tính, chưa gồm phí ElevenLabs và render)",
+  "persona": "toilatung",
+  "tags": [
+    "Video",
+    "Shorts",
+    "9:16",
+    "ElevenLabs",
+    "Remotion",
+    "Dark Neon"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "id": "step-1-idea",
+      "title": "Ý tưởng & hook",
+      "agentRole": "Reel (Motion Director)",
+      "botId": "reel",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "TOPIC",
+          "label": "Chủ đề video",
+          "source": "user_input",
+          "defaultValue": "3 sai lầm khi doanh nghiệp nhỏ tự triển khai chatbot AI",
+          "type": "text"
+        },
+        {
+          "key": "AUDIENCE",
+          "label": "Người xem mục tiêu",
+          "source": "user_input",
+          "defaultValue": "Chủ shop online và doanh nghiệp nhỏ chưa rành công nghệ",
+          "type": "text"
+        },
+        {
+          "key": "DURATION",
+          "label": "Thời lượng",
+          "source": "user_input",
+          "defaultValue": "45 giây",
+          "type": "select",
+          "options": [
+            "45 giây",
+            "30 giây",
+            "60 giây"
+          ]
+        }
+      ],
+      "promptTemplate": "Bạn là Reel, đạo diễn video ngắn phong cách Dark Neon.\n\nCHỦ ĐỀ: {{TOPIC}}\nNGƯỜI XEM: {{AUDIENCE}}\nTHỜI LƯỢNG: {{DURATION}}\n\nĐề xuất 5 ý tưởng video, mỗi ý tưởng gồm: góc tiếp cận, hook 3 giây (hình ảnh + câu nói), lời hứa giá trị, điểm payoff cuối video.\nChấm điểm mỗi ý tưởng 1–10 theo: độ gây tò mò, độ rõ ràng, khả năng giữ chân.\nTrả về JSON: { \"ideas\": [...], \"selected_index\": number, \"why\": string }.",
+      "outputFormat": "json",
+      "qualityGate": "Đúng 5 ý tưởng; hook không mở bằng lời chào; có selected_index và lý do; JSON hợp lệ."
+    },
+    {
+      "stepNumber": 2,
+      "id": "step-2-script",
+      "title": "Kịch bản 4 hồi theo timecode",
+      "agentRole": "Reel (Motion Director)",
+      "botId": "reel",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "IDEA",
+          "label": "Ý tưởng đã chọn (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-idea"
+        },
+        {
+          "key": "DURATION",
+          "label": "Thời lượng",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Dựa trên ý tưởng được chọn:\n{{IDEA}}\n\nViết kịch bản {{DURATION}} theo cấu trúc 4 hồi: Hook (0–3s) → Vấn đề → Bước ngoặt/Giải pháp → Payoff + CTA.\nTrình bày bảng Markdown: Timecode | Lời thoại | Chữ trên màn hình (≤ 6 từ) | Hình ảnh/B-roll | Motion.\nCứ 2–3 giây phải có một thay đổi thị giác. Lời thoại tổng cộng phù hợp tốc độ đọc 2,5–3 từ/giây.",
+      "outputFormat": "markdown",
+      "qualityGate": "Đủ 4 hồi; tổng thời lượng khớp ±2s; mỗi cảnh ≤ 3s có thay đổi thị giác; chữ trên màn hình ≤ 6 từ."
+    },
+    {
+      "stepNumber": 3,
+      "id": "step-3-voice",
+      "title": "Script giọng đọc cho ElevenLabs",
+      "agentRole": "Echo (Voice & Audio)",
+      "botId": "echo",
+      "targetModel": "Claude Sonnet 5.5 → ElevenLabs Multilingual v2",
+      "inputs": [
+        {
+          "key": "SCRIPT",
+          "label": "Kịch bản (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-script"
+        },
+        {
+          "key": "VOICE_STYLE",
+          "label": "Phong cách giọng",
+          "source": "user_input",
+          "defaultValue": "Nam, trầm ấm, tự tin, tốc độ vừa",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Echo, chuyên gia giọng đọc.\n\nKỊCH BẢN:\n{{SCRIPT}}\n\nPHONG CÁCH GIỌNG: {{VOICE_STYLE}}\n\nChuyển phần lời thoại thành script nói cho ElevenLabs:\n1. Viết lại câu cho tự nhiên khi nói, giữ đúng timecode từng đoạn.\n2. Đánh dấu ngắt bằng <break time=\"0.3s\"/> hoặc <break time=\"0.6s\"/>, nhấn mạnh từ khóa.\n3. Phiên âm con số và thuật ngữ tiếng Anh theo cách đọc tiếng Việt tự nhiên.\n4. Đề xuất thiết lập: stability, similarity, style và nhạc nền (BPM, mood).",
+      "outputFormat": "markdown",
+      "qualityGate": "Mỗi đoạn có timecode; không còn số viết dạng ký tự khó đọc; thẻ break hợp lệ; tổng thời lượng đọc khớp kịch bản."
+    },
+    {
+      "stepNumber": 4,
+      "id": "step-4-storyboard",
+      "title": "Storyboard & danh sách asset",
+      "agentRole": "Pixel (Visual)",
+      "botId": "pixel",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "SCRIPT",
+          "label": "Kịch bản (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-script"
+        },
+        {
+          "key": "VOICE_SCRIPT",
+          "label": "Script giọng đọc (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-voice"
+        }
+      ],
+      "promptTemplate": "Bạn là Pixel. Lập storyboard 9:16 cho video theo kịch bản:\n{{SCRIPT}}\n\nvà nhịp giọng đọc:\n{{VOICE_SCRIPT}}\n\nTrả về JSON: { \"scenes\": [{ \"id\": string, \"start\": number, \"end\": number, \"on_screen_text\": string, \"visual\": string, \"image_prompt\": string, \"motion\": \"zoom-in\" | \"slide-up\" | \"kinetic-text\" | \"cut\", \"assets\": [string] }] }.\nNhận diện Dark Neon: nền #0A0F1E, nhấn #06B6D4/#10B981/#8B5CF6, chữ lớn trong vùng an toàn 9:16 (tránh 15% trên và 20% dưới).",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ; các cảnh liên tục không chồng thời gian; mọi cảnh có image_prompt và motion; chữ nằm trong vùng an toàn."
+    },
+    {
+      "stepNumber": 5,
+      "id": "step-5-composition",
+      "title": "Remotion composition sẵn render",
+      "agentRole": "Bolt (Auto-Deploy)",
+      "botId": "bolt",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "STORYBOARD",
+          "label": "Storyboard (Bước 4)",
+          "source": "previous_step",
+          "fromStepId": "step-4-storyboard"
+        },
+        {
+          "key": "VOICE_SCRIPT",
+          "label": "Script giọng đọc (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-voice"
+        },
+        {
+          "key": "DURATION",
+          "label": "Thời lượng",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Bolt, kỹ sư video bằng code.\n\nSTORYBOARD:\n{{STORYBOARD}}\n\nGIỌNG ĐỌC (để khớp nhịp):\n{{VOICE_SCRIPT}}\n\nViết Remotion composition (React + TypeScript) cho video 1080×1920, 30fps, thời lượng {{DURATION}}:\n1. Mỗi cảnh là một <Sequence> với from/durationInFrames tính từ start/end.\n2. Chữ động dùng interpolate/spring, đúng palette Dark Neon.\n3. Audio voiceover nạp từ file ./public/voiceover.mp3 (do bước ElevenLabs tạo ra).\n4. Không phụ thuộc thư viện ngoài Remotion; code chạy được với lệnh npx remotion render.",
+      "outputFormat": "code",
+      "qualityGate": "TypeScript hợp lệ; tổng durationInFrames khớp thời lượng; không có asset/URL bản quyền bên ngoài; render được bằng lệnh mặc định."
+    }
+  ]
+}

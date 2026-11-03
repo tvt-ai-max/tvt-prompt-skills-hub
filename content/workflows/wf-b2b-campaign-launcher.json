@@ -1,0 +1,182 @@
+{
+  "id": "wf-b2b-campaign-launcher",
+  "slug": "b2b-campaign-launcher",
+  "title": "B2B Campaign Launcher — từ nghiên cứu đến bài đăng chờ duyệt",
+  "summary": "Dây chuyền 5 bước ra mắt chiến dịch marketing B2B: nghiên cứu thị trường → viết copy → prompt hình 16:9 → cổng kiểm duyệt → payload Meta Graph API tạo bài ở trạng thái chưa xuất bản.",
+  "category": "marketing",
+  "difficulty": "Advanced",
+  "estimatedTime": "45–60 phút (gồm thời gian duyệt)",
+  "estimatedCost": "≈ 0,4–1,2 USD token / lần chạy (ước tính, chưa gồm phí tạo ảnh)",
+  "persona": "tvt-agency",
+  "tags": [
+    "B2B",
+    "Campaign",
+    "Meta Graph API",
+    "Multi-Agent",
+    "Paid Social"
+  ],
+  "author": "TVT Agency",
+  "createdAt": "2026-11-03",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "id": "step-1-research",
+      "title": "Nghiên cứu thị trường & đối thủ",
+      "agentRole": "Scout (Deep Research)",
+      "botId": "scout",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "PRODUCT",
+          "label": "Sản phẩm / dịch vụ",
+          "source": "user_input",
+          "defaultValue": "Dịch vụ triển khai AI Agent chăm sóc khách hàng đa kênh",
+          "type": "text"
+        },
+        {
+          "key": "TARGET_AUDIENCE",
+          "label": "Tệp khách hàng mục tiêu",
+          "source": "user_input",
+          "defaultValue": "Chủ doanh nghiệp SME 20–200 nhân sự tại Việt Nam",
+          "type": "text"
+        },
+        {
+          "key": "BUDGET",
+          "label": "Ngân sách chiến dịch",
+          "source": "user_input",
+          "defaultValue": "30.000.000đ / 30 ngày",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Scout, chuyên gia nghiên cứu thị trường B2B.\n\nSẢN PHẨM: {{PRODUCT}}\nTỆP KHÁCH HÀNG: {{TARGET_AUDIENCE}}\nNGÂN SÁCH: {{BUDGET}}\n\nHãy lập Research Brief gồm:\n1. 5 nỗi đau hàng đầu của tệp khách hàng, kèm ngôn ngữ họ thường dùng để mô tả.\n2. 3 đối thủ/lựa chọn thay thế chính: định vị, thông điệp chủ đạo, khoảng trống.\n3. 3 góc thông điệp (angle) khác biệt nhất cho chiến dịch, xếp hạng theo khả năng chuyển đổi.\n4. Kênh và định dạng phù hợp với ngân sách đã cho.\n5. Rủi ro và giả định cần xác minh.\n\nGhi rõ nguồn hoặc đánh dấu [GIẢ ĐỊNH] cho mọi nhận định không có nguồn.",
+      "outputFormat": "markdown",
+      "qualityGate": "Có đủ 5 mục; mỗi đối thủ có ít nhất 1 khoảng trống cụ thể; mọi số liệu có nguồn hoặc nhãn [GIẢ ĐỊNH]; 3 angle khác nhau về bản chất."
+    },
+    {
+      "stepNumber": 2,
+      "id": "step-2-copywriting",
+      "title": "Viết copy quảng cáo & bài đăng",
+      "agentRole": "Quill (Copywriter)",
+      "botId": "quill",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "RESEARCH_BRIEF",
+          "label": "Research Brief (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-research"
+        },
+        {
+          "key": "PRODUCT",
+          "label": "Sản phẩm / dịch vụ",
+          "source": "user_input",
+          "type": "text"
+        },
+        {
+          "key": "TARGET_AUDIENCE",
+          "label": "Tệp khách hàng mục tiêu",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Quill, conversion copywriter theo giọng Quiet Authority.\n\nDỰA TRÊN RESEARCH BRIEF:\n{{RESEARCH_BRIEF}}\n\nViết bộ copy cho chiến dịch giới thiệu {{PRODUCT}} tới {{TARGET_AUDIENCE}}:\n1. Chọn angle mạnh nhất từ brief và giải thích lý do trong 2 câu.\n2. Bài đăng Facebook/LinkedIn 150–220 từ: hook 1 dòng, nỗi đau, bằng chứng, giải pháp, CTA dạng câu hỏi.\n3. 3 biến thể quảng cáo: primary text (≤ 125 ký tự), headline (≤ 40 ký tự), description (≤ 30 ký tự).\n4. 1 câu thông điệp chính (≤ 12 từ) để đặt lên hình ảnh.\n\nKhông dùng cam kết tuyệt đối, không dùng sáo ngữ (\"Trong bối cảnh…\", \"Kỷ nguyên số…\").",
+      "outputFormat": "markdown",
+      "qualityGate": "Đúng giới hạn ký tự; có 1 CTA rõ ràng mỗi biến thể; không có claim tuyệt đối; thông điệp trên ảnh ≤ 12 từ."
+    },
+    {
+      "stepNumber": 3,
+      "id": "step-3-visual",
+      "title": "Prompt hình ảnh 16:9",
+      "agentRole": "Pixel (Visual)",
+      "botId": "pixel",
+      "targetModel": "Midjourney v6.1",
+      "inputs": [
+        {
+          "key": "AD_COPY",
+          "label": "Bộ copy (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-copywriting"
+        },
+        {
+          "key": "BRAND_COLORS",
+          "label": "Màu thương hiệu",
+          "source": "user_input",
+          "defaultValue": "Nền #0A0F1E, nhấn #06B6D4 và #10B981",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Pixel, designer hình ảnh quảng cáo B2B.\n\nBỘ COPY:\n{{AD_COPY}}\n\nMÀU THƯƠNG HIỆU: {{BRAND_COLORS}}\n\nTạo 2 concept hình ảnh 16:9 minh họa thông điệp chính. Với mỗi concept, viết prompt tiếng Anh theo cấu trúc 6 lớp:\nSubject → Setting → Composition → Lighting → Style → Technical (--ar 16:9 --v 6.1).\nKèm negative prompt, vị trí đặt chữ (để trống vùng 40% bên trái cho text overlay) và lý do concept phù hợp với copy.\nKhông dùng logo, nhân vật hay phong cách có bản quyền.",
+      "outputFormat": "image_prompt",
+      "qualityGate": "Mỗi prompt đủ 6 lớp và tham số --ar 16:9; có vùng trống cho chữ; không chứa thương hiệu/nhân vật có bản quyền."
+    },
+    {
+      "stepNumber": 4,
+      "id": "step-4-audit",
+      "title": "Cổng kiểm duyệt (Audit Gate)",
+      "agentRole": "Shield (Quality Gate)",
+      "botId": "shield",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "AD_COPY",
+          "label": "Bộ copy (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-copywriting"
+        },
+        {
+          "key": "VISUAL_PROMPTS",
+          "label": "Prompt hình ảnh (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-visual"
+        },
+        {
+          "key": "BUDGET",
+          "label": "Ngân sách chiến dịch",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Shield, cổng kiểm duyệt cuối trước khi chiến dịch được đẩy lên Meta.\n\nCOPY:\n{{AD_COPY}}\n\nPROMPT HÌNH ẢNH:\n{{VISUAL_PROMPTS}}\n\nNGÂN SÁCH: {{BUDGET}}\n\nKiểm tra và trả về JSON đúng schema:\n{\n  \"verdict\": \"PASS\" | \"FIX\" | \"BLOCK\",\n  \"policy_issues\": [{ \"location\": string, \"issue\": string, \"fix\": string }],\n  \"claims_to_verify\": [string],\n  \"brand_voice_score\": number,  // 0–100\n  \"approved_variant_index\": number | null,\n  \"notes\": string\n}\n\nTiêu chí: chính sách quảng cáo Meta (không nhắm thuộc tính cá nhân, không hứa kết quả tuyệt đối), độ chính xác claim, giọng thương hiệu, không có thông tin nhạy cảm.",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ đúng schema; verdict = PASS mới được chuyển sang Bước 5; mọi policy_issue có fix cụ thể."
+    },
+    {
+      "stepNumber": 5,
+      "id": "step-5-publish",
+      "title": "Tạo bài đăng chờ duyệt qua Meta Graph API",
+      "agentRole": "Bolt (Auto-Deploy)",
+      "botId": "bolt",
+      "targetModel": "Claude Sonnet 5.5",
+      "inputs": [
+        {
+          "key": "AUDIT_REPORT",
+          "label": "Kết quả kiểm duyệt (Bước 4)",
+          "source": "previous_step",
+          "fromStepId": "step-4-audit"
+        },
+        {
+          "key": "AD_COPY",
+          "label": "Bộ copy (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-copywriting"
+        },
+        {
+          "key": "VISUAL_PROMPTS",
+          "label": "Prompt hình ảnh (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-visual"
+        },
+        {
+          "key": "PAGE_ALIAS",
+          "label": "Bí danh Fanpage (không dùng token thật)",
+          "source": "user_input",
+          "defaultValue": "tvt-agency-main-page",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là Bolt, kỹ sư tự động hóa.\n\nKẾT QUẢ KIỂM DUYỆT:\n{{AUDIT_REPORT}}\n\nChỉ tiếp tục nếu verdict là PASS. Nếu không, trả về danh sách việc cần sửa và dừng.\n\nNếu PASS, dùng biến thể đã được duyệt trong:\n{{AD_COPY}}\nvà hình ảnh theo concept trong:\n{{VISUAL_PROMPTS}}\n\nViết script Node.js (fetch) để tạo bài đăng trên Fanpage \"{{PAGE_ALIAS}}\" qua Meta Graph API ở trạng thái CHƯA XUẤT BẢN (published=false), theo quy trình 2 bước:\n1. Đọc PAGE_ID và PAGE_ACCESS_TOKEN từ biến môi trường — tuyệt đối không hard-code.\n2. Tạo bài nháp, in ra post id và link xem trước để con người duyệt.\n3. Xử lý lỗi 4xx/5xx có retry backoff (tối đa 3 lần) và không log token.\nKèm README 5 dòng hướng dẫn chạy.",
+      "outputFormat": "code",
+      "qualityGate": "Không có token/ID thật trong code; bài được tạo với published=false; có retry và xử lý lỗi; dừng lại nếu verdict ≠ PASS."
+    }
+  ]
+}

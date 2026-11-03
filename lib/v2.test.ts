@@ -140,7 +140,11 @@ const NO_FILTER: CatalogFilter = { tier: 'all', persona: 'all', category: 'all',
 
 test('filter: tiers, tags (AND), stack, favorites and pinning', () => {
   let r = applyCatalogFilter(summaries, NO_FILTER, [], false);
-  assert.deepEqual(r.counts, { all: 3, prompt: 1, skill: 1, boost: 1 });
+  assert.deepEqual(r.counts, { all: 3, prompt: 2, skill: 1, boost: 1 }, 'Prompts include Deep Reasoning');
+
+  r = applyCatalogFilter(summaries, { ...NO_FILTER, tier: 'prompt' }, [], false);
+  assert.deepEqual(r.visible.map((i) => i.id), ['demo-prompt', 'demo-boost']);
+  assert.equal(toSummary(boost).category, 'deep-reasoning');
 
   r = applyCatalogFilter(summaries, { ...NO_FILTER, tier: 'skill' }, [], false);
   assert.deepEqual(r.visible.map((i) => i.id), ['demo-skill']);
@@ -211,7 +215,7 @@ test('JSON-LD: item graph has TechArticle, HowTo, FAQPage and breadcrumbs', () =
 test('JSON-LD: prompts get the generic fill → preview → copy steps; home has SearchAction', () => {
   assert.equal(buildHowToSteps(prompt)[0].name, 'Điền biến đầu vào');
   assert.match(buildHowToSteps(boost)[3].text, /\/boost DEMO/);
-  const home = homeJsonLd(BASE, { prompts: 1, skills: 1, boosts: 1, total: 3 })['@graph'] as Record<string, unknown>[];
+  const home = homeJsonLd(BASE, { prompts: 1, skills: 1, boosts: 1, bots: 16, workflows: 5, total: 3 })['@graph'] as Record<string, unknown>[];
   const site = home.find((n) => n['@type'] === 'WebSite') as { potentialAction: { target: { urlTemplate: string } } };
   assert.equal(site.potentialAction.target.urlTemplate, `${BASE}/?q={search_term_string}`);
   assert.ok(home.some((n) => n['@type'] === 'SoftwareApplication'));
@@ -226,7 +230,8 @@ test('serializeJsonLd escapes "<" so content cannot break out of the script tag'
 
 test('sitemap covers home, tier pages, story page and every item', () => {
   const entries = buildSitemapEntries([prompt, skill, boost], BASE, '2026-11-03');
-  assert.equal(entries.length, 5 + 3);
+  assert.equal(entries.length, 4 + 3, 'home, /prompts, /skills, /build-in-public + items (no /boosts since V3)');
+  assert.ok(!entries.some((e) => e.url.endsWith('/boosts')));
   assert.equal(entries[0].url, `${BASE}/`);
   assert.equal(entries[0].lastModified, '2026-11-03');
   assert.ok(entries.some((e) => e.url === `${BASE}/items/demo-boost` && e.lastModified === '2026-11-01'));

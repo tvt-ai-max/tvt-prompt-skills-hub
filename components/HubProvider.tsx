@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
-import type { HubItemSummary } from '@/types/hub';
+import type { HubItemSummary, NavEntry } from '@/types/hub';
 import { CommandPalette } from '@/components/CommandPalette';
 import { VariableModal } from '@/components/VariableModal';
 import { ContributeModal } from '@/components/ContributeModal';
@@ -23,7 +23,7 @@ export function useHub(): HubContextValue {
   return ctx;
 }
 
-function HubState({ items, children }: { items: HubItemSummary[]; children: ReactNode }) {
+function HubState({ items, entries, children }: { items: HubItemSummary[]; entries: NavEntry[]; children: ReactNode }) {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [contributeOpen, setContributeOpen] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -58,18 +58,20 @@ function HubState({ items, children }: { items: HubItemSummary[]; children: Reac
   return (
     <HubContext.Provider value={value}>
       {children}
-      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} items={items} onSelect={openItem} />
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} items={items} entries={entries} onSelect={openItem} />
       <VariableModal summary={activeSummary} onClose={() => setActiveId(null)} />
       <ContributeModal open={contributeOpen} onClose={() => setContributeOpen(false)} />
     </HubContext.Provider>
   );
 }
 
-export function HubProvider({ items, children }: { items: HubItemSummary[]; children: ReactNode }) {
+export function HubProvider({ items, entries = [], children }: { items: HubItemSummary[]; entries?: NavEntry[]; children: ReactNode }) {
   return (
     <ToastProvider>
       <ThemeProvider>
-        <HubState items={items}>{children}</HubState>
+        <HubState items={items} entries={entries}>
+          {children}
+        </HubState>
       </ThemeProvider>
     </ToastProvider>
   );

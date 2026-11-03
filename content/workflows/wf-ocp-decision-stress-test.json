@@ -1,0 +1,155 @@
+{
+  "id": "wf-ocp-decision-stress-test",
+  "slug": "ocp-decision-stress-test",
+  "title": "OCP Decision Stress Test — thẩm định quyết định kinh doanh 4 tầng",
+  "summary": "Khung thẩm định quyết định cho One-Person Company: lọc nhanh System 1 → suy luận sâu Tree-of-Thought → phản biện Red-Team bằng model khác họ → ma trận quyết định điều hành.",
+  "category": "strategy",
+  "difficulty": "Enterprise OCP",
+  "estimatedTime": "20–30 phút",
+  "estimatedCost": "≈ 0,2–0,6 USD token / quyết định (ước tính)",
+  "persona": "toilatung",
+  "tags": [
+    "OCP",
+    "Decision Making",
+    "Tree-of-Thought",
+    "Red-Team",
+    "System 1 vs 2"
+  ],
+  "author": "Tôi Là Tùng",
+  "createdAt": "2026-11-03",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "id": "step-1-triage",
+      "title": "Bộ lọc System 1",
+      "agentRole": "Lexi (Operations Manager)",
+      "botId": "lexi",
+      "targetModel": "Claude Haiku 5.5",
+      "inputs": [
+        {
+          "key": "DECISION",
+          "label": "Quyết định cần đưa ra",
+          "source": "user_input",
+          "defaultValue": "Có nên nhận một khách hàng chiếm 35% doanh thu nhưng yêu cầu SLA 24/7 không?",
+          "type": "textarea"
+        },
+        {
+          "key": "CONTEXT",
+          "label": "Bối cảnh & dữ liệu",
+          "source": "user_input",
+          "defaultValue": "Agency 15 người, biên lợi nhuận 22%, đội kỹ thuật 4 người, chưa có ca trực đêm",
+          "type": "textarea"
+        },
+        {
+          "key": "DEADLINE",
+          "label": "Hạn chót ra quyết định",
+          "source": "user_input",
+          "defaultValue": "Thứ Sáu tuần này",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Phân loại nhanh quyết định sau trước khi đầu tư suy luận sâu.\n\nQUYẾT ĐỊNH: {{DECISION}}\nBỐI CẢNH: {{CONTEXT}}\nHẠN CHÓT: {{DEADLINE}}\n\nTrả về JSON:\n{\n  \"reversibility\": \"one-way-door\" | \"two-way-door\",\n  \"stakes\": \"low\" | \"medium\" | \"high\",\n  \"missing_data\": [string],\n  \"obvious_dealbreakers\": [string],\n  \"route\": \"SYSTEM_1_DECIDE_NOW\" | \"SYSTEM_2_DEEP_ANALYSIS\",\n  \"reason\": string\n}",
+      "outputFormat": "json",
+      "qualityGate": "JSON hợp lệ; route nhất quán với reversibility và stakes; liệt kê ít nhất 2 dữ liệu còn thiếu nếu stakes ≠ low."
+    },
+    {
+      "stepNumber": 2,
+      "id": "step-2-tot",
+      "title": "Suy luận sâu Tree-of-Thought",
+      "agentRole": "Lexi (Operations Manager)",
+      "botId": "lexi",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "TRIAGE",
+          "label": "Kết quả phân loại (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-triage"
+        },
+        {
+          "key": "DECISION",
+          "label": "Quyết định cần đưa ra",
+          "source": "user_input",
+          "type": "text"
+        },
+        {
+          "key": "CONTEXT",
+          "label": "Bối cảnh & dữ liệu",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Áp dụng Tree-of-Thought cho quyết định: {{DECISION}}\nBỐI CẢNH: {{CONTEXT}}\nPHÂN LOẠI BAN ĐẦU: {{TRIAGE}}\n\n1. Phân nhánh: 4 phương án khác biệt về bản chất (gồm \"không làm gì\").\n2. Đánh giá mỗi nhánh 1–10: Tác động tài chính, Rủi ro vận hành, Khả năng đảo ngược, Phù hợp chiến lược 12 tháng.\n3. Cắt tỉa nhánh < 6 điểm trung bình, nêu lý do.\n4. Đào sâu 2 nhánh còn lại: kịch bản tốt nhất / cơ sở / xấu nhất với số liệu ước tính (ghi rõ giả định).\n5. Khuyến nghị sơ bộ có điều kiện.",
+      "outputFormat": "markdown",
+      "qualityGate": "Có đủ 4 nhánh và bảng điểm; mọi số liệu có giả định đi kèm; khuyến nghị có điều kiện rõ ràng."
+    },
+    {
+      "stepNumber": 3,
+      "id": "step-3-redteam",
+      "title": "Phản biện Red-Team (model khác họ)",
+      "agentRole": "Shield (Red-Team)",
+      "botId": "shield",
+      "targetModel": "DeepSeek-V3",
+      "inputs": [
+        {
+          "key": "ANALYSIS",
+          "label": "Phân tích ToT (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-tot"
+        },
+        {
+          "key": "DECISION",
+          "label": "Quyết định cần đưa ra",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Bạn là đội Red-Team độc lập, nhiệm vụ là tìm cách để phân tích dưới đây SAI.\n\nQUYẾT ĐỊNH: {{DECISION}}\n\nPHÂN TÍCH CẦN PHẢN BIỆN:\n{{ANALYSIS}}\n\n1. Liệt kê 5 giả định yếu nhất và vì sao chúng có thể sai.\n2. Pre-mortem: giả sử 6 tháng sau khuyến nghị thất bại — viết 5 nguyên nhân khả dĩ nhất.\n3. Rủi ro đuôi (xác suất thấp, tác động rất lớn) bị bỏ qua.\n4. Dữ liệu nào nếu có sẽ đảo ngược khuyến nghị?\nThẳng thắn, không an ủi.",
+      "outputFormat": "markdown",
+      "qualityGate": "Chỉ ra ≥ 5 giả định yếu cụ thể (không chung chung); có ít nhất 1 rủi ro đuôi; có điều kiện đảo ngược khuyến nghị."
+    },
+    {
+      "stepNumber": 4,
+      "id": "step-4-matrix",
+      "title": "Ma trận quyết định điều hành",
+      "agentRole": "Lexi (Operations Manager)",
+      "botId": "lexi",
+      "targetModel": "Claude Opus 5.5",
+      "inputs": [
+        {
+          "key": "TRIAGE",
+          "label": "Kết quả phân loại (Bước 1)",
+          "source": "previous_step",
+          "fromStepId": "step-1-triage"
+        },
+        {
+          "key": "ANALYSIS",
+          "label": "Phân tích ToT (Bước 2)",
+          "source": "previous_step",
+          "fromStepId": "step-2-tot"
+        },
+        {
+          "key": "REDTEAM",
+          "label": "Phản biện Red-Team (Bước 3)",
+          "source": "previous_step",
+          "fromStepId": "step-3-redteam"
+        },
+        {
+          "key": "DECISION",
+          "label": "Quyết định cần đưa ra",
+          "source": "user_input",
+          "type": "text"
+        },
+        {
+          "key": "DEADLINE",
+          "label": "Hạn chót ra quyết định",
+          "source": "user_input",
+          "type": "text"
+        }
+      ],
+      "promptTemplate": "Tổng hợp thành Executive Decision Memo 1 trang cho quyết định: {{DECISION}} (hạn: {{DEADLINE}}).\n\nĐẦU VÀO:\n- Phân loại: {{TRIAGE}}\n- Phân tích: {{ANALYSIS}}\n- Phản biện: {{REDTEAM}}\n\nCấu trúc:\n1. Câu hỏi quyết định (1 câu).\n2. Ma trận: Phương án | Lợi ích | Chi phí | Rủi ro sau phản biện | Khả năng đảo ngược | Điểm tổng.\n3. Khuyến nghị cuối và 3 điều kiện kèm theo.\n4. Tripwires: chỉ số và ngưỡng buộc xem lại quyết định.\n5. Thí nghiệm nhỏ nhất có thể chạy trước khi cam kết toàn phần.\nTối đa 450 từ.",
+      "outputFormat": "markdown",
+      "qualityGate": "Ma trận đầy đủ; khuyến nghị đã phản hồi các rủi ro Red-Team nêu ra; có ≥ 2 tripwire đo được; ≤ 450 từ."
+    }
+  ]
+}

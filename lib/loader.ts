@@ -2,8 +2,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import type { BoostItem, PromptItem, SkillItem } from '@/types/hub';
-import { checkUniqueIds, validateBoost, validatePrompt, validateSkill } from '@/lib/schema';
+import type { BotItem, BoostItem, PromptItem, SkillItem, WorkflowItem } from '@/types/hub';
+import { checkUniqueIds, checkV3Links, validateBot, validateBoost, validatePrompt, validateSkill, validateWorkflow } from '@/lib/schema';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content');
 
@@ -11,6 +11,8 @@ export interface ContentLoadResult {
   prompts: PromptItem[];
   skills: SkillItem[];
   boosts: BoostItem[];
+  workflows: WorkflowItem[];
+  bots: BotItem[];
   issues: string[];
   files: number;
   /** item id → repository-relative source path (for README index & edit links). */
@@ -72,6 +74,8 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
   const prompts: PromptItem[] = [];
   const skills: SkillItem[] = [];
   const boosts: BoostItem[] = [];
+  const workflows: WorkflowItem[] = [];
+  const bots: BotItem[] = [];
   let files = 0;
   const sources: Record<string, string> = {};
 
@@ -116,7 +120,32 @@ export function loadContent(root: string = CONTENT_ROOT): ContentLoadResult {
     }
   }
 
+  for (const file of walk(path.join(root, 'workflows'), ['.json'])) {
+    files++;
+    const raw = readJson(file, issues);
+    if (!raw) continue;
+    const result = validateWorkflow(raw, rel(file));
+    issues.push(...result.issues);
+    if (result.item) {
+      workflows.push(result.item);
+      sources[`workflow:${result.item.id}`] = rel(file);
+    }
+  }
+
+  for (const file of walk(path.join(root, 'bots'), ['.json'])) {
+    files++;
+    const raw = readJson(file, issues);
+    if (!raw) continue;
+    const result = validateBot(raw, rel(file));
+    issues.push(...result.issues);
+    if (result.item) {
+      bots.push(result.item);
+      sources[`bot:${result.item.id}`] = rel(file);
+    }
+  }
+
   issues.push(...checkUniqueIds([...prompts, ...skills, ...boosts]));
-  return { prompts, skills, boosts, issues, files, sources };
+  issues.push(...checkV3Links(workflows, bots));
+  return { prompts, skills, boosts, workflows, bots, issues, files, sources };
 }
 

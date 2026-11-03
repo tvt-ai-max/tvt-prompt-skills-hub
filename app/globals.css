@@ -51,6 +51,9 @@
     from { transform: translateY(-8px) scale(0.98); opacity: 0; }
     to { transform: translateY(0) scale(1); opacity: 1; }
   }
+  @keyframes edge-flow {
+    to { stroke-dashoffset: -24; }
+  }
   @keyframes toast-in {
     from { transform: translateY(12px) scale(0.96); opacity: 0; }
     to { transform: translateY(0) scale(1); opacity: 1; }
@@ -208,6 +211,12 @@ body {
   .field {
     @apply w-full rounded-lg border border-line bg-space-deep/80 light:bg-white px-3 py-2 text-sm text-ink placeholder:text-faint transition-colors outline-none focus:border-neon-cyan/60 focus:ring-2 focus:ring-neon-cyan/20;
   }
+}
+
+/* Workflow canvas: animated data flow on highlighted edges. */
+.edge-flow {
+  stroke-dasharray: 6 6;
+  animation: edge-flow 0.9s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

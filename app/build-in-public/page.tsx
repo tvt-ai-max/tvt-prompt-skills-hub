@@ -35,9 +35,21 @@ const TIMELINE = [
   },
   {
     date: '03/11/2026',
+    title: 'Đồng bộ 107 prompt thực chiến',
+    body: 'Kho Prompts mở rộng lên 139 mục với các danh mục Video, Branding và Ads từ hệ sinh thái toilatung.com.',
+    Icon: Sparkles,
+  },
+  {
+    date: '03/11/2026',
     title: 'V2: SEO/GEO, Dark/Light & Power Workbench',
     body: 'JSON-LD cho từng trang, sitemap, llms.txt cho AI search, ảnh OpenGraph động, theme Sáng/Tối/Hệ thống, Yêu thích, lọc theo tag & công cụ Agent.',
     Icon: Rocket,
+  },
+  {
+    date: '03/11/2026',
+    title: 'V3: Workflows DAG & 16 AI Workforce Bots',
+    body: 'Dây chuyền nhiều bước với mô phỏng nối biến trực tiếp, xuất n8n / Python CLI, và 16 bot với system prompt chuyên sâu. Boosts nhập vào Prompts thành nhóm Deep Reasoning.',
+    Icon: Workflow,
   },
 ];
 
@@ -57,18 +69,19 @@ export default function BuildInPublicPage() {
           <Rocket className="size-4" aria-hidden /> Build in Public
         </p>
         <h1 className="text-3xl font-bold tracking-tight text-balance sm:text-5xl">
-          Từ 4 file đặc tả đến <span className="text-gradient">{stats.total} tài sản trí tuệ</span> mã nguồn mở
+          Từ 4 file đặc tả đến <span className="text-gradient">{stats.total + stats.bots + stats.workflows} tài sản trí tuệ</span> mã nguồn mở
         </h1>
         <p className="text-base leading-relaxed text-muted sm:text-lg">
           TVT Intelligence Hub được khởi tạo và xây dựng thần tốc bởi <strong className="text-ink">Claude Code Cloud</strong> +{' '}
           <strong className="text-ink">Antigravity</strong> với ngân sách tối giản: không thuê đội dev, không database, không server
           ứng dụng. Chúng tôi công khai toàn bộ quá trình để cộng đồng lập trình viên và solopreneur có thể làm lại — và làm tốt hơn.
         </p>
-        <dl className="grid grid-cols-3 gap-3 pt-2">
+        <dl className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4">
           {[
-            ['Prompts', stats.prompts],
+            ['Prompts', stats.prompts + stats.boosts],
             ['Skills', stats.skills],
-            ['Boosts', stats.boosts],
+            ['Bots', stats.bots],
+            ['Workflows', stats.workflows],
           ].map(([label, value]) => (
             <div key={label} className="surface-card rounded-2xl p-4 text-center">
               <dt className="text-xs tracking-wide text-muted uppercase">{label}</dt>

@@ -1,9 +1,10 @@
 import type { HubItem, HubItemSummary } from '@/types/hub';
 import { buildWorkbenchModel } from '@/lib/variables';
 import { extractStack } from '@/lib/facets';
+import { DEEP_REASONING_CATEGORY } from '@/lib/labels';
 
 export function itemCategory(item: HubItem): string {
-  return item.tier === 'boost' ? (item.category ?? item.reasoningType) : item.category;
+  return item.tier === 'boost' ? DEEP_REASONING_CATEGORY : item.category;
 }
 
 export function toSummary(item: HubItem): HubItemSummary {

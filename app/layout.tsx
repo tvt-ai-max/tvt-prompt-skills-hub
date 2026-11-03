@@ -4,7 +4,8 @@ import './globals.css';
 import { HubProvider } from '@/components/HubProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { getAllSummaries } from '@/lib/content';
+import { getAllBots, getAllSummaries, getAllWorkflows } from '@/lib/content';
+import type { NavEntry } from '@/types/hub';
 import { THEME_BOOT_SCRIPT } from '@/lib/theme';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site';
 
@@ -31,6 +32,27 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const items = getAllSummaries();
+  const entries: NavEntry[] = [
+    ...getAllWorkflows().map((wf) => ({
+      kind: 'workflow' as const,
+      id: wf.id,
+      title: wf.title,
+      subtitle: `${wf.steps.length} bước · ${wf.difficulty}`,
+      description: wf.summary,
+      tags: wf.tags,
+      href: `/workflows/${wf.slug}`,
+    })),
+    ...getAllBots().map((bot) => ({
+      kind: 'bot' as const,
+      id: bot.id,
+      title: `${bot.name} — ${bot.role}`,
+      subtitle: bot.role,
+      description: bot.description,
+      tags: bot.tags,
+      href: `/bots/${bot.id}`,
+      glyph: bot.avatar,
+    })),
+  ];
   return (
     <html
       lang="vi"
@@ -50,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Bỏ qua tới nội dung
         </a>
-        <HubProvider items={items}>
+        <HubProvider items={items} entries={entries}>
           <Navbar />
           <main id="main" className="mx-auto max-w-7xl px-4 sm:px-6">
             {children}

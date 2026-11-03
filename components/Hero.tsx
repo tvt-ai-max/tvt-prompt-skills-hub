@@ -1,37 +1,19 @@
-import { ArrowRight, Bot, Brain, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { SECTIONS } from '@/components/Badges';
 import Link from 'next/link';
 import type { HubStats } from '@/types/hub';
 import { SearchTrigger } from '@/components/Navbar';
 import { SITE_TAGLINE } from '@/lib/site';
 
-const TIERS = [
-  {
-    key: 'prompts',
-    href: '/prompts',
-    label: 'Prompts',
-    desc: 'Micro-prompt với form biến {{VAR}} & live preview',
-    Icon: Sparkles,
-    tone: 'text-cyan-300 border-neon-cyan/30 bg-neon-cyan/10',
-  },
-  {
-    key: 'skills',
-    href: '/skills',
-    label: 'Skills',
-    desc: 'Agent SOP chuẩn SKILL.md: inputs, tools, quality gates',
-    Icon: Bot,
-    tone: 'text-emerald-300 border-neon-emerald/30 bg-neon-emerald/10',
-  },
-  {
-    key: 'boosts',
-    href: '/boosts',
-    label: 'Boosts',
-    desc: 'Meta-prompt: CoT, ToT, Red-team, System 1 vs 2',
-    Icon: Brain,
-    tone: 'text-violet-300 border-neon-violet/35 bg-neon-violet/10',
-  },
-] as const;
+const DESCRIPTIONS = {
+  prompts: 'Micro-prompt có form biến {{VAR}} + nhóm Deep Reasoning',
+  skills: 'Agent SOP chuẩn SKILL.md: inputs, tools, quality gates',
+  bots: 'AI Workforce: system prompt cho 16 agent chuyên trách',
+  workflows: 'Dây chuyền nhiều bước, nối biến tự động, xuất n8n / Python',
+} as const;
 
 export function Hero({ stats }: { stats: HubStats }) {
+  const counts = { prompts: stats.prompts + stats.boosts, skills: stats.skills, bots: stats.bots, workflows: stats.workflows };
   return (
     <section className="relative pt-12 pb-10 sm:pt-20 sm:pb-14">
       <div className="mx-auto max-w-3xl text-center">
@@ -43,7 +25,7 @@ export function Hero({ stats }: { stats: HubStats }) {
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-neon-emerald opacity-60" />
             <span className="relative inline-flex size-2 rounded-full bg-neon-emerald" />
           </span>
-          Build in Public · {stats.total} mục mã nguồn mở · xem câu chuyện →
+          Build in Public · {stats.total + stats.bots + stats.workflows} tài sản mã nguồn mở · xem câu chuyện →
         </Link>
         <h1 className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight text-balance sm:text-6xl">
           <span className="text-gradient">TVT Intelligence Hub</span>
@@ -64,8 +46,8 @@ export function Hero({ stats }: { stats: HubStats }) {
         </div>
       </div>
 
-      <dl className="mx-auto mt-12 grid max-w-4xl gap-3 sm:grid-cols-3">
-        {TIERS.map(({ key, href, label, desc, Icon, tone }) => (
+      <dl className="mx-auto mt-12 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {SECTIONS.map(({ key, href, label, Icon, tone }) => (
           <Link
             key={key}
             href={href}
@@ -76,10 +58,10 @@ export function Hero({ stats }: { stats: HubStats }) {
             </span>
             <div className="min-w-0">
               <dt className="flex items-baseline gap-2">
-                <span className="font-mono text-2xl font-bold text-ink tabular-nums">{stats[key]}</span>
+                <span className="font-mono text-2xl font-bold text-ink tabular-nums">{counts[key]}</span>
                 <span className="text-sm font-semibold text-ink">{label}</span>
               </dt>
-              <dd className="mt-0.5 text-xs leading-relaxed text-muted">{desc}</dd>
+              <dd className="mt-0.5 text-xs leading-relaxed text-muted">{DESCRIPTIONS[key]}</dd>
             </div>
           </Link>
         ))}
