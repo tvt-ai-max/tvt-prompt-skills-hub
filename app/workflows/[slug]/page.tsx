@@ -5,12 +5,13 @@ import { ChevronRight, Clock, Coins, Layers } from 'lucide-react';
 import { getAllWorkflows, getWorkflowBySlug } from '@/lib/content';
 import { getBotGlyphs } from '@/lib/bots';
 import { categoryLabel } from '@/lib/labels';
-import { workflowJsonLd, workflowUrl } from '@/lib/seo';
+import { localeAlternates, workflowJsonLd, workflowUrl } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 import { JsonLd } from '@/components/JsonLd';
 import { ShareBar } from '@/components/ShareBar';
 import { WorkflowStudio } from '@/components/WorkflowStudio';
 import { DifficultyBadge } from '@/components/WorkflowCard';
+import { T } from '@/components/I18nProvider';
 
 export const dynamicParams = false;
 
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: WorkflowPageProps): Promise<M
     title: wf.title,
     description: wf.summary,
     keywords: wf.tags,
-    alternates: { canonical: `/workflows/${wf.slug}` },
+    alternates: localeAlternates(`/workflows/${wf.slug}`),
     openGraph: { title: wf.title, description: wf.summary, type: 'article', url: `/workflows/${wf.slug}` },
     twitter: { card: 'summary_large_image', title: wf.title, description: wf.summary },
   };
@@ -47,7 +48,7 @@ export default async function WorkflowPage({ params }: WorkflowPageProps) {
       <JsonLd data={workflowJsonLd(wf, SITE_URL)} />
       <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1 text-sm text-faint">
         <Link href="/" className="hover:text-ink">
-          Hub
+          <T k="item.hub" />
         </Link>
         <ChevronRight className="size-3.5" aria-hidden />
         <Link href="/workflows" className="hover:text-ink">
@@ -68,19 +69,19 @@ export default async function WorkflowPage({ params }: WorkflowPageProps) {
         <dl className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
           <div className="inline-flex items-center gap-1.5">
             <Layers className="size-4 text-neon-cyan" aria-hidden />
-            <dt className="sr-only">Số bước</dt>
+            <dt className="sr-only">Steps</dt>
             <dd>
-              {wf.steps.length} bước · {agents.length} agent
+              <T k="studio.stepsAgents" vars={{ steps: wf.steps.length, agents: agents.length }} />
             </dd>
           </div>
           <div className="inline-flex items-center gap-1.5">
             <Clock className="size-4 text-neon-cyan" aria-hidden />
-            <dt className="sr-only">Thời gian</dt>
+            <dt className="sr-only">Time</dt>
             <dd>{wf.estimatedTime}</dd>
           </div>
           <div className="inline-flex items-center gap-1.5">
             <Coins className="size-4 text-neon-cyan" aria-hidden />
-            <dt className="sr-only">Chi phí</dt>
+            <dt className="sr-only">Cost</dt>
             <dd>{wf.estimatedCost}</dd>
           </div>
         </dl>

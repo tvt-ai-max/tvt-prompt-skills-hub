@@ -5,6 +5,7 @@ import { SearchX, Star } from 'lucide-react';
 import { useHub } from '@/components/HubProvider';
 import { EMPTY_FILTERS, FilterBar, type FilterState, type TierFilter } from '@/components/FilterBar';
 import { ItemCard } from '@/components/ItemCard';
+import { useTranslation } from '@/components/I18nProvider';
 import { useFavorites } from '@/components/useFavorites';
 import { createSearchIndex, searchIds } from '@/lib/search';
 import { countFacet } from '@/lib/facets';
@@ -28,6 +29,7 @@ function syncUrl(state: FilterState) {
 
 export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter }) {
   const { items } = useHub();
+  const { t } = useTranslation();
   const { favorites } = useFavorites();
   const [state, setState] = useState<FilterState>({ ...EMPTY_FILTERS, tier: initialTier });
   const [advancedOpen, setAdvancedOpen] = useState(false);
@@ -95,15 +97,15 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
           {state.favoritesOnly ? <Star className="size-8 text-faint" aria-hidden /> : <SearchX className="size-8 text-faint" aria-hidden />}
           <p className="max-w-sm text-sm text-muted">
             {state.favoritesOnly
-              ? 'Chưa có mục Yêu thích nào. Bấm ⭐ trên thẻ bất kỳ để ghim Prompt/Skill dùng hằng ngày lên đầu.'
-              : 'Không có mục nào khớp bộ lọc hiện tại.'}
+              ? t('filter.emptyFavorites')
+              : t('filter.emptyResults')}
           </p>
           <button
             type="button"
             onClick={reset}
             className="focus-ring rounded-lg border border-line px-3 py-1.5 text-sm text-ink hover:bg-overlay/5"
           >
-            Xem tất cả
+            {t('common.viewAll')}
           </button>
         </div>
       ) : (

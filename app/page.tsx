@@ -4,10 +4,11 @@ import { TierLadder } from '@/components/TierLadder';
 import type { Metadata } from 'next';
 import { getStats } from '@/lib/content';
 import { JsonLd } from '@/components/JsonLd';
-import { homeJsonLd } from '@/lib/seo';
+import { T } from '@/components/I18nProvider';
+import { homeJsonLd, localeAlternates } from '@/lib/seo';
 import { SITE_URL } from '@/lib/site';
 
-export const metadata: Metadata = { alternates: { canonical: '/' } };
+export const metadata: Metadata = { alternates: localeAlternates('/') };
 
 export default function HomePage() {
   const stats = getStats();
@@ -20,9 +21,11 @@ export default function HomePage() {
         <div className="mb-5 flex items-end justify-between gap-4">
           <div>
             <h2 id="catalog-title" className="text-2xl font-bold tracking-tight">
-              Kho năng lực
+              <T k="home.catalogTitle" />
             </h2>
-            <p className="mt-1 text-sm text-muted">Bấm vào một thẻ để điền biến, xem live preview và copy đa nền tảng.</p>
+            <p className="mt-1 text-sm text-muted">
+              <T k="home.catalogLead" />
+            </p>
           </div>
         </div>
         <HubExplorer />

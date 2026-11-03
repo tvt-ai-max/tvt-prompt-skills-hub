@@ -5,12 +5,12 @@ import {
   flipPreference,
   parsePreference,
   resolveTheme,
-  THEME_LABELS,
   THEME_STORAGE_KEY,
   type ResolvedTheme,
   type ThemePreference,
 } from '@/lib/theme';
 import { useToast } from '@/components/ToastProvider';
+import { useTranslation } from '@/components/I18nProvider';
 
 interface ThemeContextValue {
   preference: ThemePreference;
@@ -37,6 +37,7 @@ function applyTheme(preference: ThemePreference, resolved: ResolvedTheme) {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const toast = useToast();
+  const { t } = useTranslation();
   // Server renders the brand default; the inline boot script already painted the right theme,
   // so we sync React state from the DOM after mount (no visual change → no flash).
   const [preference, setPreferenceState] = useState<ThemePreference>('dark');
@@ -68,9 +69,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       } catch {
         // storage unavailable (private mode) — theme still applies for this session
       }
-      toast(`Giao diện: ${THEME_LABELS[next]}`);
+      toast(t('theme.changed', { name: t(`theme.${next}`) }));
     },
-    [toast],
+    [toast, t],
   );
 
   // Shift + D → flip to the opposite theme instantly.

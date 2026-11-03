@@ -230,7 +230,7 @@ test('serializeJsonLd escapes "<" so content cannot break out of the script tag'
 
 test('sitemap covers home, tier pages, story page and every item', () => {
   const entries = buildSitemapEntries([prompt, skill, boost], BASE, '2026-11-03');
-  assert.equal(entries.length, 4 + 3, 'home, /prompts, /skills, /build-in-public + items (no /boosts since V3)');
+  assert.equal(entries.length, 7 + 3, 'home, /prompts, /skills, /build-in-public, /guide, /docs/api, /docs/self-hosting + items (no /boosts since V3)');
   assert.ok(!entries.some((e) => e.url.endsWith('/boosts')));
   assert.equal(entries[0].url, `${BASE}/`);
   assert.equal(entries[0].lastModified, '2026-11-03');

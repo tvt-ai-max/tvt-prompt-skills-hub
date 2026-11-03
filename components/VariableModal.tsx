@@ -10,6 +10,7 @@ import { VariableWorkbench } from '@/components/VariableWorkbench';
 import { useDialog } from '@/components/useDialog';
 import { useItem } from '@/components/useItem';
 import { categoryLabel } from '@/lib/labels';
+import { useTranslation } from '@/components/I18nProvider';
 
 function WorkbenchSkeleton() {
   return (
@@ -31,6 +32,7 @@ export function VariableModal({ summary, onClose }: { summary: HubItemSummary | 
   const panelRef = useDialog(summary !== null, onClose);
   const closeRef = useRef<HTMLButtonElement>(null);
   const { item, error } = useItem(summary?.id ?? null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (summary) closeRef.current?.focus();
@@ -73,13 +75,13 @@ export function VariableModal({ summary, onClose }: { summary: HubItemSummary | 
               onClick={onClose}
               className="focus-ring hidden items-center gap-1 rounded-md px-2 py-1.5 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink sm:inline-flex"
             >
-              Trang chi tiết <ArrowUpRight className="size-3.5" aria-hidden />
+              {t('modal.details')} <ArrowUpRight className="size-3.5" aria-hidden />
             </Link>
             <button
               ref={closeRef}
               type="button"
               onClick={onClose}
-              aria-label="Đóng"
+              aria-label={t('common.close')}
               className="focus-ring rounded-md p-2 text-muted transition hover:bg-overlay/5 hover:text-ink"
             >
               <X className="size-5" aria-hidden />
@@ -89,9 +91,9 @@ export function VariableModal({ summary, onClose }: { summary: HubItemSummary | 
         <div className="scrollbar-thin flex-1 overflow-y-auto px-4 py-5 sm:px-6">
           {error ? (
             <p className="flex items-center gap-2 rounded-lg border border-neon-amber/30 bg-neon-amber/10 p-4 text-sm text-amber-200" role="alert">
-              <CircleAlert className="size-4" aria-hidden /> {error}.{' '}
+              <CircleAlert className="size-4" aria-hidden /> {t('common.loadFailed')}.{' '}
               <Link href={`/items/${summary.id}`} className="underline">
-                Mở trang chi tiết
+                {t('modal.openDetail')}
               </Link>
             </p>
           ) : item ? (

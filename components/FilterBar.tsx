@@ -4,7 +4,8 @@ import { ChevronDown, Search, SlidersHorizontal, Star, Tags, Wrench, X } from 'l
 import type { Persona, Tier } from '@/types/hub';
 import { PERSONAS } from '@/types/hub';
 import type { FacetCount } from '@/lib/facets';
-import { categoryLabel, PERSONA_META, TIER_META } from '@/lib/labels';
+import { categoryLabel, PERSONA_META } from '@/lib/labels';
+import { useTranslation } from '@/components/I18nProvider';
 
 export type TierFilter = Tier | 'all';
 
@@ -77,6 +78,7 @@ function SelectBox({
 
 export function FilterBar(props: Props) {
   const { state, onChange, categories, tagCloud, stackFacets, counts, favoriteCount, resultCount, advancedOpen } = props;
+  const { t } = useTranslation();
   const dirty =
     state.tier !== 'all' ||
     state.persona !== 'all' ||
@@ -93,7 +95,7 @@ export function FilterBar(props: Props) {
   return (
     <div className="glass z-30 -mx-4 space-y-3 border-y border-line px-4 py-3 sm:mx-0 sm:rounded-2xl sm:border lg:sticky lg:top-20">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <div role="tablist" aria-label="Lọc theo tầng" className="scrollbar-thin -mx-1 flex gap-1 overflow-x-auto px-1">
+        <div role="tablist" aria-label={t('filter.tiersAria')} className="scrollbar-thin -mx-1 flex gap-1 overflow-x-auto px-1">
           {TIER_PILLS.map((key) => {
             const selected = state.tier === key && !state.favoritesOnly;
             return (
@@ -109,7 +111,7 @@ export function FilterBar(props: Props) {
                     : 'border-line bg-overlay/[0.02] text-muted hover:border-line-strong hover:text-ink'
                 }`}
               >
-                {key === 'all' ? 'Tất cả' : key === 'prompt' ? 'Prompts' : TIER_META[key].plural}
+                {key === 'all' ? t('filter.all') : key === 'skill' ? t('filter.skills') : t('filter.prompts')}
                 <span className={`rounded-full px-1.5 text-[11px] ${selected ? 'bg-neon-cyan/25' : 'bg-overlay/5'}`}>{counts[key]}</span>
               </button>
             );
@@ -126,33 +128,33 @@ export function FilterBar(props: Props) {
             }`}
           >
             <Star className={`size-3.5 ${state.favoritesOnly ? 'fill-current' : ''}`} aria-hidden />
-            Yêu thích
+            {t('filter.favorites')}
             <span className={`rounded-full px-1.5 text-[11px] ${state.favoritesOnly ? 'bg-neon-amber/25' : 'bg-overlay/5'}`}>{favoriteCount}</span>
           </button>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <label className="relative flex min-w-0 basis-full items-center sm:basis-auto">
-            <span className="sr-only">Lọc nhanh</span>
+            <span className="sr-only">{t('filter.quickFilter')}</span>
             <Search className="pointer-events-none absolute left-3 size-4 text-faint" aria-hidden />
             <input
               type="search"
               value={state.query}
               onChange={(e) => onChange({ query: e.target.value })}
-              placeholder="Lọc nhanh…"
+              placeholder={t('filter.quickFilter')}
               className="focus-ring h-10 w-full rounded-lg border border-line bg-surface pr-3 pl-9 text-sm text-ink placeholder:text-faint sm:w-52"
             />
           </label>
-          <SelectBox label="Persona" value={state.persona} onChange={(v) => onChange({ persona: v as Persona | 'all' })}>
-            <option value="all">Mọi persona</option>
+          <SelectBox label={t('filter.persona')} value={state.persona} onChange={(v) => onChange({ persona: v as Persona | 'all' })}>
+            <option value="all">{t('filter.anyPersona')}</option>
             {PERSONAS.map((p) => (
               <option key={p} value={p}>
                 {PERSONA_META[p].label}
               </option>
             ))}
           </SelectBox>
-          <SelectBox label="Danh mục" value={state.category} onChange={(v) => onChange({ category: v })}>
-            <option value="all">Mọi danh mục</option>
+          <SelectBox label={t('filter.category')} value={state.category} onChange={(v) => onChange({ category: v })}>
+            <option value="all">{t('filter.anyCategory')}</option>
             {categories.map((c) => (
               <option key={c} value={c}>
                 {categoryLabel(c)}
@@ -166,7 +168,7 @@ export function FilterBar(props: Props) {
         <div id="advanced-filters" className="space-y-3 border-t border-line pt-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted uppercase">
-              <Tags className="size-3.5" aria-hidden /> Tags phổ biến
+              <Tags className="size-3.5" aria-hidden /> {t('filter.popularTags')}
             </span>
             {tagCloud.map(({ value, count }) => {
               const active = state.tags.includes(value);
@@ -188,12 +190,12 @@ export function FilterBar(props: Props) {
             })}
           </div>
           <SelectBox
-            label="Công cụ Agent / Stack"
+            label={t('filter.stack')}
             value={state.stack}
             onChange={(v) => onChange({ stack: v })}
             icon={<Wrench className="size-4" aria-hidden />}
           >
-            <option value="all">Mọi công cụ Agent</option>
+            <option value="all">{t('filter.anyStack')}</option>
             {stackFacets.map(({ value, count }) => (
               <option key={value} value={value}>
                 {value} ({count})
@@ -205,7 +207,7 @@ export function FilterBar(props: Props) {
 
       <div className="flex items-center justify-between gap-3 text-xs text-faint">
         <span className="inline-flex items-center gap-3">
-          <span>{resultCount} kết quả</span>
+          <span>{t('filter.results', { count: resultCount })}</span>
           <button
             type="button"
             onClick={props.onToggleAdvanced}
@@ -214,7 +216,7 @@ export function FilterBar(props: Props) {
             className="focus-ring inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 text-muted transition hover:text-ink"
           >
             <SlidersHorizontal className="size-3.5" aria-hidden />
-            {advancedOpen ? 'Ẩn bộ lọc nâng cao' : 'Tags & công cụ'}
+            {advancedOpen ? t('filter.hideAdvanced') : t('filter.showAdvanced')}
             {advancedActive > 0 && <span className="rounded-full bg-neon-emerald/20 px-1.5 text-emerald-200">{advancedActive}</span>}
           </button>
         </span>
@@ -224,7 +226,7 @@ export function FilterBar(props: Props) {
             onClick={props.onReset}
             className="focus-ring inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-muted transition hover:text-ink"
           >
-            <X className="size-3.5" aria-hidden /> Xoá bộ lọc
+            <X className="size-3.5" aria-hidden /> {t('filter.clear')}
           </button>
         )}
       </div>

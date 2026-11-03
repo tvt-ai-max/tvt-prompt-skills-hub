@@ -32,7 +32,8 @@ function getV3(): { workflows: WorkflowItem[]; bots: BotItem[] } {
   const { workflows, bots } = loadValidated();
   v3cache = {
     workflows: [...workflows].sort((a, b) => a.title.localeCompare(b.title)),
-    bots: [...bots].sort((a, b) => a.name.localeCompare(b.name)),
+    // Core workforce first, then specialists; alphabetical within each tier.
+    bots: [...bots].sort((a, b) => Number(a.tier === 'specialist') - Number(b.tier === 'specialist') || a.name.localeCompare(b.name)),
   };
   return v3cache;
 }
@@ -47,6 +48,10 @@ export function getWorkflowBySlug(slug: string): WorkflowItem | undefined {
 
 export function getAllBots(): BotItem[] {
   return getV3().bots;
+}
+
+export function getCoreBots(): BotItem[] {
+  return getAllBots().filter((b) => b.tier !== 'specialist');
 }
 
 export function getBotById(id: string): BotItem | undefined {

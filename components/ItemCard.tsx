@@ -13,10 +13,12 @@ import { useCopy } from '@/components/useCopy';
 import { buildWorkbenchModel, initialValues, renderTemplate } from '@/lib/variables';
 import { toChatMarkdown } from '@/lib/exporters';
 import { categoryLabel } from '@/lib/labels';
+import { useTranslation } from '@/components/I18nProvider';
 
 export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinned?: boolean }) {
   const { openItem } = useHub();
   const toast = useToast();
+  const { t } = useTranslation();
   const { copied, copy } = useCopy();
   const [busy, setBusy] = useState(false);
   const styles = TIER_STYLES[item.tier];
@@ -28,9 +30,9 @@ export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinne
       const full = await fetchItem(item.id);
       const model = buildWorkbenchModel(full);
       const ok = await copy('quick', toChatMarkdown(full, renderTemplate(model.template, initialValues(model.variables))));
-      toast(ok ? `Đã copy “${item.title}”` : 'Trình duyệt chặn clipboard — mở chi tiết để copy');
+      toast(ok ? t('card.copiedTitle', { title: item.title }) : t('card.clipboardOpenDetail'));
     } catch {
-      toast('Không tải được nội dung, thử lại sau');
+      toast(t('common.loadFailed'));
     } finally {
       setBusy(false);
     }
@@ -54,8 +56,8 @@ export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinne
             type="button"
             onClick={quickCopy}
             onFocus={() => prefetchItem(item.id)}
-            aria-label={`Copy nhanh ${item.title}`}
-            title="Copy nhanh (giá trị mặc định)"
+            aria-label={t('card.quickCopyAria', { title: item.title })}
+            title={t('card.quickCopyTitle')}
             className="focus-ring rounded-lg border border-line bg-space/60 p-2 text-muted transition hover:border-line-strong hover:text-ink"
           >
             {busy ? (
@@ -101,15 +103,15 @@ export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinne
           <span>{categoryLabel(item.category)}</span>
           <span className={`inline-flex items-center gap-1 ${styles.text}`}>
             {item.tier === 'skill' ? <ListChecks className="size-3.5" aria-hidden /> : <Braces className="size-3.5" aria-hidden />}
-            {item.tier === 'skill' ? `${item.gateCount} gates` : `${item.variableCount} biến`}
+            {item.tier === 'skill' ? t('card.gates', { count: item.gateCount }) : t('card.vars', { count: item.variableCount })}
           </span>
         </span>
         <Link
           href={`/items/${item.id}`}
           className="focus-ring relative z-10 inline-flex items-center gap-0.5 rounded px-1 text-faint transition hover:text-ink"
-          aria-label={`Trang chi tiết ${item.title}`}
+          aria-label={t('card.detailsAria', { title: item.title })}
         >
-          Chi tiết <ArrowUpRight className="size-3.5" aria-hidden />
+          {t('common.details')} <ArrowUpRight className="size-3.5" aria-hidden />
         </Link>
       </div>
     </article>

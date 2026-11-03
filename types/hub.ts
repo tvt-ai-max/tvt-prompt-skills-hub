@@ -223,6 +223,12 @@ export interface BotItem {
   tags: string[];
   author: string;
   createdAt: string;
+  /** "core" = the 16-agent TVT workforce (default); "specialist" = imported persona library. */
+  tier?: 'core' | 'specialist';
+  /** Specialist category (one of the 10 persona specialties). */
+  specialty?: string;
+  /** ChatGPT Custom Instructions source fields (specialists). */
+  customInstructions?: { know: string; respond: string };
 }
 
 /** Lightweight palette/search entry for non-catalog pages (bots, workflows). */
@@ -235,4 +241,26 @@ export interface NavEntry {
   tags: string[];
   href: string;
   glyph?: string;
+}
+
+/** Card/search model for bots (system prompts load on demand from /data/bots/[id]). */
+export interface BotSummary {
+  id: string;
+  name: string;
+  role: string;
+  department: BotDepartment;
+  avatar: string;
+  description: string;
+  tier: 'core' | 'specialist';
+  specialty?: string;
+  tags: string[];
+  recommendedModels: string[];
+}
+
+/** Payload of /data/bots/[id]. */
+export interface BotPayload {
+  id: string;
+  name: string;
+  systemPrompt: string;
+  customInstructions: string;
 }

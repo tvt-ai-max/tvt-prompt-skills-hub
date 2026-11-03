@@ -7,6 +7,7 @@ import Fuse from 'fuse.js';
 import type { HubItemSummary, NavEntry } from '@/types/hub';
 import { createSearchIndex, searchIds } from '@/lib/search';
 import { prefetchItem } from '@/components/useItem';
+import { useTranslation } from '@/components/I18nProvider';
 import { categoryLabel } from '@/lib/labels';
 import { SECTIONS, TIER_ICONS, TIER_STYLES } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
@@ -33,13 +34,28 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
   const panelRef = useDialog(open, onClose);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const { t } = useTranslation();
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
+  // The 301 specialist personas are searchable too, but their index is fetched lazily on first open.
+  const [specialists, setSpecialists] = useState<NavEntry[]>([]);
+  useEffect(() => {
+    if (!open || specialists.length) return;
+    let alive = true;
+    fetch('/data/bots-index')
+      .then((res) => (res.ok ? (res.json() as Promise<NavEntry[]>) : []))
+      .then((list) => alive && setSpecialists(list))
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, [open, specialists.length]);
+  const allEntries = useMemo(() => [...entries, ...specialists], [entries, specialists]);
 
   const index = useMemo(() => createSearchIndex(items), [items]);
   const entryIndex = useMemo(
     () =>
-      new Fuse(entries, {
+      new Fuse(allEntries, {
         ignoreLocation: true,
         threshold: 0.38,
         minMatchCharLength: 2,
@@ -50,7 +66,7 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
           { name: 'description', weight: 0.15 },
         ],
       }),
-    [entries],
+    [allEntries],
   );
   const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
 
@@ -119,7 +135,7 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
         ref={panelRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Command palette — tìm kiếm"
+        aria-label={t('palette.aria')}
         className="glass relative w-full max-w-2xl animate-pop-in overflow-hidden rounded-2xl border border-line-strong shadow-2xl shadow-black/50 light:shadow-slate-900/15"
       >
         <div className="flex items-center gap-3 border-b border-line px-4">
@@ -129,7 +145,7 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
-            placeholder="Tìm prompt, skill, bot, workflow, tag, /slash…"
+            placeholder={t('palette.placeholder')}
             className="h-14 w-full bg-transparent text-base text-ink placeholder:text-faint outline-none"
             role="combobox"
             aria-expanded="true"
@@ -143,8 +159,7 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
         <ul id="cmdk-list" ref={listRef} role="listbox" className="scrollbar-thin max-h-[55vh] overflow-y-auto p-2">
           {rows.length === 0 && (
             <li className="px-3 py-10 text-center text-sm text-muted">
-              Không tìm thấy kết quả cho “{query}”. Thử từ khóa khác như <span className="text-ink">SEO</span>,{' '}
-              <span className="text-ink">Meta Ads</span> hoặc <span className="text-ink">Scout</span>.
+              {t('palette.empty', { query })} {t('palette.hint')}
             </li>
           )}
           {rows.map((row, i) => {
@@ -193,7 +208,7 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
                   onClick={() => choose(row)}
                 >
                   <Icon className={`size-4 ${row.section.text}`} aria-hidden />
-                  <span className="flex-1 text-sm text-ink">Duyệt tất cả {row.section.label}</span>
+                  <span className="flex-1 text-sm text-ink">{t('palette.browseAll', { section: row.section.label })}</span>
                   <ArrowRight className="size-4 text-faint" aria-hidden />
                 </li>
               );
@@ -231,11 +246,11 @@ export function CommandPalette({ open, onClose, items, entries, onSelect }: Prop
           <span className="flex items-center gap-1.5">
             <kbd className="kbd"><ArrowUp className="size-3" aria-hidden /></kbd>
             <kbd className="kbd"><ArrowDown className="size-3" aria-hidden /></kbd>
-            di chuyển
+            {t('palette.move')}
             <kbd className="kbd ml-2"><CornerDownLeft className="size-3" aria-hidden /></kbd>
-            mở
+            {t('palette.open')}
           </span>
-          <span>{items.length + entries.length} mục · fuzzy search</span>
+          <span>{t('palette.count', { count: items.length + allEntries.length })}</span>
         </footer>
       </div>
     </div>

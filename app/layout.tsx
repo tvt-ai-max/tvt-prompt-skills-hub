@@ -4,9 +4,11 @@ import './globals.css';
 import { HubProvider } from '@/components/HubProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { getAllBots, getAllSummaries, getAllWorkflows } from '@/lib/content';
+import { SkipLink } from '@/components/SkipLink';
+import { getAllSummaries, getAllWorkflows, getCoreBots } from '@/lib/content';
 import type { NavEntry } from '@/types/hub';
 import { THEME_BOOT_SCRIPT } from '@/lib/theme';
+import { LOCALE_BOOT_SCRIPT } from '@/lib/i18n';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site';
 
 const inter = Inter({ subsets: ['latin', 'vietnamese'], variable: '--font-inter', display: 'swap' });
@@ -37,12 +39,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       kind: 'workflow' as const,
       id: wf.id,
       title: wf.title,
-      subtitle: `${wf.steps.length} bước · ${wf.difficulty}`,
+      subtitle: `${wf.difficulty} · ${wf.steps.length} × ${wf.steps.map((s) => s.agentRole.split(' (')[0]).filter((v, i, a) => a.indexOf(v) === i).join(', ')}`,
       description: wf.summary,
       tags: wf.tags,
       href: `/workflows/${wf.slug}`,
     })),
-    ...getAllBots().map((bot) => ({
+    ...getCoreBots().map((bot) => ({
       kind: 'bot' as const,
       id: bot.id,
       title: `${bot.name} — ${bot.role}`,
@@ -64,15 +66,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Zero-FOUC: resolve Dark / Light / System before first paint. */}
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+        {/* Zero-FOUC i18n: resolve vi / en (?lang= → saved choice → browser language) before paint. */}
+        <script dangerouslySetInnerHTML={{ __html: LOCALE_BOOT_SCRIPT }} />
       </head>
       <body className="min-h-dvh font-sans">
-        <a
-          href="#main"
-          className="sr-only z-[100] rounded-lg bg-neon-cyan px-3 py-2 font-semibold text-on-accent focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-        >
-          Bỏ qua tới nội dung
-        </a>
         <HubProvider items={items} entries={entries}>
+          <SkipLink />
           <Navbar />
           <main id="main" className="mx-auto max-w-7xl px-4 sm:px-6">
             {children}

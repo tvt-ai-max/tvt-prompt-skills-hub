@@ -9,6 +9,7 @@ import { COPY_TARGETS } from '@/lib/exporters';
 import { downloadText } from '@/lib/clipboard';
 import { useCopy } from '@/components/useCopy';
 import { useToast } from '@/components/ToastProvider';
+import { useTranslation } from '@/components/I18nProvider';
 import { buildDirectLink, parseDirectLink } from '@/lib/share';
 
 const TARGET_ICONS = { chat: MessageSquare, cursor: Code2, skill: Bot } as const;
@@ -30,10 +31,11 @@ function VariableField({
   inputId: string;
   onChange: (value: string) => void;
 }) {
+  const { t } = useTranslation();
   const common = {
     id: inputId,
     value,
-    placeholder: variable.placeholder ?? variable.defaultValue ?? `Nhập ${variable.label.toLowerCase()}…`,
+    placeholder: variable.placeholder ?? variable.defaultValue ?? t('workbench.placeholder', { label: variable.label.toLowerCase() }),
     onChange: (e: { target: { value: string } }) => onChange(e.target.value),
     className: 'field',
   };
@@ -77,6 +79,8 @@ export function VariableWorkbench({
   const [view, setView] = useState<'preview' | 'template'>('preview');
   const { copied, copy } = useCopy();
   const toast = useToast();
+  const { t, locale } = useTranslation();
+  const numberLocale = locale === 'vi' ? 'vi-VN' : 'en-US';
   const baseId = useId();
 
   useEffect(() => {
@@ -84,13 +88,13 @@ export function VariableWorkbench({
     const fromUrl = parseDirectLink(window.location.search, model.variables.map((v) => v.key));
     if (Object.keys(fromUrl).length) {
       setValues((prev) => ({ ...prev, ...fromUrl }));
-      toast('Đã điền sẵn biến từ link chia sẻ');
+      toast(t('workbench.prefilled'));
     }
-  }, [syncFromUrl, model.variables, toast]);
+  }, [syncFromUrl, model.variables, toast, t]);
 
   const copyWithToast = async (id: string, text: string, message: string) => {
     const ok = await copy(id, text);
-    toast(ok ? message : 'Trình duyệt chặn clipboard — hãy copy thủ công');
+    toast(ok ? message : t('common.clipboardBlocked'));
   };
 
   const marked = useMemo(() => renderMarked(model.template, values), [model.template, values]);
@@ -126,18 +130,18 @@ export function VariableWorkbench({
         <div className="flex items-center justify-between gap-3">
           <h3 id={`${baseId}-vars`} className="flex items-center gap-2 text-sm font-semibold tracking-wide text-muted uppercase">
             <Braces className="size-4 text-neon-cyan" aria-hidden />
-            Biến ({model.variables.length})
+            {t('workbench.variables', { count: model.variables.length })}
           </h3>
           {model.variables.length > 0 && (
             <div className="flex items-center gap-1">
               <button
                 type="button"
                 onClick={() => setValues(defaults)}
-                title="Khôi phục giá trị mẫu"
+                title={t('workbench.restoreTitle')}
                 className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
               >
                 <RotateCcw className="size-3.5" aria-hidden />
-                Mặc định
+                {t('common.defaults')}
               </button>
               <button
                 type="button"
@@ -145,11 +149,11 @@ export function VariableWorkbench({
                   setValues(Object.fromEntries(model.variables.map((v) => [v.key, ''])));
                   document.getElementById(fieldId(model.variables[0].key))?.focus();
                 }}
-                title="Xóa trắng tất cả để điền lại"
+                title={t('workbench.clearTitle')}
                 className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
               >
                 <Eraser className="size-3.5" aria-hidden />
-                Xóa trắng
+                {t('workbench.clear')}
               </button>
             </div>
           )}
@@ -157,7 +161,7 @@ export function VariableWorkbench({
 
         {model.variables.length === 0 ? (
           <p className="rounded-lg border border-dashed border-line p-4 text-sm text-muted">
-            Mục này không có biến — sẵn sàng copy ngay.
+            {t('workbench.noVars')}
           </p>
         ) : (
           <div className="space-y-4">
@@ -176,15 +180,15 @@ export function VariableWorkbench({
         {missing.length > 0 && (
           <p className="flex items-start gap-2 rounded-lg border border-neon-amber/30 bg-neon-amber/10 px-3 py-2 text-xs text-amber-200" role="status">
             <CircleAlert className="mt-0.5 size-3.5 shrink-0" aria-hidden />
-            Còn {missing.length} biến chưa điền — placeholder sẽ được giữ nguyên khi copy.
+            {t('workbench.missing', { count: missing.length })}
           </p>
         )}
       </section>
 
       {/* ── Live preview + export ── */}
-      <section aria-label="Live preview" className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-space-deep/70">
+      <section aria-label={t('workbench.livePreview')} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-line bg-space-deep/70">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-3 py-2">
-          <div role="tablist" aria-label="Định dạng đầu ra" className="flex rounded-lg bg-overlay/[0.04] p-0.5">
+          <div role="tablist" aria-label={t('workbench.formatsAria')} className="flex rounded-lg bg-overlay/[0.04] p-0.5">
             {TARGET_ORDER.map((key) => {
               const Icon = TARGET_ICONS[key];
               const selected = target === key;
@@ -212,7 +216,7 @@ export function VariableWorkbench({
             aria-pressed={view === 'template'}
           >
             {view === 'preview' ? <Braces className="size-3.5" aria-hidden /> : <Eye className="size-3.5" aria-hidden />}
-            {view === 'preview' ? 'Xem template gốc' : 'Xem live preview'}
+            {view === 'preview' ? t('workbench.showTemplate') : t('workbench.showPreview')}
           </button>
         </div>
 
@@ -253,14 +257,14 @@ export function VariableWorkbench({
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-2 text-[11px] text-faint">
           <span>
-            {active.clean.length.toLocaleString('vi-VN')} ký tự · ~{estimateTokens(active.clean).toLocaleString('vi-VN')} tokens
+            {t('workbench.stats', { chars: active.clean.length.toLocaleString(numberLocale), tokens: estimateTokens(active.clean).toLocaleString(numberLocale) })}
           </span>
           <span className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
-              <span className="size-2 rounded-sm bg-neon-emerald/60" /> đã điền
+              <span className="size-2 rounded-sm bg-neon-emerald/60" /> {t('workbench.filled')}
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="size-2 rounded-sm bg-neon-amber/60" /> còn trống
+              <span className="size-2 rounded-sm bg-neon-amber/60" /> {t('workbench.empty')}
             </span>
           </span>
         </div>
@@ -268,30 +272,30 @@ export function VariableWorkbench({
         <div className="grid gap-2 border-t border-line p-3 sm:grid-cols-2 xl:grid-cols-4">
           <button
             type="button"
-            onClick={() => copyWithToast('chat', outputs.chat.clean, 'Đã copy Markdown cho ChatGPT / Claude')}
-            aria-label="Copy cho ChatGPT / Claude"
+            onClick={() => copyWithToast('chat', outputs.chat.clean, t('workbench.copiedChat'))}
+            aria-label={t('workbench.copyChatAria')}
             className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-neon-cyan px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-on-accent transition hover:brightness-110"
           >
             {copied === 'chat' ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
-            {copied === 'chat' ? 'Đã copy!' : 'ChatGPT / Claude'}
+            {copied === 'chat' ? t('common.copied') : 'ChatGPT / Claude'}
           </button>
           <button
             type="button"
-            onClick={() => copyWithToast('cursor', outputs.cursor.clean, 'Đã copy .cursorrules')}
-            aria-label="Copy cho Cursor / Windsurf (.cursorrules)"
+            onClick={() => copyWithToast('cursor', outputs.cursor.clean, t('workbench.copiedCursor'))}
+            aria-label={t('workbench.copyCursorAria')}
             className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-neon-violet/40 bg-neon-violet/15 px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-violet-100 transition hover:bg-neon-violet/25"
           >
             {copied === 'cursor' ? <Check className="size-4" aria-hidden /> : <Code2 className="size-4" aria-hidden />}
-            {copied === 'cursor' ? 'Đã copy!' : '.cursorrules'}
+            {copied === 'cursor' ? t('common.copied') : '.cursorrules'}
           </button>
           <div className="flex gap-1">
             <button
               type="button"
               onClick={() => {
                 downloadText(skillFilename, outputs.skill.clean);
-                toast(`Đã tải ${skillFilename}`);
+                toast(t('common.downloaded', { file: skillFilename }));
               }}
-              aria-label="Export file SKILL.md"
+              aria-label={t('workbench.exportSkillAria')}
               className="focus-ring inline-flex flex-1 items-center justify-center gap-2 rounded-l-lg border border-neon-emerald/40 bg-neon-emerald/15 px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-emerald-100 transition hover:bg-neon-emerald/25"
             >
               <FileDown className="size-4" aria-hidden />
@@ -299,9 +303,9 @@ export function VariableWorkbench({
             </button>
             <button
               type="button"
-              onClick={() => copyWithToast('skill', outputs.skill.clean, 'Đã copy SKILL.md')}
-              aria-label="Copy SKILL.md vào clipboard"
-              title="Copy SKILL.md"
+              onClick={() => copyWithToast('skill', outputs.skill.clean, t('workbench.copiedSkill'))}
+              aria-label={t('workbench.copySkillAria')}
+              title={t('workbench.copySkillAria')}
               className="focus-ring inline-flex items-center justify-center rounded-r-lg border border-neon-emerald/40 bg-neon-emerald/15 px-3 text-emerald-100 transition hover:bg-neon-emerald/25"
             >
               {copied === 'skill' ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
@@ -310,13 +314,13 @@ export function VariableWorkbench({
           <button
             type="button"
             onClick={() =>
-              copyWithToast('link', buildDirectLink(item.id, values, defaults, window.location.origin), 'Đã copy link kèm giá trị biến')
+              copyWithToast('link', buildDirectLink(item.id, values, defaults, window.location.origin), t('workbench.copiedLink'))
             }
-            aria-label="Copy direct link kèm tham số biến"
+            aria-label={t('workbench.directLinkAria')}
             className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-overlay/[0.03] px-3 py-2.5 text-sm font-semibold whitespace-nowrap text-ink transition hover:border-line-strong"
           >
             {copied === 'link' ? <Check className="size-4" aria-hidden /> : <Link2 className="size-4" aria-hidden />}
-            Direct link
+            {t('workbench.directLink')}
           </button>
         </div>
       </section>

@@ -4,7 +4,7 @@
  */
 import { loadContent } from '../lib/loader';
 
-const MINIMUMS = { prompts: 25, skills: 10, boosts: 5, workflows: 5, bots: 16 } as const;
+const MINIMUMS = { prompts: 25, skills: 10, boosts: 5, workflows: 5, bots: 317 } as const;
 
 const result = loadContent();
 const counts = {

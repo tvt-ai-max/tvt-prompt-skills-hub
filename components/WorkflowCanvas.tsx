@@ -3,6 +3,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type { WorkflowItem } from '@/types/hub';
 import { outputFormatLabel, workflowEdges } from '@/lib/workflow';
+import { useTranslation } from '@/components/I18nProvider';
 
 export const NODE_W = 232;
 export const NODE_H = 132;
@@ -33,6 +34,7 @@ export function WorkflowCanvas({
   completed: Set<string>;
   bots: BotGlyphs;
 }) {
+  const { t } = useTranslation();
   const index = new Map(wf.steps.map((s, i) => [s.id, i]));
   const edges = workflowEdges(wf);
   const maxSpan = Math.max(1, ...edges.map((e) => (index.get(e.to) ?? 0) - (index.get(e.from) ?? 0)));
@@ -44,7 +46,7 @@ export function WorkflowCanvas({
   const adjacentHasData = new Set(edges.filter((e) => (index.get(e.to) ?? 0) - (index.get(e.from) ?? 0) === 1).map((e) => e.from));
 
   return (
-    <div className="scrollbar-thin overflow-x-auto rounded-2xl border border-line bg-space-deep/60 shadow-card" role="group" aria-label="Sơ đồ các bước">
+    <div className="scrollbar-thin overflow-x-auto rounded-2xl border border-line bg-space-deep/60 shadow-card" role="group" aria-label={t('studio.canvasAria')}>
       <div className="relative" style={{ width, height }}>
         <svg width={width} height={height} className="absolute inset-0" aria-hidden>
           <defs>
@@ -111,7 +113,7 @@ export function WorkflowCanvas({
               id={`node-${step.id}`}
               onClick={() => onSelect(step.id)}
               aria-pressed={active}
-              aria-label={`Bước ${step.stepNumber}: ${step.title}`}
+              aria-label={t('studio.stepAria', { n: step.stepNumber, title: step.title })}
               className={`focus-ring absolute flex flex-col rounded-xl border p-3 text-left transition ${
                 active
                   ? 'border-neon-cyan/70 bg-surface shadow-glow-cyan'
@@ -135,7 +137,7 @@ export function WorkflowCanvas({
                   )}
                 </span>
                 {done ? (
-                  <CheckCircle2 className="size-4 text-neon-emerald" aria-label="Đã có kết quả" />
+                  <CheckCircle2 className="size-4 text-neon-emerald" aria-label={t('studio.hasOutput')} />
                 ) : (
                   <span className="rounded bg-overlay/[0.05] px-1.5 py-0.5 text-[10px] text-faint">{outputFormatLabel(step.outputFormat)}</span>
                 )}
