@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { GithubMark } from '@/components/Badges';
 import { REPO_URL } from '@/lib/site';
 
@@ -16,7 +17,10 @@ export function Footer() {
           </a>
           . MIT License.
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <Link href="/build-in-public" className="text-muted hover:text-ink">
+            Build in Public
+          </Link>
           <span className="hidden sm:inline">
             Nhấn <kbd className="kbd">⌘</kbd> <kbd className="kbd">K</kbd> để tìm kiếm
           </span>
