@@ -5,16 +5,11 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { GitPullRequest, Menu, Rocket, Search, Star, X } from 'lucide-react';
 import { useHub } from '@/components/HubProvider';
-import { GithubMark, TIER_ICONS, TIER_STYLES } from '@/components/Badges';
+import { GithubMark, SECTIONS } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
 import { REPO_URL } from '@/lib/site';
 import { ThemeSegmented, ThemeToggle } from '@/components/ThemeToggle';
 
-const LINKS = [
-  { href: '/prompts', label: 'Prompts', tier: 'prompt' },
-  { href: '/skills', label: 'Skills', tier: 'skill' },
-  { href: '/boosts', label: 'Boosts', tier: 'boost' },
-] as const;
 
 /** `className` must include display + height utilities (e.g. `flex h-12`, `hidden h-10 lg:inline-flex`). */
 export function SearchTrigger({ className = 'inline-flex h-10' }: { className?: string }) {
@@ -62,9 +57,9 @@ export function Navbar() {
         </Link>
 
         <ul className="ml-4 hidden items-center gap-1 lg:flex">
-          {LINKS.map((link) => {
-            const Icon = TIER_ICONS[link.tier];
-            const active = pathname === link.href;
+          {SECTIONS.map((link) => {
+            const Icon = link.Icon;
+            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (
               <li key={link.href}>
                 <Link
@@ -74,7 +69,7 @@ export function Navbar() {
                     active ? 'bg-overlay/[0.06] text-ink' : 'text-muted hover:bg-overlay/[0.04] hover:text-ink'
                   }`}
                 >
-                  <Icon className={`size-4 ${TIER_STYLES[link.tier].text}`} aria-hidden />
+                  <Icon className={`size-4 ${link.text}`} aria-hidden />
                   {link.label}
                 </Link>
               </li>
@@ -89,8 +84,8 @@ export function Navbar() {
               }`}
             >
               <Rocket className="size-4 text-amber-500" aria-hidden />
-              <span className="hidden xl:inline">Build in Public</span>
-              <span className="xl:hidden">Story</span>
+              <span className="hidden 2xl:inline">Build in Public</span>
+              <span className="2xl:hidden">Story</span>
             </Link>
           </li>
         </ul>
@@ -173,15 +168,15 @@ export function Navbar() {
             <Link href="/" className="focus-ring rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-overlay/5">
               Trang chủ
             </Link>
-            {LINKS.map((link) => {
-              const Icon = TIER_ICONS[link.tier];
+            {SECTIONS.map((link) => {
+              const Icon = link.Icon;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className="focus-ring inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-ink hover:bg-overlay/5"
                 >
-                  <Icon className={`size-4 ${TIER_STYLES[link.tier].text}`} aria-hidden />
+                  <Icon className={`size-4 ${link.text}`} aria-hidden />
                   {link.label}
                 </Link>
               );

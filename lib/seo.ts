@@ -1,8 +1,9 @@
-import type { HubItem, HubStats } from '@/types/hub';
+import type { BotItem, HubItem, HubStats, WorkflowItem } from '@/types/hub';
+import { collectUserInputs } from '@/lib/workflow';
 import { buildWorkbenchModel } from '@/lib/variables';
 import { extractStack } from '@/lib/facets';
 import { itemCategory } from '@/lib/summary';
-import { categoryLabel, PERSONA_META, TIER_META } from '@/lib/labels';
+import { catalogTier, categoryLabel, PERSONA_META, TIER_META } from '@/lib/labels';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, REPO_URL } from '@/lib/site';
 
 /**
@@ -15,7 +16,7 @@ export const TARGET_AGENTS = ['ChatGPT', 'Claude', 'Claude Code', 'Cursor', 'Win
 const TIER_NOUN: Record<HubItem['tier'], string> = {
   prompt: 'Prompt (micro-prompt có biến)',
   skill: 'Agent Skill (SOP chuẩn SKILL.md)',
-  boost: 'Boost (meta-prompt / slash command)',
+  boost: 'Prompt Deep Reasoning (meta-prompt / slash command)',
 };
 
 function abs(path: string, base: string) {
@@ -34,6 +35,18 @@ function stripMd(text: string) {
     .replace(/^[>#\-*\d.\s|:]+/, '')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+export function workflowUrl(slug: string, base: string) {
+  return abs(`/workflows/${encodeURIComponent(slug)}`, base);
+}
+
+export function botUrl(id: string, base: string) {
+  return abs(`/bots/${encodeURIComponent(id)}`, base);
+}
+
+function latestOf(list: { createdAt: string }[]): string {
+  return list.reduce((max, i) => (i.createdAt > max ? i.createdAt : max), '1970-01-01');
 }
 
 export function itemUrl(id: string, base: string) {
@@ -196,7 +209,7 @@ export function homeJsonLd(base: string, stats: HubStats): JsonLd {
         applicationSubCategory: 'Prompt library & AI agent skills',
         operatingSystem: 'Web',
         url: home,
-        description: `${SITE_DESCRIPTION} Gồm ${stats.prompts} Prompts, ${stats.skills} Skills và ${stats.boosts} Boosts.`,
+        description: `${SITE_DESCRIPTION} Gồm ${stats.prompts + stats.boosts} Prompts (trong đó ${stats.boosts} Deep Reasoning), ${stats.skills} Skills, ${stats.bots} Bots và ${stats.workflows} Workflows.`,
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         isAccessibleForFree: true,
         license: 'https://opensource.org/licenses/MIT',
@@ -220,7 +233,7 @@ export function itemJsonLd(item: HubItem, base: string): JsonLd {
   const { variables } = buildWorkbenchModel(item);
   const steps = buildHowToSteps(item);
   const faq = buildItemFaq(item);
-  const tierPath = `/${item.tier}s`;
+  const tierPath = `/${catalogTier(item.tier)}s`;
   const author =
     item.persona === 'toilatung' ? { '@id': 'https://toilatung.com/#organization' } : { '@id': 'https://tvtagency.com/#organization' };
 
@@ -273,7 +286,7 @@ export function itemJsonLd(item: HubItem, base: string): JsonLd {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
-          { '@type': 'ListItem', position: 2, name: TIER_META[item.tier].plural, item: abs(tierPath, base) },
+          { '@type': 'ListItem', position: 2, name: catalogTier(item.tier) === 'skill' ? 'Skills' : 'Prompts', item: abs(tierPath, base) },
           { '@type': 'ListItem', position: 3, name: item.title, item: url },
         ],
       },
@@ -293,16 +306,31 @@ export interface SitemapEntry {
   priority: number;
 }
 
-export function buildSitemapEntries(items: HubItem[], base: string, buildDate: string): SitemapEntry[] {
+export interface V3Collections {
+  workflows: WorkflowItem[];
+  bots: BotItem[];
+}
+
+export function buildSitemapEntries(
+  items: HubItem[],
+  base: string,
+  buildDate: string,
+  v3: V3Collections = { workflows: [], bots: [] },
+): SitemapEntry[] {
   const latest = items.reduce((max, i) => (i.createdAt > max ? i.createdAt : max), '1970-01-01');
   const latestFor = (tier: HubItem['tier']) =>
     items.filter((i) => i.tier === tier).reduce((max, i) => (i.createdAt > max ? i.createdAt : max), '1970-01-01');
   return [
     { url: abs('/', base), lastModified: latest, changeFrequency: 'daily', priority: 1 },
-    { url: abs('/prompts', base), lastModified: latestFor('prompt'), changeFrequency: 'weekly', priority: 0.9 },
+    { url: abs('/prompts', base), lastModified: [latestFor('prompt'), latestFor('boost')].sort().at(-1)!, changeFrequency: 'weekly', priority: 0.9 },
     { url: abs('/skills', base), lastModified: latestFor('skill'), changeFrequency: 'weekly', priority: 0.9 },
-    { url: abs('/boosts', base), lastModified: latestFor('boost'), changeFrequency: 'weekly', priority: 0.9 },
+    ...(v3.bots.length ? [{ url: abs('/bots', base), lastModified: latestOf(v3.bots), changeFrequency: 'weekly' as const, priority: 0.9 }] : []),
+    ...(v3.workflows.length
+      ? [{ url: abs('/workflows', base), lastModified: latestOf(v3.workflows), changeFrequency: 'weekly' as const, priority: 0.9 }]
+      : []),
     { url: abs('/build-in-public', base), lastModified: buildDate, changeFrequency: 'monthly', priority: 0.5 },
+    ...v3.workflows.map((wf) => ({ url: workflowUrl(wf.slug, base), lastModified: wf.createdAt, changeFrequency: 'monthly' as const, priority: 0.8 })),
+    ...v3.bots.map((bot) => ({ url: botUrl(bot.id, base), lastModified: bot.createdAt, changeFrequency: 'monthly' as const, priority: 0.7 })),
     ...items.map((item) => ({
       url: itemUrl(item.id, base),
       lastModified: item.createdAt,
@@ -313,7 +341,7 @@ export function buildSitemapEntries(items: HubItem[], base: string, buildDate: s
 }
 
 /** /llms.txt — a curated, Markdown index of the site for LLM crawlers (llmstxt.org convention). */
-export function buildLlmsTxt(items: HubItem[], base: string): string {
+export function buildLlmsTxt(items: HubItem[], base: string, v3: V3Collections = { workflows: [], bots: [] }): string {
   const lines = [
     `# ${SITE_NAME}`,
     '',
@@ -328,12 +356,95 @@ export function buildLlmsTxt(items: HubItem[], base: string): string {
   for (const tier of ['prompt', 'skill', 'boost'] as const) {
     const group = items.filter((i) => i.tier === tier);
     if (!group.length) continue;
-    lines.push(`## ${TIER_META[tier].plural} (${group.length})`, '');
+    lines.push(`## ${tier === 'boost' ? 'Prompts › Deep Reasoning' : TIER_META[tier].plural} (${group.length})`, '');
     for (const item of group) {
       const extra = item.tier === 'boost' ? ` Lệnh: \`${item.slashCommand}\`.` : '';
       lines.push(`- [${item.title}](${itemUrl(item.id, base)}): ${item.description}${extra}`);
     }
     lines.push('');
   }
+  if (v3.workflows.length) {
+    lines.push(`## Workflows (${v3.workflows.length})`, '');
+    for (const wf of v3.workflows) {
+      lines.push(`- [${wf.title}](${workflowUrl(wf.slug, base)}): ${wf.summary} (${wf.steps.length} bước, ${wf.difficulty}).`);
+    }
+    lines.push('');
+  }
+  if (v3.bots.length) {
+    lines.push(`## Bots — AI Workforce (${v3.bots.length})`, '');
+    for (const bot of v3.bots) lines.push(`- [${bot.name} — ${bot.role}](${botUrl(bot.id, base)}): ${bot.description}`);
+    lines.push('');
+  }
   return lines.join('\n');
+}
+
+export function workflowJsonLd(wf: WorkflowItem, base: string): JsonLd {
+  const url = workflowUrl(wf.slug, base);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'HowTo',
+        '@id': `${url}#howto`,
+        url,
+        name: wf.title,
+        description: wf.summary,
+        inLanguage: 'vi',
+        estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: wf.estimatedCost },
+        datePublished: wf.createdAt,
+        author: wf.persona === 'toilatung' ? { '@id': 'https://toilatung.com/#organization' } : { '@id': 'https://tvtagency.com/#organization' },
+        supply: collectUserInputs(wf).map((i) => ({ '@type': 'HowToSupply', name: i.label })),
+        tool: [...new Set(wf.steps.map((s) => s.targetModel))].map((name) => ({ '@type': 'HowToTool', name })),
+        step: wf.steps.map((s) => ({
+          '@type': 'HowToStep',
+          position: s.stepNumber,
+          name: s.title,
+          text: `${s.agentRole} · ${s.targetModel}. Tiêu chí nghiệm thu: ${s.qualityGate}`,
+          url: `${url}#${s.id}`,
+        })),
+        keywords: wf.tags.join(', '),
+        isAccessibleForFree: true,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
+          { '@type': 'ListItem', position: 2, name: 'Workflows', item: abs('/workflows', base) },
+          { '@type': 'ListItem', position: 3, name: wf.title, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+export function botJsonLd(bot: BotItem, base: string): JsonLd {
+  const url = botUrl(bot.id, base);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${url}#bot`,
+        url,
+        name: `${bot.name} — ${bot.role}`,
+        description: bot.description,
+        applicationCategory: 'AI agent persona (system prompt)',
+        operatingSystem: 'Claude, ChatGPT, Claude Code, Cursor, n8n',
+        inLanguage: 'vi',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        isAccessibleForFree: true,
+        keywords: bot.tags.join(', '),
+        datePublished: bot.createdAt,
+        author: { '@id': 'https://tvtagency.com/#organization' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
+          { '@type': 'ListItem', position: 2, name: 'Bots', item: abs('/bots', base) },
+          { '@type': 'ListItem', position: 3, name: bot.name, item: url },
+        ],
+      },
+    ],
+  };
 }

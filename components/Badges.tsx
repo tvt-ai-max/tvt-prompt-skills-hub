@@ -1,4 +1,4 @@
-import { Bot, Brain, Sparkles } from 'lucide-react';
+import { Bot, Brain, ScrollText, Sparkles, Workflow } from 'lucide-react';
 import type { Persona, Tier } from '@/types/hub';
 import { PERSONA_META, TIER_META } from '@/lib/labels';
 
@@ -26,7 +26,16 @@ export const TIER_STYLES: Record<Tier, { badge: string; glow: string; text: stri
   },
 };
 
-export const TIER_ICONS = { prompt: Sparkles, skill: Bot, boost: Brain } as const;
+export const TIER_ICONS = { prompt: Sparkles, skill: ScrollText, boost: Brain } as const;
+
+/** The four top-level sections of the hub (V3 information architecture). */
+export const SECTIONS = [
+  { key: 'prompts', href: '/prompts', label: 'Prompts', Icon: Sparkles, text: 'text-cyan-300', tone: 'text-cyan-300 border-neon-cyan/30 bg-neon-cyan/10' },
+  { key: 'skills', href: '/skills', label: 'Skills', Icon: ScrollText, text: 'text-emerald-300', tone: 'text-emerald-300 border-neon-emerald/30 bg-neon-emerald/10' },
+  { key: 'bots', href: '/bots', label: 'Bots', Icon: Bot, text: 'text-violet-300', tone: 'text-violet-300 border-neon-violet/35 bg-neon-violet/10' },
+  { key: 'workflows', href: '/workflows', label: 'Workflows', Icon: Workflow, text: 'text-amber-500', tone: 'text-amber-500 border-neon-amber/35 bg-neon-amber/10' },
+] as const;
+export type SectionKey = (typeof SECTIONS)[number]['key'];
 
 export function TierBadge({ tier }: { tier: Tier }) {
   const Icon = TIER_ICONS[tier];

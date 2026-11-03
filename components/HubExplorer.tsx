@@ -8,11 +8,11 @@ import { ItemCard } from '@/components/ItemCard';
 import { useFavorites } from '@/components/useFavorites';
 import { createSearchIndex, searchIds } from '@/lib/search';
 import { countFacet } from '@/lib/facets';
-import { applyCatalogFilter } from '@/lib/filter';
+import { applyCatalogFilter, tierMatches } from '@/lib/filter';
 
 const TAG_CLOUD_SIZE = 18;
 /** Tags that merely repeat the tier name add no signal to the cloud. */
-const TAG_CLOUD_EXCLUDE = new Set(['boost', 'prompt', 'skill']);
+const TAG_CLOUD_EXCLUDE = new Set(['boost', 'prompt', 'skill', 'deep reasoning']);
 
 /** Keeps `?q=` and `?tag=` shareable (also the target of the WebSite SearchAction JSON-LD). */
 function syncUrl(state: FilterState) {
@@ -21,6 +21,8 @@ function syncUrl(state: FilterState) {
   else url.searchParams.delete('q');
   url.searchParams.delete('tag');
   for (const tag of state.tags) url.searchParams.append('tag', tag);
+  if (state.category !== 'all') url.searchParams.set('category', state.category);
+  else url.searchParams.delete('category');
   if (url.href !== window.location.href) window.history.replaceState(window.history.state, '', url);
 }
 
@@ -36,8 +38,9 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q') ?? '';
     const tags = params.getAll('tag');
-    if (query || tags.length) {
-      setState((s) => ({ ...s, query, tags }));
+    const category = params.get('category');
+    if (query || tags.length || category) {
+      setState((s) => ({ ...s, query, tags, category: category ?? s.category }));
       if (tags.length) setAdvancedOpen(true);
     }
     setHydratedFromUrl(true);
@@ -58,7 +61,7 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
     return applyCatalogFilter(ordered, state, favorites, state.query.trim() !== '');
   }, [index, items, byId, state, favorites]);
 
-  const scoped = useMemo(() => (state.tier === 'all' ? items : items.filter((i) => i.tier === state.tier)), [items, state.tier]);
+  const scoped = useMemo(() => items.filter((i) => tierMatches(i.tier, state.tier)), [items, state.tier]);
   const categories = useMemo(() => [...new Set(scoped.map((i) => i.category))].sort(), [scoped]);
   const tagCloud = useMemo(() => {
     const top = countFacet(scoped.map((i) => i.tags), 2)

@@ -2,12 +2,20 @@ import type { HubItemSummary, Persona, Tier } from '@/types/hub';
 import { pinFavorites } from '@/lib/favorites';
 
 export interface CatalogFilter {
+  /** 'prompt' also matches Deep Reasoning (boost) items. */
   tier: Tier | 'all';
   persona: Persona | 'all';
   category: string;
   stack: string;
   tags: string[];
   favoritesOnly: boolean;
+}
+
+/** Catalog sections: Prompts include Deep Reasoning (boost) items. */
+export function tierMatches(itemTier: Tier, filter: Tier | 'all'): boolean {
+  if (filter === 'all') return true;
+  if (filter === 'prompt') return itemTier === 'prompt' || itemTier === 'boost';
+  return itemTier === filter;
 }
 
 /** Filters (everything except tier) — used for tier pill counts. Tags use AND semantics. */
@@ -35,10 +43,10 @@ export function applyCatalogFilter(
   const base = ordered.filter((item) => matchesFacets(item, f, favSet));
   const counts = {
     all: base.length,
-    prompt: base.filter((i) => i.tier === 'prompt').length,
+    prompt: base.filter((i) => tierMatches(i.tier, 'prompt')).length,
     skill: base.filter((i) => i.tier === 'skill').length,
     boost: base.filter((i) => i.tier === 'boost').length,
   };
-  const tiered = f.tier === 'all' || f.favoritesOnly ? base : base.filter((i) => i.tier === f.tier);
+  const tiered = f.tier === 'all' || f.favoritesOnly ? base : base.filter((i) => tierMatches(i.tier, f.tier));
   return { visible: hasQuery ? tiered : pinFavorites(tiered, favorites), counts };
 }

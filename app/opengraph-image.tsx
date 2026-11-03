@@ -11,7 +11,7 @@ export default async function Image() {
   const stats = getStats();
   return renderOgCard({
     tier: 'hub',
-    eyebrow: `${stats.prompts} Prompts · ${stats.skills} Skills · ${stats.boosts} Boosts`,
+    eyebrow: `${stats.prompts + stats.boosts} Prompts · ${stats.skills} Skills · ${stats.bots} Bots · ${stats.workflows} Workflows`,
     title: SITE_TAGLINE,
     description: 'Kho Prompt, Agent Skill (SKILL.md) và Boost thực chiến — điền biến, xem trước, copy 1 chạm cho ChatGPT, Claude, Cursor.',
     chips: ['AgentSkills', 'AwesomePrompts', 'ClaudeCode', 'Cursorrules'],
