@@ -1,0 +1,56 @@
+name: 🤖 Đề xuất Agent Skill (SKILL.md)
+description: Một SOP lặp lại được cho AI Agent — inputs, tools, các bước, quality gates.
+title: "[Skill] "
+labels: ["content", "tier:skill"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Tên Skill
+      placeholder: "Shopify Store Launch Checklist Agent"
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Danh mục
+      placeholder: "video, ads, marketing, seo, operations, devops, security…"
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Inputs
+      description: "Mỗi dòng: name | type | bắt buộc? | mô tả"
+      placeholder: "store_url | string | yes | URL cửa hàng cần kiểm tra"
+    validations:
+      required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Tools / Stack agent cần gọi
+      placeholder: "web_search, read_file, ffmpeg, playwright…"
+  - type: textarea
+    id: sop
+    attributes:
+      label: SOP từng bước (Markdown)
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: gates
+    attributes:
+      label: Quality gates
+      description: Điều kiện bắt buộc trước khi agent được bàn giao kết quả.
+      placeholder: "- Zero Hallucination: mọi số liệu có nguồn"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Cam kết
+      options:
+        - label: Skill không yêu cầu dán secret vào prompt và có bước human-in-the-loop cho thao tác tốn tiền / không đảo ngược.
+          required: true
+        - label: Tôi đồng ý phát hành nội dung này theo giấy phép MIT.
+          required: true

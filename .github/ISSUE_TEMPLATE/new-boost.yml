@@ -1,0 +1,32 @@
+name: 🧠 Đề xuất Boost (meta-prompt)
+description: Một slash command thay đổi CÁCH model suy luận (CoT, ToT, Red-team, System 1 vs 2).
+title: "[Boost] "
+labels: ["content", "tier:boost"]
+body:
+  - type: input
+    id: slash
+    attributes:
+      label: Slash command
+      placeholder: "/boost FIRST_PRINCIPLES"
+    validations:
+      required: true
+  - type: dropdown
+    id: reasoning
+    attributes:
+      label: Kiểu suy luận
+      options: [chain-of-thought, tree-of-thought, red-team, system1-vs-2]
+    validations:
+      required: true
+  - type: textarea
+    id: template
+    attributes:
+      label: Template (có ít nhất một {{VARIABLE}})
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Khi nào nên dùng Boost này?
+    validations:
+      required: true
