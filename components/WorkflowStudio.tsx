@@ -32,8 +32,10 @@ import { downloadText } from '@/lib/clipboard';
 import { useCopy } from '@/components/useCopy';
 import { useToast } from '@/components/ToastProvider';
 import { WorkflowCanvas, type BotGlyphs } from '@/components/WorkflowCanvas';
+import { useTranslation } from '@/components/I18nProvider';
 
 function InputField({ input, value, onChange, usedIn }: { input: WorkflowInput; value: string; onChange: (v: string) => void; usedIn: number[] }) {
+  const { t } = useTranslation();
   const id = `wf-input-${input.key}`;
   return (
     <div className="space-y-1.5">
@@ -54,7 +56,7 @@ function InputField({ input, value, onChange, usedIn }: { input: WorkflowInput; 
       ) : (
         <input id={id} type="text" value={value} onChange={(e) => onChange(e.target.value)} autoComplete="off" className="field" placeholder={input.placeholder} />
       )}
-      <p className="text-[11px] text-faint">Dùng ở bước {usedIn.join(', ')}</p>
+      <p className="text-[11px] text-faint">{t('studio.usedIn', { steps: usedIn.join(', ') })}</p>
     </div>
   );
 }
@@ -67,6 +69,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
   const [activeId, setActiveId] = useState(wf.steps[0].id);
   const { copied, copy } = useCopy();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const active = stepById(wf, activeId) ?? wf.steps[0];
   const activeIndex = wf.steps.indexOf(active);
@@ -81,7 +84,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
   };
 
   const copyWithToast = async (key: string, text: string, message: string) => {
-    toast((await copy(key, text)) ? message : 'Trình duyệt chặn clipboard — hãy copy thủ công');
+    toast((await copy(key, text)) ? message : t('common.clipboardBlocked'));
   };
 
   return (
@@ -90,33 +93,33 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
       <div className="grid gap-2 sm:grid-cols-3">
         <button
           type="button"
-          onClick={() => copyWithToast('all', buildSequentialPrompts(wf, values, outputs), `Đã copy chuỗi ${wf.steps.length} prompt`)}
+          onClick={() => copyWithToast('all', buildSequentialPrompts(wf, values, outputs), t('studio.copiedAll', { count: wf.steps.length }))}
           className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-neon-cyan px-4 py-3 text-sm font-semibold text-on-accent transition hover:brightness-110"
         >
           <ClipboardList className="size-4" aria-hidden />
-          {copied === 'all' ? 'Đã copy!' : 'Copy All Sequential Prompts'}
+          {copied === 'all' ? t('common.copied') : t('studio.copyAll')}
         </button>
         <button
           type="button"
           onClick={() => {
             downloadText(`${wf.slug}.n8n.json`, JSON.stringify(buildN8nWorkflow(wf, values), null, 2), 'application/json');
-            toast(`Đã tải ${wf.slug}.n8n.json — import vào n8n rồi gắn credential`);
+            toast(t('studio.n8nDone', { file: `${wf.slug}.n8n.json` }));
           }}
           className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-neon-violet/40 bg-neon-violet/15 px-4 py-3 text-sm font-semibold text-violet-100 transition hover:bg-neon-violet/25"
         >
           <FileJson className="size-4" aria-hidden />
-          Export n8n Workflow JSON
+          {t('studio.exportN8n')}
         </button>
         <button
           type="button"
           onClick={() => {
             downloadText(`${wf.slug}.py`, buildPythonScript(wf, values), 'text/x-python');
-            toast(`Đã tải ${wf.slug}.py — chạy thử với --dry-run`);
+            toast(t('studio.pyDone', { file: `${wf.slug}.py` }));
           }}
           className="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-neon-emerald/40 bg-neon-emerald/15 px-4 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-neon-emerald/25"
         >
           <FileCode className="size-4" aria-hidden />
-          Export Python CLI Script
+          {t('studio.exportPy')}
         </button>
       </div>
 
@@ -129,17 +132,17 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
           <div className="flex items-center justify-between gap-2">
             <h2 id="sim-title" className="flex items-center gap-2 text-sm font-semibold tracking-wide text-muted uppercase">
               <SlidersHorizontal className="size-4 text-neon-emerald" aria-hidden />
-              Đầu vào ({userInputs.length})
+              {t('studio.inputs', { count: userInputs.length })}
             </h2>
             <button
               type="button"
               onClick={() => setValues(defaults)}
               className="focus-ring inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted transition hover:bg-overlay/5 hover:text-ink"
             >
-              <RotateCcw className="size-3.5" aria-hidden /> Mặc định
+              <RotateCcw className="size-3.5" aria-hidden /> {t('common.defaults')}
             </button>
           </div>
-          <p className="text-xs leading-relaxed text-muted">Nhập một lần — giá trị tự động chảy vào mọi bước sử dụng biến đó.</p>
+          <p className="text-xs leading-relaxed text-muted">{t('studio.inputsLead')}</p>
           {userInputs.map((input) => (
             <InputField
               key={input.key}
@@ -151,13 +154,13 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
           ))}
           <div className="flex flex-wrap gap-3 border-t border-line pt-3 text-[11px] text-faint">
             <span className="inline-flex items-center gap-1">
-              <span className="size-2 rounded-sm bg-neon-emerald/60" /> từ bạn
+              <span className="size-2 rounded-sm bg-neon-emerald/60" /> {t('studio.legendUser')}
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="size-2 rounded-sm bg-neon-cyan/60" /> kết quả bước trước
+              <span className="size-2 rounded-sm bg-neon-cyan/60" /> {t('studio.legendPiped')}
             </span>
             <span className="inline-flex items-center gap-1">
-              <span className="size-2 rounded-sm bg-neon-violet/60" /> chờ kết quả
+              <span className="size-2 rounded-sm bg-neon-violet/60" /> {t('studio.legendPending')}
             </span>
           </div>
         </section>
@@ -167,7 +170,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
           <header className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="font-mono text-xs text-cyan-300">
-                Bước {active.stepNumber}/{wf.steps.length} · {outputFormatLabel(active.outputFormat)}
+                {t('studio.stepOf', { n: active.stepNumber, total: wf.steps.length })} · {outputFormatLabel(active.outputFormat)}
               </p>
               <h2 id="step-title" className="mt-1 text-xl font-bold tracking-tight">
                 {active.title}
@@ -192,7 +195,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
                 type="button"
                 disabled={activeIndex === 0}
                 onClick={() => select(wf.steps[activeIndex - 1].id)}
-                aria-label="Bước trước"
+                aria-label={t('studio.prevStep')}
                 className="focus-ring rounded-lg border border-line p-2 text-muted transition hover:text-ink disabled:opacity-40"
               >
                 <ArrowLeft className="size-4" aria-hidden />
@@ -201,7 +204,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
                 type="button"
                 disabled={activeIndex === wf.steps.length - 1}
                 onClick={() => select(wf.steps[activeIndex + 1].id)}
-                aria-label="Bước sau"
+                aria-label={t('studio.nextStep')}
                 className="focus-ring rounded-lg border border-line p-2 text-muted transition hover:text-ink disabled:opacity-40"
               >
                 <ArrowRight className="size-4" aria-hidden />
@@ -209,7 +212,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
             </div>
           </header>
 
-          <div className="flex flex-wrap gap-1.5" aria-label="Nguồn dữ liệu của bước">
+          <div className="flex flex-wrap gap-1.5" aria-label={t('studio.sourcesAria')}>
             {active.inputs.map((input) =>
               input.source === 'previous_step' && input.fromStepId ? (
                 <button
@@ -231,13 +234,13 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
 
           <div className="overflow-hidden rounded-xl border border-line bg-space-deep/70">
             <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-2">
-              <span className="text-xs font-semibold text-muted">Prompt đã nối biến (live)</span>
+              <span className="text-xs font-semibold text-muted">{t('studio.livePrompt')}</span>
               <button
                 type="button"
-                onClick={() => copyWithToast('step', renderStep(wf, active, values, outputs), `Đã copy prompt bước ${active.stepNumber}`)}
+                onClick={() => copyWithToast('step', renderStep(wf, active, values, outputs), t('studio.copiedStep', { n: active.stepNumber }))}
                 className="focus-ring inline-flex items-center gap-1.5 rounded-md border border-line px-2 py-1 text-xs text-ink transition hover:border-line-strong"
               >
-                {copied === 'step' ? 'Đã copy!' : 'Copy bước này'}
+                {copied === 'step' ? t('common.copied') : t('studio.copyStep')}
               </button>
             </div>
             <pre className="scrollbar-thin max-h-[52vh] overflow-auto px-4 py-3 font-mono text-[12.5px] leading-relaxed break-words whitespace-pre-wrap text-slate-200" aria-live="polite">
@@ -278,7 +281,7 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
           <div className="flex gap-3 rounded-xl border border-neon-emerald/25 bg-neon-emerald/5 px-4 py-3 text-sm">
             <ShieldCheck className="mt-0.5 size-4 shrink-0 text-neon-emerald" aria-hidden />
             <p>
-              <span className="font-semibold text-ink">Quality gate: </span>
+              <span className="font-semibold text-ink">{t('studio.qualityGate')} </span>
               <span className="text-muted">{active.qualityGate}</span>
             </p>
           </div>
@@ -286,18 +289,18 @@ export function WorkflowStudio({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs
           {consumers.length > 0 && (
             <div className="space-y-1.5">
               <label htmlFor={`out-${active.id}`} className="text-sm font-medium text-ink">
-                Kết quả thực tế của bước này <span className="font-normal text-faint">(tuỳ chọn)</span>
+                {t('studio.realOutput')} <span className="font-normal text-faint">{t('common.optional')}</span>
               </label>
               <textarea
                 id={`out-${active.id}`}
                 value={outputs[active.id] ?? ''}
                 onChange={(e) => setOutputs((prev) => ({ ...prev, [active.id]: e.target.value }))}
                 rows={4}
-                placeholder="Dán đầu ra từ Claude / ChatGPT tại đây…"
+                placeholder={t('studio.pastePlaceholder')}
                 className="field scrollbar-thin resize-y leading-relaxed"
               />
               <p className="text-[11px] text-faint">
-                Tự động nối vào {consumers.map((c) => `B${c.stepNumber}`).join(', ')} — và vào các bản xuất bên trên.
+                {t('studio.autoPipe', { steps: consumers.map((c) => `B${c.stepNumber}`).join(', ') })}
               </p>
             </div>
           )}

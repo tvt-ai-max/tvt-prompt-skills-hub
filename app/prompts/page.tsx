@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { TierPage } from '@/components/TierPage';
+import { localeAlternates } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Prompts',
   description: 'Danh sách Prompts trong TVT Intelligence Hub — điền biến, xem trước và copy 1 chạm cho ChatGPT, Claude, Cursor, SKILL.md.',
-  alternates: { canonical: '/prompts' },
+  alternates: localeAlternates('/prompts'),
 };
 
 export default function PromptsPage() {

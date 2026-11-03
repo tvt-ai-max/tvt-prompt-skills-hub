@@ -9,7 +9,8 @@ import { ItemCard } from '@/components/ItemCard';
 import { catalogTier, categoryLabel } from '@/lib/labels';
 import { itemCategory } from '@/lib/summary';
 import { extractStack } from '@/lib/facets';
-import { answerFirst, buildItemFaq, itemJsonLd, itemUrl } from '@/lib/seo';
+import { answerFirst, buildItemFaq, itemJsonLd, itemUrl, localeAlternates } from '@/lib/seo';
+import { T } from '@/components/I18nProvider';
 import { SITE_URL } from '@/lib/site';
 import { JsonLd } from '@/components/JsonLd';
 import { ShareBar } from '@/components/ShareBar';
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: ItemPageProps): Promise<Metad
     title: item.title,
     description: item.description,
     keywords: item.tags,
-    alternates: { canonical: path },
+    alternates: localeAlternates(path),
     openGraph: {
       title: item.title,
       description: item.description,
@@ -75,7 +76,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
       <JsonLd data={itemJsonLd(item, SITE_URL)} />
       <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-1 text-sm text-faint">
         <Link href="/" className="hover:text-ink">
-          Hub
+          <T k="item.hub" />
         </Link>
         <ChevronRight className="size-3.5" aria-hidden />
         <Link href={`/${catalogTier(item.tier)}s`} className="hover:text-ink">
@@ -132,7 +133,9 @@ export default async function ItemPage({ params }: ItemPageProps) {
       {item.tier === 'skill' && (
         <div className="mb-8 grid gap-3 md:grid-cols-3">
           <div className="rounded-2xl border border-line bg-surface/70 shadow-card p-4">
-            <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Inputs</h2>
+            <h2 className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
+              <T k="item.inputs" />
+            </h2>
             <ul className="space-y-2 text-sm">
               {item.inputs.map((input) => (
                 <li key={input.name}>
@@ -140,7 +143,12 @@ export default async function ItemPage({ params }: ItemPageProps) {
                   <span className="text-xs text-faint">
                     {' '}
                     · {input.type}
-                    {input.required ? ' · bắt buộc' : ''}
+                    {input.required ? (
+                      <>
+                        {' · '}
+                        <T k="common.required" />
+                      </>
+                    ) : null}
                   </span>
                   <p className="text-muted">{input.description}</p>
                 </li>
@@ -149,7 +157,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
           </div>
           <div className="rounded-2xl border border-line bg-surface/70 shadow-card p-4">
             <h2 className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-muted uppercase">
-              <Wrench className="size-3.5" aria-hidden /> Tools
+              <Wrench className="size-3.5" aria-hidden /> <T k="item.tools" />
             </h2>
             {item.tools?.length ? (
               <ul className="space-y-1.5 text-sm text-muted">
@@ -160,12 +168,14 @@ export default async function ItemPage({ params }: ItemPageProps) {
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-faint">Không yêu cầu tool đặc biệt.</p>
+              <p className="text-sm text-faint">
+                <T k="item.noTools" />
+              </p>
             )}
           </div>
           <div className="rounded-2xl border border-neon-emerald/25 bg-neon-emerald/5 p-4">
             <h2 className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-emerald-300 uppercase">
-              <ListChecks className="size-3.5" aria-hidden /> Quality gates
+              <ListChecks className="size-3.5" aria-hidden /> <T k="item.gates" />
             </h2>
             <ul className="space-y-1.5 text-sm text-muted">
               {item.auditGates.map((gate) => (
@@ -186,7 +196,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
       <section aria-labelledby="faq-title" className="mt-14 max-w-4xl">
         <h2 id="faq-title" className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight">
           <HelpCircle className="size-5 text-neon-cyan" aria-hidden />
-          Câu hỏi thường gặp
+          <T k="item.faq" />
         </h2>
         <div className="space-y-2">
           {faq.map((entry, i) => (
@@ -203,7 +213,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
       {related.length > 0 && (
         <section aria-labelledby="related-title" className="mt-14">
           <h2 id="related-title" className="mb-4 text-xl font-bold tracking-tight">
-            Liên quan
+            <T k="item.related" />
           </h2>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((other) => (

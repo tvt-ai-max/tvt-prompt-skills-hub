@@ -49,6 +49,15 @@ function latestOf(list: { createdAt: string }[]): string {
   return list.reduce((max, i) => (i.createdAt > max ? i.createdAt : max), '1970-01-01');
 }
 
+/**
+ * hreflang alternates. UI strings are localized client-side on the same static page; `?lang=en`
+ * forces English (the boot script reads it), so each language has its own crawlable URL.
+ */
+export function localeAlternates(path: string) {
+  const en = `${path}${path.includes('?') ? '&' : '?'}lang=en`;
+  return { canonical: path, languages: { vi: path, en, 'x-default': path } };
+}
+
 export function itemUrl(id: string, base: string) {
   return abs(`/items/${encodeURIComponent(id)}`, base);
 }
@@ -192,7 +201,7 @@ export function homeJsonLd(base: string, stats: HubStats): JsonLd {
         url: home,
         name: SITE_NAME,
         description: SITE_DESCRIPTION,
-        inLanguage: 'vi',
+        inLanguage: ['vi', 'en'],
         publisher: { '@id': 'https://tvtagency.com/#organization' },
         potentialAction: {
           '@type': 'SearchAction',
@@ -248,7 +257,7 @@ export function itemJsonLd(item: HubItem, base: string): JsonLd {
         headline: item.title.slice(0, 110),
         description: item.description,
         abstract: answerFirst(item),
-        inLanguage: 'vi',
+        inLanguage: ['vi', 'en'],
         datePublished: item.createdAt,
         dateModified: item.createdAt,
         author,
@@ -268,7 +277,7 @@ export function itemJsonLd(item: HubItem, base: string): JsonLd {
         '@id': `${url}#howto`,
         name: `Cách dùng ${item.title}`,
         description: item.description,
-        inLanguage: 'vi',
+        inLanguage: ['vi', 'en'],
         supply: variables.map((v) => ({ '@type': 'HowToSupply', name: `${v.label} ({{${v.key}}})` })),
         tool: [...TARGET_AGENTS, ...extractStack(item)].map((name) => ({ '@type': 'HowToTool', name })),
         step: steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.text, url: `${url}#step-${i + 1}` })),
@@ -329,6 +338,9 @@ export function buildSitemapEntries(
       ? [{ url: abs('/workflows', base), lastModified: latestOf(v3.workflows), changeFrequency: 'weekly' as const, priority: 0.9 }]
       : []),
     { url: abs('/build-in-public', base), lastModified: buildDate, changeFrequency: 'monthly', priority: 0.5 },
+    { url: abs('/guide', base), lastModified: buildDate, changeFrequency: 'monthly', priority: 0.8 },
+    { url: abs('/docs/api', base), lastModified: buildDate, changeFrequency: 'monthly', priority: 0.7 },
+    { url: abs('/docs/self-hosting', base), lastModified: buildDate, changeFrequency: 'monthly', priority: 0.5 },
     ...v3.workflows.map((wf) => ({ url: workflowUrl(wf.slug, base), lastModified: wf.createdAt, changeFrequency: 'monthly' as const, priority: 0.8 })),
     ...v3.bots.map((bot) => ({ url: botUrl(bot.id, base), lastModified: bot.createdAt, changeFrequency: 'monthly' as const, priority: 0.7 })),
     ...items.map((item) => ({
@@ -350,6 +362,8 @@ export function buildLlmsTxt(items: HubItem[], base: string, v3: V3Collections =
     'Mỗi mục có trang chi tiết với form điền biến {{VARIABLE}}, live preview, và xuất ra ChatGPT/Claude, .cursorrules (Cursor/Windsurf) hoặc SKILL.md (Claude Code, OpenClaw, Hermes). Nội dung mở theo giấy phép MIT.',
     '',
     `- Mã nguồn: ${REPO_URL}`,
+    `- MCP server (JSON-RPC 2.0, Streamable HTTP): ${abs('/api/mcp', base)} — tools: tvt_search, tvt_get_prompt, tvt_get_skill, tvt_get_bot, tvt_list_workflows`,
+    `- Tài liệu API: ${abs('/docs/api', base)} · Cẩm nang prompt 2026: ${abs('/guide', base)}`,
     `- Sitemap: ${abs('/sitemap.xml', base)}`,
     '',
   ];
@@ -389,7 +403,7 @@ export function workflowJsonLd(wf: WorkflowItem, base: string): JsonLd {
         url,
         name: wf.title,
         description: wf.summary,
-        inLanguage: 'vi',
+        inLanguage: ['vi', 'en'],
         estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: wf.estimatedCost },
         datePublished: wf.createdAt,
         author: wf.persona === 'toilatung' ? { '@id': 'https://toilatung.com/#organization' } : { '@id': 'https://tvtagency.com/#organization' },
@@ -430,7 +444,7 @@ export function botJsonLd(bot: BotItem, base: string): JsonLd {
         description: bot.description,
         applicationCategory: 'AI agent persona (system prompt)',
         operatingSystem: 'Claude, ChatGPT, Claude Code, Cursor, n8n',
-        inLanguage: 'vi',
+        inLanguage: ['vi', 'en'],
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         isAccessibleForFree: true,
         keywords: bot.tags.join(', '),

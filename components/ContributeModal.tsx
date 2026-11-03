@@ -5,41 +5,39 @@ import { Bot, ExternalLink, GitPullRequest, Sparkles, Workflow, X } from 'lucide
 import { GithubMark } from '@/components/Badges';
 import { useDialog } from '@/components/useDialog';
 import { REPO_URL } from '@/lib/site';
+import { useTranslation } from '@/components/I18nProvider';
+import type { MessageKey } from '@/lib/i18n';
 
 const TEMPLATES = [
   {
     Icon: Sparkles,
-    title: 'Đề xuất Prompt',
-    body: 'Micro-prompt có biến {{VARIABLE}} — JSON trong content/prompts/.',
+    title: 'contribute.promptTitle',
+    body: 'contribute.promptBody',
     href: `${REPO_URL}/issues/new?template=new-prompt.yml`,
     tone: 'text-cyan-300',
   },
   {
     Icon: Bot,
-    title: 'Đề xuất Skill (SKILL.md)',
-    body: 'SOP cho AI Agent: inputs, tools, các bước, quality gates.',
+    title: 'contribute.skillTitle',
+    body: 'contribute.skillBody',
     href: `${REPO_URL}/issues/new?template=new-skill.yml`,
     tone: 'text-emerald-300',
   },
   {
     Icon: Workflow,
-    title: 'Đề xuất Workflow',
-    body: 'Dây chuyền nhiều bước, đầu ra bước trước nối vào bước sau.',
+    title: 'contribute.workflowTitle',
+    body: 'contribute.workflowBody',
     href: `${REPO_URL}/issues/new?template=new-workflow.yml`,
     tone: 'text-amber-500',
   },
-] as const;
+] as const satisfies readonly { title: MessageKey; body: MessageKey; [k: string]: unknown }[];
 
-const STEPS = [
-  'Fork repo và tạo nhánh mới, ví dụ: content/add-linkedin-hook-prompt',
-  'Thêm 1 file vào content/prompts | skills | workflows | bots theo mẫu trong CONTRIBUTING.md',
-  'Chạy npm run validate && npm test — validator chặn biến thiếu khai báo, id trùng và secret bị lộ',
-  'Mở Pull Request: template PR có sẵn checklist để review nhanh',
-];
+const STEPS = ['contribute.step1', 'contribute.step2', 'contribute.step3', 'contribute.step4'] as const;
 
 export function ContributeModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const panelRef = useDialog(open, onClose);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const { t } = useTranslation();
   useEffect(() => {
     if (open) closeRef.current?.focus();
   }, [open]);
@@ -58,20 +56,20 @@ export function ContributeModal({ open, onClose }: { open: boolean; onClose: () 
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
             <p className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide text-emerald-300 uppercase">
-              <GitPullRequest className="size-3.5" aria-hidden /> Open source · PRs welcome
+              <GitPullRequest className="size-3.5" aria-hidden /> {t('contribute.eyebrow')}
             </p>
             <h2 id="contribute-title" className="mt-1 text-xl font-bold tracking-tight">
-              Đóng góp tài nguyên cho cộng đồng
+              {t('contribute.title')}
             </h2>
             <p className="mt-1 text-sm text-muted">
-              Mọi Prompt, Skill, Boost là một file trong repo — đóng góp bằng GitHub Issue hoặc Pull Request.
+              {t('contribute.lead')}
             </p>
           </div>
           <button
             ref={closeRef}
             type="button"
             onClick={onClose}
-            aria-label="Đóng"
+            aria-label={t('common.close')}
             className="focus-ring rounded-md p-2 text-muted transition hover:bg-overlay/5 hover:text-ink"
           >
             <X className="size-5" aria-hidden />
@@ -89,19 +87,19 @@ export function ContributeModal({ open, onClose }: { open: boolean; onClose: () 
             >
               <Icon className={`size-5 ${tone}`} aria-hidden />
               <span className="flex items-center gap-1 text-sm font-semibold text-ink">
-                {title} <ExternalLink className="size-3 text-faint" aria-hidden />
+                {t(title)} <ExternalLink className="size-3 text-faint" aria-hidden />
               </span>
-              <span className="text-xs leading-relaxed text-muted">{body}</span>
+              <span className="text-xs leading-relaxed text-muted">{t(body)}</span>
             </a>
           ))}
         </div>
 
-        <h3 className="mt-6 mb-2 text-sm font-semibold text-ink">Hoặc gửi Pull Request trực tiếp</h3>
+        <h3 className="mt-6 mb-2 text-sm font-semibold text-ink">{t('contribute.viaPr')}</h3>
         <ol className="space-y-2">
           {STEPS.map((step, i) => (
             <li key={step} className="flex gap-3 text-sm text-muted">
               <span className="grid size-6 shrink-0 place-items-center rounded-full border border-line font-mono text-xs text-ink">{i + 1}</span>
-              <span className="pt-0.5">{step}</span>
+              <span className="pt-0.5">{t(step)}</span>
             </li>
           ))}
         </ol>
@@ -113,7 +111,7 @@ export function ContributeModal({ open, onClose }: { open: boolean; onClose: () 
             rel="noreferrer"
             className="focus-ring inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-neon-cyan px-4 text-sm font-semibold text-on-accent transition hover:brightness-110"
           >
-            Đọc hướng dẫn CONTRIBUTING
+            {t('contribute.readGuide')}
           </a>
           <a
             href={`${REPO_URL}/fork`}
@@ -121,7 +119,7 @@ export function ContributeModal({ open, onClose }: { open: boolean; onClose: () 
             rel="noreferrer"
             className="focus-ring inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-line px-4 text-sm font-semibold text-ink transition hover:border-line-strong"
           >
-            <GithubMark className="size-4" /> Fork trên GitHub
+            <GithubMark className="size-4" /> {t('contribute.fork')}
           </a>
         </div>
       </div>

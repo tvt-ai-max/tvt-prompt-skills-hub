@@ -3,6 +3,7 @@ import { ArrowUpRight, Clock, Coins, Gauge } from 'lucide-react';
 import type { WorkflowItem } from '@/types/hub';
 import type { BotGlyphs } from '@/components/WorkflowCanvas';
 import { categoryLabel } from '@/lib/labels';
+import { T } from '@/components/I18nProvider';
 
 const DIFFICULTY_TONE: Record<WorkflowItem['difficulty'], string> = {
   Beginner: 'text-emerald-300 border-neon-emerald/30 bg-neon-emerald/10',
@@ -33,7 +34,7 @@ export function WorkflowCard({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs }
       </h3>
       <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{wf.summary}</p>
 
-      <ol className="mt-4 flex items-center" aria-label={`${wf.steps.length} bước`}>
+      <ol className="mt-4 flex items-center">
         {wf.steps.map((step, i) => (
           <li key={step.id} className="flex items-center">
             <span
@@ -57,7 +58,7 @@ export function WorkflowCard({ wf, bots }: { wf: WorkflowItem; bots: BotGlyphs }
           {wf.estimatedCost.split('(')[0].trim()}
         </span>
         <span className="ml-auto inline-flex items-center gap-0.5 text-muted transition group-hover:text-ink">
-          Mở studio <ArrowUpRight className="size-3.5" aria-hidden />
+          <T k="studio.openStudio" /> <ArrowUpRight className="size-3.5" aria-hidden />
         </span>
       </div>
     </article>

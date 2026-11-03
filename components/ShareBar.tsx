@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { buildShareUrls, shareCaption } from '@/lib/share';
 import { copyText } from '@/lib/clipboard';
 import { useToast } from '@/components/ToastProvider';
+import { useTranslation } from '@/components/I18nProvider';
 
 function XMark({ className }: { className?: string }) {
   return (
@@ -34,6 +35,7 @@ const btn =
 /** One-tap social sharing with a hook caption + copy link (toast). Uses the native share sheet on mobile when available. */
 export function ShareBar({ url, item }: { url: string; item: { title: string; description: string; tier: string } }) {
   const toast = useToast();
+  const { t } = useTranslation();
   const [canNativeShare, setCanNativeShare] = useState(false);
   useEffect(() => setCanNativeShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function'), []);
 
@@ -42,28 +44,28 @@ export function ShareBar({ url, item }: { url: string; item: { title: string; de
   const open = (href: string) => window.open(href, '_blank', 'noopener,noreferrer,width=640,height=640');
 
   return (
-    <div className="flex flex-wrap items-center gap-2" aria-label="Chia sẻ">
+    <div className="flex flex-wrap items-center gap-2" aria-label={t('share.aria')}>
       <button
         type="button"
         className={btn}
-        onClick={async () => toast((await copyText(url)) ? 'Đã copy link!' : 'Không copy được — hãy copy thủ công')}
+        onClick={async () => toast((await copyText(url)) ? t('share.linkCopied') : t('common.clipboardBlocked'))}
       >
-        <Link2 className="size-4" aria-hidden /> Copy link
+        <Link2 className="size-4" aria-hidden /> {t('share.copyLink')}
       </button>
-      <button type="button" className={btn} onClick={() => open(targets.x)} aria-label="Chia sẻ lên X (Twitter)">
+      <button type="button" className={btn} onClick={() => open(targets.x)} aria-label={t('share.x')}>
         <XMark className="size-3.5" /> <span className="hidden sm:inline">X</span>
       </button>
-      <button type="button" className={btn} onClick={() => open(targets.linkedin)} aria-label="Chia sẻ lên LinkedIn">
+      <button type="button" className={btn} onClick={() => open(targets.linkedin)} aria-label={t('share.linkedin')}>
         <LinkedInMark className="size-3.5" /> <span className="hidden sm:inline">LinkedIn</span>
       </button>
-      <button type="button" className={btn} onClick={() => open(targets.facebook)} aria-label="Chia sẻ lên Facebook">
+      <button type="button" className={btn} onClick={() => open(targets.facebook)} aria-label={t('share.facebook')}>
         <FacebookMark className="size-3.5" /> <span className="hidden sm:inline">Facebook</span>
       </button>
       {canNativeShare && (
         <button
           type="button"
           className={btn}
-          aria-label="Chia sẻ qua ứng dụng khác"
+          aria-label={t('share.native')}
           onClick={() => navigator.share({ title: item.title, text: caption, url }).catch(() => undefined)}
         >
           <Share2 className="size-4" aria-hidden />
