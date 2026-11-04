@@ -250,7 +250,7 @@ export function buildN8nWorkflow(wf: WorkflowItem, values: Record<string, string
     parameters: {
       width: 520,
       height: 200,
-      content: `## ${wf.title}\nXuất từ TVT Intelligence Hub. Gắn credential cho từng node model (Claude / Gemini / DeepSeek) sau khi import — file này không chứa API key. Kiểm tra model của từng node và quality gate của từng bước trước khi chạy thật.`,
+      content: `## ${wf.title}\nXuất từ LexiHub (by TVT Intelligence). Gắn credential cho từng node model (Claude / Gemini / DeepSeek) sau khi import — file này không chứa API key. Kiểm tra model của từng node và quality gate của từng bước trước khi chạy thật.`,
     },
   });
   nodes.push({
@@ -314,7 +314,7 @@ export function buildN8nWorkflow(wf: WorkflowItem, values: Record<string, string
     connections,
     settings: { executionOrder: 'v1' },
     pinData: {},
-    meta: { templateCredsSetupCompleted: false, source: 'tvt-intelligence-hub', workflowId: wf.id },
+    meta: { templateCredsSetupCompleted: false, source: 'lexihub', workflowId: wf.id },
   };
 }
 
@@ -354,7 +354,7 @@ export function buildPythonScript(wf: WorkflowItem, values: Record<string, strin
   return `#!/usr/bin/env python3
 """${wf.title.replace(/"/g, "'")}
 
-Exported from TVT Intelligence Hub (workflow: ${wf.id}).
+Exported from LexiHub (workflow: ${wf.id}).
 Runs the ${wf.steps.length}-step chain with Claude, piping each step's output into the next.
 
 Setup:

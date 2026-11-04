@@ -30,8 +30,11 @@ export function Hero({ stats }: { stats: HubStats }) {
           <T k="hero.badge" vars={{ count: stats.total + stats.bots + stats.workflows }} />
         </Link>
         <h1 className="mt-6 text-4xl leading-[1.1] font-bold tracking-tight text-balance sm:text-6xl">
-          <span className="text-gradient">TVT Intelligence Hub</span>
+          <span className="text-gradient">LexiHub</span>
         </h1>
+        <p className="mt-2 text-xs font-semibold tracking-widest uppercase text-neon-cyan sm:text-sm">
+          by TVT Intelligence
+        </p>
         <p className="mt-3 text-lg font-medium text-ink/90 sm:text-xl">{SITE_TAGLINE}</p>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-pretty text-muted sm:text-base">
           <T k="hero.lead" />

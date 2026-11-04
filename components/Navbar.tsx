@@ -52,11 +52,11 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6" aria-label={t('nav.mainAria')}>
         <Link href="/" className="focus-ring flex shrink-0 items-center gap-2.5 rounded-lg whitespace-nowrap">
           <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-line-strong bg-gradient-to-br from-neon-cyan/25 via-neon-emerald/15 to-neon-violet/25 font-mono text-sm font-bold text-ink">
-            T
+            L
           </span>
           <span className="leading-tight">
-            <span className="text-gradient block text-sm font-bold tracking-tight sm:text-base">TVT Intelligence Hub</span>
-            <span className="hidden text-[11px] text-faint xl:block">{t('nav.tagline')}</span>
+            <span className="text-gradient block text-sm font-bold tracking-tight sm:text-base">LexiHub</span>
+            <span className="hidden text-[11px] text-faint xl:block">by TVT Intelligence</span>
           </span>
         </Link>
 
@@ -148,7 +148,7 @@ export function Navbar() {
             className="scrollbar-thin absolute inset-y-0 right-0 flex w-[82%] max-w-xs animate-slide-in flex-col gap-1 overflow-y-auto border-l border-line bg-space p-4"
           >
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-gradient text-sm font-bold">TVT Intelligence Hub</span>
+              <span className="text-gradient text-sm font-bold">LexiHub <span className="text-[11px] font-normal text-faint">by TVT Intelligence</span></span>
               <button
                 type="button"
                 onClick={() => setDrawer(false)}

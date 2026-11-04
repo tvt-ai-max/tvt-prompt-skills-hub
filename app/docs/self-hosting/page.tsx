@@ -7,16 +7,16 @@ import { REPO_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Self-hosting — Docker, Vercel, Cloudflare, VPS HestiaCP',
-  description: 'Tự triển khai TVT Intelligence Hub: Docker 1 lệnh, Vercel, Cloudflare Pages, hoặc VPS HestiaCP (static export hoặc Node.js).',
+  description: 'Tự triển khai LexiHub: Docker 1 lệnh, Vercel, Cloudflare Pages, hoặc VPS HestiaCP (static export hoặc Node.js).',
   alternates: localeAlternates('/docs/self-hosting'),
 };
 
 const SNIPPETS = {
-  docker: `git clone ${REPO_URL}.git\ncd tvt-prompt-skills-hub\ndocker build --build-arg NEXT_PUBLIC_SITE_URL=https://hub.example.com -t tvt-prompt-skills-hub .\ndocker run -p 3000:3000 tvt-prompt-skills-hub`,
-  vercel: `npm i -g vercel\nvercel --prod   # set NEXT_PUBLIC_SITE_URL in the project settings`,
-  cloudflare: `NEXT_PUBLIC_SITE_URL=https://hub.example.com npm run build:static\nnpx wrangler pages deploy out --project-name tvt-hub`,
-  hestiaStatic: `NEXT_PUBLIC_SITE_URL=https://hub.example.com npm run build:static\nrsync -avz --delete out/ user@vps:/home/user/web/hub.example.com/public_html/`,
-  hestiaNode: `npm ci && NEXT_PUBLIC_SITE_URL=https://hub.example.com npm run build\nnpx pm2 start "npm start -- -p 3000" --name tvt-hub\n# HestiaCP: Web → Edit domain → Proxy template "nodejs" (or an nginx proxy_pass to 127.0.0.1:3000)`,
+  docker: `git clone ${REPO_URL}.git\ncd tvt-prompt-skills-hub\ndocker build --build-arg NEXT_PUBLIC_SITE_URL=https://lexihub.tech -t lexihub .\ndocker run -p 3000:3000 lexihub`,
+  vercel: `npm i -g vercel\nvercel --prod   # set NEXT_PUBLIC_SITE_URL=https://lexihub.tech in the project settings`,
+  cloudflare: `NEXT_PUBLIC_SITE_URL=https://lexihub.tech npm run build:static\nnpx wrangler pages deploy out --project-name lexihub`,
+  hestiaStatic: `NEXT_PUBLIC_SITE_URL=https://lexihub.tech npm run build:static\nrsync -avz --delete out/ user@vps:/home/user/web/lexihub.tech/public_html/`,
+  hestiaNode: `npm ci && NEXT_PUBLIC_SITE_URL=https://lexihub.tech npm run build\nnpx pm2 start "npm start -- -p 3000" --name lexihub\n# HestiaCP: Web → Edit domain → Proxy template "nodejs" (or an nginx proxy_pass to 127.0.0.1:3000)`,
 };
 
 function Body({ vi }: { vi: boolean }) {

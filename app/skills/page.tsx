@@ -4,7 +4,7 @@ import { localeAlternates } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Skills',
-  description: 'Danh sách Skills trong TVT Intelligence Hub — điền biến, xem trước và copy 1 chạm cho ChatGPT, Claude, Cursor, SKILL.md.',
+  description: 'Danh sách Skills trong LexiHub — điền biến, xem trước và copy 1 chạm cho ChatGPT, Claude, Cursor, SKILL.md.',
   alternates: localeAlternates('/skills'),
 };
 

@@ -135,11 +135,11 @@ export async function renderOgCard(opts: {
                 fontWeight: 700,
               }}
             >
-              T
+              L
             </div>
-            <div style={{ display: 'flex', fontSize: 28, fontWeight: 700 }}>TVT Intelligence Hub</div>
+            <div style={{ display: 'flex', fontSize: 28, fontWeight: 700 }}>LexiHub</div>
           </div>
-          <div style={{ display: 'flex', fontSize: 22, color: '#94A3B8' }}>Prompt · Skill · Boost — ChatGPT · Claude · Cursor · SKILL.md</div>
+          <div style={{ display: 'flex', fontSize: 20, color: '#94A3B8' }}>by TVT Intelligence · Prompt · Skill · Bot · Workflow · MCP</div>
         </div>
       </div>
     ),

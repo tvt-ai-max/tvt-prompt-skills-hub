@@ -16,7 +16,7 @@ export function toChatMarkdown(_item: HubItem, rendered: string): string {
 export function toCursorRules(item: HubItem, rendered: string): string {
   const lines = [
     `# .cursorrules — ${item.title}`,
-    `# Source: TVT Intelligence Hub (${item.id}) — ${SOURCE_URL}`,
+    `# Source: LexiHub (${item.id}) — ${SOURCE_URL}`,
     `# Tier: ${TIER_META[item.tier].label} | Persona: ${PERSONA_META[item.persona].label} | Category: ${itemCategory(item)}`,
     '',
     '## Role & Context',

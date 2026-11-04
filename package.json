@@ -2,7 +2,7 @@
   "name": "tvt-intelligence-hub",
   "version": "1.0.0",
   "private": true,
-  "description": "TVT Intelligence Hub \u2014 The Ultimate Prompt, Skill & Boost Control Center",
+  "description": "LexiHub — The Open AI Prompt, Skill & Bot Intelligence Center (by TVT Intelligence)",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

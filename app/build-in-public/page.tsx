@@ -12,7 +12,7 @@ import { REPO_URL } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Build in Public',
   description:
-    'Câu chuyện xây dựng TVT Intelligence Hub công khai: từ 4 file đặc tả đến nền tảng mã nguồn mở với hơn 500 Prompt, Skill, Bot và Workflow — bởi Claude Code Cloud + Antigravity, không database, hosting tĩnh.',
+    'Câu chuyện xây dựng LexiHub công khai: từ 4 file đặc tả đến nền tảng mã nguồn mở với hơn 500 Prompt, Skill, Bot và Workflow — bởi Claude Code Cloud + Antigravity, không database, hosting tĩnh.',
   alternates: localeAlternates('/build-in-public'),
 };
 
@@ -116,13 +116,13 @@ function Body({ vi, stats }: { vi: boolean; stats: HubStats }) {
         <p className="text-base leading-relaxed text-muted sm:text-lg">
           {vi ? (
             <>
-              TVT Intelligence Hub được khởi tạo và xây dựng thần tốc bởi <strong className="text-ink">Claude Code Cloud</strong> +{' '}
+              LexiHub (TVT Intelligence Hub) được khởi tạo và xây dựng thần tốc bởi <strong className="text-ink">Claude Code Cloud</strong> +{' '}
               <strong className="text-ink">Antigravity</strong> với ngân sách tối giản: không thuê đội dev, không database, không server ứng dụng phức
               tạp. Chúng tôi công khai toàn bộ quá trình để cộng đồng lập trình viên và solopreneur có thể làm lại — và làm tốt hơn.
             </>
           ) : (
             <>
-              TVT Intelligence Hub was started and built at speed with <strong className="text-ink">Claude Code Cloud</strong> +{' '}
+              LexiHub (TVT Intelligence Hub) was started and built at speed with <strong className="text-ink">Claude Code Cloud</strong> +{' '}
               <strong className="text-ink">Antigravity</strong> on a minimal budget: no dev team, no database, no complex app server. We publish the
               whole process so developers and solopreneurs can repeat it — and do it better.
             </>

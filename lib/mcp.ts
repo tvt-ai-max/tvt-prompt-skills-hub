@@ -11,7 +11,7 @@ import { SITE_URL } from '@/lib/site';
  * Pure: the route handler passes the catalog in, tests pass fixtures.
  */
 
-export const MCP_SERVER_INFO = { name: 'tvt-intelligence-hub', title: 'TVT Intelligence Hub', version: '4.0.0' } as const;
+export const MCP_SERVER_INFO = { name: 'lexihub', title: 'LexiHub', version: '4.0.0' } as const;
 export const SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'] as const;
 export const LATEST_PROTOCOL_VERSION = SUPPORTED_PROTOCOL_VERSIONS[0];
 
@@ -25,7 +25,7 @@ export interface McpCatalog {
 export const MCP_TOOLS = [
   {
     name: 'tvt_search',
-    title: 'Search the TVT Intelligence Hub',
+    title: 'Search LexiHub',
     description:
       'Fuzzy search across every prompt (incl. Deep Reasoning), agent skill, bot persona and workflow. Returns ids to pass to the tvt_get_* tools.',
     inputSchema: {
@@ -309,7 +309,7 @@ function handleOne(message: unknown, catalog: McpCatalog): JsonRpcResponse | nul
           capabilities: { tools: { listChanged: false } },
           serverInfo: MCP_SERVER_INFO,
           instructions:
-            'Read-only access to TVT Intelligence Hub. Start with tvt_search, then fetch details with tvt_get_prompt, tvt_get_skill, tvt_get_bot or tvt_list_workflows.',
+            'Read-only access to LexiHub. Start with tvt_search, then fetch details with tvt_get_prompt, tvt_get_skill, tvt_get_bot or tvt_list_workflows.',
         },
       };
       break;

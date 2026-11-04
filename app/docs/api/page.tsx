@@ -9,17 +9,17 @@ import { SITE_URL } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'API & MCP Server — kết nối Cursor, Claude, Windsurf',
   description:
-    'TVT Intelligence Hub là một MCP server (Model Context Protocol): tìm kiếm và lấy Prompt, Skill, Bot, Workflow trực tiếp từ Cursor, Claude Desktop, Claude Code, Windsurf và Antigravity. Kèm REST API tĩnh.',
+    'LexiHub là một MCP server (Model Context Protocol): tìm kiếm và lấy Prompt, Skill, Bot, Workflow trực tiếp từ Cursor, Claude Desktop, Claude Code, Windsurf và Antigravity. Kèm REST API tĩnh.',
   alternates: localeAlternates('/docs/api'),
 };
 
 const ENDPOINT = `${SITE_URL.replace(/\/$/, '')}/api/mcp`;
 
 const CONFIGS = {
-  cursor: JSON.stringify({ mcpServers: { 'tvt-hub': { url: ENDPOINT } } }, null, 2),
-  claudeDesktop: JSON.stringify({ mcpServers: { 'tvt-hub': { command: 'npx', args: ['-y', 'mcp-remote', ENDPOINT] } } }, null, 2),
-  windsurf: JSON.stringify({ mcpServers: { 'tvt-hub': { serverUrl: ENDPOINT } } }, null, 2),
-  claudeCode: `claude mcp add --transport http tvt-hub ${ENDPOINT}`,
+  cursor: JSON.stringify({ mcpServers: { lexihub: { url: ENDPOINT } } }, null, 2),
+  claudeDesktop: JSON.stringify({ mcpServers: { lexihub: { command: 'npx', args: ['-y', 'mcp-remote', ENDPOINT] } } }, null, 2),
+  windsurf: JSON.stringify({ mcpServers: { lexihub: { serverUrl: ENDPOINT } } }, null, 2),
+  claudeCode: `claude mcp add --transport http lexihub ${ENDPOINT}`,
   curlList: `curl -s ${ENDPOINT} \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json, text/event-stream' \\\n  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'`,
   curlCall: `curl -s ${ENDPOINT} \\\n  -H 'Content-Type: application/json' \\\n  -H 'Accept: application/json, text/event-stream' \\\n  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"tvt_search","arguments":{"query":"meta ads","tier":"skill"}}}'`,
 };
@@ -133,7 +133,7 @@ export default function ApiDocsPage() {
             <p className="font-mono text-xs text-cyan-300">MCP-first API · {MCP_SERVER_INFO.name} v{MCP_SERVER_INFO.version}</p>
             <h1>Kết nối Hub vào IDE và AI của bạn</h1>
             <p>
-              TVT Intelligence Hub là một <strong>MCP server</strong> (Model Context Protocol) công khai, chỉ đọc. Kết nối một lần, sau đó AI trong
+              LexiHub là một <strong>MCP server</strong> (Model Context Protocol) công khai, chỉ đọc. Kết nối một lần, sau đó AI trong
               Cursor, Claude, Windsurf hay Antigravity có thể tự tìm và lấy đúng Prompt, Skill, Bot hoặc Workflow khi bạn đang làm việc — không cần
               copy qua lại.
             </p>
@@ -165,7 +165,7 @@ export default function ApiDocsPage() {
             <p className="font-mono text-xs text-cyan-300">MCP-first API · {MCP_SERVER_INFO.name} v{MCP_SERVER_INFO.version}</p>
             <h1>Plug the Hub into your IDE and AI</h1>
             <p>
-              TVT Intelligence Hub is a public, read-only <strong>MCP server</strong> (Model Context Protocol). Connect it once and the AI in Cursor,
+              LexiHub is a public, read-only <strong>MCP server</strong> (Model Context Protocol). Connect it once and the AI in Cursor,
               Claude, Windsurf or Antigravity can find and fetch the right Prompt, Skill, Bot or Workflow while you work — no copy-pasting.
             </p>
             <ul>

@@ -143,7 +143,7 @@ test('MCP: initialize negotiates the protocol and advertises tools', () => {
   const result = res.result as { protocolVersion: string; capabilities: { tools: object }; serverInfo: { name: string } };
   assert.equal(result.protocolVersion, '2025-06-18');
   assert.ok(result.capabilities.tools);
-  assert.equal(result.serverInfo.name, 'tvt-intelligence-hub');
+  assert.equal(result.serverInfo.name, 'lexihub');
   const unknown = rpc({ jsonrpc: '2.0', id: 2, method: 'initialize', params: { protocolVersion: '1999-01-01' } }).result as { protocolVersion: string };
   assert.equal(unknown.protocolVersion, LATEST_PROTOCOL_VERSION);
 });

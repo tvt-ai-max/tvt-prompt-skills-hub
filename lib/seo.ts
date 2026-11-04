@@ -200,6 +200,7 @@ export function homeJsonLd(base: string, stats: HubStats): JsonLd {
         '@id': `${home}#website`,
         url: home,
         name: SITE_NAME,
+        alternateName: 'TVT Intelligence Hub',
         description: SITE_DESCRIPTION,
         inLanguage: ['vi', 'en'],
         publisher: { '@id': 'https://tvtagency.com/#organization' },
@@ -294,7 +295,7 @@ export function itemJsonLd(item: HubItem, base: string): JsonLd {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
+          { '@type': 'ListItem', position: 1, name: 'LexiHub', item: abs('/', base) },
           { '@type': 'ListItem', position: 2, name: catalogTier(item.tier) === 'skill' ? 'Skills' : 'Prompts', item: abs(tierPath, base) },
           { '@type': 'ListItem', position: 3, name: item.title, item: url },
         ],
@@ -422,7 +423,7 @@ export function workflowJsonLd(wf: WorkflowItem, base: string): JsonLd {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
+          { '@type': 'ListItem', position: 1, name: 'LexiHub', item: abs('/', base) },
           { '@type': 'ListItem', position: 2, name: 'Workflows', item: abs('/workflows', base) },
           { '@type': 'ListItem', position: 3, name: wf.title, item: url },
         ],
@@ -454,7 +455,7 @@ export function botJsonLd(bot: BotItem, base: string): JsonLd {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Hub', item: abs('/', base) },
+          { '@type': 'ListItem', position: 1, name: 'LexiHub', item: abs('/', base) },
           { '@type': 'ListItem', position: 2, name: 'Bots', item: abs('/bots', base) },
           { '@type': 'ListItem', position: 3, name: bot.name, item: url },
         ],

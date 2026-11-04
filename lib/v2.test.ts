@@ -241,7 +241,7 @@ test('sitemap covers home, tier pages, story page and every item', () => {
 
 test('llms.txt lists every item with absolute links', () => {
   const txt = buildLlmsTxt([prompt, skill, boost], BASE);
-  assert.match(txt, /^# TVT Intelligence Hub/);
+  assert.match(txt, /^# LexiHub/);
   for (const id of ['demo-prompt', 'demo-skill', 'demo-boost']) assert.ok(txt.includes(`${BASE}/items/${id}`));
   assert.ok(txt.includes('`/boost DEMO`'));
 });
