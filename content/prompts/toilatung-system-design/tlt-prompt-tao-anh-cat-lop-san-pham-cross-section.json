@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-anh-cat-lop-san-pham-cross-section",
   "title": "Prompt Tạo Ảnh Cắt Lớp Sản Phẩm (Cross-section)",
   "description": "Tạo ảnh chụp cắt lớp sản phẩm công nghệ để hiển thị các chi tiết cơ học và bo mạch bên trong.",
-  "category": "system-design",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

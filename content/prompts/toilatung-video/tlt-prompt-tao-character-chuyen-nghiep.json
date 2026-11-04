@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-character-chuyen-nghiep",
   "title": "Prompt tạo character chuyên nghiệp",
   "description": "Tạo full character bible (tính cách + ngoại hình + trang phục + reference).",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

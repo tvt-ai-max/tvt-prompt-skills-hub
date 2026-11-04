@@ -2,7 +2,7 @@
   "id": "tlt-prompt-sua-loi-chu-tieng-viet",
   "title": "Prompt sửa lỗi chữ tiếng Việt",
   "description": "Dùng khi AI tạo sai hoặc lỗi font chữ tiếng Việt.",
-  "category": "system-design",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

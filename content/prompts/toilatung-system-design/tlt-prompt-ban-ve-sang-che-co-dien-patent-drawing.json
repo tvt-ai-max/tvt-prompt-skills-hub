@@ -2,7 +2,7 @@
   "id": "tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing",
   "title": "Prompt Bản Vẽ Sáng Chế Cổ Điển (Patent Drawing)",
   "description": "Tạo hình vẽ thiết kế sáng chế phong cách vẽ nét đen trắng (line art) trên nền giấy cổ điển.",
-  "category": "system-design",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

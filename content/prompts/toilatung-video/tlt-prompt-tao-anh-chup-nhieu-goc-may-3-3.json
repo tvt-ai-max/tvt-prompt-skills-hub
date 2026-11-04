@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-anh-chup-nhieu-goc-may-3-3",
   "title": "Prompt tạo ảnh chụp nhiều góc máy (3×3)",
   "description": "Tạo 9 ảnh cùng lúc về 9 góc chụp khác nhau của cùng một nhân vật trong cùng bối cảnh.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

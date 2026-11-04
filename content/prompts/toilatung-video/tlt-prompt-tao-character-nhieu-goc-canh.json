@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-character-nhieu-goc-canh",
   "title": "Prompt tạo character nhiều góc cạnh",
   "description": "Tạo ảnh tham chiếu nhân vật với nhiều góc cạnh khác nhau, đủ 360°.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

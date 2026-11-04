@@ -2,7 +2,7 @@
   "id": "tlt-virtual-influencer-character-sheet-360",
   "title": "Virtual Influencer Character Sheet (360°)",
   "description": "Tạo bảng tham chiếu nhân vật 3 góc quay (trước, nghiêng, sau) để làm tư liệu tạo ảnh nhất quán.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

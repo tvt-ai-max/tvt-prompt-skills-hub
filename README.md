@@ -69,11 +69,12 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 
 | Tầng | Chuyên khoa | Số lượng |
 |---|---|---:|
-| ✨ Prompts | [Video & Motion](#prompt-video) | 34 |
-| ✨ Prompts | [Operations & SOP](#prompt-operations) | 24 |
-| ✨ Prompts | [System Design & AI](#prompt-system-design) | 24 |
+| ✨ Prompts | [Image](#prompt-image) | 29 |
 | ✨ Prompts | [Copywriting](#prompt-copywriting) | 23 |
-| ✨ Prompts | [Brand Strategy](#prompt-branding) | 16 |
+| ✨ Prompts | [Operations & SOP](#prompt-operations) | 23 |
+| ✨ Prompts | [Video & Motion](#prompt-video) | 21 |
+| ✨ Prompts | [System Design & AI](#prompt-system-design) | 19 |
+| ✨ Prompts | [Brand Strategy](#prompt-branding) | 6 |
 | ✨ Prompts | [SEO / GEO](#prompt-seo) | 6 |
 | ✨ Prompts | [Coding & Dev](#prompt-coding) | 5 |
 | ✨ Prompts | [Marketing & Growth](#prompt-marketing) | 5 |
@@ -95,108 +96,41 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 
 ### ✨ Prompts (139)
 
-<a id="prompt-video"></a>
+<a id="prompt-image"></a>
 
-#### Video & Motion (34)
+#### Image (29)
 
 | Tên | Mô tả | Nguồn |
 |---|---|---|
+| [6-Layer Text to Image Prompt](https://lexihub.tech/items/tlt-6-layer-text-to-image-prompt) | Cấu trúc prompt 6 lớp giúp kiểm soát tối đa kết quả. | [📄](content/prompts/toilatung-branding/tlt-6-layer-text-to-image-prompt.json) |
+| [A3 Print-ready Poster Prompt](https://lexihub.tech/items/tlt-a3-print-ready-poster-prompt) | Tối ưu hóa poster để in ấn khổ lớn (A3/A2). | [📄](content/prompts/toilatung-branding/tlt-a3-print-ready-poster-prompt.json) |
+| [Banner Workflow 16:9 Dual Neon Light (Electric Cyan & Magenta)](https://lexihub.tech/items/tlt-banner-workflow-16-9-dual-neon-light-electric-cyan-magenta) | Tạo poster infographic 16:9 phong cách Dual Neon Light phát sáng rực rỡ (Cyan #00F0FF & Magenta #FF007F) nổi… | [📄](content/prompts/toilatung-branding/tlt-banner-workflow-16-9-dual-neon-light-electric-cyan-magenta.json) |
+| [Banner Workflow 16:9 với Avatar AI Orchestrator](https://lexihub.tech/items/tlt-banner-workflow-16-9-voi-avatar-ai-orchestrator) | Tạo poster infographic workflow 16:9 viền Neon Dark Navy (#003189) tích hợp Avatar AI Orchestrator làm hạt nh… | [📄](content/prompts/toilatung-branding/tlt-banner-workflow-16-9-voi-avatar-ai-orchestrator.json) |
+| [Batch 20 Famous Posters Prompt](https://lexihub.tech/items/tlt-batch-20-famous-posters-prompt) | Quy trình tạo hàng loạt 20 poster theo nhóm. | [📄](content/prompts/toilatung-branding/tlt-batch-20-famous-posters-prompt.json) |
+| [Bento Grid Infographic Layout](https://lexihub.tech/items/tlt-bento-grid-infographic-layout) | Tạo bố cục Bento Grid hiện đại để trình bày thông tin, dữ liệu công nghệ. | [📄](content/prompts/toilatung-branding/tlt-bento-grid-infographic-layout.json) |
+| [Editorial Biography Poster Master](https://lexihub.tech/items/tlt-editorial-biography-poster-master) | Prompt toàn năng tạo poster tiểu sử nhân vật. | [📄](content/prompts/toilatung-branding/tlt-editorial-biography-poster-master.json) |
 | [Glass Skin Portrait](https://lexihub.tech/items/tlt-glass-skin-portrait) | Tạo ảnh chân dung ảo siêu thực để làm khuôn mặt chuẩn. | [📄](content/prompts/toilatung-video/tlt-glass-skin-portrait.json) |
-| [Google AI Studio Multimodal Video Analyzer](https://lexihub.tech/items/tlt-google-ai-studio-multimodal-video-analyzer) | System Instruction dành cho Google AI Studio giúp phân tích video dài và tự động xuất dữ liệu cấu trúc dưới d… | [📄](content/prompts/toilatung-video/tlt-google-ai-studio-multimodal-video-analyzer.json) |
-| [Google Flow Cinematic Movie & Audio Sync](https://lexihub.tech/items/tlt-google-flow-cinematic-movie-audio-sync) | Prompt tạo video 8 giây chuyên nghiệp trên Google Flow/Veo có camera chuyển động phức tạp và âm thanh đồng bộ. | [📄](content/prompts/toilatung-video/tlt-google-flow-cinematic-movie-audio-sync.json) |
 | [Multi-Panel Storyboard Comic Sheet](https://lexihub.tech/items/tlt-multi-panel-storyboard-comic-sheet) | Tạo một trang storyboard 6 khung hình nối tiếp nhau giữ nguyên nhân vật và phong cách vẽ. | [📄](content/prompts/toilatung-video/tlt-multi-panel-storyboard-comic-sheet.json) |
 | [Nano Banana Ultra Photorealistic Portrait](https://lexihub.tech/items/tlt-nano-banana-ultra-photorealistic-portrait) | Sử dụng Scene Director Method tạo ảnh chân dung siêu thực, giữ độ chi tiết da và mắt cực tốt. | [📄](content/prompts/toilatung-video/tlt-nano-banana-ultra-photorealistic-portrait.json) |
-| [Prompt phân đoạn nhỏ 3-5 giây](https://lexihub.tech/items/tlt-prompt-phan-doan-nho-3-5-giay) | Phân tích video YouTube thành từng đoạn siêu chi tiết để remake. | [📄](content/prompts/toilatung-video/tlt-prompt-phan-doan-nho-3-5-giay.json) |
-| [Prompt Phân Tích & Remake Video Xu Hướng](https://lexihub.tech/items/tlt-prompt-phan-tich-remake-video-xu-huong) | Phân tích cấu trúc, nhịp điệu và nội dung của một video đang lên xu hướng để viết lại kịch bản remake phù hợp… | [📄](content/prompts/toilatung-video/tlt-prompt-phan-tich-remake-video-xu-huong.json) |
-| [Prompt phân tích kịch bản video](https://lexihub.tech/items/tlt-prompt-phan-tich-kich-ban-video) | Phân tích và viết lại kịch bản video chuyên nghiệp. | [📄](content/prompts/toilatung-video/tlt-prompt-phan-tich-kich-ban-video.json) |
+| [Pitch Deck Slide Design Vibe](https://lexihub.tech/items/tlt-pitch-deck-slide-design-vibe) | Thiết kế visual layout cho một slide thuyết trình hoặc pitch deck theo phong cách hiện đại. | [📄](content/prompts/toilatung-branding/tlt-pitch-deck-slide-design-vibe.json) |
+| [Poster A4: Quy Trình 11 Bước Khóa Nhân Vật AI Nhất Quán (Founder Tùng)](https://lexihub.tech/items/tlt-poster-a4-quy-trinh-11-buoc-khoa-nhan-vat-ai-nhat-quan-founder-tung) | Tạo infographic dọc A4 trực quan hóa 11 bước chống trôi danh tính (Anti-Identity Drift) với Case Study Founde… | [📄](content/prompts/toilatung-branding/tlt-poster-a4-quy-trinh-11-buoc-khoa-nhan-vat-ai-nhat-quan-founder-tung.json) |
+| [Prompt Bản Vẽ Sáng Chế Cổ Điển (Patent Drawing)](https://lexihub.tech/items/tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing) | Tạo hình vẽ thiết kế sáng chế phong cách vẽ nét đen trắng (line art) trên nền giấy cổ điển. | [📄](content/prompts/toilatung-system-design/tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing.json) |
+| [Prompt sửa lỗi chữ tiếng Việt](https://lexihub.tech/items/tlt-prompt-sua-loi-chu-tieng-viet) | Dùng khi AI tạo sai hoặc lỗi font chữ tiếng Việt. | [📄](content/prompts/toilatung-system-design/tlt-prompt-sua-loi-chu-tieng-viet.json) |
 | [Prompt tách 1 cảnh trong ảnh 3×3](https://lexihub.tech/items/tlt-prompt-tach-1-canh-trong-anh-3-3) | Tách riêng từng ảnh từ bộ 3×3 đã tạo. | [📄](content/prompts/toilatung-video/tlt-prompt-tach-1-canh-trong-anh-3-3.json) |
+| [Prompt Tạo Ảnh Cắt Lớp Sản Phẩm (Cross-section)](https://lexihub.tech/items/tlt-prompt-tao-anh-cat-lop-san-pham-cross-section) | Tạo ảnh chụp cắt lớp sản phẩm công nghệ để hiển thị các chi tiết cơ học và bo mạch bên trong. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-anh-cat-lop-san-pham-cross-section.json) |
+| [Prompt Tạo Ảnh Cho Từng Phân Cảnh](https://lexihub.tech/items/tlt-prompt-tao-anh-cho-tung-phan-canh) | Mô tả từng phân cảnh theo phong cách truyện để tạo ảnh minh họa. | [📄](content/prompts/toilatung-operations/tlt-prompt-tao-anh-cho-tung-phan-canh.json) |
 | [Prompt tạo ảnh chụp nhiều góc máy (3×3)](https://lexihub.tech/items/tlt-prompt-tao-anh-chup-nhieu-goc-may-3-3) | Tạo 9 ảnh cùng lúc về 9 góc chụp khác nhau của cùng một nhân vật trong cùng bối cảnh. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-anh-chup-nhieu-goc-may-3-3.json) |
-| [Prompt tạo cảnh biến hình khi mặc giáp](https://lexihub.tech/items/tlt-prompt-tao-canh-bien-hinh-khi-mac-giap) | Tạo video cảnh các bộ phận áo giáp ghép vào cơ thể siêu mượt. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-canh-bien-hinh-khi-mac-giap.json) |
+| [Prompt tạo ảnh exploded-view](https://lexihub.tech/items/tlt-prompt-tao-anh-exploded-view) | Tạo ảnh tháo rời chi tiết linh kiện công nghệ cao cấp. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-anh-exploded-view.json) |
+| [Prompt Tạo Bản Vẽ Kỹ Thuật 3D Architecture](https://lexihub.tech/items/tlt-prompt-tao-ban-ve-ky-thuat-3d-architecture) | Tạo bản vẽ kỹ thuật kiến trúc 3D với phong cách blueprint sắc nét, chuyên nghiệp. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-ban-ve-ky-thuat-3d-architecture.json) |
 | [Prompt tạo cảnh liên hoàn tách biệt](https://lexihub.tech/items/tlt-prompt-tao-canh-lien-hoan-tach-biet) | Tạo toàn bộ chuỗi cảnh đồng nhất chỉ trong 1 prompt. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-canh-lien-hoan-tach-biet.json) |
 | [Prompt tạo character chuyên nghiệp](https://lexihub.tech/items/tlt-prompt-tao-character-chuyen-nghiep) | Tạo full character bible (tính cách + ngoại hình + trang phục + reference). | [📄](content/prompts/toilatung-video/tlt-prompt-tao-character-chuyen-nghiep.json) |
 | [Prompt tạo character nhiều góc cạnh](https://lexihub.tech/items/tlt-prompt-tao-character-nhieu-goc-canh) | Tạo ảnh tham chiếu nhân vật với nhiều góc cạnh khác nhau, đủ 360°. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-character-nhieu-goc-canh.json) |
-| [Prompt tạo storyboard phim hoạt hình – P.1](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-1) | Xây dựng cốt truyện phim hoạt hình hoàn chỉnh. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-1.json) |
-| [Prompt tạo storyboard phim hoạt hình – P.2](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-2) | Tạo mô tả chi tiết các nhân vật trong phim. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-2.json) |
-| [Prompt tạo storyboard phim hoạt hình – P.3](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-3) | Tạo prompt chi tiết từng phân cảnh cho Veo. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-3.json) |
-| [Prompt tạo video game chiến đấu 2,5D](https://lexihub.tech/items/tlt-prompt-tao-video-game-chien-dau-2-5d) | Tạo video đối kháng kiểu game cổ điển cực chất. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-video-game-chien-dau-2-5d.json) |
-| [Prompt tạo video Timelapse Xây Dựng](https://lexihub.tech/items/tlt-prompt-tao-video-timelapse-xay-dung) | Tạo video timelapse công trình tua nhanh (đang cực hot 2026). | [📄](content/prompts/toilatung-video/tlt-prompt-tao-video-timelapse-xay-dung.json) |
-| [Prompt training chatbot tạo kịch bản](https://lexihub.tech/items/tlt-prompt-training-chatbot-tao-kich-ban) | Training chatbot viết kịch bản phim chuyên nghiệp. | [📄](content/prompts/toilatung-video/tlt-prompt-training-chatbot-tao-kich-ban.json) |
-| [Prompt training chatbot tạo video từ ảnh](https://lexihub.tech/items/tlt-prompt-training-chatbot-tao-video-tu-anh) | Training chatbot cá nhân tạo video từ ảnh có sẵn. | [📄](content/prompts/toilatung-video/tlt-prompt-training-chatbot-tao-video-tu-anh.json) |
 | [Reference Sheet 8 Panels](https://lexihub.tech/items/tlt-reference-sheet-8-panels) | Tạo bảng tham chiếu 8 góc nhất quán cho Nano Banana. | [📄](content/prompts/toilatung-video/tlt-reference-sheet-8-panels.json) |
-| [Storyboard Analysis Prompt](https://lexihub.tech/items/tlt-storyboard-analysis-prompt) | Phân tích kịch bản thành các khung hình storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-analysis-prompt.json) |
-| [Storyboard Crop Prompt](https://lexihub.tech/items/tlt-storyboard-crop-prompt) | Cắt và zoom vào các chi tiết trong storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-crop-prompt.json) |
-| [Storyboard QA Prompt](https://lexihub.tech/items/tlt-storyboard-qa-prompt) | Kiểm tra tính nhất quán và chất lượng bộ storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-qa-prompt.json) |
-| [Storyboard Split Prompt](https://lexihub.tech/items/tlt-storyboard-split-prompt) | Tách một ảnh chứa nhiều frame thành các ảnh riêng lẻ. | [📄](content/prompts/toilatung-video/tlt-storyboard-split-prompt.json) |
 | [Storyboard Upscale Prompt](https://lexihub.tech/items/tlt-storyboard-upscale-prompt) | Tăng độ phân giải cho ảnh storyboard bị mờ. | [📄](content/prompts/toilatung-video/tlt-storyboard-upscale-prompt.json) |
-| [Studio Backstage (3 Nhân Vật)](https://lexihub.tech/items/tlt-studio-backstage-3-nhan-vat) | Mô phỏng hậu trường với 2 models, 1 nhiếp ảnh gia và âm thanh dialogue. | [📄](content/prompts/toilatung-video/tlt-studio-backstage-3-nhan-vat.json) |
 | [Tách Trang Phục (Ghost Mannequin)](https://lexihub.tech/items/tlt-tach-trang-phuc-ghost-mannequin) | Tách quần áo sang nền trắng để thay đồ cho Model. | [📄](content/prompts/toilatung-video/tlt-tach-trang-phuc-ghost-mannequin.json) |
-| [Tạo 10 Hook mở đầu Video TikTok / Reels](https://lexihub.tech/items/tlt-tao-10-hook-mo-dau-video-tiktok-reels) | Viết 10 câu hook đầu tiên đủ mạnh để giữ người xem ở lại trong 3 giây. | [📄](content/prompts/toilatung-video/tlt-tao-10-hook-mo-dau-video-tiktok-reels.json) |
-| [Tạo kịch bản phim ngắn từ 1 prompt](https://lexihub.tech/items/tlt-tao-kich-ban-phim-ngan-tu-1-prompt) | Tạo toàn bộ kịch bản + mô tả cảnh quay đồng nhất chỉ trong 1 prompt. | [📄](content/prompts/toilatung-video/tlt-tao-kich-ban-phim-ngan-tu-1-prompt.json) |
 | [Tạo nhiều phân cảnh trong 1 hình](https://lexihub.tech/items/tlt-tao-nhieu-phan-canh-trong-1-hinh) | Tạo 8–12 phân cảnh bằng 1 prompt duy nhất. | [📄](content/prompts/toilatung-video/tlt-tao-nhieu-phan-canh-trong-1-hinh.json) |
-| [Urban Streetwalk (1 Nhân Vật)](https://lexihub.tech/items/tlt-urban-streetwalk-1-nhan-vat) | Quay phim thời trang 8 giây với tracking camera và audio đồng bộ. | [📄](content/prompts/toilatung-video/tlt-urban-streetwalk-1-nhan-vat.json) |
 | [Virtual Influencer Character Sheet (360°)](https://lexihub.tech/items/tlt-virtual-influencer-character-sheet-360) | Tạo bảng tham chiếu nhân vật 3 góc quay (trước, nghiêng, sau) để làm tư liệu tạo ảnh nhất quán. | [📄](content/prompts/toilatung-video/tlt-virtual-influencer-character-sheet-360.json) |
-
-<a id="prompt-operations"></a>
-
-#### Operations & SOP (24)
-
-| Tên | Mô tả | Nguồn |
-|---|---|---|
-| [15-Minute Premium Sales Script](https://lexihub.tech/items/tlt-15-minute-premium-sales-script) | Xây dựng kịch bản chốt sale 15 phút qua điện thoại/Zoom theo quy trình Khám phá, Đóng khung và Xử lý từ chối… | [📄](content/prompts/toilatung-operations/tlt-15-minute-premium-sales-script.json) |
-| [7-Day Offer Validation Sprint](https://lexihub.tech/items/tlt-7-day-offer-validation-sprint) | Kế hoạch 7 ngày kiểm chứng nhu cầu thị trường đối với một Premium Offer trước khi bắt tay vào xây dựng. | [📄](content/prompts/toilatung-operations/tlt-7-day-offer-validation-sprint.json) |
-| [Agency Client Weekly Report Writer](https://lexihub.tech/items/client-weekly-report) | Chuyển số liệu thô thành báo cáo tuần cho khách hàng: tóm tắt điều hành, insight, hành động tuần tới — không… | [📄](content/prompts/b2b-agency/client-weekly-report.json) |
-| [AI-Native Job Description & Scorecard](https://lexihub.tech/items/hiring-ai-native-jd) | Viết JD cho vị trí làm việc cùng AI: outcome 90 ngày, năng lực cốt lõi, bài test thực tế và scorecard phỏng v… | [📄](content/prompts/operations/hiring-ai-native-jd.json) |
-| [Chaos-to-SOP Converter](https://lexihub.tech/items/sop-from-chaos) | Biến mô tả quy trình lộn xộn (voice note, chat) thành SOP chuẩn: mục tiêu, vai trò, các bước, checklist, KPI. | [📄](content/prompts/operations/sop-from-chaos.json) |
-| [Competitive Moat Builder](https://lexihub.tech/items/tlt-competitive-moat-builder) | Thiết lập và diễn đạt 3 loại hào kỹ nghệ (Knowledge, Network, Commitment) để bảo vệ sản phẩm trước sự sao ché… | [📄](content/prompts/toilatung-operations/tlt-competitive-moat-builder.json) |
-| [Competitor Offer Decoder](https://lexihub.tech/items/tlt-competitor-offer-decoder) | Giải mã và tìm lỗ hổng trong offer của đối thủ để thiết kế offer vượt trội. | [📄](content/prompts/toilatung-operations/tlt-competitor-offer-decoder.json) |
-| [Famous Person Data Sheet](https://lexihub.tech/items/tlt-famous-person-data-sheet) | Chuẩn bị dữ liệu nhân vật trước khi tạo ảnh. | [📄](content/prompts/toilatung-operations/tlt-famous-person-data-sheet.json) |
-| [Good-Better-Best Pricing Architecture](https://lexihub.tech/items/tlt-good-better-best-pricing-architecture) | Thiết kế bảng giá 3 tầng (Starter, Growth, Scale) tối ưu hóa doanh thu bằng decoy effect. | [📄](content/prompts/toilatung-operations/tlt-good-better-best-pricing-architecture.json) |
-| [Grand Slam Offer Stack Builder](https://lexihub.tech/items/tlt-grand-slam-offer-stack-builder) | Thiết kế bộ Offer Stack không thể chối từ dựa trên framework Grand Slam Offer của Alex Hormozi. | [📄](content/prompts/toilatung-operations/tlt-grand-slam-offer-stack-builder.json) |
-| [Guarantee & Risk Reversal Designer](https://lexihub.tech/items/tlt-guarantee-risk-reversal-designer) | Thiết kế 3 loại hình bảo hành cực mạnh (Conditional, Service-based, Unconditional Bribe) để triệt tiêu nỗi sợ… | [📄](content/prompts/toilatung-operations/tlt-guarantee-risk-reversal-designer.json) |
-| [Meeting Transcript to Decisions & Action Items](https://lexihub.tech/items/meeting-to-action-items) | Tóm tắt biên bản họp thành quyết định, việc cần làm (ai – gì – hạn), rủi ro và câu hỏi còn mở. | [📄](content/prompts/operations/meeting-to-action-items.json) |
-| [Phân Tích Đối Thủ Cạnh Tranh 360°](https://lexihub.tech/items/tlt-phan-tich-doi-thu-canh-tranh-360) | Framework toàn diện phân tích đối thủ: Positioning, giá, kênh, điểm yếu và cơ hội phản công. | [📄](content/prompts/toilatung-operations/tlt-phan-tich-doi-thu-canh-tranh-360.json) |
-| [Positioning Gap Finder](https://lexihub.tech/items/tlt-positioning-gap-finder) | Xác định khoảng trống định vị giữa tự cảm nhận và thị trường thực tế, vẽ ma trận so sánh đối thủ. | [📄](content/prompts/toilatung-operations/tlt-positioning-gap-finder.json) |
-| [Prompt Kiến Trúc CRM & Tự Động Hóa Lead](https://lexihub.tech/items/tlt-prompt-kien-truc-crm-tu-dong-hoa-lead) | Thiết kế sơ đồ luồng dữ liệu và kịch bản tự động hóa quản lý khách hàng tiềm năng từ quảng cáo đến chốt deal. | [📄](content/prompts/toilatung-operations/tlt-prompt-kien-truc-crm-tu-dong-hoa-lead.json) |
-| [Prompt Tạo Ảnh Cho Từng Phân Cảnh](https://lexihub.tech/items/tlt-prompt-tao-anh-cho-tung-phan-canh) | Mô tả từng phân cảnh theo phong cách truyện để tạo ảnh minh họa. | [📄](content/prompts/toilatung-operations/tlt-prompt-tao-anh-cho-tung-phan-canh.json) |
-| [Prompt Thiết Kế Quy Trình Tuyển Dụng AI Agent](https://lexihub.tech/items/tlt-prompt-thiet-ke-quy-trinh-tuyen-dung-ai-agent) | Thiết kế hệ thống AI Agent hỗ trợ sàng lọc CV, lên lịch phỏng vấn và gửi phản hồi tự động cho ứng viên. | [📄](content/prompts/toilatung-operations/tlt-prompt-thiet-ke-quy-trinh-tuyen-dung-ai-agent.json) |
-| [Tạo SOP — Quy Trình Làm Việc Chuẩn Từ Mô Tả](https://lexihub.tech/items/tlt-tao-sop-quy-trinh-lam-viec-chuan-tu-mo-ta) | Biến mô tả công việc mơ hồ thành tài liệu SOP chi tiết, có thể giao cho nhân viên thực hiện ngay. | [📄](content/prompts/toilatung-operations/tlt-tao-sop-quy-trinh-lam-viec-chuan-tu-mo-ta.json) |
-| [The 'Value Flip' Before & After Card](https://lexihub.tech/items/tlt-the-value-flip-before-after-card) | Biến sản phẩm/dịch vụ giá rẻ thành gói Premium Package thông qua định vị Before/After Card trực quan. | [📄](content/prompts/toilatung-operations/tlt-the-value-flip-before-after-card.json) |
-| [Tóm Tắt Meeting → Action Items trong 30 Giây](https://lexihub.tech/items/tlt-tom-tat-meeting-action-items-trong-30-giay) | Biến ghi chú meeting lộn xộn thành bản tóm tắt sạch + danh sách việc cần làm có deadline. | [📄](content/prompts/toilatung-operations/tlt-tom-tat-meeting-action-items-trong-30-giay.json) |
-| [Upsell & Expansion Path Designer](https://lexihub.tech/items/tlt-upsell-expansion-path-designer) | Thiết kế 3 Trigger points và giới hạn sử dụng (Usage limits) để thúc đẩy khách nâng cấp lên gói Pro. | [📄](content/prompts/toilatung-operations/tlt-upsell-expansion-path-designer.json) |
-| [Value Gap Finder](https://lexihub.tech/items/tlt-value-gap-finder) | Phân tích khoảng trống giá trị và ROI thực tế để chứng minh sản phẩm đang bị định giá quá thấp. | [📄](content/prompts/toilatung-operations/tlt-value-gap-finder.json) |
-| [Viết Proposal / Báo Giá Dịch Vụ Thuyết Phục](https://lexihub.tech/items/tlt-viet-proposal-bao-gia-dich-vu-thuyet-phuc) | Tạo đề xuất dịch vụ chuyên nghiệp theo cấu trúc mà khách hàng khó từ chối. | [📄](content/prompts/toilatung-operations/tlt-viet-proposal-bao-gia-dich-vu-thuyet-phuc.json) |
-| [Xử Lý 5 Phản Đối Phổ Biến Nhất (Objection Handling)](https://lexihub.tech/items/tlt-xu-ly-5-phan-doi-pho-bien-nhat-objection-handling) | Tạo script phản hồi chuyên nghiệp cho 5 lời từ chối phổ biến nhất của khách hàng. | [📄](content/prompts/toilatung-operations/tlt-xu-ly-5-phan-doi-pho-bien-nhat-objection-handling.json) |
-
-<a id="prompt-system-design"></a>
-
-#### System Design & AI (24)
-
-| Tên | Mô tả | Nguồn |
-|---|---|---|
-| [Dual-Engine System 1 vs System 2 Task Dispatcher](https://lexihub.tech/items/system1-system2-router) | Phân tầng tác vụ thông minh: Tách phản xạ nhanh (System 1) và suy luận logic sâu (System 2) nhằm tối ưu chi p… | [📄](content/prompts/ocp-architect/system1-system2-router.json) |
-| [Few-Shot Context Builder](https://lexihub.tech/items/tlt-few-shot-context-builder) | Prompt tự động tạo các ví dụ Input-Output mẫu (Few-Shot examples) để đưa vào AI Studio giúp Gemini hiểu rõ cá… | [📄](content/prompts/toilatung-system-design/tlt-few-shot-context-builder.json) |
-| [Gemini Advanced Developer System Instruction](https://lexihub.tech/items/tlt-gemini-advanced-developer-system-instruction) | System Instruction biến Gemini thành một Coding Partner cao cấp trong AI Studio, tận dụng tối đa context wind… | [📄](content/prompts/toilatung-system-design/tlt-gemini-advanced-developer-system-instruction.json) |
-| [Google AI Studio JSON Schema Generator](https://lexihub.tech/items/tlt-google-ai-studio-json-schema-generator) | Prompt giúp thiết lập cấu trúc JSON Schema chuẩn cho tính năng Structured Output của Gemini API. | [📄](content/prompts/toilatung-system-design/tlt-google-ai-studio-json-schema-generator.json) |
-| [LLM Token Cost & Model Routing Estimator](https://lexihub.tech/items/llm-token-cost-estimator) | Ước tính chi phí token theo tháng cho một tính năng AI, so sánh phương án định tuyến model và đề xuất tối ưu. | [📄](content/prompts/ocp-architect/llm-token-cost-estimator.json) |
-| [Master Prompt Trợ Lý Hoạch Định Chiến Lược Doanh Nghiệp](https://lexihub.tech/items/tlt-master-prompt-tro-ly-hoach-dinh-chien-luoc-doanh-nghiep) | Thiết lập trợ lý AI đóng vai trò nhà hoạch định chiến lược kinh doanh và tối ưu hóa mô hình vận hành. | [📄](content/prompts/toilatung-system-design/tlt-master-prompt-tro-ly-hoach-dinh-chien-luoc-doanh-nghiep.json) |
-| [Master Prompt Trợ Lý Viết Bài B2B Chuyên Sâu](https://lexihub.tech/items/tlt-master-prompt-tro-ly-viet-bai-b2b-chuyen-sau) | Thiết lập hệ thống AI đóng vai trò Copywriter chuyên sâu về B2B, viết bài phân tích thị trường chất lượng cao. | [📄](content/prompts/toilatung-system-design/tlt-master-prompt-tro-ly-viet-bai-b2b-chuyen-sau.json) |
-| [Multi-Agent DAG & JSON Handoff Designer](https://lexihub.tech/items/multi-agent-dag-handoff) | Thiết kế workflow đa agent dạng DAG với hợp đồng JSON giữa các node, retry policy và human-in-the-loop checkp… | [📄](content/prompts/ocp-architect/multi-agent-dag-handoff.json) |
-| [Offer Clarity Audit](https://lexihub.tech/items/tlt-offer-clarity-audit) | Phân tích trang định giá (Pricing page) để chỉ ra các điểm gây nhầm lẫn làm giảm tỷ lệ chốt sale. | [📄](content/prompts/toilatung-system-design/tlt-offer-clarity-audit.json) |
-| [Premium Signal Audit](https://lexihub.tech/items/tlt-premium-signal-audit) | Đánh giá 10 vi tín hiệu (micro-signals) cao cấp trên Website, LinkedIn và quy trình Onboarding để tăng độ uy… | [📄](content/prompts/toilatung-system-design/tlt-premium-signal-audit.json) |
-| [Pricing Leak Detector](https://lexihub.tech/items/tlt-pricing-leak-detector) | Chẩn đoán các lỗ rò rỉ chuyển đổi trên trang giá dựa trên các chỉ số phễu thực tế. | [📄](content/prompts/toilatung-system-design/tlt-pricing-leak-detector.json) |
-| [Prompt Bản Vẽ Sáng Chế Cổ Điển (Patent Drawing)](https://lexihub.tech/items/tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing) | Tạo hình vẽ thiết kế sáng chế phong cách vẽ nét đen trắng (line art) trên nền giấy cổ điển. | [📄](content/prompts/toilatung-system-design/tlt-prompt-ban-ve-sang-che-co-dien-patent-drawing.json) |
-| [Prompt Đánh Giá Bố Cục Hình Ảnh AI](https://lexihub.tech/items/tlt-prompt-danh-gia-bo-cuc-hinh-anh-ai) | Phân tích bố cục, ánh sáng và tính thẩm mỹ của ảnh AI tạo ra để đưa ra các đề xuất điều chỉnh cụ thể. | [📄](content/prompts/toilatung-system-design/tlt-prompt-danh-gia-bo-cuc-hinh-anh-ai.json) |
-| [Prompt sửa lỗi chữ tiếng Việt](https://lexihub.tech/items/tlt-prompt-sua-loi-chu-tieng-viet) | Dùng khi AI tạo sai hoặc lỗi font chữ tiếng Việt. | [📄](content/prompts/toilatung-system-design/tlt-prompt-sua-loi-chu-tieng-viet.json) |
-| [Prompt Tạo Ảnh Cắt Lớp Sản Phẩm (Cross-section)](https://lexihub.tech/items/tlt-prompt-tao-anh-cat-lop-san-pham-cross-section) | Tạo ảnh chụp cắt lớp sản phẩm công nghệ để hiển thị các chi tiết cơ học và bo mạch bên trong. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-anh-cat-lop-san-pham-cross-section.json) |
-| [Prompt tạo ảnh exploded-view](https://lexihub.tech/items/tlt-prompt-tao-anh-exploded-view) | Tạo ảnh tháo rời chi tiết linh kiện công nghệ cao cấp. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-anh-exploded-view.json) |
-| [Prompt Tạo Bản Vẽ Kỹ Thuật 3D Architecture](https://lexihub.tech/items/tlt-prompt-tao-ban-ve-ky-thuat-3d-architecture) | Tạo bản vẽ kỹ thuật kiến trúc 3D với phong cách blueprint sắc nét, chuyên nghiệp. | [📄](content/prompts/toilatung-system-design/tlt-prompt-tao-ban-ve-ky-thuat-3d-architecture.json) |
-| [Prompt Tối Ưu Lệnh Prompt Kém](https://lexihub.tech/items/tlt-prompt-toi-uu-lenh-prompt-kem) | Chuyển đổi một câu prompt thô, mơ hồ thành một câu prompt chuẩn hóa cấu trúc để AI hiểu và phản hồi chính xác. | [📄](content/prompts/toilatung-system-design/tlt-prompt-toi-uu-lenh-prompt-kem.json) |
-| [Prompt Training Chatbot Hỗ Trợ Khách Hàng](https://lexihub.tech/items/tlt-prompt-training-chatbot-ho-tro-khach-hang) | Huấn luyện chatbot hỗ trợ kỹ thuật và chăm sóc khách hàng tự động dựa trên tài liệu sản phẩm. | [📄](content/prompts/toilatung-system-design/tlt-prompt-training-chatbot-ho-tro-khach-hang.json) |
-| [Prompt Training Chatbot Sales B2B](https://lexihub.tech/items/tlt-prompt-training-chatbot-sales-b2b) | Huấn luyện chatbot đóng vai trò chuyên viên tư vấn bán hàng B2B, xử lý từ chối và thiết lập cuộc hẹn. | [📄](content/prompts/toilatung-system-design/tlt-prompt-training-chatbot-sales-b2b.json) |
-| [RAG Pipeline Architect](https://lexihub.tech/items/rag-pipeline-architect) | Thiết kế pipeline Retrieval-Augmented Generation: ingest, chunking, embedding, hybrid search, rerank, đánh gi… | [📄](content/prompts/ocp-architect/rag-pipeline-architect.json) |
-| [REST / OpenAPI Contract Designer](https://lexihub.tech/items/api-contract-designer) | Thiết kế API contract chuẩn OpenAPI 3.1: resource, endpoint, schema, mã lỗi, phân trang, versioning và idempo… | [📄](content/prompts/ocp-architect/api-contract-designer.json) |
-| [The Launch Readiness Checklist](https://lexihub.tech/items/tlt-the-launch-readiness-checklist) | Danh sách kiểm tra 12 điểm tử huyệt trước khi tung sản phẩm ra thị trường, đóng vai trò như một COO khó tính. | [📄](content/prompts/toilatung-system-design/tlt-the-launch-readiness-checklist.json) |
-| [Visual Intent Checklist](https://lexihub.tech/items/tlt-visual-intent-checklist) | Xác định mục tiêu hình ảnh trước khi viết prompt. | [📄](content/prompts/toilatung-system-design/tlt-visual-intent-checklist.json) |
+| [Visual Communication Poster Prompt](https://lexihub.tech/items/tlt-visual-communication-poster-prompt) | Tạo poster truyền thông có thông điệp rõ ràng. | [📄](content/prompts/toilatung-branding/tlt-visual-communication-poster-prompt.json) |
 
 <a id="prompt-copywriting"></a>
 
@@ -228,28 +162,102 @@ Each item links to its interactive page on the live hub (📄 = source file). Th
 | [Social Media Carousel Copywriter](https://lexihub.tech/items/tlt-social-media-carousel-copywriter) | Soạn kịch bản và dàn ý 8 slide Carousel thu hút người đọc trên LinkedIn & Facebook. | [📄](content/prompts/toilatung-copywriting/tlt-social-media-carousel-copywriter.json) |
 | [Value Proposition Rewriter](https://lexihub.tech/items/tlt-value-proposition-rewriter) | Chuyển đổi thông điệp tính năng cũ thành 5 câu Value Proposition định hướng kết quả sâu sắc. | [📄](content/prompts/toilatung-copywriting/tlt-value-proposition-rewriter.json) |
 
-<a id="prompt-branding"></a>
+<a id="prompt-operations"></a>
 
-#### Brand Strategy (16)
+#### Operations & SOP (23)
 
 | Tên | Mô tả | Nguồn |
 |---|---|---|
-| [6-Layer Text to Image Prompt](https://lexihub.tech/items/tlt-6-layer-text-to-image-prompt) | Cấu trúc prompt 6 lớp giúp kiểm soát tối đa kết quả. | [📄](content/prompts/toilatung-branding/tlt-6-layer-text-to-image-prompt.json) |
-| [A3 Print-ready Poster Prompt](https://lexihub.tech/items/tlt-a3-print-ready-poster-prompt) | Tối ưu hóa poster để in ấn khổ lớn (A3/A2). | [📄](content/prompts/toilatung-branding/tlt-a3-print-ready-poster-prompt.json) |
-| [Banner Workflow 16:9 Dual Neon Light (Electric Cyan & Magenta)](https://lexihub.tech/items/tlt-banner-workflow-16-9-dual-neon-light-electric-cyan-magenta) | Tạo poster infographic 16:9 phong cách Dual Neon Light phát sáng rực rỡ (Cyan #00F0FF & Magenta #FF007F) nổi… | [📄](content/prompts/toilatung-branding/tlt-banner-workflow-16-9-dual-neon-light-electric-cyan-magenta.json) |
-| [Banner Workflow 16:9 với Avatar AI Orchestrator](https://lexihub.tech/items/tlt-banner-workflow-16-9-voi-avatar-ai-orchestrator) | Tạo poster infographic workflow 16:9 viền Neon Dark Navy (#003189) tích hợp Avatar AI Orchestrator làm hạt nh… | [📄](content/prompts/toilatung-branding/tlt-banner-workflow-16-9-voi-avatar-ai-orchestrator.json) |
-| [Batch 20 Famous Posters Prompt](https://lexihub.tech/items/tlt-batch-20-famous-posters-prompt) | Quy trình tạo hàng loạt 20 poster theo nhóm. | [📄](content/prompts/toilatung-branding/tlt-batch-20-famous-posters-prompt.json) |
-| [Bento Grid Infographic Layout](https://lexihub.tech/items/tlt-bento-grid-infographic-layout) | Tạo bố cục Bento Grid hiện đại để trình bày thông tin, dữ liệu công nghệ. | [📄](content/prompts/toilatung-branding/tlt-bento-grid-infographic-layout.json) |
+| [15-Minute Premium Sales Script](https://lexihub.tech/items/tlt-15-minute-premium-sales-script) | Xây dựng kịch bản chốt sale 15 phút qua điện thoại/Zoom theo quy trình Khám phá, Đóng khung và Xử lý từ chối… | [📄](content/prompts/toilatung-operations/tlt-15-minute-premium-sales-script.json) |
+| [7-Day Offer Validation Sprint](https://lexihub.tech/items/tlt-7-day-offer-validation-sprint) | Kế hoạch 7 ngày kiểm chứng nhu cầu thị trường đối với một Premium Offer trước khi bắt tay vào xây dựng. | [📄](content/prompts/toilatung-operations/tlt-7-day-offer-validation-sprint.json) |
+| [Agency Client Weekly Report Writer](https://lexihub.tech/items/client-weekly-report) | Chuyển số liệu thô thành báo cáo tuần cho khách hàng: tóm tắt điều hành, insight, hành động tuần tới — không… | [📄](content/prompts/b2b-agency/client-weekly-report.json) |
+| [AI-Native Job Description & Scorecard](https://lexihub.tech/items/hiring-ai-native-jd) | Viết JD cho vị trí làm việc cùng AI: outcome 90 ngày, năng lực cốt lõi, bài test thực tế và scorecard phỏng v… | [📄](content/prompts/operations/hiring-ai-native-jd.json) |
+| [Chaos-to-SOP Converter](https://lexihub.tech/items/sop-from-chaos) | Biến mô tả quy trình lộn xộn (voice note, chat) thành SOP chuẩn: mục tiêu, vai trò, các bước, checklist, KPI. | [📄](content/prompts/operations/sop-from-chaos.json) |
+| [Competitive Moat Builder](https://lexihub.tech/items/tlt-competitive-moat-builder) | Thiết lập và diễn đạt 3 loại hào kỹ nghệ (Knowledge, Network, Commitment) để bảo vệ sản phẩm trước sự sao ché… | [📄](content/prompts/toilatung-operations/tlt-competitive-moat-builder.json) |
+| [Competitor Offer Decoder](https://lexihub.tech/items/tlt-competitor-offer-decoder) | Giải mã và tìm lỗ hổng trong offer của đối thủ để thiết kế offer vượt trội. | [📄](content/prompts/toilatung-operations/tlt-competitor-offer-decoder.json) |
+| [Famous Person Data Sheet](https://lexihub.tech/items/tlt-famous-person-data-sheet) | Chuẩn bị dữ liệu nhân vật trước khi tạo ảnh. | [📄](content/prompts/toilatung-operations/tlt-famous-person-data-sheet.json) |
+| [Good-Better-Best Pricing Architecture](https://lexihub.tech/items/tlt-good-better-best-pricing-architecture) | Thiết kế bảng giá 3 tầng (Starter, Growth, Scale) tối ưu hóa doanh thu bằng decoy effect. | [📄](content/prompts/toilatung-operations/tlt-good-better-best-pricing-architecture.json) |
+| [Grand Slam Offer Stack Builder](https://lexihub.tech/items/tlt-grand-slam-offer-stack-builder) | Thiết kế bộ Offer Stack không thể chối từ dựa trên framework Grand Slam Offer của Alex Hormozi. | [📄](content/prompts/toilatung-operations/tlt-grand-slam-offer-stack-builder.json) |
+| [Guarantee & Risk Reversal Designer](https://lexihub.tech/items/tlt-guarantee-risk-reversal-designer) | Thiết kế 3 loại hình bảo hành cực mạnh (Conditional, Service-based, Unconditional Bribe) để triệt tiêu nỗi sợ… | [📄](content/prompts/toilatung-operations/tlt-guarantee-risk-reversal-designer.json) |
+| [Meeting Transcript to Decisions & Action Items](https://lexihub.tech/items/meeting-to-action-items) | Tóm tắt biên bản họp thành quyết định, việc cần làm (ai – gì – hạn), rủi ro và câu hỏi còn mở. | [📄](content/prompts/operations/meeting-to-action-items.json) |
+| [Phân Tích Đối Thủ Cạnh Tranh 360°](https://lexihub.tech/items/tlt-phan-tich-doi-thu-canh-tranh-360) | Framework toàn diện phân tích đối thủ: Positioning, giá, kênh, điểm yếu và cơ hội phản công. | [📄](content/prompts/toilatung-operations/tlt-phan-tich-doi-thu-canh-tranh-360.json) |
+| [Positioning Gap Finder](https://lexihub.tech/items/tlt-positioning-gap-finder) | Xác định khoảng trống định vị giữa tự cảm nhận và thị trường thực tế, vẽ ma trận so sánh đối thủ. | [📄](content/prompts/toilatung-operations/tlt-positioning-gap-finder.json) |
+| [Prompt Kiến Trúc CRM & Tự Động Hóa Lead](https://lexihub.tech/items/tlt-prompt-kien-truc-crm-tu-dong-hoa-lead) | Thiết kế sơ đồ luồng dữ liệu và kịch bản tự động hóa quản lý khách hàng tiềm năng từ quảng cáo đến chốt deal. | [📄](content/prompts/toilatung-operations/tlt-prompt-kien-truc-crm-tu-dong-hoa-lead.json) |
+| [Prompt Thiết Kế Quy Trình Tuyển Dụng AI Agent](https://lexihub.tech/items/tlt-prompt-thiet-ke-quy-trinh-tuyen-dung-ai-agent) | Thiết kế hệ thống AI Agent hỗ trợ sàng lọc CV, lên lịch phỏng vấn và gửi phản hồi tự động cho ứng viên. | [📄](content/prompts/toilatung-operations/tlt-prompt-thiet-ke-quy-trinh-tuyen-dung-ai-agent.json) |
+| [Tạo SOP — Quy Trình Làm Việc Chuẩn Từ Mô Tả](https://lexihub.tech/items/tlt-tao-sop-quy-trinh-lam-viec-chuan-tu-mo-ta) | Biến mô tả công việc mơ hồ thành tài liệu SOP chi tiết, có thể giao cho nhân viên thực hiện ngay. | [📄](content/prompts/toilatung-operations/tlt-tao-sop-quy-trinh-lam-viec-chuan-tu-mo-ta.json) |
+| [The 'Value Flip' Before & After Card](https://lexihub.tech/items/tlt-the-value-flip-before-after-card) | Biến sản phẩm/dịch vụ giá rẻ thành gói Premium Package thông qua định vị Before/After Card trực quan. | [📄](content/prompts/toilatung-operations/tlt-the-value-flip-before-after-card.json) |
+| [Tóm Tắt Meeting → Action Items trong 30 Giây](https://lexihub.tech/items/tlt-tom-tat-meeting-action-items-trong-30-giay) | Biến ghi chú meeting lộn xộn thành bản tóm tắt sạch + danh sách việc cần làm có deadline. | [📄](content/prompts/toilatung-operations/tlt-tom-tat-meeting-action-items-trong-30-giay.json) |
+| [Upsell & Expansion Path Designer](https://lexihub.tech/items/tlt-upsell-expansion-path-designer) | Thiết kế 3 Trigger points và giới hạn sử dụng (Usage limits) để thúc đẩy khách nâng cấp lên gói Pro. | [📄](content/prompts/toilatung-operations/tlt-upsell-expansion-path-designer.json) |
+| [Value Gap Finder](https://lexihub.tech/items/tlt-value-gap-finder) | Phân tích khoảng trống giá trị và ROI thực tế để chứng minh sản phẩm đang bị định giá quá thấp. | [📄](content/prompts/toilatung-operations/tlt-value-gap-finder.json) |
+| [Viết Proposal / Báo Giá Dịch Vụ Thuyết Phục](https://lexihub.tech/items/tlt-viet-proposal-bao-gia-dich-vu-thuyet-phuc) | Tạo đề xuất dịch vụ chuyên nghiệp theo cấu trúc mà khách hàng khó từ chối. | [📄](content/prompts/toilatung-operations/tlt-viet-proposal-bao-gia-dich-vu-thuyet-phuc.json) |
+| [Xử Lý 5 Phản Đối Phổ Biến Nhất (Objection Handling)](https://lexihub.tech/items/tlt-xu-ly-5-phan-doi-pho-bien-nhat-objection-handling) | Tạo script phản hồi chuyên nghiệp cho 5 lời từ chối phổ biến nhất của khách hàng. | [📄](content/prompts/toilatung-operations/tlt-xu-ly-5-phan-doi-pho-bien-nhat-objection-handling.json) |
+
+<a id="prompt-video"></a>
+
+#### Video & Motion (21)
+
+| Tên | Mô tả | Nguồn |
+|---|---|---|
+| [Google AI Studio Multimodal Video Analyzer](https://lexihub.tech/items/tlt-google-ai-studio-multimodal-video-analyzer) | System Instruction dành cho Google AI Studio giúp phân tích video dài và tự động xuất dữ liệu cấu trúc dưới d… | [📄](content/prompts/toilatung-video/tlt-google-ai-studio-multimodal-video-analyzer.json) |
+| [Google Flow Cinematic Movie & Audio Sync](https://lexihub.tech/items/tlt-google-flow-cinematic-movie-audio-sync) | Prompt tạo video 8 giây chuyên nghiệp trên Google Flow/Veo có camera chuyển động phức tạp và âm thanh đồng bộ. | [📄](content/prompts/toilatung-video/tlt-google-flow-cinematic-movie-audio-sync.json) |
+| [Prompt phân đoạn nhỏ 3-5 giây](https://lexihub.tech/items/tlt-prompt-phan-doan-nho-3-5-giay) | Phân tích video YouTube thành từng đoạn siêu chi tiết để remake. | [📄](content/prompts/toilatung-video/tlt-prompt-phan-doan-nho-3-5-giay.json) |
+| [Prompt Phân Tích & Remake Video Xu Hướng](https://lexihub.tech/items/tlt-prompt-phan-tich-remake-video-xu-huong) | Phân tích cấu trúc, nhịp điệu và nội dung của một video đang lên xu hướng để viết lại kịch bản remake phù hợp… | [📄](content/prompts/toilatung-video/tlt-prompt-phan-tich-remake-video-xu-huong.json) |
+| [Prompt phân tích kịch bản video](https://lexihub.tech/items/tlt-prompt-phan-tich-kich-ban-video) | Phân tích và viết lại kịch bản video chuyên nghiệp. | [📄](content/prompts/toilatung-video/tlt-prompt-phan-tich-kich-ban-video.json) |
+| [Prompt tạo cảnh biến hình khi mặc giáp](https://lexihub.tech/items/tlt-prompt-tao-canh-bien-hinh-khi-mac-giap) | Tạo video cảnh các bộ phận áo giáp ghép vào cơ thể siêu mượt. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-canh-bien-hinh-khi-mac-giap.json) |
+| [Prompt tạo storyboard phim hoạt hình – P.1](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-1) | Xây dựng cốt truyện phim hoạt hình hoàn chỉnh. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-1.json) |
+| [Prompt tạo storyboard phim hoạt hình – P.2](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-2) | Tạo mô tả chi tiết các nhân vật trong phim. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-2.json) |
+| [Prompt tạo storyboard phim hoạt hình – P.3](https://lexihub.tech/items/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-3) | Tạo prompt chi tiết từng phân cảnh cho Veo. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-storyboard-phim-hoat-hinh-p-3.json) |
+| [Prompt tạo video game chiến đấu 2,5D](https://lexihub.tech/items/tlt-prompt-tao-video-game-chien-dau-2-5d) | Tạo video đối kháng kiểu game cổ điển cực chất. | [📄](content/prompts/toilatung-video/tlt-prompt-tao-video-game-chien-dau-2-5d.json) |
+| [Prompt tạo video Timelapse Xây Dựng](https://lexihub.tech/items/tlt-prompt-tao-video-timelapse-xay-dung) | Tạo video timelapse công trình tua nhanh (đang cực hot 2026). | [📄](content/prompts/toilatung-video/tlt-prompt-tao-video-timelapse-xay-dung.json) |
+| [Prompt training chatbot tạo kịch bản](https://lexihub.tech/items/tlt-prompt-training-chatbot-tao-kich-ban) | Training chatbot viết kịch bản phim chuyên nghiệp. | [📄](content/prompts/toilatung-video/tlt-prompt-training-chatbot-tao-kich-ban.json) |
+| [Prompt training chatbot tạo video từ ảnh](https://lexihub.tech/items/tlt-prompt-training-chatbot-tao-video-tu-anh) | Training chatbot cá nhân tạo video từ ảnh có sẵn. | [📄](content/prompts/toilatung-video/tlt-prompt-training-chatbot-tao-video-tu-anh.json) |
+| [Storyboard Analysis Prompt](https://lexihub.tech/items/tlt-storyboard-analysis-prompt) | Phân tích kịch bản thành các khung hình storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-analysis-prompt.json) |
+| [Storyboard Crop Prompt](https://lexihub.tech/items/tlt-storyboard-crop-prompt) | Cắt và zoom vào các chi tiết trong storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-crop-prompt.json) |
+| [Storyboard QA Prompt](https://lexihub.tech/items/tlt-storyboard-qa-prompt) | Kiểm tra tính nhất quán và chất lượng bộ storyboard. | [📄](content/prompts/toilatung-video/tlt-storyboard-qa-prompt.json) |
+| [Storyboard Split Prompt](https://lexihub.tech/items/tlt-storyboard-split-prompt) | Tách một ảnh chứa nhiều frame thành các ảnh riêng lẻ. | [📄](content/prompts/toilatung-video/tlt-storyboard-split-prompt.json) |
+| [Studio Backstage (3 Nhân Vật)](https://lexihub.tech/items/tlt-studio-backstage-3-nhan-vat) | Mô phỏng hậu trường với 2 models, 1 nhiếp ảnh gia và âm thanh dialogue. | [📄](content/prompts/toilatung-video/tlt-studio-backstage-3-nhan-vat.json) |
+| [Tạo 10 Hook mở đầu Video TikTok / Reels](https://lexihub.tech/items/tlt-tao-10-hook-mo-dau-video-tiktok-reels) | Viết 10 câu hook đầu tiên đủ mạnh để giữ người xem ở lại trong 3 giây. | [📄](content/prompts/toilatung-video/tlt-tao-10-hook-mo-dau-video-tiktok-reels.json) |
+| [Tạo kịch bản phim ngắn từ 1 prompt](https://lexihub.tech/items/tlt-tao-kich-ban-phim-ngan-tu-1-prompt) | Tạo toàn bộ kịch bản + mô tả cảnh quay đồng nhất chỉ trong 1 prompt. | [📄](content/prompts/toilatung-video/tlt-tao-kich-ban-phim-ngan-tu-1-prompt.json) |
+| [Urban Streetwalk (1 Nhân Vật)](https://lexihub.tech/items/tlt-urban-streetwalk-1-nhan-vat) | Quay phim thời trang 8 giây với tracking camera và audio đồng bộ. | [📄](content/prompts/toilatung-video/tlt-urban-streetwalk-1-nhan-vat.json) |
+
+<a id="prompt-system-design"></a>
+
+#### System Design & AI (19)
+
+| Tên | Mô tả | Nguồn |
+|---|---|---|
+| [Dual-Engine System 1 vs System 2 Task Dispatcher](https://lexihub.tech/items/system1-system2-router) | Phân tầng tác vụ thông minh: Tách phản xạ nhanh (System 1) và suy luận logic sâu (System 2) nhằm tối ưu chi p… | [📄](content/prompts/ocp-architect/system1-system2-router.json) |
+| [Few-Shot Context Builder](https://lexihub.tech/items/tlt-few-shot-context-builder) | Prompt tự động tạo các ví dụ Input-Output mẫu (Few-Shot examples) để đưa vào AI Studio giúp Gemini hiểu rõ cá… | [📄](content/prompts/toilatung-system-design/tlt-few-shot-context-builder.json) |
+| [Gemini Advanced Developer System Instruction](https://lexihub.tech/items/tlt-gemini-advanced-developer-system-instruction) | System Instruction biến Gemini thành một Coding Partner cao cấp trong AI Studio, tận dụng tối đa context wind… | [📄](content/prompts/toilatung-system-design/tlt-gemini-advanced-developer-system-instruction.json) |
+| [Google AI Studio JSON Schema Generator](https://lexihub.tech/items/tlt-google-ai-studio-json-schema-generator) | Prompt giúp thiết lập cấu trúc JSON Schema chuẩn cho tính năng Structured Output của Gemini API. | [📄](content/prompts/toilatung-system-design/tlt-google-ai-studio-json-schema-generator.json) |
+| [LLM Token Cost & Model Routing Estimator](https://lexihub.tech/items/llm-token-cost-estimator) | Ước tính chi phí token theo tháng cho một tính năng AI, so sánh phương án định tuyến model và đề xuất tối ưu. | [📄](content/prompts/ocp-architect/llm-token-cost-estimator.json) |
+| [Master Prompt Trợ Lý Hoạch Định Chiến Lược Doanh Nghiệp](https://lexihub.tech/items/tlt-master-prompt-tro-ly-hoach-dinh-chien-luoc-doanh-nghiep) | Thiết lập trợ lý AI đóng vai trò nhà hoạch định chiến lược kinh doanh và tối ưu hóa mô hình vận hành. | [📄](content/prompts/toilatung-system-design/tlt-master-prompt-tro-ly-hoach-dinh-chien-luoc-doanh-nghiep.json) |
+| [Master Prompt Trợ Lý Viết Bài B2B Chuyên Sâu](https://lexihub.tech/items/tlt-master-prompt-tro-ly-viet-bai-b2b-chuyen-sau) | Thiết lập hệ thống AI đóng vai trò Copywriter chuyên sâu về B2B, viết bài phân tích thị trường chất lượng cao. | [📄](content/prompts/toilatung-system-design/tlt-master-prompt-tro-ly-viet-bai-b2b-chuyen-sau.json) |
+| [Multi-Agent DAG & JSON Handoff Designer](https://lexihub.tech/items/multi-agent-dag-handoff) | Thiết kế workflow đa agent dạng DAG với hợp đồng JSON giữa các node, retry policy và human-in-the-loop checkp… | [📄](content/prompts/ocp-architect/multi-agent-dag-handoff.json) |
+| [Offer Clarity Audit](https://lexihub.tech/items/tlt-offer-clarity-audit) | Phân tích trang định giá (Pricing page) để chỉ ra các điểm gây nhầm lẫn làm giảm tỷ lệ chốt sale. | [📄](content/prompts/toilatung-system-design/tlt-offer-clarity-audit.json) |
+| [Premium Signal Audit](https://lexihub.tech/items/tlt-premium-signal-audit) | Đánh giá 10 vi tín hiệu (micro-signals) cao cấp trên Website, LinkedIn và quy trình Onboarding để tăng độ uy… | [📄](content/prompts/toilatung-system-design/tlt-premium-signal-audit.json) |
+| [Pricing Leak Detector](https://lexihub.tech/items/tlt-pricing-leak-detector) | Chẩn đoán các lỗ rò rỉ chuyển đổi trên trang giá dựa trên các chỉ số phễu thực tế. | [📄](content/prompts/toilatung-system-design/tlt-pricing-leak-detector.json) |
+| [Prompt Đánh Giá Bố Cục Hình Ảnh AI](https://lexihub.tech/items/tlt-prompt-danh-gia-bo-cuc-hinh-anh-ai) | Phân tích bố cục, ánh sáng và tính thẩm mỹ của ảnh AI tạo ra để đưa ra các đề xuất điều chỉnh cụ thể. | [📄](content/prompts/toilatung-system-design/tlt-prompt-danh-gia-bo-cuc-hinh-anh-ai.json) |
+| [Prompt Tối Ưu Lệnh Prompt Kém](https://lexihub.tech/items/tlt-prompt-toi-uu-lenh-prompt-kem) | Chuyển đổi một câu prompt thô, mơ hồ thành một câu prompt chuẩn hóa cấu trúc để AI hiểu và phản hồi chính xác. | [📄](content/prompts/toilatung-system-design/tlt-prompt-toi-uu-lenh-prompt-kem.json) |
+| [Prompt Training Chatbot Hỗ Trợ Khách Hàng](https://lexihub.tech/items/tlt-prompt-training-chatbot-ho-tro-khach-hang) | Huấn luyện chatbot hỗ trợ kỹ thuật và chăm sóc khách hàng tự động dựa trên tài liệu sản phẩm. | [📄](content/prompts/toilatung-system-design/tlt-prompt-training-chatbot-ho-tro-khach-hang.json) |
+| [Prompt Training Chatbot Sales B2B](https://lexihub.tech/items/tlt-prompt-training-chatbot-sales-b2b) | Huấn luyện chatbot đóng vai trò chuyên viên tư vấn bán hàng B2B, xử lý từ chối và thiết lập cuộc hẹn. | [📄](content/prompts/toilatung-system-design/tlt-prompt-training-chatbot-sales-b2b.json) |
+| [RAG Pipeline Architect](https://lexihub.tech/items/rag-pipeline-architect) | Thiết kế pipeline Retrieval-Augmented Generation: ingest, chunking, embedding, hybrid search, rerank, đánh gi… | [📄](content/prompts/ocp-architect/rag-pipeline-architect.json) |
+| [REST / OpenAPI Contract Designer](https://lexihub.tech/items/api-contract-designer) | Thiết kế API contract chuẩn OpenAPI 3.1: resource, endpoint, schema, mã lỗi, phân trang, versioning và idempo… | [📄](content/prompts/ocp-architect/api-contract-designer.json) |
+| [The Launch Readiness Checklist](https://lexihub.tech/items/tlt-the-launch-readiness-checklist) | Danh sách kiểm tra 12 điểm tử huyệt trước khi tung sản phẩm ra thị trường, đóng vai trò như một COO khó tính. | [📄](content/prompts/toilatung-system-design/tlt-the-launch-readiness-checklist.json) |
+| [Visual Intent Checklist](https://lexihub.tech/items/tlt-visual-intent-checklist) | Xác định mục tiêu hình ảnh trước khi viết prompt. | [📄](content/prompts/toilatung-system-design/tlt-visual-intent-checklist.json) |
+
+<a id="prompt-branding"></a>
+
+#### Brand Strategy (6)
+
+| Tên | Mô tả | Nguồn |
+|---|---|---|
 | [Brand Clarity Audit](https://lexihub.tech/items/tlt-brand-clarity-audit) | Đánh giá tính rõ ràng của định vị thương hiệu trên homepage và đề xuất cách sửa đổi nhanh trong 3 giây đầu ti… | [📄](content/prompts/toilatung-branding/tlt-brand-clarity-audit.json) |
 | [Brand Differentiation One-Pager](https://lexihub.tech/items/tlt-brand-differentiation-one-pager) | Thiết kế nội dung tài liệu một trang (One-Pager) tóm tắt định vị, hào cạnh tranh và kết quả để gửi đối tác. | [📄](content/prompts/toilatung-branding/tlt-brand-differentiation-one-pager.json) |
 | [Brand DNA Extractor](https://lexihub.tech/items/tlt-brand-dna-extractor) | Đào sâu vào cốt lõi thương hiệu để xây dựng bản đồ nhận diện 3 lớp (Bề mặt, Cốt lõi, Chiều sâu) và điểm căng… | [📄](content/prompts/toilatung-branding/tlt-brand-dna-extractor.json) |
 | [Brand Voice Designer](https://lexihub.tech/items/tlt-brand-voice-designer) | Thiết kế bộ hướng dẫn giọng điệu thương hiệu (Brand Voice) với quy tắc dùng/cấm dùng từ và 5 ví dụ Trước/Sau… | [📄](content/prompts/toilatung-branding/tlt-brand-voice-designer.json) |
-| [Editorial Biography Poster Master](https://lexihub.tech/items/tlt-editorial-biography-poster-master) | Prompt toàn năng tạo poster tiểu sử nhân vật. | [📄](content/prompts/toilatung-branding/tlt-editorial-biography-poster-master.json) |
 | [Messaging Architecture Builder](https://lexihub.tech/items/tlt-messaging-architecture-builder) | Xây dựng kiến trúc thông điệp 3 tầng (Brand, Product, Feature) nhất quán trên mọi điểm chạm. | [📄](content/prompts/toilatung-branding/tlt-messaging-architecture-builder.json) |
-| [Pitch Deck Slide Design Vibe](https://lexihub.tech/items/tlt-pitch-deck-slide-design-vibe) | Thiết kế visual layout cho một slide thuyết trình hoặc pitch deck theo phong cách hiện đại. | [📄](content/prompts/toilatung-branding/tlt-pitch-deck-slide-design-vibe.json) |
-| [Poster A4: Quy Trình 11 Bước Khóa Nhân Vật AI Nhất Quán (Founder Tùng)](https://lexihub.tech/items/tlt-poster-a4-quy-trinh-11-buoc-khoa-nhan-vat-ai-nhat-quan-founder-tung) | Tạo infographic dọc A4 trực quan hóa 11 bước chống trôi danh tính (Anti-Identity Drift) với Case Study Founde… | [📄](content/prompts/toilatung-branding/tlt-poster-a4-quy-trinh-11-buoc-khoa-nhan-vat-ai-nhat-quan-founder-tung.json) |
 | [Prompt rút gọn chữ trên ảnh](https://lexihub.tech/items/tlt-prompt-rut-gon-chu-tren-anh) | Làm cho poster thoáng hơn bằng cách rút gọn text. | [📄](content/prompts/toilatung-branding/tlt-prompt-rut-gon-chu-tren-anh.json) |
-| [Visual Communication Poster Prompt](https://lexihub.tech/items/tlt-visual-communication-poster-prompt) | Tạo poster truyền thông có thông điệp rõ ràng. | [📄](content/prompts/toilatung-branding/tlt-visual-communication-poster-prompt.json) |
 
 <a id="prompt-seo"></a>
 

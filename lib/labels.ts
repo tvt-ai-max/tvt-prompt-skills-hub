@@ -14,6 +14,7 @@ export const PERSONA_META: Record<Persona, { label: string; short: string }> = {
 };
 
 export const CATEGORY_LABELS: Record<string, string> = {
+  image: 'Image',
   video: 'Video & Motion',
   ads: 'Paid Ads',
   marketing: 'Marketing & Growth',

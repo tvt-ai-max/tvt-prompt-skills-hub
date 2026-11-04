@@ -2,7 +2,7 @@
   "id": "tlt-storyboard-upscale-prompt",
   "title": "Storyboard Upscale Prompt",
   "description": "Tăng độ phân giải cho ảnh storyboard bị mờ.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

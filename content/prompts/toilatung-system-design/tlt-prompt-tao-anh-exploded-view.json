@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-anh-exploded-view",
   "title": "Prompt tạo ảnh exploded-view",
   "description": "Tạo ảnh tháo rời chi tiết linh kiện công nghệ cao cấp.",
-  "category": "system-design",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

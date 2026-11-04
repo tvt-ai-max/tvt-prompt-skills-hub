@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tach-1-canh-trong-anh-3-3",
   "title": "Prompt tách 1 cảnh trong ảnh 3×3",
   "description": "Tách riêng từng ảnh từ bộ 3×3 đã tạo.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

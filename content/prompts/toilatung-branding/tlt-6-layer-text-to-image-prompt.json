@@ -2,7 +2,7 @@
   "id": "tlt-6-layer-text-to-image-prompt",
   "title": "6-Layer Text to Image Prompt",
   "description": "Cấu trúc prompt 6 lớp giúp kiểm soát tối đa kết quả.",
-  "category": "branding",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

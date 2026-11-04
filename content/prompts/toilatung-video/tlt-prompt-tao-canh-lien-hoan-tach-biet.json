@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-canh-lien-hoan-tach-biet",
   "title": "Prompt tạo cảnh liên hoàn tách biệt",
   "description": "Tạo toàn bộ chuỗi cảnh đồng nhất chỉ trong 1 prompt.",
-  "category": "video",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [

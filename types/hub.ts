@@ -11,13 +11,14 @@ export const PERSONAS = ['tvt-agency', 'toilatung', 'general'] as const;
 export type Persona = (typeof PERSONAS)[number];
 
 export const PROMPT_CATEGORIES = [
+  'image',
+  'video',
   'marketing',
   'seo',
   'copywriting',
   'coding',
   'system-design',
   'operations',
-  'video',
   'branding',
   'ads',
 ] as const;

@@ -2,7 +2,7 @@
   "id": "tlt-prompt-tao-anh-cho-tung-phan-canh",
   "title": "Prompt Tạo Ảnh Cho Từng Phân Cảnh",
   "description": "Mô tả từng phân cảnh theo phong cách truyện để tạo ảnh minh họa.",
-  "category": "operations",
+  "category": "image",
   "tier": "prompt",
   "persona": "toilatung",
   "tags": [
