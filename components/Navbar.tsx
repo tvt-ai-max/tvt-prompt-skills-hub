@@ -11,6 +11,7 @@ import { REPO_URL } from '@/lib/site';
 import { ThemeSegmented, ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useTranslation } from '@/components/I18nProvider';
+import { StackNavButton } from '@/components/StackNavButton';
 
 
 /** `className` must include display + height utilities (e.g. `flex h-12`, `hidden h-10 lg:inline-flex`). */
@@ -113,6 +114,7 @@ export function Navbar() {
           >
             <GitPullRequest className="size-4" aria-hidden />
           </button>
+          <StackNavButton />
           <LanguageSwitcher className="hidden sm:inline-flex" />
           <ThemeToggle />
           <a

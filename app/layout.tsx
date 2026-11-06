@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { HubProvider } from '@/components/HubProvider';
 import { Navbar } from '@/components/Navbar';
+import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
 import { SkipLink } from '@/components/SkipLink';
 import { getAllSummaries, getAllWorkflows, getCoreBots } from '@/lib/content';
@@ -117,10 +118,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <HubProvider items={items} entries={entries}>
           <SkipLink />
           <Navbar />
-          <main id="main" className="mx-auto max-w-7xl px-4 sm:px-6">
-            {children}
-          </main>
-          <Footer />
+          <div className="flex min-h-[calc(100vh-4rem)]">
+            <Sidebar />
+            <div className="flex-1 min-w-0 flex flex-col justify-between">
+              <main id="main" className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </div>
         </HubProvider>
       </body>
     </html>

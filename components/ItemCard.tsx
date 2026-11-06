@@ -6,6 +6,7 @@ import { useState } from 'react';
 import type { HubItemSummary } from '@/types/hub';
 import { PersonaBadge, TIER_STYLES, TierBadge } from '@/components/Badges';
 import { FavoriteButton } from '@/components/FavoriteButton';
+import { StackButton } from '@/components/StackButton';
 import { useHub } from '@/components/HubProvider';
 import { useToast } from '@/components/ToastProvider';
 import { fetchItem, prefetchItem } from '@/components/useItem';
@@ -51,6 +52,7 @@ export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinne
           <PersonaBadge persona={item.persona} />
         </div>
         <div className="relative z-10 flex items-center gap-1.5">
+          <StackButton id={item.id} title={item.title} />
           <FavoriteButton id={item.id} title={item.title} />
           <button
             type="button"
