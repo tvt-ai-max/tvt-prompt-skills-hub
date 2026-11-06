@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { copyText } from '@/lib/clipboard';
+import { trackCopy } from '@/lib/analytics';
 
 /** Tracks which copy action last succeeded so buttons can show a ✓ state. */
 export function useCopy(resetMs = 1800) {
@@ -17,6 +18,7 @@ export function useCopy(resetMs = 1800) {
       const ok = await copyText(text);
       if (!ok) return false;
       setCopied(id);
+      trackCopy(id);
       if (timer.current) clearTimeout(timer.current);
       timer.current = setTimeout(() => setCopied(null), resetMs);
       return true;

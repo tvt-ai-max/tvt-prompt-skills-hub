@@ -5,6 +5,7 @@ import { HubProvider } from '@/components/HubProvider';
 import { Navbar } from '@/components/Navbar';
 import { Sidebar } from '@/components/Sidebar';
 import { Footer } from '@/components/Footer';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { SkipLink } from '@/components/SkipLink';
 import { getAllSummaries, getAllWorkflows, getCoreBots } from '@/lib/content';
 import type { NavEntry } from '@/types/hub';
@@ -118,6 +119,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
       </head>
       <body className="min-h-dvh font-sans">
+        <GoogleAnalytics />
         <HubProvider items={items} entries={entries}>
           <SkipLink />
           <Navbar />

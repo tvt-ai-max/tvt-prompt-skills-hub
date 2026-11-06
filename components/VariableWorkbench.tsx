@@ -7,6 +7,7 @@ import { buildWorkbenchModel, initialValues, parseTemplate, unfilledKeys } from 
 import { renderMarked, stripMarkers, tokenizePreview } from '@/lib/highlight';
 import { COPY_TARGETS } from '@/lib/exporters';
 import { downloadText } from '@/lib/clipboard';
+import { trackDownload } from '@/lib/analytics';
 import { useCopy } from '@/components/useCopy';
 import { useToast } from '@/components/ToastProvider';
 import { useTranslation } from '@/components/I18nProvider';
@@ -293,6 +294,7 @@ export function VariableWorkbench({
               type="button"
               onClick={() => {
                 downloadText(skillFilename, outputs.skill.clean);
+                trackDownload(skillFilename, item.tier);
                 toast(t('common.downloaded', { file: skillFilename }));
               }}
               aria-label={t('workbench.exportSkillAria')}

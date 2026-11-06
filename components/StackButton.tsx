@@ -4,6 +4,7 @@ import { Layers, Check } from 'lucide-react';
 import { useStack } from '@/components/useStack';
 import { useToast } from '@/components/ToastProvider';
 import { useTranslation } from '@/components/I18nProvider';
+import { trackStackAdd } from '@/lib/analytics';
 
 export function StackButton({
   id,
@@ -22,6 +23,9 @@ export function StackButton({
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     const added = toggle(id);
+    if (added) {
+      trackStackAdd(id, title);
+    }
     const msg = added
       ? locale === 'vi'
         ? `Đã thêm "${title}" vào Bộ Ghép (Stack)`

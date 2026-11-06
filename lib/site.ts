@@ -4,3 +4,4 @@ export const SITE_DESCRIPTION =
   'Kho Prompt, Agent Skill (SKILL.md), AI Workforce Bots và Workflows tự động hoá thực chiến — điền biến, xem trước và copy 1 chạm cho ChatGPT, Claude, Cursor, Claude Code, Windsurf, OpenClaw & Hermes. Powered by TVT Intelligence.';
 export const REPO_URL = 'https://github.com/tvt-ai-max/tvt-prompt-skills-hub';
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lexihub.tech';
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-QD4WF7YF0L';
