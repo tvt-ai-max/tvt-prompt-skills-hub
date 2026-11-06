@@ -84,3 +84,26 @@ Claude Code: Please execute the milestones below sequentially. After completing 
 - [x] `/docs/api`, `/docs/self-hosting`, `/guide` (5 chapters, bilingual, copyable code).
 - [x] Bilingual UI: type-safe `locales/vi.json` + `en.json`, switcher, cookie + localStorage, browser detection, `?lang=en`, hreflang, zero-FOUC.
 - [x] Secret scanner hardened against in-word false positives (`risk-management-…`).
+
+---
+
+## 🚀 MILESTONE 8 (V5): Modern Agentic Workspace, Collapsible Sidebar & Stack Builder (AITMPL-Inspired)
+- [ ] **Architecture & Layout Modernization:**
+  - [ ] Collapsible left sidebar (`<<` toggle) with state persistence (`localStorage: 'lexihub_sidebar_collapsed'`).
+  - [ ] Live count badges for every tier and category (`Skills [60]`, `Agents [317]`, `Prompts [139]`, `Workflows [5]`, `Deep Reasoning [7]`, `MCPs [15+]`).
+  - [ ] Mobile-responsive drawer sync with seamless overlay.
+- [ ] **"My Stack Builder" (Personalized Workspace & Bundle Exporter):**
+  - [ ] State management for active stack (`useStack` hook with `localStorage` persistence).
+  - [ ] Quick-action `+ Add to Stack` on every card and detail modal.
+  - [ ] Stack Inspector drawer / page showing selected components, estimated token footprint, and combined capabilities.
+  - [ ] 1-Click Multi-Bundle Export:
+    - [ ] Combined `claude-code` CLI command.
+    - [ ] Export bundled `.cursorrules` / `.agent` zip archive.
+    - [ ] Sharable permalink with encoded stack state (`/stack?items=...`).
+- [ ] **Dedicated MCPs & Security Hooks Catalog:**
+  - [ ] Filter tab and dedicated explorer for Model Context Protocol servers (`Supabase`, `PostgreSQL`, `GitHub`, `Stripe`, `Cloudflare`, `Notion`).
+  - [ ] Security hooks catalog (`secret-redactor`, `protected-paths`, `destructive-command-blocker`).
+- [ ] **Ecosystem & Virality Modules:**
+  - [ ] "Trending Now" algorithm ranking items by copy velocity and views.
+  - [ ] B2B Solutions spotlight linking high-value workflows directly to TVT Agency enterprise services.
+
