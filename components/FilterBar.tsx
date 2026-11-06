@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronDown, Search, SlidersHorizontal, Star, Tags, Wrench, X } from 'lucide-react';
+import { ChevronDown, Flame, Search, SlidersHorizontal, Star, Tags, Wrench, X } from 'lucide-react';
 import type { Persona, Tier } from '@/types/hub';
 import { PERSONAS } from '@/types/hub';
 import type { FacetCount } from '@/lib/facets';
@@ -17,6 +17,7 @@ export interface FilterState {
   tags: string[];
   query: string;
   favoritesOnly: boolean;
+  trendingOnly?: boolean;
 }
 
 export const EMPTY_FILTERS: FilterState = {
@@ -27,6 +28,7 @@ export const EMPTY_FILTERS: FilterState = {
   tags: [],
   query: '',
   favoritesOnly: false,
+  trendingOnly: false,
 };
 
 interface Props {
@@ -38,6 +40,7 @@ interface Props {
   stackFacets: FacetCount[];
   counts: Record<TierFilter, number>;
   favoriteCount: number;
+  trendingCount: number;
   resultCount: number;
   advancedOpen: boolean;
   onToggleAdvanced: () => void;
@@ -77,8 +80,8 @@ function SelectBox({
 }
 
 export function FilterBar(props: Props) {
-  const { state, onChange, categories, tagCloud, stackFacets, counts, favoriteCount, resultCount, advancedOpen } = props;
-  const { t } = useTranslation();
+  const { state, onChange, categories, tagCloud, stackFacets, counts, favoriteCount, trendingCount, resultCount, advancedOpen } = props;
+  const { t, locale } = useTranslation();
   const dirty =
     state.tier !== 'all' ||
     state.persona !== 'all' ||
@@ -86,7 +89,8 @@ export function FilterBar(props: Props) {
     state.stack !== 'all' ||
     state.tags.length > 0 ||
     state.query !== '' ||
-    state.favoritesOnly;
+    state.favoritesOnly ||
+    Boolean(state.trendingOnly);
   const advancedActive = state.tags.length + (state.stack !== 'all' ? 1 : 0);
 
   const toggleTag = (tag: string) =>
@@ -120,7 +124,7 @@ export function FilterBar(props: Props) {
             type="button"
             role="tab"
             aria-selected={state.favoritesOnly}
-            onClick={() => onChange({ favoritesOnly: !state.favoritesOnly })}
+            onClick={() => onChange({ favoritesOnly: !state.favoritesOnly, trendingOnly: false })}
             className={`focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
               state.favoritesOnly
                 ? 'border-neon-amber/50 bg-neon-amber/15 text-amber-200'
@@ -130,6 +134,21 @@ export function FilterBar(props: Props) {
             <Star className={`size-3.5 ${state.favoritesOnly ? 'fill-current' : ''}`} aria-hidden />
             {t('filter.favorites')}
             <span className={`rounded-full px-1.5 text-[11px] ${state.favoritesOnly ? 'bg-neon-amber/25' : 'bg-overlay/5'}`}>{favoriteCount}</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={state.trendingOnly}
+            onClick={() => onChange({ trendingOnly: !state.trendingOnly, favoritesOnly: false })}
+            className={`focus-ring inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
+              state.trendingOnly
+                ? 'border-orange-500/50 bg-orange-500/15 text-orange-200'
+                : 'border-line bg-overlay/[0.02] text-muted hover:border-line-strong hover:text-ink'
+            }`}
+          >
+            <Flame className="size-3.5 text-orange-400" aria-hidden />
+            {locale === 'vi' ? 'Thịnh hành' : 'Trending'}
+            <span className={`rounded-full px-1.5 text-[11px] ${state.trendingOnly ? 'bg-orange-500/25' : 'bg-overlay/5'}`}>{trendingCount}</span>
           </button>
         </div>
 

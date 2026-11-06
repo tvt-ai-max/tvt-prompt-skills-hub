@@ -41,8 +41,18 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
     const query = params.get('q') ?? '';
     const tags = params.getAll('tag');
     const category = params.get('category');
-    if (query || tags.length || category) {
-      setState((s) => ({ ...s, query, tags, category: category ?? s.category }));
+    const filter = params.get('filter');
+    const trending = params.get('trending') === 'true' || filter === 'trending';
+    const fav = filter === 'favorites';
+    if (query || tags.length || category || trending || fav) {
+      setState((s) => ({
+        ...s,
+        query,
+        tags,
+        category: category ?? s.category,
+        trendingOnly: trending || s.trendingOnly,
+        favoritesOnly: fav || s.favoritesOnly,
+      }));
       if (tags.length) setAdvancedOpen(true);
     }
     setHydratedFromUrl(true);
@@ -58,7 +68,7 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
   const index = useMemo(() => createSearchIndex(items), [items]);
   const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
 
-  const { visible, counts } = useMemo(() => {
+  const { visible, counts, trendingCount } = useMemo(() => {
     const ordered = searchIds(index, items, state.query).map((id) => byId.get(id)!);
     return applyCatalogFilter(ordered, state, favorites, state.query.trim() !== '');
   }, [index, items, byId, state, favorites]);
@@ -87,6 +97,7 @@ export function HubExplorer({ initialTier = 'all' }: { initialTier?: TierFilter 
         stackFacets={stackFacets}
         counts={counts}
         favoriteCount={favorites.filter((id) => byId.has(id)).length}
+        trendingCount={trendingCount}
         resultCount={visible.length}
         advancedOpen={advancedOpen}
         onToggleAdvanced={() => setAdvancedOpen((o) => !o)}

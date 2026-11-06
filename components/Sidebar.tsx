@@ -118,7 +118,7 @@ export function Sidebar() {
   const resourceLinks = [
     {
       label: isVi ? 'Thịnh Hành (Trending)' : 'Trending',
-      href: '/prompts',
+      href: '/?filter=trending',
       icon: Flame,
       color: 'text-orange-400',
     },

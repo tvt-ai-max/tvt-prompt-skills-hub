@@ -14,6 +14,7 @@ import { useCopy } from '@/components/useCopy';
 import { buildWorkbenchModel, initialValues, renderTemplate } from '@/lib/variables';
 import { toChatMarkdown } from '@/lib/exporters';
 import { categoryLabel } from '@/lib/labels';
+import { isTrending } from '@/lib/filter';
 import { useTranslation } from '@/components/I18nProvider';
 
 export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinned?: boolean }) {
@@ -50,6 +51,11 @@ export function ItemCard({ item, pinned = false }: { item: HubItemSummary; pinne
         <div className="flex flex-wrap items-center gap-1.5">
           <TierBadge tier={item.tier} />
           <PersonaBadge persona={item.persona} />
+          {isTrending(item) && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-orange-500/40 bg-orange-500/15 px-2 py-0.5 text-[10px] font-bold text-orange-400">
+              🔥 HOT
+            </span>
+          )}
         </div>
         <div className="relative z-10 flex items-center gap-1.5">
           <StackButton id={item.id} title={item.title} />
