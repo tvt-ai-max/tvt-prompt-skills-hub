@@ -113,6 +113,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         {/* Zero-FOUC i18n: resolve vi / en (?lang= → saved choice → browser language) before paint. */}
         <script dangerouslySetInnerHTML={{ __html: LOCALE_BOOT_SCRIPT }} />
+        {/* LLM & AI Discovery (llmstxt.org convention) */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
       </head>
       <body className="min-h-dvh font-sans">
         <HubProvider items={items} entries={entries}>

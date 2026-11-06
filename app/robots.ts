@@ -20,6 +20,13 @@ const AI_AND_SEARCH_BOTS = [
   'Applebot-Extended',
   'DuckDuckBot',
   'CCBot',
+  'Meta-ExternalAgent',
+  'Meta-ExternalFetcher',
+  'Amazonbot',
+  'Bytespider',
+  'cohere-ai',
+  'YouBot',
+  'Diffbot',
 ];
 
 export default function robots(): MetadataRoute.Robots {
