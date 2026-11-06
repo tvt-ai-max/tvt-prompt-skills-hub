@@ -5,7 +5,7 @@ description: "Human-in-the-Loop Telegram Approval Security Gate — Quy trình v
 category: system-design
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Human-in-the-Loop", "Security Gate", "Telegram Bot", "Risk Governance", "Fail-Closed"]
 inputs:
   - name: action_type

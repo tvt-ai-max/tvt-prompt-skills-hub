@@ -5,7 +5,7 @@ description: "Kinetic Mascot Reel & Audio Alignment Engine — Quy trình tự �
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Kinetic Typography", "Reels", "Mascot", "Audio Alignment", "AI Architecture"]
 inputs:
   - name: script_content

@@ -5,7 +5,7 @@ description: "Strategic Brand Positioning & GTM Framework — Quy trình vận h
 category: branding
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Brand Strategy", "Positioning", "Go-To-Market", "Value Proposition", "Brand Architecture"]
 inputs:
   - name: business_model

@@ -5,7 +5,7 @@ description: "Automated Motion Graphic B-Roll Generator — Quy trình tự đ�
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "B-Roll", "Motion Graphics", "Word-Level Timing", "Kinetic SVG", "Video Retention"]
 inputs:
   - name: transcript_alignment

@@ -5,7 +5,7 @@ description: "Full-Funnel Digital Marketing & Growth Architect — Quy trình v�
 category: marketing
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Digital Marketing", "Growth Strategy", "Full Funnel", "Campaign Planning", "Performance"]
 inputs:
   - name: campaign_goal

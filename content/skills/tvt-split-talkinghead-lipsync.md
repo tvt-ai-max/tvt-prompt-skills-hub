@@ -5,7 +5,7 @@ description: "Split-Screen Talking Head & UI Morphing Card (9:16) — Quy trình
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Split Screen", "Talking Head", "Lipsync", "UI Morphing", "High Retention", "Shorts"]
 inputs:
   - name: character_image_path

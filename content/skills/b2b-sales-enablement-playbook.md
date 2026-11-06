@@ -5,7 +5,7 @@ description: "B2B Sales Enablement & Objection Handling Playbook — Quy trình 
 category: sales
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Sales Enablement", "Objection Handling", "Pitch Deck", "B2B Closing", "Sales Script"]
 inputs:
   - name: b2b_service_offering

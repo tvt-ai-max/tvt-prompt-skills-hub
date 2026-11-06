@@ -5,7 +5,7 @@ description: "SOP viết bài long-form chuẩn SEO + GEO: nghiên cứu SERP, d
 category: seo
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["SEO", "GEO", "Content Writing", "Topic Cluster", "Answer-first"]
 inputs:
   - name: primary_keyword

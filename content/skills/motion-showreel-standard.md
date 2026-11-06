@@ -5,7 +5,7 @@ description: "Motion Showreel Standard & Animation Directives — Quy trình t�
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Showreel", "Design Standards", "Animation Timing", "Easing Curves", "Production Directives"]
 inputs:
   - name: project_showcase_list

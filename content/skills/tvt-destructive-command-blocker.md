@@ -5,7 +5,7 @@ description: "Lớp bảo vệ chủ động chặn đứng các câu lệnh She
 category: devops
 tier: skill
 persona: tvt-agency
-author: "TVT Intelligence Hub"
+author: "Lexi Intelligence Hub"
 tags: ["Terminal Security", "Command Blocker", "Destructive Bash Shield", "Claude Code", "Bash Safety", "DevOps"]
 inputs:
   - name: terminal_scope

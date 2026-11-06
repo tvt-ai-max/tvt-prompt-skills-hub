@@ -5,7 +5,7 @@ description: "Cơ chế khóa cứng các tệp tin cấu hình then chốt (.en
 category: devops
 tier: skill
 persona: tvt-agency
-author: "TVT Intelligence Hub"
+author: "Lexi Intelligence Hub"
 tags: ["Filesystem Armor", "Protected Paths", "Zero Tampering", "Security Gate", "Claude Code", "Cursor", "Antigravity"]
 inputs:
   - name: root_dir

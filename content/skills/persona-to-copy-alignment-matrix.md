@@ -5,7 +5,7 @@ description: "Persona-to-Copy Alignment & Objection Matrix — Quy trình vận 
 category: copywriting
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Copy Mapping", "Customer Persona", "Objection Handling", "Hook Matrix", "Message Resonance"]
 inputs:
   - name: persona_profile

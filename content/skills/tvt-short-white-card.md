@@ -5,7 +5,7 @@ description: "White Card B2B Agency Short Video Kit (9:16) — Quy trình tự �
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "White Card", "B2B Short", "Navy & Orange", "Clean UI", "Brand Consistency"]
 inputs:
   - name: b2b_short_script

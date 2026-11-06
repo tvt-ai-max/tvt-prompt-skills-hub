@@ -5,7 +5,7 @@ description: "Screen Recording to 9:16 Viral Explainer Pipeline — Quy trình t
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Screen Recording", "9:16 Explainer", "Tool Review", "Motion Graphic Overlay", "Social Media"]
 inputs:
   - name: screen_footage_path

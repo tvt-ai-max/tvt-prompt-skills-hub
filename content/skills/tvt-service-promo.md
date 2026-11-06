@@ -5,7 +5,7 @@ description: "B2B Service Showcase Video Production Assembly Line — Quy trình
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Service Promo", "B2B Video", "Agency Delivery", "White Card Clean", "Conversion Video"]
 inputs:
   - name: service_name

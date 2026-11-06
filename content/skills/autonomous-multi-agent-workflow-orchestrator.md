@@ -5,7 +5,7 @@ description: "Autonomous Multi-Agent Workflow Orchestrator — Quy trình vận 
 category: system-design
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Multi-Agent", "DAG Orchestration", "Handoff Contract", "AI Automation", "System Architecture"]
 inputs:
   - name: master_goal

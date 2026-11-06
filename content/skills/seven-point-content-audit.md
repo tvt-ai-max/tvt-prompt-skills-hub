@@ -5,7 +5,7 @@ description: "SOP kiểm toán 7 điểm trước khi xuất bản bất kỳ n�
 category: seo
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["7-Point Audit", "Quality Gate", "Content", "SEO", "Editorial"]
 inputs:
   - name: draft_content

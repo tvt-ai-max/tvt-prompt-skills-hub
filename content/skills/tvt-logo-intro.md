@@ -5,7 +5,7 @@ description: "Brand Logo Intro & 5-Second Bumper Generator — Quy trình tự �
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Logo Intro", "Bumper", "Brand Identity", "Motion Identity", "Sound Design"]
 inputs:
   - name: brand_logo_svg

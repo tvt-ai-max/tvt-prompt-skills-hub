@@ -5,7 +5,7 @@ description: "AI Model Benchmark & Data Audit Video Reveal (16:9) — Quy trình
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Video Production", "16:9", "AI Benchmark", "Data Audit", "Motion Graphics", "Quiet Authority"]
 inputs:
   - name: benchmark_data

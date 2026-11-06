@@ -5,7 +5,7 @@ description: "Faceless 2D Motion Graphics from Voiceover (9:16) — Quy trình t
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Faceless Video", "2D Motion Graphics", "Voiceover Timing", "Retention Hooks", "Viral Shorts"]
 inputs:
   - name: voiceover_audio_path

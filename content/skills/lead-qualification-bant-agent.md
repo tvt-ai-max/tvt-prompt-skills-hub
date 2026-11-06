@@ -5,7 +5,7 @@ description: "SOP cho agent chấm điểm và phân loại lead inbound theo BA
 category: sales
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Lead Qualification", "BANT", "Sales", "CRM", "Agent"]
 inputs:
   - name: lead_data

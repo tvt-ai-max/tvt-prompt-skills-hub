@@ -6,7 +6,7 @@
   "tier": "prompt",
   "persona": "toilatung",
   "tags": ["OCP", "Dual-Engine", "System 1", "System 2", "Architecture", "Token Optimization"],
-  "author": "Tôi Là Tùng",
+  "author": "Lexi Intelligence Hub",
   "variables": [
     {
       "key": "TASK_DESCRIPTION",

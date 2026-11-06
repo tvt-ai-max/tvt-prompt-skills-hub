@@ -5,7 +5,7 @@ description: "SOP cho agent review Pull Request: hiểu mục đích, kiểm tra
 category: coding
 tier: skill
 persona: general
-author: "TVT Intelligence Hub"
+author: "Lexi Intelligence Hub"
 tags: ["Code Review", "Pull Request", "Agent", "Quality", "Claude Code"]
 inputs:
   - name: pr_diff

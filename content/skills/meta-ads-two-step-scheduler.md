@@ -5,7 +5,7 @@ description: "Quy trình 2 bước an toàn khi agent lên lịch chiến dịch
 category: ads
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Meta Ads", "Facebook Ads", "Automation", "Human-in-the-loop", "Scheduling"]
 inputs:
   - name: campaign_brief

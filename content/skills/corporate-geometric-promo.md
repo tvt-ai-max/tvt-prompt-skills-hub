@@ -5,7 +5,7 @@ description: "Corporate Geometric B2B Promo Video Pipeline — Quy trình tự �
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "B2B Promo", "Corporate Geometric", "Motion Graphics", "Royal Blue", "Service Launch"]
 inputs:
   - name: campaign_title

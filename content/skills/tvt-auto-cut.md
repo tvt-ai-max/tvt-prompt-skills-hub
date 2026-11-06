@@ -5,7 +5,7 @@ description: "Automated Word-Level Silence Cut & Footage Trimmer — Quy trình 
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Auto Cut", "Silence Removal", "Word-Level EDL", "Whisper ASR", "Workflow Automation"]
 inputs:
   - name: raw_footage_path

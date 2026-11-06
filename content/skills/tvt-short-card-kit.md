@@ -5,7 +5,7 @@ description: "Dark Card Architecture Short Video Kit (9:16) — Quy trình tự 
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Shorts 9:16", "Dark Card", "Be Vietnam Pro", "SVG Diagram", "Zero Hallucination"]
 inputs:
   - name: voice_audio_path

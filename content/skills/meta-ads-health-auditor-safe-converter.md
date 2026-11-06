@@ -5,7 +5,7 @@ description: "Meta Ads Account Health Auditor & Safe Converter — Quy trình v�
 category: ads
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Meta Ads Doctor", "Account Audit", "Statistical Anomaly", "ROAS Optimization", "Safety Lock"]
 inputs:
   - name: audit_period

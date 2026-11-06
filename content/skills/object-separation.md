@@ -5,7 +5,7 @@ description: "Local Video Object & Presenter Background Separation — Quy trìn
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Rotoscoping", "Background Removal", "Presenter Separation", "Green Screen Free", "Alpha Matte"]
 inputs:
   - name: source_video_path

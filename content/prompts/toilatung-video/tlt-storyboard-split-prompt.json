@@ -10,7 +10,7 @@
     "Gemini",
     "toilatung.com"
   ],
-  "author": "Tôi Là Tùng",
+  "author": "Lexi Intelligence Hub",
   "createdAt": "2026-11-03",
   "variables": [],
   "template": "The uploaded image contains multiple storyboard frames. \nPlease identify and split each individual frame into separate images. \nMaintain the original aspect ratio of each frame. \nName them Frame_01, Frame_02, etc."

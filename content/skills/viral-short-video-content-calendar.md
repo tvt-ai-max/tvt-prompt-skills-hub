@@ -5,7 +5,7 @@ description: "Viral Short-Form Video Production Calendar — Quy trình vận h�
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Shorts", "TikTok", "Reels", "Content Calendar", "Video Pipeline", "Production SOP"]
 inputs:
   - name: content_pillar

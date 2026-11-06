@@ -5,7 +5,7 @@ description: "E-Commerce Market Opportunity & Competitor Analyzer — Quy trình
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["E-Commerce", "Market Research", "Amazon", "Competitor Analysis", "Product Viability"]
 inputs:
   - name: product_category

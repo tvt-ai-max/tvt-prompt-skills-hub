@@ -15,7 +15,7 @@ inputs:
     type: string
     description: Từ khóa chính hoặc chủ đề thực thể
     required: true
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tools:
   - "read_file"
   - "serp_analyzer"

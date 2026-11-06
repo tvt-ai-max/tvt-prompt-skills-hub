@@ -5,7 +5,7 @@ description: "AI Video Scene & Prompt Engineering Pipeline — Quy trình vận 
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["AI Video", "Prompt Engineering", "Runway", "Kling", "Sora", "Video Pipeline"]
 inputs:
   - name: video_concept

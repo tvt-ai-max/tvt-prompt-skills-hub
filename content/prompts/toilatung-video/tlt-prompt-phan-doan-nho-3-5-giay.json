@@ -9,7 +9,7 @@
     "Google AI Studio",
     "toilatung.com"
   ],
-  "author": "Tôi Là Tùng",
+  "author": "Lexi Intelligence Hub",
   "createdAt": "2026-11-03",
   "variables": [],
   "template": "Đóng vai một chuyên gia Editor & Đạo diễn hình ảnh.\nDựa vào nội dung video, hãy bóc tách chi tiết thành từng phân đoạn nhỏ 3-5 giây.\n\nYêu cầu Output:\n(00:00 - 00:03) - Hình ảnh: [Mô tả chi tiết khung hình] - Âm thanh/Thoại: [Nội dung thoại] - Cảm xúc: [Mô tả cảm xúc]\n(00:03 - 00:08) - ..."

@@ -10,7 +10,7 @@
     "Google AI Studio / ChatGPT / Claude",
     "toilatung.com"
   ],
-  "author": "Tôi Là Tùng",
+  "author": "Lexi Intelligence Hub",
   "createdAt": "2026-11-03",
   "variables": [],
   "template": "Đóng vai một Prompt Engineer chuyên nghiệp.\nTôi muốn huấn luyện Gemini trong Google AI Studio thực hiện một tác vụ phức tạp: \"[MÔ TẢ TÁC VỤ PHỨC TẠP, ví dụ: chuyển đổi câu nói tự nhiên thành câu lệnh SQL hoặc phân loại phản hồi khách hàng theo 5 mức độ]\".\n\nĐể mô hình hoạt động ổn định nhất, hãy thiết kế cho tôi 3-5 cặp ví dụ mẫu (Few-shot Examples) dạng Input -> Output.\n\nYêu cầu các ví dụ mẫu phải:\n- Bao phủ các trường hợp biên (Edge cases) và trường hợp dễ gây nhầm lẫn.\n- Cấu trúc rõ ràng, nhất quán về định dạng.\n- Có lời giải thích ngắn gọn bằng tag comment (nếu cần thiết để hướng dẫn suy nghĩ của AI - Chain of Thought).\n\nĐịnh dạng đầu ra:\n---\n### Example 1\n**Input:** [Nội dung Input]\n**Thought:** [Phân tích từng bước]\n**Output:** [Nội dung Output]\n---"

@@ -5,7 +5,7 @@ description: "Neural Voice Clone & Cadence Checker SOP — Quy trình tự độ
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Voiceover", "Voice Clone", "ElevenLabs", "Audio Cadence", "Speech Timing"]
 inputs:
   - name: raw_script

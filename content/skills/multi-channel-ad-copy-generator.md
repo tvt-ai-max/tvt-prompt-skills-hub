@@ -5,7 +5,7 @@ description: "Multi-Channel Paid Ad Copy Generator — Quy trình vận hành t�
 category: copywriting
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Ad Copy", "Paid Ads", "Facebook Ads", "Google Ads", "LinkedIn Ads", "Copywriting"]
 inputs:
   - name: offer_brief

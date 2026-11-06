@@ -5,7 +5,7 @@ description: "Facebook Fanpage Two-Step Scheduled Publisher — Quy trình vận
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Facebook Graph API", "Auto Publish", "Two-Step Feed", "Scheduled Post", "Social Media"]
 inputs:
   - name: post_message

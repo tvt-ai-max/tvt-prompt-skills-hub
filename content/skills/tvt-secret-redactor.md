@@ -5,7 +5,7 @@ description: "Cơ chế tự động phát hiện, đánh chặn và làm mờ 1
 category: devops
 tier: skill
 persona: tvt-agency
-author: "TVT Intelligence Hub"
+author: "Lexi Intelligence Hub"
 tags: ["Security", "Secret Redaction", "API Key Protection", "Zero Leakage", "Claude Code", "Antigravity", "OpenClaw"]
 inputs:
   - name: project_path

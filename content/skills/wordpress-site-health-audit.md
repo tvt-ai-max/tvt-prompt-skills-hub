@@ -5,7 +5,7 @@ description: "SOP kiểm tra WordPress: core/plugin/theme, bảo mật, Core Web
 category: devops
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["WordPress", "Performance", "Core Web Vitals", "Security", "Audit"]
 inputs:
   - name: site_url

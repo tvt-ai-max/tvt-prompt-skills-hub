@@ -5,7 +5,7 @@ description: "Brand Voice & Visual Identity Guidelines Builder — Quy trình v�
 category: branding
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Brand Identity", "Tone of Voice", "Guidelines", "Brand Archetype", "Design System"]
 inputs:
   - name: brand_name

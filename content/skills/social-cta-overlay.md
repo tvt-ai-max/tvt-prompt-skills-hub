@@ -5,7 +5,7 @@ description: "Dynamic Social CTA & Subscribe Alpha Overlay Engine — Quy trình
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "CTA Overlay", "Subscribe Animation", "ProRes 4444", "Alpha Channel", "Conversion"]
 inputs:
   - name: channel_name

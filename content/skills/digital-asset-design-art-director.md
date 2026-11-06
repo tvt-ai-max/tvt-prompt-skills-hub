@@ -5,7 +5,7 @@ description: "Digital Asset & UI/UX Design Art Director — Quy trình vận hà
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Art Direction", "Dark Neon", "Design Tokens", "Visual Hierarchy", "Brand Assets"]
 inputs:
   - name: asset_type

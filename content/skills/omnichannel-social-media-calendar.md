@@ -5,7 +5,7 @@ description: "Omnichannel Social Media 30-Day Matrix Calendar — Quy trình v�
 category: marketing
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Social Media", "Content Calendar", "Omnichannel", "Brand Engagement", "Content Matrix"]
 inputs:
   - name: brand_niche

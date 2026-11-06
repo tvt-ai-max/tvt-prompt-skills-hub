@@ -5,7 +5,7 @@ description: "Zalo OA Multi-Channel Messaging & Media Dispatcher — Quy trình 
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Zalo OA", "Multi-Media Dispatch", "Customer Care", "Automation", "Notification"]
 inputs:
   - name: message_text

@@ -5,7 +5,7 @@ description: "Quality gate bắt buộc trước khi agent xuất bản, commit 
 category: system-design
 tier: skill
 persona: general
-author: "TVT Intelligence Hub"
+author: "Lexi Intelligence Hub"
 tags: ["Security", "Redaction", "Secrets", "Quality Gate", "Compliance"]
 inputs:
   - name: content_to_scan

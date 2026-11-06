@@ -5,7 +5,7 @@ description: "Second Brain & Markdown Knowledge Vault Manager — Quy trình v�
 category: operations
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Second Brain", "Knowledge Vault", "Obsidian", "Markdown RAG", "SSOT Sync"]
 inputs:
   - name: vault_action

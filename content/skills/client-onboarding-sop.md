@@ -5,7 +5,7 @@ description: "Quy trình onboarding khách hàng mới trong 7 ngày: kickoff, t
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Onboarding", "Client Success", "Agency", "SOP"]
 inputs:
   - name: client_name

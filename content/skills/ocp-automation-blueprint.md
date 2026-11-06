@@ -5,7 +5,7 @@ description: "SOP biến một quy trình thủ công thành blueprint tự đ�
 category: system-design
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["OCP", "Automation", "n8n", "ROI", "System Design"]
 inputs:
   - name: manual_process

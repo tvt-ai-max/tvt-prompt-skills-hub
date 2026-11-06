@@ -5,7 +5,7 @@ description: "Multi-Step Sales Funnel Blueprint Architect — Quy trình vận h
 category: marketing
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Sales Funnel", "Value Ladder", "Landing Page Flow", "Conversion Architecture", "Lead Magnet"]
 inputs:
   - name: core_offer_concept

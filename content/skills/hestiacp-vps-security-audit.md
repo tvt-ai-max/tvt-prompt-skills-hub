@@ -5,7 +5,7 @@ description: "SOP kiểm toán bảo mật và sức khỏe VPS chạy HestiaCP:
 category: devops
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["HestiaCP", "VPS", "DevOps", "Security", "Linux"]
 inputs:
   - name: server_alias

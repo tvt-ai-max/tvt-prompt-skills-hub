@@ -5,7 +5,7 @@ description: "Cinematic Mobile Vlog & Handwriting Title Pipeline — Quy trình 
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Vlog Editing", "Mobile Footage", "Handwriting Typography", "Color Grading LUT", "B-Roll Sync"]
 inputs:
   - name: footage_folder_path

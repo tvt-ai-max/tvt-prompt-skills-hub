@@ -10,7 +10,7 @@
     "Nano Banana",
     "toilatung.com"
   ],
-  "author": "Tôi Là Tùng",
+  "author": "Lexi Intelligence Hub",
   "createdAt": "2026-11-03",
   "variables": [],
   "template": "Please analyze the uploaded 3x3 grid image containing 9 different angles of the character. Extract and isolate the [SPECIFY ANGLE, e.g., center front view] into a single high-resolution image, maintaining the exact same style, lighting, and details without any background distortion."

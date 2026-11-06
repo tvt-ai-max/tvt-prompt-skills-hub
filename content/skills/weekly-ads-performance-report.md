@@ -5,7 +5,7 @@ description: "SOP phân tích hiệu suất quảng cáo hàng tuần đa nền 
 category: ads
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Ads", "Reporting", "Analytics", "Meta Ads", "Google Ads"]
 inputs:
   - name: metrics_export

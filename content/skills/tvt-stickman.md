@@ -5,7 +5,7 @@ description: "Hand-Drawn Whiteboard Stickman Storyteller Animation — Quy trìn
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Stickman", "Whiteboard Animation", "Storytelling", "5 Expressions", "Pure Code Animation"]
 inputs:
   - name: story_beats_json

@@ -5,7 +5,7 @@ description: "Meta Ads Scaling & Budget Governance Controller — Quy trình v�
 category: ads
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Meta Ads", "Scaling Rules", "Budget Control", "Performance Marketing", "Risk Governance"]
 inputs:
   - name: account_id

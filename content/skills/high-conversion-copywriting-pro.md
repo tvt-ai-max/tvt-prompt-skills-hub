@@ -5,7 +5,7 @@ description: "High-Conversion Persuasive Copywriting Master — Quy trình vận
 category: copywriting
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Copywriting", "Direct Response", "AIDA", "PAS", "Conversion", "Psychological Triggers"]
 inputs:
   - name: copy_format

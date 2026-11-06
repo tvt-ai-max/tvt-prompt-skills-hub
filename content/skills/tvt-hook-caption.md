@@ -5,7 +5,7 @@ description: "Dynamic 3-Second Viral Hook & Caption Retention Engine â€” Quy trÃ
 category: video
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Hook Generation", "Karaoke Caption", "Retention Engine", "TikTok", "Shorts"]
 inputs:
   - name: video_topic

@@ -5,7 +5,7 @@ description: "AARRR Pirate Metrics & Growth Funnel Diagnostician — Quy trình 
 category: marketing
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Growth Funnel", "AARRR", "Retention", "Bottleneck Diagnosis", "Unit Economics"]
 inputs:
   - name: funnel_stages_data

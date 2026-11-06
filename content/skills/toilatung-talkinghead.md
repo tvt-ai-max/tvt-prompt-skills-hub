@@ -5,7 +5,7 @@ description: "Founder Talking Head & DSH Stage Review Pipeline (16:9) — Quy tr
 category: video
 tier: skill
 persona: toilatung
-author: "Tôi Là Tùng"
+author: "Lexi Intelligence Hub"
 tags: ["Video", "Talking Head", "Founder Video", "16:9", "Quiet Authority", "DSH Panel", "Loom Bubble"]
 inputs:
   - name: talkinghead_topic

@@ -5,7 +5,7 @@ description: "E-Commerce Product Viability & Scoring Evaluator — Quy trình v�
 category: operations
 tier: skill
 persona: tvt-agency
-author: "TVT Agency"
+author: "Lexi Intelligence Hub"
 tags: ["E-Commerce", "Product Scoring", "Dropshipping", "Risk Assessment", "Margin Analysis"]
 inputs:
   - name: product_name
