@@ -13,7 +13,6 @@ import {
   Sparkles,
   Workflow,
   Brain,
-  Plug,
   ShieldCheck,
   Flame,
   BookOpen,
@@ -78,7 +77,7 @@ export function Sidebar() {
       label: 'Prompts',
       href: '/prompts',
       icon: Sparkles,
-      count: 139,
+      count: 146,
       color: 'text-cyan-400',
     },
     {
@@ -98,16 +97,8 @@ export function Sidebar() {
       color: 'text-pink-400',
     },
     {
-      label: 'MCP Servers',
-      shortLabel: 'MCPs',
-      href: '/skills?category=devops',
-      icon: Plug,
-      count: 15,
-      color: 'text-sky-400',
-    },
-    {
-      label: isVi ? 'Security Hooks' : 'Security Hooks',
-      shortLabel: 'Hooks',
+      label: isVi ? 'Bảo Mật & DevOps' : 'DevOps & Security',
+      shortLabel: 'DevOps',
       href: '/skills?category=devops',
       icon: ShieldCheck,
       count: 5,
@@ -120,6 +111,7 @@ export function Sidebar() {
       label: isVi ? 'Thịnh Hành (Trending)' : 'Trending',
       href: '/?filter=trending',
       icon: Flame,
+      count: 36,
       color: 'text-orange-400',
     },
     {
@@ -283,6 +275,11 @@ export function Sidebar() {
                       {!collapsed && (
                         <span className="flex-1 truncate text-xs font-medium">
                           {item.label}
+                        </span>
+                      )}
+                      {!collapsed && (item as { count?: number }).count !== undefined && (
+                        <span className="px-1.5 py-0.5 rounded-md bg-orange-500/15 border border-orange-500/30 text-[10px] font-mono font-bold text-orange-400">
+                          {(item as { count?: number }).count}
                         </span>
                       )}
                     </Link>

@@ -36,7 +36,7 @@ export function getTrendingScore(item: HubItemSummary): number {
 }
 
 export function isTrending(item: HubItemSummary): boolean {
-  return getTrendingScore(item) >= 100;
+  return getTrendingScore(item) >= 130;
 }
 
 /** Catalog sections: Prompts include Deep Reasoning (boost) items. */
